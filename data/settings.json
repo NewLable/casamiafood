@@ -1,0 +1,129 @@
+{
+  "brand": {
+    "name": "Casa Mia",
+    "tagline": {
+      "ru": "Домашняя еда с любовью",
+      "ua": "Домашня їжа з любов'ю",
+      "tr": "Sevgiyle ev yemeği",
+      "en": "Home food with love"
+    }
+  },
+  "contacts": {
+    "whatsapp": "+905013381126",
+    "whatsappDisplay": "+90 501 338 11 26",
+    "instagram": "casa_mia_antalya",
+    "instagramUrl": "https://instagram.com/casa_mia_antalya"
+  },
+  "delivery": {
+    "areas": {
+      "ru": "Коньяалты, Лара, Муратпаша и другие районы Анталии",
+      "ua": "Коньяалти, Лара, Муратпаша та інші райони Анталії",
+      "tr": "Konyaaltı, Lara, Muratpaşa ve Antalya'nın diğer semtleri",
+      "en": "Konyaaltı, Lara, Muratpaşa and other Antalya areas"
+    },
+    "hours": {
+      "ru": "Ежедневно с 10:00 до 20:00",
+      "ua": "Щодня з 10:00 до 20:00",
+      "tr": "Her gün 10:00–20:00",
+      "en": "Daily 10:00–20:00"
+    },
+    "payment": {
+      "ru": "Наличными или переводом",
+      "ua": "Готівкою або переказом",
+      "tr": "Nakit veya havale",
+      "en": "Cash or bank transfer"
+    },
+    "minOrder": null
+  },
+  "about": {
+    "title": {
+      "ru": "Готовим как для своей семьи",
+      "ua": "Готуємо як для своєї родини",
+      "tr": "Kendi ailemiz için pişiriyormuş gibi",
+      "en": "Cooked as if for our own family"
+    },
+    "text": {
+      "ru": "Casa Mia — небольшая домашняя кухня в Анталии. Мы готовим блюда вручную небольшими партиями, используем натуральные ингредиенты и сразу замораживаем продукцию, чтобы сохранить вкус и свежесть.\n\nНаша цель — чтобы у вас дома всегда была вкусная домашняя еда, которую можно приготовить за несколько минут.",
+      "ua": "Casa Mia — невелика домашня кухня в Анталії. Ми готуємо страви вручну невеликими партіями, використовуємо натуральні інгредієнти й одразу заморожуємо продукцію, щоб зберегти смак і свіжість.\n\nНаша мета — щоб у вас вдома завжди була смачна домашня їжа, яку можна приготувати за кілька хвилин.",
+      "tr": "Casa Mia, Antalya'da küçük bir ev mutfağıdır. Yemekleri elle, küçük partiler halinde hazırlar, doğal malzemeler kullanır ve lezzeti korumak için hemen dondururuz.\n\nAmacımız, evinizde birkaç dakikada hazırlanabilen lezzetli ev yemeklerinin her zaman olması.",
+      "en": "Casa Mia is a small home kitchen in Antalya. We cook by hand in small batches, use natural ingredients, and freeze right away to keep taste and freshness.\n\nOur goal is that you always have delicious homemade food ready in minutes."
+    }
+  },
+  "reviews": [
+    {
+      "name": "Анна",
+      "text": {
+        "ru": "Очень вкусные равиоли, как домашние. Теперь всегда держим упаковку в морозилке.",
+        "ua": "Дуже смачні равіолі, як домашні. Тепер завжди тримаємо упаковку в морозилці.",
+        "tr": "Ravioliler çok lezzetli, ev yapımı gibi. Artık hep dondurucuda paket tutuyoruz.",
+        "en": "The ravioli taste homemade. We always keep a pack in the freezer now."
+      }
+    },
+    {
+      "name": "Марина",
+      "text": {
+        "ru": "Пельмени и голубцы понравились всей семье. Удобно, что доставка прямо домой.",
+        "ua": "Пельмені й голубці сподобалися всій родині. Зручно, що доставка прямо додому.",
+        "tr": "Mantı ve lahana sarması tüm aileye hitap etti. Eve teslimat çok pratik.",
+        "en": "The whole family loved the dumplings and cabbage rolls. Home delivery is so convenient."
+      }
+    },
+    {
+      "name": "Елена",
+      "text": {
+        "ru": "Синнабоны — как из кофейни. Заказываем на выходные вместе с блинчиками.",
+        "ua": "Синнабони — як із кав'ярні. Замовляємо на вихідні разом із млинцями.",
+        "tr": "Cinnabonlar kafedeki gibi. Hafta sonları krep ile birlikte sipariş ediyoruz.",
+        "en": "The cinnabons taste like a café. We order them with pancakes on weekends."
+      }
+    }
+  ],
+  "cookGuide": [
+    {
+      "emoji": "🥟",
+      "title": { "ru": "Пельмени / вареники", "ua": "Пельмені / вареники", "tr": "Mantı / vareniki", "en": "Dumplings" },
+      "time": { "ru": "8–10 минут после закипания", "ua": "8–10 хвилин після закипання", "tr": "Kaynadıktan sonra 8–10 dk", "en": "8–10 minutes after boiling" }
+    },
+    {
+      "emoji": "🍝",
+      "title": { "ru": "Равиоли / паста", "ua": "Равіолі / паста", "tr": "Ravioli / makarna", "en": "Ravioli / pasta" },
+      "time": { "ru": "5–6 минут или обжарить на сливочном масле", "ua": "5–6 хвилин або обсмажити на вершковому маслі", "tr": "5–6 dk veya tereyağında kızartın", "en": "5–6 minutes or pan-fry in butter" }
+    },
+    {
+      "emoji": "🥬",
+      "title": { "ru": "Голубцы / перец", "ua": "Голубці / перець", "tr": "Lahana / biber dolması", "en": "Cabbage / stuffed pepper" },
+      "time": { "ru": "20–25 минут под крышкой", "ua": "20–25 хвилин під кришкою", "tr": "Kapak altında 20–25 dk", "en": "20–25 minutes covered" }
+    },
+    {
+      "emoji": "🍗",
+      "title": { "ru": "Котлеты / фрикадельки", "ua": "Котлети / фрикадельки", "tr": "Köfte / toplar", "en": "Cutlets / meatballs" },
+      "time": { "ru": "На сковороде или в духовке 15–20 минут", "ua": "На сковороді або в духовці 15–20 хвилин", "tr": "Tavada veya fırında 15–20 dk", "en": "Pan or oven 15–20 minutes" }
+    }
+  ],
+  "features": [
+    {
+      "icon": "hand",
+      "title": { "ru": "Ручная лепка", "ua": "Ручне ліплення", "tr": "El yapımı", "en": "Handmade" },
+      "text": { "ru": "Каждая партия готовится вручную.", "ua": "Кожна партія готується вручну.", "tr": "Her parti elle hazırlanır.", "en": "Every batch is made by hand." }
+    },
+    {
+      "icon": "leaf",
+      "title": { "ru": "Натуральные продукты", "ua": "Натуральні продукти", "tr": "Doğal ürünler", "en": "Natural ingredients" },
+      "text": { "ru": "Без усилителей вкуса и консервантов.", "ua": "Без підсилювачів смаку та консервантів.", "tr": "Katkı maddesi ve koruyucu yok.", "en": "No flavor enhancers or preservatives." }
+    },
+    {
+      "icon": "freeze",
+      "title": { "ru": "Шоковая заморозка", "ua": "Шокове заморожування", "tr": "Şok dondurma", "en": "Flash freezing" },
+      "text": { "ru": "Свежесть сохраняется сразу после приготовления.", "ua": "Свіжість зберігається одразу після приготування.", "tr": "Pişince hemen dondurulur, tazelik korunur.", "en": "Freshness locked in right after cooking." }
+    },
+    {
+      "icon": "truck",
+      "title": { "ru": "Доставка по Анталии", "ua": "Доставка Анталією", "tr": "Antalya teslimatı", "en": "Delivery in Antalya" },
+      "text": { "ru": "В удобное время по большинству районов.", "ua": "У зручний час більшістю районів.", "tr": "Çoğu semte uygun saatte.", "en": "Most areas, at a convenient time." }
+    }
+  ],
+  "admin": {
+    "passwordHash": "99455ec09731f446d82d57b58a5d419e0fcbbe585db618c648f05039f8d3020c"
+  },
+  "defaultLang": "ru"
+}

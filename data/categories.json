@@ -1,0 +1,79 @@
+[
+  {
+    "id": "frozen",
+    "emoji": "🧊",
+    "order": 1,
+    "name": {
+      "ru": "Заморозка",
+      "ua": "Заморозка",
+      "tr": "Dondurulmuş",
+      "en": "Frozen"
+    }
+  },
+  {
+    "id": "pancakes",
+    "emoji": "🥞",
+    "order": 2,
+    "name": {
+      "ru": "Блинчики",
+      "ua": "Млинці",
+      "tr": "Krep",
+      "en": "Pancakes"
+    }
+  },
+  {
+    "id": "salads",
+    "emoji": "🥗",
+    "order": 3,
+    "name": {
+      "ru": "Салаты",
+      "ua": "Салати",
+      "tr": "Salatalar",
+      "en": "Salads"
+    }
+  },
+  {
+    "id": "pasta",
+    "emoji": "🍝",
+    "order": 4,
+    "name": {
+      "ru": "Спагетти",
+      "ua": "Спагеті",
+      "tr": "Makarna",
+      "en": "Pasta"
+    }
+  },
+  {
+    "id": "bakery",
+    "emoji": "🧁",
+    "order": 5,
+    "name": {
+      "ru": "Выпечка",
+      "ua": "Випічка",
+      "tr": "Fırın",
+      "en": "Bakery"
+    }
+  },
+  {
+    "id": "ready",
+    "emoji": "🍲",
+    "order": 6,
+    "name": {
+      "ru": "Готовые блюда",
+      "ua": "Готові страви",
+      "tr": "Hazır yemekler",
+      "en": "Ready meals"
+    }
+  },
+  {
+    "id": "soups",
+    "emoji": "🥣",
+    "order": 7,
+    "name": {
+      "ru": "Первые блюда",
+      "ua": "Перші страви",
+      "tr": "Çorbalar",
+      "en": "Soups"
+    }
+  }
+]
