@@ -1,11 +1,12 @@
 {
   "brand": {
     "name": "Casa Mia",
+    "logo": "images/brand/logo-big.png",
     "tagline": {
-      "ru": "Домашняя еда с любовью",
-      "ua": "Домашня їжа з любов'ю",
-      "tr": "Sevgiyle ev yemeği",
-      "en": "Home food with love"
+      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
+      "ua": "Домашня кухня, приготована з любов'ю до якості",
+      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
+      "en": "A home kitchen cooked with love for quality"
     }
   },
   "contacts": {
@@ -37,16 +38,28 @@
   },
   "about": {
     "title": {
-      "ru": "Готовим как для своей семьи",
-      "ua": "Готуємо як для своєї родини",
-      "tr": "Kendi ailemiz için pişiriyormuş gibi",
-      "en": "Cooked as if for our own family"
+      "ru": "CASA MIA",
+      "ua": "CASA MIA",
+      "tr": "CASA MIA",
+      "en": "CASA MIA"
+    },
+    "subtitle": {
+      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
+      "ua": "Домашня кухня, приготована з любов'ю до якості",
+      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
+      "en": "A home kitchen cooked with love for quality"
     },
     "text": {
-      "ru": "Casa Mia — небольшая домашняя кухня в Анталии. Мы готовим блюда вручную небольшими партиями, используем натуральные ингредиенты и сразу замораживаем продукцию, чтобы сохранить вкус и свежесть.\n\nНаша цель — чтобы у вас дома всегда была вкусная домашняя еда, которую можно приготовить за несколько минут.",
-      "ua": "Casa Mia — невелика домашня кухня в Анталії. Ми готуємо страви вручну невеликими партіями, використовуємо натуральні інгредієнти й одразу заморожуємо продукцію, щоб зберегти смак і свіжість.\n\nНаша мета — щоб у вас вдома завжди була смачна домашня їжа, яку можна приготувати за кілька хвилин.",
-      "tr": "Casa Mia, Antalya'da küçük bir ev mutfağıdır. Yemekleri elle, küçük partiler halinde hazırlar, doğal malzemeler kullanır ve lezzeti korumak için hemen dondururuz.\n\nAmacımız, evinizde birkaç dakikada hazırlanabilen lezzetli ev yemeklerinin her zaman olması.",
-      "en": "Casa Mia is a small home kitchen in Antalya. We cook by hand in small batches, use natural ingredients, and freeze right away to keep taste and freshness.\n\nOur goal is that you always have delicious homemade food ready in minutes."
+      "ru": "Casa Mia — это домашняя кухня в Анталье для тех, кто ценит настоящий вкус, свежесть и качество.\n\nМы готовим вручную, небольшими партиями и только из свежих продуктов. Не используем замороженное сырьё, готовые полуфабрикаты и массовое производство.\n\nКаждое блюдо готовится непосредственно под заказ — от замешивания теста и приготовления начинок до соусов, салатов и десертов.\n\nМы сохраняем главное в домашней кухне — натуральный вкус, знакомые рецепты и ощущение еды, приготовленной специально для вас. При этом уделяем особое внимание качеству продуктов, аккуратности приготовления и красивой подаче.\n\nCasa Mia — это домашняя еда, которую хочется подать своим близким.",
+      "ua": "Casa Mia — це домашня кухня в Анталії для тих, хто цінує справжній смак, свіжість і якість.\n\nМи готуємо вручну, невеликими партіями і лише зі свіжих продуктів. Не використовуємо заморожену сировину, готові напівфабрикати та масове виробництво.\n\nКожна страва готується безпосередньо під замовлення — від замішування тіста й приготування начинок до соусів, салатів і десертів.\n\nМи зберігаємо головне в домашній кухні — натуральний смак, знайомі рецепти й відчуття їжі, приготовленої спеціально для вас. При цьому особливу увагу приділяємо якості продуктів, акуратності приготування та красивій подачі.\n\nCasa Mia — це домашня їжа, яку хочеться подати своїм близьким.",
+      "tr": "Casa Mia, gerçek lezzeti, tazeliği ve kaliteyi önemseyenler için Antalya'da bir ev mutfağıdır.\n\nElle, küçük partiler halinde ve yalnızca taze ürünlerden pişiriyoruz. Dondurulmuş hammadde, hazır yarı mamul ve seri üretim kullanmıyoruz.\n\nHer yemek siparişe özel hazırlanır — hamurun yoğrulmasından içlerin, sosların, salataların ve tatlıların hazırlanmasına kadar.\n\nEv mutfağının özünü koruyoruz: doğal tat, tanıdık tarifler ve sizin için özel pişirilmiş yemek hissi. Aynı zamanda ürün kalitesine, özenli hazırlığa ve güzel sunuma önem veriyoruz.\n\nCasa Mia, sevdiklerinize ikram etmek isteyeceğiniz ev yemeğidir.",
+      "en": "Casa Mia is a home kitchen in Antalya for those who value real taste, freshness, and quality.\n\nWe cook by hand, in small batches, and only from fresh ingredients. We do not use frozen raw materials, ready-made semi-finished products, or mass production.\n\nEvery dish is prepared to order — from kneading dough and making fillings to sauces, salads, and desserts.\n\nWe keep what matters most in home cooking: natural taste, familiar recipes, and the feeling of food made especially for you. We also pay special attention to ingredient quality, careful cooking, and beautiful presentation.\n\nCasa Mia is homemade food you will want to share with the people you love."
+    },
+    "closing": {
+      "ru": "Свежо. Вручную. С заботой о каждой детали.",
+      "ua": "Свіжо. Вручну. З турботою про кожну деталь.",
+      "tr": "Taze. Elle. Her detaya özenle.",
+      "en": "Fresh. Handmade. With care in every detail."
     }
   },
   "reviews": [

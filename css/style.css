@@ -123,10 +123,35 @@ textarea {
   font-weight: 600;
 }
 
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
 .logo-mark {
   width: 34px;
   height: 34px;
   color: var(--terracotta);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero-logo {
+  width: min(100%, 420px);
+  height: auto;
+  margin: 0 0 1rem;
+  filter: drop-shadow(0 8px 24px rgba(42, 36, 32, 0.08));
 }
 
 .nav-desktop {
@@ -308,6 +333,44 @@ textarea {
   line-height: 0.95;
   margin: 0 0 0.75rem;
   font-weight: 600;
+}
+
+.about-logo-panel {
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(196, 164, 106, 0.16), transparent 55%),
+    var(--white);
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  min-height: 260px;
+  box-shadow: var(--shadow);
+}
+
+.about-logo-panel img {
+  width: min(100%, 480px);
+  height: auto;
+}
+
+.about-copy h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  font-weight: 600;
+}
+
+.about-copy #about-text {
+  color: var(--ink-soft);
+}
+
+.about-closing {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--terracotta);
 }
 
 .hero-copy .lead {

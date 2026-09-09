@@ -86,9 +86,17 @@ function renderStaticBlocks() {
   }
 
   const aboutTitle = document.getElementById("about-title");
+  const aboutSubtitle = document.getElementById("about-subtitle");
   const aboutText = document.getElementById("about-text");
+  const aboutClosing = document.getElementById("about-closing");
+  const heroTagline = document.getElementById("hero-tagline");
   if (aboutTitle) aboutTitle.textContent = CasaMia.localized(settings.about.title);
+  if (aboutSubtitle) aboutSubtitle.textContent = CasaMia.localized(settings.about.subtitle);
   if (aboutText) aboutText.innerHTML = CasaMia.localized(settings.about.text).replace(/\n\n/g, "<br><br>");
+  if (aboutClosing) aboutClosing.textContent = CasaMia.localized(settings.about.closing);
+  if (heroTagline && settings.brand?.tagline) {
+    heroTagline.textContent = CasaMia.localized(settings.brand.tagline);
+  }
 
   const cook = document.getElementById("cook-grid");
   if (cook) {
