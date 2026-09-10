@@ -36,7 +36,7 @@
         <button class="tab active" type="button" data-tab="products">Товары</button>
         <button class="tab" type="button" data-tab="prices">Цены</button>
         <button class="tab" type="button" data-tab="categories">Категории</button>
-        <button class="tab" type="button" data-tab="settings">Контакты</button>
+        <button class="tab" type="button" data-tab="settings">Контакты / тексты</button>
       </div>
 
       <section class="panel" data-panel="products">
@@ -53,16 +53,13 @@
       </section>
 
       <section class="panel hidden" data-panel="categories">
-        <div class="grid-2">
-          <div>
-            <label>Название</label>
-            <input id="cat-name" type="text" placeholder="Вареники">
-          </div>
-          <div>
-            <label>Emoji</label>
-            <input id="cat-emoji" type="text" placeholder="🥟">
-          </div>
+        <p class="hint">Для названия категории заполните все 4 языка.</p>
+        <div class="field-block">
+          <div class="field-title">Название категории</div>
+          <div class="lang-grid" id="cat-name-fields"></div>
         </div>
+        <label>Emoji</label>
+        <input id="cat-emoji" type="text" placeholder="🥟">
         <div class="btn-row"><button class="btn" id="add-category-btn" type="button">Новая категория</button></div>
         <div class="product-list" id="category-list" style="margin-top:1rem"></div>
       </section>
@@ -73,12 +70,40 @@
           <input id="s-wa" type="text">
           <label>Instagram (без @)</label>
           <input id="s-ig" type="text">
-          <label>Районы доставки</label>
-          <textarea id="s-areas"></textarea>
-          <label>Время</label>
-          <input id="s-hours" type="text">
-          <label>Оплата</label>
-          <input id="s-payment" type="text">
+
+          <div class="field-block">
+            <div class="field-title">Районы доставки</div>
+            <div class="lang-grid" id="s-areas-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">Время доставки</div>
+            <div class="lang-grid" id="s-hours-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">Оплата</div>
+            <div class="lang-grid" id="s-payment-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">Слоган (hero)</div>
+            <div class="lang-grid" id="s-tagline-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">О нас — заголовок</div>
+            <div class="lang-grid" id="s-about-title-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">О нас — подзаголовок</div>
+            <div class="lang-grid" id="s-about-subtitle-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">О нас — текст</div>
+            <div class="lang-grid" id="s-about-text-fields"></div>
+          </div>
+          <div class="field-block">
+            <div class="field-title">О нас — финальная фраза</div>
+            <div class="lang-grid" id="s-about-closing-fields"></div>
+          </div>
+
           <div class="btn-row"><button class="btn" type="submit">Сохранить настройки</button></div>
         </form>
       </section>
@@ -103,14 +128,28 @@
             <select id="f-category"></select>
           </div>
         </div>
-        <label>Название</label>
-        <input id="f-name" type="text" required>
-        <label>Описание</label>
-        <textarea id="f-desc"></textarea>
-        <label>Состав</label>
-        <textarea id="f-ingredients"></textarea>
-        <label>Как готовить</label>
-        <textarea id="f-cook"></textarea>
+
+        <div class="field-block">
+          <div class="field-title">Название</div>
+          <div class="lang-grid" id="f-name-fields"></div>
+        </div>
+        <div class="field-block">
+          <div class="field-title">Описание</div>
+          <div class="lang-grid" id="f-desc-fields"></div>
+        </div>
+        <div class="field-block">
+          <div class="field-title">Состав</div>
+          <div class="lang-grid" id="f-ingredients-fields"></div>
+        </div>
+        <div class="field-block">
+          <div class="field-title">Как готовить</div>
+          <div class="lang-grid" id="f-cook-fields"></div>
+        </div>
+        <div class="field-block">
+          <div class="field-title">С чем подавать</div>
+          <div class="lang-grid" id="f-serve-fields"></div>
+        </div>
+
         <div class="grid-2">
           <div>
             <label>Цена (₺)</label>

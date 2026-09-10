@@ -1,4 +1,10 @@
 const SESSION_KEY = "casamia_admin";
+const LANGS = [
+  { code: "ru", label: "RU" },
+  { code: "ua", label: "UA" },
+  { code: "tr", label: "TR" },
+  { code: "en", label: "EN" }
+];
 
 const state = {
   products: [],
@@ -13,6 +19,50 @@ async function sha256(text) {
   return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+function emptyI18n() {
+  return { ru: "", ua: "", tr: "", en: "" };
+}
+
+function mountLangFields(containerId, prefix, { multiline = false, rows = 2 } = {}) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = LANGS.map(
+    (l) => `<div class="i18n-field">
+      <span class="lang-badge">${l.label}</span>
+      ${
+        multiline
+          ? `<textarea id="${prefix}-${l.code}" rows="${rows}"></textarea>`
+          : `<input id="${prefix}-${l.code}" type="text">`
+      }
+    </div>`
+  ).join("");
+}
+
+function readI18n(prefix) {
+  const out = emptyI18n();
+  LANGS.forEach((l) => {
+    const field = document.getElementById(`${prefix}-${l.code}`);
+    out[l.code] = field ? field.value.trim() : "";
+  });
+  return out;
+}
+
+function writeI18n(prefix, obj = {}) {
+  LANGS.forEach((l) => {
+    const field = document.getElementById(`${prefix}-${l.code}`);
+    if (field) field.value = obj?.[l.code] || "";
+  });
+}
+
+function ensureI18n(obj) {
+  const base = emptyI18n();
+  if (!obj || typeof obj !== "object") return base;
+  LANGS.forEach((l) => {
+    base[l.code] = obj[l.code] || "";
+  });
+  return base;
+}
+
 async function initAdmin() {
   const [products, categories, settings] = await Promise.all([
     fetch("data/products.json").then((r) => r.json()),
@@ -22,6 +72,8 @@ async function initAdmin() {
   state.products = products;
   state.categories = categories;
   state.settings = settings;
+
+  mountAllLangFields();
 
   if (sessionStorage.getItem(SESSION_KEY) === "1") {
     showApp();
@@ -34,6 +86,23 @@ async function initAdmin() {
     sessionStorage.removeItem(SESSION_KEY);
     location.reload();
   });
+}
+
+function mountAllLangFields() {
+  mountLangFields("cat-name-fields", "cat-name");
+  mountLangFields("s-areas-fields", "s-areas", { multiline: true, rows: 2 });
+  mountLangFields("s-hours-fields", "s-hours");
+  mountLangFields("s-payment-fields", "s-payment");
+  mountLangFields("s-tagline-fields", "s-tagline", { multiline: true, rows: 2 });
+  mountLangFields("s-about-title-fields", "s-about-title");
+  mountLangFields("s-about-subtitle-fields", "s-about-subtitle", { multiline: true, rows: 2 });
+  mountLangFields("s-about-text-fields", "s-about-text", { multiline: true, rows: 5 });
+  mountLangFields("s-about-closing-fields", "s-about-closing", { multiline: true, rows: 2 });
+  mountLangFields("f-name-fields", "f-name");
+  mountLangFields("f-desc-fields", "f-desc", { multiline: true, rows: 2 });
+  mountLangFields("f-ingredients-fields", "f-ingredients", { multiline: true, rows: 3 });
+  mountLangFields("f-cook-fields", "f-cook", { multiline: true, rows: 2 });
+  mountLangFields("f-serve-fields", "f-serve", { multiline: true, rows: 2 });
 }
 
 async function onLogin(e) {
@@ -151,15 +220,15 @@ function saveQuickPrices() {
 function openEditor(id) {
   state.editingId = id;
   const p = id ? state.products.find((x) => x.id === id) : emptyProduct();
-  const modal = document.getElementById("editor");
-  modal.classList.add("open");
+  document.getElementById("editor").classList.add("open");
   document.getElementById("editor-title").textContent = id ? "Редактировать товар" : "Новый товар";
   document.getElementById("f-id").value = p.id;
   document.getElementById("f-id").disabled = Boolean(id);
-  document.getElementById("f-name").value = p.name.ru || "";
-  document.getElementById("f-desc").value = p.description.ru || "";
-  document.getElementById("f-ingredients").value = p.ingredients.ru || "";
-  document.getElementById("f-cook").value = p.cook.ru || "";
+  writeI18n("f-name", ensureI18n(p.name));
+  writeI18n("f-desc", ensureI18n(p.description));
+  writeI18n("f-ingredients", ensureI18n(p.ingredients));
+  writeI18n("f-cook", ensureI18n(p.cook));
+  writeI18n("f-serve", ensureI18n(p.serveWith));
   document.getElementById("f-price").value = p.price;
   document.getElementById("f-unit").value = p.priceUnit || "kg";
   document.getElementById("f-weight").value = p.weight;
@@ -180,11 +249,11 @@ function emptyProduct() {
     id: "",
     categoryId: state.categories[0]?.id || "frozen",
     order: (state.products.at(-1)?.order || 0) + 10,
-    name: { ru: "", ua: "", tr: "", en: "" },
-    description: { ru: "", ua: "", tr: "", en: "" },
-    ingredients: { ru: "", ua: "", tr: "", en: "" },
-    cook: { ru: "", ua: "", tr: "", en: "" },
-    serveWith: { ru: "", ua: "", tr: "", en: "" },
+    name: emptyI18n(),
+    description: emptyI18n(),
+    ingredients: emptyI18n(),
+    cook: emptyI18n(),
+    serveWith: emptyI18n(),
     price: 0,
     priceUnit: "kg",
     weight: 1000,
@@ -204,22 +273,17 @@ function saveEditor(e) {
   const id = document.getElementById("f-id").value.trim().replace(/\s+/g, "-").toLowerCase();
   if (!id) return alert("Укажите id");
   let p = state.products.find((x) => x.id === id);
-  const isNew = !p;
-  if (isNew) {
+  if (!p) {
     p = emptyProduct();
     p.id = id;
     state.products.push(p);
   }
-  const fill = (obj, val) => {
-    obj.ru = val;
-    if (!obj.ua) obj.ua = val;
-    if (!obj.tr) obj.tr = val;
-    if (!obj.en) obj.en = val;
-  };
-  fill(p.name, document.getElementById("f-name").value.trim());
-  fill(p.description, document.getElementById("f-desc").value.trim());
-  fill(p.ingredients, document.getElementById("f-ingredients").value.trim());
-  fill(p.cook, document.getElementById("f-cook").value.trim());
+  p.name = readI18n("f-name");
+  p.description = readI18n("f-desc");
+  p.ingredients = readI18n("f-ingredients");
+  p.cook = readI18n("f-cook");
+  p.serveWith = readI18n("f-serve");
+  if (!p.name.ru) return alert("Укажите название хотя бы на RU");
   p.price = Number(document.getElementById("f-price").value) || 0;
   p.priceUnit = document.getElementById("f-unit").value;
   p.weight = Number(document.getElementById("f-weight").value) || 0;
@@ -243,12 +307,42 @@ function renderCategories() {
   const box = document.getElementById("category-list");
   box.innerHTML = state.categories
     .map(
-      (c) => `<div class="admin-card" style="grid-template-columns:1fr auto">
-        <div><h3>${c.emoji || ""} ${esc(c.name.ru)}</h3><div class="meta">id: ${c.id}</div></div>
-        <button class="btn danger" data-del-cat="${c.id}">Удалить</button>
+      (c) => `<div class="admin-card cat-card" data-cat="${c.id}">
+        <div>
+          <h3>${c.emoji || ""} ${esc(c.name.ru)}</h3>
+          <div class="meta">id: ${c.id}</div>
+          <div class="lang-grid compact" style="margin-top:.75rem">
+            ${LANGS.map(
+              (l) => `<div class="i18n-field">
+                <span class="lang-badge">${l.label}</span>
+                <input type="text" data-cat-name="${c.id}" data-lang="${l.code}" value="${escAttr(c.name?.[l.code] || "")}">
+              </div>`
+            ).join("")}
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn ghost" data-save-cat="${c.id}">Сохранить</button>
+          <button class="btn danger" data-del-cat="${c.id}">Удалить</button>
+        </div>
       </div>`
     )
     .join("");
+
+  box.querySelectorAll("[data-save-cat]").forEach((btn) => {
+    btn.onclick = () => {
+      const id = btn.dataset.saveCat;
+      const cat = state.categories.find((c) => c.id === id);
+      if (!cat) return;
+      cat.name = ensureI18n(cat.name);
+      LANGS.forEach((l) => {
+        const input = box.querySelector(`[data-cat-name="${id}"][data-lang="${l.code}"]`);
+        cat.name[l.code] = input ? input.value.trim() : "";
+      });
+      renderCategories();
+      alert("Категория обновлена в памяти. Скачайте JSON для публикации.");
+    };
+  });
+
   box.querySelectorAll("[data-del-cat]").forEach((btn) => {
     btn.onclick = () => {
       const id = btn.dataset.delCat;
@@ -263,21 +357,18 @@ function renderCategories() {
 }
 
 function addCategory() {
-  const name = document.getElementById("cat-name").value.trim();
+  const name = readI18n("cat-name");
   const emoji = document.getElementById("cat-emoji").value.trim();
-  if (!name) return;
-  const id = name
-    .toLowerCase()
-    .replace(/[^a-zа-яё0-9]+/gi, "-")
-    .replace(/^-|-$/g, "") || `cat-${Date.now()}`;
+  if (!name.ru) return alert("Укажите название хотя бы на RU");
   const asciiId = `cat-${Date.now()}`;
   state.categories.push({
     id: asciiId,
     emoji,
     order: (state.categories.at(-1)?.order || 0) + 10,
-    name: { ru: name, ua: name, tr: name, en: name }
+    name
   });
-  document.getElementById("cat-name").value = "";
+  writeI18n("cat-name", emptyI18n());
+  document.getElementById("cat-emoji").value = "";
   renderCategories();
 }
 
@@ -285,9 +376,14 @@ function renderSettingsForm() {
   const s = state.settings;
   document.getElementById("s-wa").value = s.contacts.whatsapp;
   document.getElementById("s-ig").value = s.contacts.instagram;
-  document.getElementById("s-areas").value = s.delivery.areas.ru;
-  document.getElementById("s-hours").value = s.delivery.hours.ru;
-  document.getElementById("s-payment").value = s.delivery.payment.ru;
+  writeI18n("s-areas", ensureI18n(s.delivery.areas));
+  writeI18n("s-hours", ensureI18n(s.delivery.hours));
+  writeI18n("s-payment", ensureI18n(s.delivery.payment));
+  writeI18n("s-tagline", ensureI18n(s.brand?.tagline));
+  writeI18n("s-about-title", ensureI18n(s.about?.title));
+  writeI18n("s-about-subtitle", ensureI18n(s.about?.subtitle));
+  writeI18n("s-about-text", ensureI18n(s.about?.text));
+  writeI18n("s-about-closing", ensureI18n(s.about?.closing));
 }
 
 function saveSettings(e) {
@@ -297,14 +393,16 @@ function saveSettings(e) {
   s.contacts.whatsappDisplay = s.contacts.whatsapp;
   s.contacts.instagram = document.getElementById("s-ig").value.trim().replace(/^@/, "");
   s.contacts.instagramUrl = `https://instagram.com/${s.contacts.instagram}`;
-  const areas = document.getElementById("s-areas").value.trim();
-  const hours = document.getElementById("s-hours").value.trim();
-  const payment = document.getElementById("s-payment").value.trim();
-  ["ru", "ua", "tr", "en"].forEach((l) => {
-    s.delivery.areas[l] = areas;
-    s.delivery.hours[l] = hours;
-    s.delivery.payment[l] = payment;
-  });
+  s.delivery.areas = readI18n("s-areas");
+  s.delivery.hours = readI18n("s-hours");
+  s.delivery.payment = readI18n("s-payment");
+  s.brand = s.brand || {};
+  s.brand.tagline = readI18n("s-tagline");
+  s.about = s.about || {};
+  s.about.title = readI18n("s-about-title");
+  s.about.subtitle = readI18n("s-about-subtitle");
+  s.about.text = readI18n("s-about-text");
+  s.about.closing = readI18n("s-about-closing");
   alert("Настройки сохранены в памяти. Скачайте JSON для публикации.");
 }
 
@@ -330,7 +428,6 @@ function onImageFile(input) {
   if (!file) return;
   const reader = new FileReader();
   reader.onload = () => {
-    // For static hosting without upload API: suggest path + show preview via data URL temporary
     const safe = file.name.replace(/\s+/g, "-").toLowerCase();
     document.getElementById("f-image").value = `images/products/${safe}`;
     document.getElementById("image-note").textContent =
@@ -345,6 +442,10 @@ function esc(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function escAttr(s) {
+  return esc(s).replace(/'/g, "&#39;");
 }
 
 document.addEventListener("DOMContentLoaded", initAdmin);

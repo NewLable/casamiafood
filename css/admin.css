@@ -82,6 +82,48 @@ textarea { min-height: 80px; resize: vertical; }
 .chip.hit { background: #c45c4a; color: #fff; }
 .chip.off { background: #ddd; }
 
+.field-block {
+  margin: 1.1rem 0;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #faf6f0;
+}
+.field-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 0.65rem;
+}
+.lang-grid {
+  display: grid;
+  gap: 0.55rem;
+}
+.lang-grid.compact .i18n-field input {
+  padding: 0.5rem 0.65rem;
+}
+.i18n-field {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 0.45rem;
+  align-items: start;
+}
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4rem;
+  border-radius: 8px;
+  background: #efe6d8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.i18n-field textarea { min-height: 0; }
+.cat-card { grid-template-columns: 1fr !important; }
+
 .modal-backdrop {
   position: fixed; inset: 0; background: rgba(42,36,32,.45); display: none; align-items: flex-end; justify-content: center; z-index: 40; padding: 1rem;
 }
