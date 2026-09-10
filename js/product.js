@@ -19,7 +19,7 @@ async function initProductPage() {
 
   function render(p, variant) {
     document.title = `${CasaMia.localized(p.name)} — Casa Mia`;
-    const img = p.images?.[0] || "images/brand/card.png";
+    const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
     const variantsHtml = p.variants?.length
       ? `<div>
           <strong style="font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--terracotta)">${CasaMia.t("choose_size")}</strong>
@@ -38,7 +38,7 @@ async function initProductPage() {
       <a class="back-link" href="index.html#menu">← ${CasaMia.t("back_menu")}</a>
       <div class="product-layout">
         <div class="product-gallery">
-          <img src="${img}" alt="${CasaMia.localized(p.name)}" width="800" height="800">
+          <img src="${img}" alt="${CasaMia.localized(p.name)}" width="800" height="800" draggable="false">
         </div>
         <div class="product-info">
           ${CasaMia.badgeHtml(p)}

@@ -43,6 +43,7 @@ const CasaMia = (() => {
       en: "Simple and fast — for frozen products."
     },
     delivery_title: { ru: "Доставка по Анталии", ua: "Доставка Анталією", tr: "Antalya teslimatı", en: "Delivery in Antalya" },
+    delivery_cost: { ru: "Стоимость", ua: "Вартість", tr: "Ücret", en: "Cost" },
     areas: { ru: "Районы", ua: "Райони", tr: "Semtler", en: "Areas" },
     hours: { ru: "Время", ua: "Час", tr: "Saatler", en: "Hours" },
     payment: { ru: "Оплата", ua: "Оплата", tr: "Ödeme", en: "Payment" },
@@ -89,6 +90,7 @@ const CasaMia = (() => {
   let products = [];
   let categories = [];
   let settings = null;
+  let reviews = [];
 
   function t(key) {
     const row = UI[key];
@@ -99,7 +101,7 @@ const CasaMia = (() => {
   function localized(obj) {
     if (!obj) return "";
     if (typeof obj === "string") return obj;
-    return obj[lang] || obj.ru || obj.en || "";
+    return obj[lang] || obj.ru || "";
   }
 
   function setLang(next) {
@@ -153,24 +155,42 @@ const CasaMia = (() => {
     return settings?.contacts?.instagramUrl || "https://instagram.com/casa_mia_antalya";
   }
 
+  function mediaUrl(path) {
+    const fallback = "images/brand/card.png";
+    if (!path) return fallback;
+    return String(path)
+      .split("/")
+      .map((part) => encodeURIComponent(part))
+      .join("/");
+  }
+
   async function loadData() {
     const base = document.body.dataset.base || "";
-    const [p, c, s] = await Promise.all([
+    const [p, c, s, revRes] = await Promise.all([
       fetch(`${base}data/products.json`).then((r) => r.json()),
       fetch(`${base}data/categories.json`).then((r) => r.json()),
-      fetch(`${base}data/settings.json`).then((r) => r.json())
+      fetch(`${base}data/settings.json`).then((r) => r.json()),
+      fetch(`${base}data/reviews.json`).then((r) => (r.ok ? r.json() : [])).catch(() => [])
     ]);
     products = p.sort((a, b) => a.order - b.order);
     categories = c.sort((a, b) => a.order - b.order);
     settings = s;
+    reviews = (Array.isArray(revRes) && revRes.length ? revRes : s.reviews || [])
+      .filter((item) => item.visible !== false)
+      .sort((a, b) => (a.order || 0) - (b.order || 0));
     if (!localStorage.getItem(LANG_KEY) && s.defaultLang) {
       lang = s.defaultLang;
     }
-    return { products, categories, settings };
+    return { products, categories, settings, reviews };
+  }
+
+  function enabledCategories() {
+    return categories.filter((c) => c.enabled !== false);
   }
 
   function visibleProducts() {
-    return products.filter((p) => p.available !== false);
+    const enabled = new Set(enabledCategories().map((cat) => cat.id));
+    return products.filter((p) => p.available !== false && enabled.has(p.categoryId));
   }
 
   function getProduct(id) {
@@ -182,17 +202,18 @@ const CasaMia = (() => {
     if (product.badges?.hit) parts.push(`<span class="badge">${t("hit")}</span>`);
     if (product.badges?.new) parts.push(`<span class="badge new">${t("new")}</span>`);
     if (product.badges?.sale) parts.push(`<span class="badge sale">${t("sale")}</span>`);
+    if (product.inStock === false) parts.push(`<span class="badge sale">${t("soldout")}</span>`);
     return parts.length ? `<div class="badges">${parts.join("")}</div>` : "";
   }
 
   function productCard(product) {
     const href = `product.html?id=${encodeURIComponent(product.id)}`;
-    const img = product.images?.[0] || "images/brand/card.png";
+    const img = mediaUrl(product.thumbnail || product.images?.[0]);
     return `
       <article class="product-card">
         <a class="thumb" href="${href}">
           ${badgeHtml(product)}
-          <img src="${img}" alt="${localized(product.name)}" loading="lazy" width="400" height="400">
+          <img src="${img}" alt="${localized(product.name)}" loading="lazy" width="400" height="400" draggable="false">
         </a>
         <div class="body">
           <a href="${href}"><h3>${localized(product.name)}</h3></a>
@@ -237,6 +258,47 @@ const CasaMia = (() => {
 
   document.addEventListener("casamia:lang", refreshLinks);
 
+  function protectPublicContent() {
+    const allowed = (el) =>
+      el?.closest?.(".allow-copy, [data-copyable], input, textarea, [contenteditable='true']");
+
+    const stopUnlessAllowed = (e) => {
+      if (allowed(e.target)) return;
+      e.preventDefault();
+    };
+
+    document.addEventListener("contextmenu", stopUnlessAllowed, true);
+    document.addEventListener("copy", stopUnlessAllowed, true);
+    document.addEventListener("cut", stopUnlessAllowed, true);
+    document.addEventListener("selectstart", stopUnlessAllowed, true);
+    document.addEventListener(
+      "dragstart",
+      (e) => {
+        if (allowed(e.target)) return;
+        e.preventDefault();
+      },
+      true
+    );
+
+    const lockImg = (img) => {
+      img.draggable = false;
+      img.setAttribute("draggable", "false");
+    };
+
+    document.querySelectorAll("img").forEach(lockImg);
+    new MutationObserver((records) => {
+      for (const rec of records) {
+        rec.addedNodes.forEach((node) => {
+          if (node.nodeType !== 1) return;
+          if (node.matches?.("img")) lockImg(node);
+          node.querySelectorAll?.("img").forEach(lockImg);
+        });
+      }
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  }
+
+  protectPublicContent();
+
   return {
     t,
     localized,
@@ -245,8 +307,9 @@ const CasaMia = (() => {
     loadData,
     visibleProducts,
     getProduct,
-    getCategories: () => categories,
+    getCategories: () => enabledCategories(),
     getSettings: () => settings,
+    getReviews: () => reviews,
     formatPrice,
     formatWeight,
     orderLink,
@@ -254,6 +317,7 @@ const CasaMia = (() => {
     igLink,
     productCard,
     badgeHtml,
+    mediaUrl,
     bindHeader,
     SUPPORTED
   };

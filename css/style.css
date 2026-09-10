@@ -24,10 +24,14 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-touch-callout: none;
 }
 
 body {
@@ -40,16 +44,40 @@ body {
     var(--cream);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
-img {
+img,
+picture,
+video,
+canvas {
   max-width: 100%;
   display: block;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+/* Future copy buttons / fields (phone, address, links) */
+.allow-copy,
+.allow-copy *,
+[data-copyable],
+[data-copyable] * {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+  pointer-events: auto;
+  cursor: text;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-user-drag: none;
 }
 
 button,
@@ -314,6 +342,18 @@ textarea {
   box-shadow: var(--shadow);
 }
 
+.hero-media::after,
+.about-logo-panel::after,
+.product-card .thumb::after,
+.product-gallery::after,
+.split-media::after,
+.hit-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 .hero-media img {
   width: 100%;
   height: auto;
@@ -330,6 +370,7 @@ textarea {
 }
 
 .about-logo-panel {
+  position: relative;
   border-radius: var(--radius);
   background:
     radial-gradient(circle at 30% 20%, rgba(196, 164, 106, 0.16), transparent 55%),
@@ -467,6 +508,9 @@ textarea {
 
 .filter-btn {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   border: 1px solid var(--line);
   background: var(--white);
   color: var(--ink);
@@ -476,6 +520,13 @@ textarea {
   font-size: 0.88rem;
   white-space: nowrap;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.cat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
 }
 
 .filter-btn.active {
@@ -528,6 +579,7 @@ textarea {
   position: absolute;
   top: 0.6rem;
   left: 0.6rem;
+  z-index: 3;
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
@@ -623,6 +675,7 @@ textarea {
 }
 
 .hit-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -726,8 +779,14 @@ textarea {
 .delivery-panel h2 {
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 5vw, 2.6rem);
-  margin: 0 0 1.25rem;
+  margin: 0 0 0.65rem;
   color: var(--ink);
+}
+
+.delivery-intro {
+  margin: 0 0 1.25rem;
+  color: var(--ink-soft);
+  max-width: 42rem;
 }
 
 .delivery-list {
@@ -759,6 +818,14 @@ textarea {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1.2rem;
+}
+
+.review-photo {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.65rem;
 }
 
 .stars {
@@ -873,6 +940,7 @@ textarea {
 }
 
 .product-gallery {
+  position: relative;
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--cream-deep);

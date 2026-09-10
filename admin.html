@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Admin — Casa Mia</title>
+  <title>Casa Mia CMS</title>
   <link rel="icon" href="images/brand/favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
   <div class="admin-wrap">
     <div id="login-view" class="login-card">
-      <h1>Casa Mia Admin</h1>
-      <p>Закрытая панель для прайса и меню.</p>
+      <h1>Casa Mia CMS</h1>
+      <p>Закрытая панель. После входа можно менять меню, цены и тексты — и публиковать сайт одной кнопкой.</p>
       <form id="login-form">
         <label for="password">Пароль</label>
         <input id="password" type="password" autocomplete="current-password" required>
@@ -24,189 +24,226 @@
 
     <div id="app-view" class="hidden">
       <div class="topbar">
-        <h1>Админка Casa Mia</h1>
-        <div class="btn-row">
-          <a class="btn secondary" href="index.html" target="_blank">Открыть сайт</a>
-          <button class="btn" id="export-btn" type="button">Скачать JSON</button>
+        <div>
+          <h1>Админка Casa Mia</h1>
+          <div class="top-meta" style="margin-top:.45rem">
+            <span id="dirty-pill" class="status-pill">✓ Всё сохранено</span>
+            <span id="gh-pill" class="status-pill gh-off">GitHub не подключён</span>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:0">
+          <a class="btn secondary" href="index.html" target="_blank" rel="noopener">Открыть сайт</a>
           <button class="btn ghost" id="logout-btn" type="button">Выйти</button>
         </div>
       </div>
 
-      <div class="tabs">
+      <div id="publish-banner" class="banner success hidden"></div>
+
+      <div class="tabs" id="tabs">
         <button class="tab active" type="button" data-tab="products">Товары</button>
         <button class="tab" type="button" data-tab="prices">Цены</button>
         <button class="tab" type="button" data-tab="categories">Категории</button>
-        <button class="tab" type="button" data-tab="settings">Контакты / тексты</button>
+        <button class="tab" type="button" data-tab="settings">Настройки сайта</button>
+        <button class="tab" type="button" data-tab="reviews">Отзывы</button>
+        <button class="tab" type="button" data-tab="github">Настройки GitHub</button>
+        <button class="tab" type="button" data-tab="help">📖 Помощь владельцу</button>
       </div>
 
       <section class="panel" data-panel="products">
+        <p class="panel-lead">Откройте карточку, чтобы править фото, названия на 4 языках, цену и бейджи. Красным ничего копировать не нужно: RU, UA, TR и EN заполняются отдельно.</p>
         <div class="btn-row" style="margin-top:0;margin-bottom:1rem">
           <button class="btn" id="add-product-btn" type="button">+ Новый товар</button>
         </div>
-        <div class="product-list" id="product-list"></div>
+        <div class="editor-list" id="product-list"></div>
       </section>
 
       <section class="panel hidden" data-panel="prices">
-        <p class="hint">Меняйте цены и нажмите «Сохранить изменения», затем «Скачать JSON».</p>
+        <p class="panel-lead">Быстрая правка цен. После изменения нажмите «Сохранить изменения» внизу — сайт обновится сам.</p>
         <div class="product-list" id="quick-prices"></div>
-        <div class="btn-row"><button class="btn" id="save-prices-btn" type="button">💾 Сохранить изменения</button></div>
       </section>
 
       <section class="panel hidden" data-panel="categories">
-        <p class="hint">Для названия категории заполните все 4 языка.</p>
-        <div class="field-block">
-          <div class="field-title">Название категории</div>
-          <div class="lang-grid" id="cat-name-fields"></div>
-        </div>
-        <label>Emoji</label>
-        <input id="cat-emoji" type="text" placeholder="🥟">
-        <div class="btn-row"><button class="btn" id="add-category-btn" type="button">Новая категория</button></div>
-        <div class="product-list" id="category-list" style="margin-top:1rem"></div>
+        <p class="panel-lead">Категории меню. Названия — на четырёх языках. Выключенная категория не показывается на сайте.</p>
+        <div id="category-create" class="section-card"></div>
+        <div class="editor-list" id="category-list"></div>
       </section>
 
       <section class="panel hidden" data-panel="settings">
-        <form id="settings-form">
-          <label>WhatsApp</label>
-          <input id="s-wa" type="text">
-          <label>Instagram (без @)</label>
-          <input id="s-ig" type="text">
-
-          <div class="field-block">
-            <div class="field-title">Районы доставки</div>
-            <div class="lang-grid" id="s-areas-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">Время доставки</div>
-            <div class="lang-grid" id="s-hours-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">Оплата</div>
-            <div class="lang-grid" id="s-payment-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">Слоган (hero)</div>
-            <div class="lang-grid" id="s-tagline-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">О нас — заголовок</div>
-            <div class="lang-grid" id="s-about-title-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">О нас — подзаголовок</div>
-            <div class="lang-grid" id="s-about-subtitle-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">О нас — текст</div>
-            <div class="lang-grid" id="s-about-text-fields"></div>
-          </div>
-          <div class="field-block">
-            <div class="field-title">О нас — финальная фраза</div>
-            <div class="lang-grid" id="s-about-closing-fields"></div>
-          </div>
-
-          <div class="btn-row"><button class="btn" type="submit">Сохранить настройки</button></div>
-        </form>
+        <p class="panel-lead">Hero, доставка, «О нас» и контакты. Тексты — на RU / UA / TR / EN. Телефон, WhatsApp и Instagram общие для всех языков.</p>
+        <form id="settings-form"></form>
       </section>
 
-      <p class="hint hidden" id="export-hint">
-        Файлы скачаны. Замените ими <code>data/products.json</code>, <code>data/categories.json</code>, <code>data/settings.json</code> в проекте и сделайте push на GitHub — сайт обновится.
-      </p>
+      <section class="panel hidden" data-panel="reviews">
+        <p class="panel-lead">Отзывы на сайте. Текст — на четырёх языках. Скрытый отзыв не публикуется.</p>
+        <div class="btn-row" style="margin-top:0;margin-bottom:1rem">
+          <button class="btn" id="add-review-btn" type="button">+ Новый отзыв</button>
+        </div>
+        <div class="editor-list" id="review-list"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="github">
+        <p class="panel-lead">Один раз подключите репозиторий. Токен по умолчанию живёт только в этой сессии браузера.</p>
+        <form id="github-form" class="section-card">
+          <h2>Подключение</h2>
+          <div class="grid-2">
+            <div>
+              <label for="gh-owner">GitHub Username</label>
+              <input id="gh-owner" type="text" autocomplete="username" placeholder="NewLable">
+            </div>
+            <div>
+              <label for="gh-repo">Repository Name</label>
+              <input id="gh-repo" type="text" placeholder="casamiafood">
+            </div>
+            <div>
+              <label for="gh-branch">Branch</label>
+              <input id="gh-branch" type="text" placeholder="main">
+            </div>
+            <div>
+              <label for="gh-token">GitHub Token</label>
+              <input id="gh-token" type="password" autocomplete="off" placeholder="github_pat_…">
+            </div>
+          </div>
+          <div class="check">
+            <input id="gh-remember" type="checkbox">
+            <label for="gh-remember">Запомнить этот компьютер</label>
+          </div>
+          <p class="hint">Если не отмечать — токен исчезнет после закрытия браузера. На чужом компьютере или телефоне галочку лучше не ставить.</p>
+          <div class="btn-row">
+            <button class="btn" type="submit">Сохранить подключение</button>
+          </div>
+          <div id="gh-status" class="gh-status idle">Проверка не выполнялась.</div>
+          <div class="tip">
+            Нужен Fine-grained Personal Access Token с правом <strong>Contents: Read and write</strong> только для этого репозитория.
+            GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens.
+          </div>
+        </form>
+        <div class="section-card">
+          <h2>Последние публикации</h2>
+          <p class="hint" style="margin-top:0">Последние 5 commit-сообщений из GitHub.</p>
+          <div id="commit-list" class="commit-list"></div>
+        </div>
+      </section>
+
+      <section class="panel hidden" data-panel="help">
+        <div class="help-hero">
+          <h2>Помощь владельцу</h2>
+          <p class="panel-lead" style="margin:0">Короткие инструкции без программирования. Сайт обновляется кнопкой «Сохранить изменения» — VS Code и GitHub Desktop не нужны.</p>
+          <p style="margin:.85rem 0 0"><a class="btn secondary" href="owner-guide.html">Открыть инструкцию отдельной страницей</a></p>
+        </div>
+        <div class="help-grid">
+          <article class="help-card" id="help-start">
+            <h3>1. Первый запуск — 1 минута</h3>
+            <ol>
+              <li>Откройте <strong>casamiafood.vip/admin.html</strong> (сохраните в закладки).</li>
+              <li>Введите пароль админки.</li>
+              <li>Зайдите в «Настройки GitHub», вставьте токен один раз и нажмите «Сохранить подключение».</li>
+              <li>Должно появиться: ✅ Подключено.</li>
+            </ol>
+            <div class="help-mock"><div class="bar"></div><div class="line"></div><div class="line w2"></div><div class="btn-fake"></div></div>
+          </article>
+          <article class="help-card" id="help-price">
+            <h3>2. Как изменить цену — 20 секунд</h3>
+            <ol>
+              <li>Вкладка «Цены».</li>
+              <li>Впишите новую сумму.</li>
+              <li>Нажмите зелёную кнопку внизу «Сохранить изменения».</li>
+              <li>Подождите плашку «Изменения опубликованы».</li>
+            </ol>
+            <div class="tip">Пока кнопка серая — менять было нечего. После правки цены она станет зелёной.</div>
+          </article>
+          <article class="help-card" id="help-add">
+            <h3>3. Как добавить товар — 30 секунд</h3>
+            <ol>
+              <li>Вкладка «Товары» → «+ Новый товар».</li>
+              <li>Загрузите фото (можно с телефона, перетащите в рамку).</li>
+              <li>Заполните название хотя бы на русском, цену и категорию.</li>
+              <li>Нажмите «Сохранить изменения» внизу страницы.</li>
+            </ol>
+            <div class="help-mock"><div class="bar" style="width:28%;background:var(--terracotta)"></div><div class="line"></div><div class="line w2"></div></div>
+          </article>
+          <article class="help-card" id="help-delete">
+            <h3>4. Как удалить товар</h3>
+            <ol>
+              <li>Откройте карточку товара.</li>
+              <li>Нажмите «Удалить товар» и подтвердите.</li>
+              <li>Обязательно нажмите «Сохранить изменения» — иначе на сайте товар останется.</li>
+            </ol>
+          </article>
+          <article class="help-card" id="help-photo">
+            <h3>5. Как заменить фото</h3>
+            <ol>
+              <li>Откройте товар.</li>
+              <li>Нажмите «Заменить» или перетащите новое фото.</li>
+              <li>Админка сама уменьшит картинку и сделает квадратную миниатюру.</li>
+              <li>Сохраните изменения — фото уйдёт в GitHub вместе с меню.</li>
+            </ol>
+          </article>
+          <article class="help-card" id="help-hit">
+            <h3>6. Как сделать товар «Хитом недели»</h3>
+            <ol>
+              <li>Откройте карточку товара.</li>
+              <li>Включите галочку «Хит продаж».</li>
+              <li>Сохраните. Товар появится в блоке хитов на главной.</li>
+            </ol>
+          </article>
+          <article class="help-card" id="help-delivery">
+            <h3>7. Как изменить доставку</h3>
+            <ol>
+              <li>Вкладка «Настройки сайта» → блок «Доставка».</li>
+              <li>Заголовок, описание, районы, стоимость, время и оплата — каждое поле на 4 языках.</li>
+              <li>Сохраните изменения.</li>
+            </ol>
+          </article>
+          <article class="help-card" id="help-about">
+            <h3>8. Как изменить текст «О нас»</h3>
+            <ol>
+              <li>Вкладка «Настройки сайта» → блок «О нас».</li>
+              <li>Заголовок и описание на RU / UA / TR / EN.</li>
+              <li>Не копируйте русский текст в другие языки автоматически — напишите перевод или оставьте пустым.</li>
+            </ol>
+          </article>
+          <article class="help-card" id="help-lang">
+            <h3>9. Как переключить язык на сайте</h3>
+            <ol>
+              <li>На сайте в шапке кнопки RU · UA · TR · EN.</li>
+              <li>Выбор запоминается в браузере гостя.</li>
+            </ol>
+            <div class="tip">Если перевод пустой, посетитель увидит русский текст. Это нормально. Лучше заполнить все 4 языка, когда будет время.</div>
+          </article>
+          <article class="help-card" id="help-save">
+            <h3>10. Что происходит после «Сохранить»</h3>
+            <ol>
+              <li>Админка записывает JSON и фото в GitHub.</li>
+              <li>Создаётся commit с датой и временем.</li>
+              <li>GitHub Pages сам публикует сайт — обычно 20–60 секунд.</li>
+              <li>Вы увидите: ✅ Изменения опубликованы на сайте.</li>
+            </ol>
+          </article>
+          <article class="help-card" id="help-stuck">
+            <h3>Что делать, если сайт не обновился</h3>
+            <ol>
+              <li>Подождите минуту и обновите страницу сайта без кэша.</li>
+              <li>Проверьте, что GitHub подключён (зелёный статус).</li>
+              <li>Откройте «Последние публикации» — там должно быть свежее сообщение.</li>
+              <li>Если токен истёк — вставьте новый в «Настройки GitHub».</li>
+            </ol>
+          </article>
+        </div>
+      </section>
     </div>
   </div>
 
-  <div class="modal-backdrop" id="editor">
-    <div class="modal">
-      <h2 id="editor-title">Товар</h2>
-      <form id="editor-form">
-        <div class="grid-2">
-          <div>
-            <label>ID (латиницей)</label>
-            <input id="f-id" type="text" required placeholder="pelmeni-chicken">
-          </div>
-          <div>
-            <label>Категория</label>
-            <select id="f-category"></select>
-          </div>
-        </div>
-
-        <div class="field-block">
-          <div class="field-title">Название</div>
-          <div class="lang-grid" id="f-name-fields"></div>
-        </div>
-        <div class="field-block">
-          <div class="field-title">Описание</div>
-          <div class="lang-grid" id="f-desc-fields"></div>
-        </div>
-        <div class="field-block">
-          <div class="field-title">Состав</div>
-          <div class="lang-grid" id="f-ingredients-fields"></div>
-        </div>
-        <div class="field-block">
-          <div class="field-title">Как готовить</div>
-          <div class="lang-grid" id="f-cook-fields"></div>
-        </div>
-        <div class="field-block">
-          <div class="field-title">С чем подавать</div>
-          <div class="lang-grid" id="f-serve-fields"></div>
-        </div>
-
-        <div class="grid-2">
-          <div>
-            <label>Цена (₺)</label>
-            <input id="f-price" type="number" min="0" step="1">
-          </div>
-          <div>
-            <label>Единица цены</label>
-            <select id="f-unit">
-              <option value="kg">за кг</option>
-              <option value="pack">за упаковку</option>
-            </select>
-          </div>
-          <div>
-            <label>Вес / объём</label>
-            <input id="f-weight" type="number" min="0">
-          </div>
-          <div>
-            <label>Единица веса</label>
-            <select id="f-wunit">
-              <option value="g">г</option>
-              <option value="ml">мл</option>
-              <option value="pcs">шт</option>
-              <option value="box">коробка</option>
-            </select>
-          </div>
-          <div>
-            <label>Порядок</label>
-            <input id="f-order" type="number">
-          </div>
-          <div>
-            <label>Путь к фото</label>
-            <input id="f-image" type="text" placeholder="images/products/...">
-          </div>
-        </div>
-        <label class="drop" for="f-file">Выбрать файл фото (потом положите в images/products/)</label>
-        <input id="f-file" type="file" accept="image/*" class="hidden">
-        <p class="hint" id="image-note"></p>
-        <div class="check"><input id="f-hit" type="checkbox"><label for="f-hit" style="margin:0">Хит продаж</label></div>
-        <div class="check"><input id="f-new" type="checkbox"><label for="f-new" style="margin:0">Новинка</label></div>
-        <div class="check"><input id="f-sale" type="checkbox"><label for="f-sale" style="margin:0">Акция</label></div>
-        <div class="check"><input id="f-available" type="checkbox" checked><label for="f-available" style="margin:0">Показывать на сайте</label></div>
-        <div class="btn-row">
-          <button class="btn" type="submit">Сохранить</button>
-          <button class="btn secondary" type="button" id="editor-close">Закрыть</button>
-        </div>
-      </form>
+  <div class="save-bar hidden" id="save-bar">
+    <div class="save-bar-inner">
+      <div class="meta" id="save-hint">Нет несохранённых изменений</div>
+      <button class="save-btn btn" id="save-btn" type="button" disabled>💾 Сохранить изменения</button>
     </div>
   </div>
+  <div class="toast-wrap" id="toasts"></div>
 
+  <script src="js/i18n.js"></script>
+  <script src="js/github-api.js"></script>
+  <script src="js/image-manager.js"></script>
   <script src="js/admin.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("editor-form").addEventListener("submit", saveEditor);
-      document.getElementById("settings-form").addEventListener("submit", saveSettings);
-      document.getElementById("editor-close").addEventListener("click", closeEditor);
-      document.getElementById("f-file").addEventListener("change", (e) => onImageFile(e.target));
-    });
-  </script>
 </body>
 </html>

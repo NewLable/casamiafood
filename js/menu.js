@@ -26,7 +26,7 @@ function renderFilters(active = "all") {
     `<button class="filter-btn ${active === "all" ? "active" : ""}" data-cat="all">${CasaMia.t("all")}</button>`,
     ...cats.map(
       (c) =>
-        `<button class="filter-btn ${active === c.id ? "active" : ""}" data-cat="${c.id}">${c.emoji || ""} ${CasaMia.localized(c.name)}</button>`
+        `<button class="filter-btn ${active === c.id ? "active" : ""}" data-cat="${c.id}"><span class="cat-dot" style="background:${c.color || "var(--olive)"}"></span>${c.emoji || ""} ${CasaMia.localized(c.name)}</button>`
     )
   ].join("");
   wrap.querySelectorAll(".filter-btn").forEach((btn) => {
@@ -56,9 +56,9 @@ function renderHits() {
   const hits = CasaMia.visibleProducts().filter((p) => p.badges?.hit).slice(0, 6);
   wrap.innerHTML = hits
     .map((p) => {
-      const img = p.images?.[0] || "images/brand/card.png";
+      const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
       return `<a class="hit-item" href="product.html?id=${encodeURIComponent(p.id)}">
-        <img src="${img}" alt="" width="56" height="56" loading="lazy">
+        <img src="${img}" alt="" width="56" height="56" loading="lazy" draggable="false">
         <div>
           <strong>${CasaMia.localized(p.name)}</strong>
           <span class="price">${CasaMia.formatPrice(p)}</span>
@@ -94,9 +94,19 @@ function renderStaticBlocks() {
   if (aboutSubtitle) aboutSubtitle.textContent = CasaMia.localized(settings.about.subtitle);
   if (aboutText) aboutText.innerHTML = CasaMia.localized(settings.about.text).replace(/\n\n/g, "<br><br>");
   if (aboutClosing) aboutClosing.textContent = CasaMia.localized(settings.about.closing);
-  if (heroTagline && settings.brand?.tagline) {
-    heroTagline.textContent = CasaMia.localized(settings.brand.tagline);
+  if (heroTagline) {
+    heroTagline.textContent = CasaMia.localized(settings.hero?.subtitle || settings.brand?.tagline);
   }
+
+  const heroTitle = document.querySelector(".hero h1");
+  if (heroTitle && settings.hero?.title) {
+    heroTitle.textContent = CasaMia.localized(settings.hero.title);
+  }
+
+  const waCta = CasaMia.localized(settings.hero?.ctaWhatsapp);
+  const igCta = CasaMia.localized(settings.hero?.ctaInstagram);
+  if (waCta) document.querySelectorAll("[data-i18n='cta_wa']").forEach((el) => { el.textContent = waCta; });
+  if (igCta) document.querySelectorAll("[data-i18n='cta_ig']").forEach((el) => { el.textContent = igCta; });
 
   const cook = document.getElementById("cook-grid");
   if (cook) {
@@ -113,31 +123,59 @@ function renderStaticBlocks() {
       .join("");
   }
 
+  const deliveryTitle = document.getElementById("delivery-title");
+  const deliveryDesc = document.getElementById("delivery-description");
+  if (deliveryTitle && settings.delivery?.title) {
+    deliveryTitle.textContent = CasaMia.localized(settings.delivery.title);
+  }
+  if (deliveryDesc) {
+    deliveryDesc.textContent = CasaMia.localized(settings.delivery?.description);
+    deliveryDesc.hidden = !deliveryDesc.textContent;
+  }
+
   const delivery = document.getElementById("delivery-list");
   if (delivery) {
+    const cost = CasaMia.localized(settings.delivery.cost);
     delivery.innerHTML = `
       <div><strong>${CasaMia.t("areas")}</strong><span>${CasaMia.localized(settings.delivery.areas)}</span></div>
+      ${cost ? `<div><strong>${CasaMia.t("delivery_cost")}</strong><span>${cost}</span></div>` : ""}
       <div><strong>${CasaMia.t("hours")}</strong><span>${CasaMia.localized(settings.delivery.hours)}</span></div>
       <div><strong>${CasaMia.t("payment")}</strong><span>${CasaMia.localized(settings.delivery.payment)}</span></div>`;
   }
 
   const reviews = document.getElementById("reviews-list");
   if (reviews) {
-    reviews.innerHTML = (settings.reviews || [])
-      .map(
-        (r) => `<article class="review-card">
-        <div class="stars" aria-label="5">★★★★★</div>
+    const list = CasaMia.getReviews() || [];
+    reviews.innerHTML = list
+      .map((r) => {
+        const stars = "★".repeat(Math.min(5, Number(r.rating) || 5));
+        const photo = r.photo
+          ? `<img class="review-photo" src="${r.photo}" alt="" width="48" height="48" draggable="false">`
+          : "";
+        return `<article class="review-card">
+        ${photo}
+        <div class="stars" aria-label="${r.rating || 5}">${stars}</div>
         <p>«${CasaMia.localized(r.text)}»</p>
         <div class="name">${r.name}</div>
-      </article>`
-      )
+      </article>`;
+      })
       .join("");
   }
 
   const waDisplay = document.getElementById("wa-display");
   const igDisplay = document.getElementById("ig-display");
+  const extra = document.getElementById("contact-extra");
   if (waDisplay) waDisplay.textContent = settings.contacts.whatsappDisplay || settings.contacts.whatsapp;
   if (igDisplay) igDisplay.textContent = `@${settings.contacts.instagram}`;
+  if (extra) {
+    const bits = [];
+    const address = CasaMia.localized(settings.contacts.address);
+    if (address) bits.push(address);
+    if (settings.contacts.phone) bits.push(settings.contacts.phone);
+    if (settings.contacts.email) bits.push(settings.contacts.email);
+    extra.textContent = bits.join(" · ");
+    extra.hidden = !bits.length;
+  }
 }
 
 function iconSvg(name) {

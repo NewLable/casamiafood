@@ -9,18 +9,70 @@
       "en": "A home kitchen cooked with love for quality"
     }
   },
+  "hero": {
+    "title": {
+      "ru": "Casa Mia",
+      "ua": "Casa Mia",
+      "tr": "Casa Mia",
+      "en": "Casa Mia"
+    },
+    "subtitle": {
+      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
+      "ua": "Домашня кухня, приготована з любов'ю до якості",
+      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
+      "en": "A home kitchen cooked with love for quality"
+    },
+    "ctaWhatsapp": {
+      "ru": "Написать в WhatsApp",
+      "ua": "Написати в WhatsApp",
+      "tr": "WhatsApp'tan yazın",
+      "en": "Message on WhatsApp"
+    },
+    "ctaInstagram": {
+      "ru": "Мы в Instagram",
+      "ua": "Ми в Instagram",
+      "tr": "Instagram'dayız",
+      "en": "We're on Instagram"
+    }
+  },
   "contacts": {
+    "address": {
+      "ru": "Анталья, Турция",
+      "ua": "Анталія, Туреччина",
+      "tr": "Antalya, Türkiye",
+      "en": "Antalya, Turkey"
+    },
+    "phone": "+905013381126",
+    "email": "",
     "whatsapp": "+905013381126",
     "whatsappDisplay": "+90 501 338 11 26",
     "instagram": "casa_mia_antalya",
     "instagramUrl": "https://instagram.com/casa_mia_antalya"
   },
   "delivery": {
+    "title": {
+      "ru": "Доставка по Анталии",
+      "ua": "Доставка Анталією",
+      "tr": "Antalya teslimatı",
+      "en": "Delivery in Antalya"
+    },
+    "description": {
+      "ru": "Готовим под заказ и привозим домой в удобное время.",
+      "ua": "Готуємо під замовлення і привозимо додому в зручний час.",
+      "tr": "Siparişe özel pişirip uygun saatte evinize getiriyoruz.",
+      "en": "We cook to order and deliver to your home at a convenient time."
+    },
     "areas": {
       "ru": "Коньяалты, Лара, Муратпаша и другие районы Анталии",
       "ua": "Коньяалти, Лара, Муратпаша та інші райони Анталії",
       "tr": "Konyaaltı, Lara, Muratpaşa ve Antalya'nın diğer semtleri",
       "en": "Konyaaltı, Lara, Muratpaşa and other Antalya areas"
+    },
+    "cost": {
+      "ru": "Стоимость доставки уточняйте при заказе",
+      "ua": "Вартість доставки уточнюйте під час замовлення",
+      "tr": "Teslimat ücretini siparişte sorun",
+      "en": "Ask for delivery cost when ordering"
     },
     "hours": {
       "ru": "Ежедневно с 10:00 до 20:00",

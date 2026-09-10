@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Помощь владельцу — Casa Mia</title>
+  <link rel="icon" href="images/brand/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-wrap" style="padding-bottom:3rem">
+    <div class="topbar">
+      <h1>Помощь владельцу</h1>
+      <div class="btn-row" style="margin:0">
+        <a class="btn" href="admin.html">Открыть админку</a>
+        <a class="btn secondary" href="index.html">На сайт</a>
+      </div>
+    </div>
+
+    <div class="help-hero">
+      <h2>Casa Mia CMS</h2>
+      <p class="panel-lead" style="margin:0">Сайт обновляется из браузера. Одна кнопка «Сохранить изменения» — без VS Code и GitHub Desktop.</p>
+    </div>
+
+    <div class="help-grid">
+      <article class="help-card">
+        <h3>1. Первый запуск</h3>
+        <ol>
+          <li>Откройте <strong>admin.html</strong> (лучше сохранить в закладки).</li>
+          <li>Войдите по паролю.</li>
+          <li>Вкладка «Настройки GitHub»: username, репозиторий, ветка <code>main</code>, токен.</li>
+          <li>На чужом телефоне не ставьте «Запомнить этот компьютер».</li>
+          <li>Должно появиться ✅ Подключено.</li>
+        </ol>
+        <div class="help-mock"><div class="bar"></div><div class="line"></div><div class="line w2"></div><div class="btn-fake"></div></div>
+        <div class="tip">Токен: GitHub → Settings → Developer settings → Fine-grained tokens. Право Contents: Read and write только для этого репозитория.</div>
+      </article>
+      <article class="help-card">
+        <h3>2. Как изменить цену</h3>
+        <ol>
+          <li>Админка → «Цены».</li>
+          <li>Новая сумма.</li>
+          <li>Зелёная кнопка внизу «Сохранить изменения».</li>
+        </ol>
+        <div class="help-mock"><div class="bar" style="width:60%"></div><div class="line w2"></div><div class="btn-fake"></div></div>
+      </article>
+      <article class="help-card">
+        <h3>3. Как добавить товар</h3>
+        <ol>
+          <li>«Товары» → новый товар.</li>
+          <li>Фото, название (4 языка), цена, категория.</li>
+          <li>Сохранить изменения.</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>4. Как удалить товар</h3>
+        <ol>
+          <li>Откройте карточку → «Удалить товар».</li>
+          <li>Снова нажмите «Сохранить изменения».</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>5. Как изменить доставку</h3>
+        <ol>
+          <li>«Настройки сайта» → Доставка.</li>
+          <li>Районы, стоимость, время, оплата — на RU / UA / TR / EN.</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>6. Текст «О нас»</h3>
+        <ol>
+          <li>«Настройки сайта» → О нас.</li>
+          <li>Не копируйте русский текст в другие языки автоматически.</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>7. Как заменить фото</h3>
+        <ol>
+          <li>Откройте товар → Заменить / перетащите файл.</li>
+          <li>Картинка сама станет WebP шириной до 1200 px.</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>8. Язык на сайте</h3>
+        <ol>
+          <li>В шапке сайта кнопки RU · UA · TR · EN.</li>
+          <li>Если перевод пустой — показывается русский.</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>9. Что делает «Сохранить»</h3>
+        <ol>
+          <li>JSON и фото записываются в GitHub.</li>
+          <li>Создаётся commit с датой.</li>
+          <li>GitHub Pages публикует сайт за 20–60 секунд.</li>
+        </ol>
+      </article>
+      <article class="help-card">
+        <h3>10. Сайт не обновился</h3>
+        <ol>
+          <li>Подождите минуту и обновите страницу.</li>
+          <li>Проверьте зелёный статус GitHub.</li>
+          <li>Смотрите «Последние публикации».</li>
+          <li>Если токен истёк — вставьте новый.</li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</body>
+</html>

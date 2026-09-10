@@ -3,6 +3,8 @@
     "id": "frozen",
     "emoji": "🧊",
     "order": 1,
+    "color": "#5c6b3c",
+    "enabled": true,
     "name": {
       "ru": "Заморозка",
       "ua": "Заморозка",
@@ -14,6 +16,8 @@
     "id": "pancakes",
     "emoji": "🥞",
     "order": 2,
+    "color": "#c4a46a",
+    "enabled": true,
     "name": {
       "ru": "Блинчики",
       "ua": "Млинці",
@@ -25,6 +29,8 @@
     "id": "salads",
     "emoji": "🥗",
     "order": 3,
+    "color": "#6b8f4e",
+    "enabled": true,
     "name": {
       "ru": "Салаты",
       "ua": "Салати",
@@ -36,6 +42,8 @@
     "id": "pasta",
     "emoji": "🍝",
     "order": 4,
+    "color": "#c45c4a",
+    "enabled": true,
     "name": {
       "ru": "Спагетти",
       "ua": "Спагеті",
@@ -47,6 +55,8 @@
     "id": "bakery",
     "emoji": "🧁",
     "order": 5,
+    "color": "#d4a017",
+    "enabled": true,
     "name": {
       "ru": "Выпечка",
       "ua": "Випічка",
@@ -58,6 +68,8 @@
     "id": "ready",
     "emoji": "🍲",
     "order": 6,
+    "color": "#8b5e3c",
+    "enabled": true,
     "name": {
       "ru": "Готовые блюда",
       "ua": "Готові страви",
@@ -69,6 +81,8 @@
     "id": "soups",
     "emoji": "🥣",
     "order": 7,
+    "color": "#c4784a",
+    "enabled": false,
     "name": {
       "ru": "Первые блюда",
       "ua": "Перші страви",

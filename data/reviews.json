@@ -1,0 +1,44 @@
+[
+  {
+    "id": "review-anna",
+    "name": "Анна",
+    "photo": "",
+    "rating": 5,
+    "order": 10,
+    "visible": true,
+    "text": {
+      "ru": "Очень вкусные равиоли, как домашние. Теперь всегда держим упаковку в морозилке.",
+      "ua": "Дуже смачні равіолі, як домашні. Тепер завжди тримаємо упаковку в морозилці.",
+      "tr": "Ravioliler çok lezzetli, ev yapımı gibi. Artık hep dondurucuda paket tutuyoruz.",
+      "en": "The ravioli taste homemade. We always keep a pack in the freezer now."
+    }
+  },
+  {
+    "id": "review-marina",
+    "name": "Марина",
+    "photo": "",
+    "rating": 5,
+    "order": 20,
+    "visible": true,
+    "text": {
+      "ru": "Пельмени и голубцы понравились всей семье. Удобно, что доставка прямо домой.",
+      "ua": "Пельмені й голубці сподобалися всій родині. Зручно, що доставка прямо додому.",
+      "tr": "Mantı ve lahana sarması tüm aileye hitap etti. Eve teslimat çok pratik.",
+      "en": "The whole family loved the dumplings and cabbage rolls. Home delivery is so convenient."
+    }
+  },
+  {
+    "id": "review-elena",
+    "name": "Елена",
+    "photo": "",
+    "rating": 5,
+    "order": 30,
+    "visible": true,
+    "text": {
+      "ru": "Синнабоны — как из кофейни. Заказываем на выходные вместе с блинчиками.",
+      "ua": "Синнабони — як із кав'ярні. Замовляємо на вихідні разом із млинцями.",
+      "tr": "Cinnabonlar kafedeki gibi. Hafta sonları krep ile birlikte sipariş ediyoruz.",
+      "en": "The cinnabons taste like a café. We order them with pancakes on weekends."
+    }
+  }
+]

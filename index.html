@@ -19,7 +19,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#top" aria-label="Casa Mia">
-        <img class="logo-img" src="images/brand/logo-big.png" alt="Casa Mia" width="160" height="70">
+        <img class="logo-img" src="images/brand/logo-big.png" alt="Casa Mia" width="160" height="70" draggable="false">
       </a>
       <nav class="nav-desktop" aria-label="Main">
         <a href="#menu" data-i18n="nav_menu"></a>
@@ -60,7 +60,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <img class="hero-logo" src="images/brand/logo-big.png" alt="Casa Mia — homemade with love" width="520" height="280">
+          <img class="hero-logo" src="images/brand/logo-big.png" alt="Casa Mia — homemade with love" width="520" height="280" draggable="false">
           <h1 class="visually-hidden">Casa Mia</h1>
           <p class="lead" id="hero-tagline" data-i18n="hero_lead"></p>
           <ul class="hero-points">
@@ -75,7 +75,7 @@
           </div>
         </div>
         <div class="hero-media">
-          <img src="images/brand/info.png" alt="Casa Mia — homemade with love" width="900" height="900">
+          <img src="images/brand/info.png" alt="Casa Mia — homemade with love" width="900" height="900" draggable="false">
         </div>
       </div>
     </section>
@@ -118,7 +118,7 @@
     <section class="section" id="about">
       <div class="container split">
         <div class="about-logo-panel">
-          <img src="images/brand/logo-big.png" alt="Casa Mia" width="640" height="360">
+          <img src="images/brand/logo-big.png" alt="Casa Mia" width="640" height="360" draggable="false">
         </div>
         <div class="about-copy">
           <p class="eyebrow" id="about-title"></p>
@@ -135,7 +135,8 @@
     <section class="section" id="delivery">
       <div class="container">
         <div class="delivery-panel">
-          <h2 data-i18n="delivery_title"></h2>
+          <h2 id="delivery-title" data-i18n="delivery_title"></h2>
+          <p id="delivery-description" class="delivery-intro"></p>
           <div class="delivery-list" id="delivery-list"></div>
         </div>
       </div>
@@ -161,7 +162,8 @@
           </div>
           <p style="margin-top:1.25rem;opacity:.9">
             WhatsApp: <span id="wa-display"></span><br>
-            Instagram: <span id="ig-display"></span>
+            Instagram: <span id="ig-display"></span><br>
+            <span id="contact-extra"></span>
           </p>
         </div>
       </div>
