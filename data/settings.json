@@ -9,70 +9,26 @@
       "en": "A home kitchen cooked with love for quality"
     }
   },
-  "hero": {
-    "title": {
-      "ru": "Casa Mia",
-      "ua": "Casa Mia",
-      "tr": "Casa Mia",
-      "en": "Casa Mia"
-    },
-    "subtitle": {
-      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
-      "ua": "Домашня кухня, приготована з любов'ю до якості",
-      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
-      "en": "A home kitchen cooked with love for quality"
-    },
-    "ctaWhatsapp": {
-      "ru": "Написать в WhatsApp",
-      "ua": "Написати в WhatsApp",
-      "tr": "WhatsApp'tan yazın",
-      "en": "Message on WhatsApp"
-    },
-    "ctaInstagram": {
-      "ru": "Мы в Instagram",
-      "ua": "Ми в Instagram",
-      "tr": "Instagram'dayız",
-      "en": "We're on Instagram"
-    }
-  },
   "contacts": {
+    "whatsapp": "+905013381126",
+    "whatsappDisplay": "+905013381126",
+    "instagram": "casa_mia_antalya",
+    "instagramUrl": "https://instagram.com/casa_mia_antalya",
     "address": {
-      "ru": "Анталья, Турция",
-      "ua": "Анталія, Туреччина",
-      "tr": "Antalya, Türkiye",
-      "en": "Antalya, Turkey"
+      "ru": "",
+      "ua": "",
+      "tr": "",
+      "en": ""
     },
     "phone": "+905013381126",
-    "email": "",
-    "whatsapp": "+905013381126",
-    "whatsappDisplay": "+90 501 338 11 26",
-    "instagram": "casa_mia_antalya",
-    "instagramUrl": "https://instagram.com/casa_mia_antalya"
+    "email": ""
   },
   "delivery": {
-    "title": {
-      "ru": "Доставка по Анталии",
-      "ua": "Доставка Анталією",
-      "tr": "Antalya teslimatı",
-      "en": "Delivery in Antalya"
-    },
-    "description": {
-      "ru": "Готовим под заказ и привозим домой в удобное время.",
-      "ua": "Готуємо під замовлення і привозимо додому в зручний час.",
-      "tr": "Siparişe özel pişirip uygun saatte evinize getiriyoruz.",
-      "en": "We cook to order and deliver to your home at a convenient time."
-    },
     "areas": {
       "ru": "Коньяалты, Лара, Муратпаша и другие районы Анталии",
       "ua": "Коньяалти, Лара, Муратпаша та інші райони Анталії",
       "tr": "Konyaaltı, Lara, Muratpaşa ve Antalya'nın diğer semtleri",
       "en": "Konyaaltı, Lara, Muratpaşa and other Antalya areas"
-    },
-    "cost": {
-      "ru": "Стоимость доставки уточняйте при заказе",
-      "ua": "Вартість доставки уточнюйте під час замовлення",
-      "tr": "Teslimat ücretini siparişte sorun",
-      "en": "Ask for delivery cost when ordering"
     },
     "hours": {
       "ru": "Ежедневно с 10:00 до 20:00",
@@ -86,7 +42,25 @@
       "tr": "Nakit veya havale",
       "en": "Cash or bank transfer"
     },
-    "minOrder": null
+    "minOrder": null,
+    "title": {
+      "ru": "Осуществляем доставку по адресу.",
+      "ua": "Здійснюємо доставку на адресу.",
+      "tr": "Adresinize teslimat yapıyoruz.",
+      "en": "We deliver to your address."
+    },
+    "description": {
+      "ru": "Доставка по Коньяалты от 300 лир. Доставка в другие районы при заказе от 2000 лир. Стоимость доставки индивидуальна и зависит от локации и времени доставки.",
+      "ua": "Доставка по Коньяалти від 300 лір. Доставка в інші райони при замовленні від 2000 лір. Вартість доставки індивідуальна та залежить від локації та часу доставки.",
+      "tr": "Konyaaltı sınırları içinde 300 TL ve üzeri siparişlerde teslimat hizmeti mevcuttur. Diğer ilçelere ise 2.000 TL ve üzeri siparişlerde teslimat yapılmaktadır. Teslimat ücretleri, konuma ve teslimat zamanına göre değişiklik göstermektedir.",
+      "en": "Delivery within Konyaalti starts from 300 lira. Delivery to other areas is available for orders over 2,000 lira. Delivery costs vary depending on the location and delivery time."
+    },
+    "cost": {
+      "ru": "",
+      "ua": "",
+      "tr": "",
+      "en": ""
+    }
   },
   "about": {
     "title": {
@@ -114,81 +88,158 @@
       "en": "Fresh. Handmade. With care in every detail."
     }
   },
-  "reviews": [
-    {
-      "name": "Анна",
-      "text": {
-        "ru": "Очень вкусные равиоли, как домашние. Теперь всегда держим упаковку в морозилке.",
-        "ua": "Дуже смачні равіолі, як домашні. Тепер завжди тримаємо упаковку в морозилці.",
-        "tr": "Ravioliler çok lezzetli, ev yapımı gibi. Artık hep dondurucuda paket tutuyoruz.",
-        "en": "The ravioli taste homemade. We always keep a pack in the freezer now."
-      }
-    },
-    {
-      "name": "Марина",
-      "text": {
-        "ru": "Пельмени и голубцы понравились всей семье. Удобно, что доставка прямо домой.",
-        "ua": "Пельмені й голубці сподобалися всій родині. Зручно, що доставка прямо додому.",
-        "tr": "Mantı ve lahana sarması tüm aileye hitap etti. Eve teslimat çok pratik.",
-        "en": "The whole family loved the dumplings and cabbage rolls. Home delivery is so convenient."
-      }
-    },
-    {
-      "name": "Елена",
-      "text": {
-        "ru": "Синнабоны — как из кофейни. Заказываем на выходные вместе с блинчиками.",
-        "ua": "Синнабони — як із кав'ярні. Замовляємо на вихідні разом із млинцями.",
-        "tr": "Cinnabonlar kafedeki gibi. Hafta sonları krep ile birlikte sipariş ediyoruz.",
-        "en": "The cinnabons taste like a café. We order them with pancakes on weekends."
-      }
-    }
-  ],
   "cookGuide": [
     {
       "emoji": "🥟",
-      "title": { "ru": "Пельмени / вареники", "ua": "Пельмені / вареники", "tr": "Mantı / vareniki", "en": "Dumplings" },
-      "time": { "ru": "8–10 минут после закипания", "ua": "8–10 хвилин після закипання", "tr": "Kaynadıktan sonra 8–10 dk", "en": "8–10 minutes after boiling" }
+      "title": {
+        "ru": "Пельмени / вареники",
+        "ua": "Пельмені / вареники",
+        "tr": "Mantı / vareniki",
+        "en": "Dumplings"
+      },
+      "time": {
+        "ru": "8–10 минут после закипания",
+        "ua": "8–10 хвилин після закипання",
+        "tr": "Kaynadıktan sonra 8–10 dk",
+        "en": "8–10 minutes after boiling"
+      }
     },
     {
       "emoji": "🍝",
-      "title": { "ru": "Равиоли / паста", "ua": "Равіолі / паста", "tr": "Ravioli / makarna", "en": "Ravioli / pasta" },
-      "time": { "ru": "5–6 минут или обжарить на сливочном масле", "ua": "5–6 хвилин або обсмажити на вершковому маслі", "tr": "5–6 dk veya tereyağında kızartın", "en": "5–6 minutes or pan-fry in butter" }
+      "title": {
+        "ru": "Равиоли / паста",
+        "ua": "Равіолі / паста",
+        "tr": "Ravioli / makarna",
+        "en": "Ravioli / pasta"
+      },
+      "time": {
+        "ru": "5–6 минут или обжарить на сливочном масле",
+        "ua": "5–6 хвилин або обсмажити на вершковому маслі",
+        "tr": "5–6 dk veya tereyağında kızartın",
+        "en": "5–6 minutes or pan-fry in butter"
+      }
     },
     {
       "emoji": "🥬",
-      "title": { "ru": "Голубцы / перец", "ua": "Голубці / перець", "tr": "Lahana / biber dolması", "en": "Cabbage / stuffed pepper" },
-      "time": { "ru": "20–25 минут под крышкой", "ua": "20–25 хвилин під кришкою", "tr": "Kapak altında 20–25 dk", "en": "20–25 minutes covered" }
+      "title": {
+        "ru": "Голубцы / перец",
+        "ua": "Голубці / перець",
+        "tr": "Lahana / biber dolması",
+        "en": "Cabbage / stuffed pepper"
+      },
+      "time": {
+        "ru": "20–25 минут под крышкой",
+        "ua": "20–25 хвилин під кришкою",
+        "tr": "Kapak altında 20–25 dk",
+        "en": "20–25 minutes covered"
+      }
     },
     {
       "emoji": "🍗",
-      "title": { "ru": "Котлеты / фрикадельки", "ua": "Котлети / фрикадельки", "tr": "Köfte / toplar", "en": "Cutlets / meatballs" },
-      "time": { "ru": "На сковороде или в духовке 15–20 минут", "ua": "На сковороді або в духовці 15–20 хвилин", "tr": "Tavada veya fırında 15–20 dk", "en": "Pan or oven 15–20 minutes" }
+      "title": {
+        "ru": "Котлеты / фрикадельки",
+        "ua": "Котлети / фрикадельки",
+        "tr": "Köfte / toplar",
+        "en": "Cutlets / meatballs"
+      },
+      "time": {
+        "ru": "На сковороде или в духовке 15–20 минут",
+        "ua": "На сковороді або в духовці 15–20 хвилин",
+        "tr": "Tavada veya fırında 15–20 dk",
+        "en": "Pan or oven 15–20 minutes"
+      }
     }
   ],
   "features": [
     {
       "icon": "hand",
-      "title": { "ru": "Ручная лепка", "ua": "Ручне ліплення", "tr": "El yapımı", "en": "Handmade" },
-      "text": { "ru": "Каждая партия готовится вручную.", "ua": "Кожна партія готується вручну.", "tr": "Her parti elle hazırlanır.", "en": "Every batch is made by hand." }
+      "title": {
+        "ru": "Ручная лепка",
+        "ua": "Ручне ліплення",
+        "tr": "El yapımı",
+        "en": "Handmade"
+      },
+      "text": {
+        "ru": "Каждая партия готовится вручную.",
+        "ua": "Кожна партія готується вручну.",
+        "tr": "Her parti elle hazırlanır.",
+        "en": "Every batch is made by hand."
+      }
     },
     {
       "icon": "leaf",
-      "title": { "ru": "Натуральные продукты", "ua": "Натуральні продукти", "tr": "Doğal ürünler", "en": "Natural ingredients" },
-      "text": { "ru": "Без усилителей вкуса и консервантов.", "ua": "Без підсилювачів смаку та консервантів.", "tr": "Katkı maddesi ve koruyucu yok.", "en": "No flavor enhancers or preservatives." }
+      "title": {
+        "ru": "Натуральные продукты",
+        "ua": "Натуральні продукти",
+        "tr": "Doğal ürünler",
+        "en": "Natural ingredients"
+      },
+      "text": {
+        "ru": "Без усилителей вкуса и консервантов.",
+        "ua": "Без підсилювачів смаку та консервантів.",
+        "tr": "Katkı maddesi ve koruyucu yok.",
+        "en": "No flavor enhancers or preservatives."
+      }
     },
     {
       "icon": "freeze",
-      "title": { "ru": "Шоковая заморозка", "ua": "Шокове заморожування", "tr": "Şok dondurma", "en": "Flash freezing" },
-      "text": { "ru": "Свежесть сохраняется сразу после приготовления.", "ua": "Свіжість зберігається одразу після приготування.", "tr": "Pişince hemen dondurulur, tazelik korunur.", "en": "Freshness locked in right after cooking." }
+      "title": {
+        "ru": "Шоковая заморозка",
+        "ua": "Шокове заморожування",
+        "tr": "Şok dondurma",
+        "en": "Flash freezing"
+      },
+      "text": {
+        "ru": "Свежесть сохраняется сразу после приготовления.",
+        "ua": "Свіжість зберігається одразу після приготування.",
+        "tr": "Pişince hemen dondurulur, tazelik korunur.",
+        "en": "Freshness locked in right after cooking."
+      }
     },
     {
       "icon": "truck",
-      "title": { "ru": "Доставка по Анталии", "ua": "Доставка Анталією", "tr": "Antalya teslimatı", "en": "Delivery in Antalya" },
-      "text": { "ru": "В удобное время по большинству районов.", "ua": "У зручний час більшістю районів.", "tr": "Çoğu semte uygun saatte.", "en": "Most areas, at a convenient time." }
+      "title": {
+        "ru": "Доставка по Анталии",
+        "ua": "Доставка Анталією",
+        "tr": "Antalya teslimatı",
+        "en": "Delivery in Antalya"
+      },
+      "text": {
+        "ru": "В удобное время по большинству районов.",
+        "ua": "У зручний час більшістю районів.",
+        "tr": "Çoğu semte uygun saatte.",
+        "en": "Most areas, at a convenient time."
+      }
     }
   ],
   "admin": {
     "passwordHash": "99455ec09731f446d82d57b58a5d419e0fcbbe585db618c648f05039f8d3020c"
   },
-  "defaultLang": "ru"
+  "defaultLang": "ru",
+  "hero": {
+    "title": {
+      "ru": "Casa Mia",
+      "ua": "",
+      "tr": "",
+      "en": ""
+    },
+    "subtitle": {
+      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
+      "ua": "Домашня кухня, приготована з любов'ю до якості",
+      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
+      "en": "A home kitchen cooked with love for quality"
+    },
+    "ctaWhatsapp": {
+      "ru": "",
+      "ua": "",
+      "tr": "",
+      "en": ""
+    },
+    "ctaInstagram": {
+      "ru": "",
+      "ua": "",
+      "tr": "",
+      "en": ""
+    }
+  }
 }

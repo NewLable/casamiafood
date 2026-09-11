@@ -16,7 +16,7 @@
     "id": "pancakes",
     "emoji": "🥞",
     "order": 2,
-    "color": "#c4a46a",
+    "color": "#5c6b3c",
     "enabled": true,
     "name": {
       "ru": "Блинчики",
@@ -29,7 +29,7 @@
     "id": "salads",
     "emoji": "🥗",
     "order": 3,
-    "color": "#6b8f4e",
+    "color": "#5c6b3c",
     "enabled": true,
     "name": {
       "ru": "Салаты",
@@ -42,7 +42,7 @@
     "id": "pasta",
     "emoji": "🍝",
     "order": 4,
-    "color": "#c45c4a",
+    "color": "#5c6b3c",
     "enabled": true,
     "name": {
       "ru": "Спагетти",
@@ -55,7 +55,7 @@
     "id": "bakery",
     "emoji": "🧁",
     "order": 5,
-    "color": "#d4a017",
+    "color": "#5c6b3c",
     "enabled": true,
     "name": {
       "ru": "Выпечка",
@@ -68,7 +68,7 @@
     "id": "ready",
     "emoji": "🍲",
     "order": 6,
-    "color": "#8b5e3c",
+    "color": "#5c6b3c",
     "enabled": true,
     "name": {
       "ru": "Готовые блюда",
@@ -81,8 +81,8 @@
     "id": "soups",
     "emoji": "🥣",
     "order": 7,
-    "color": "#c4784a",
-    "enabled": false,
+    "color": "#5c6b3c",
+    "enabled": true,
     "name": {
       "ru": "Первые блюда",
       "ua": "Перші страви",
