@@ -61,7 +61,7 @@ function renderHits() {
     .map((p) => {
       const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
       return `<a class="hit-item" href="${CasaMia.productHref(p.id)}">
-        <img src="${img}" alt="${CasaMia.localized(p.name)}" width="56" height="56" loading="lazy" draggable="false">
+        <img src="${img}" alt="${CasaMia.localized(p.name)}" width="56" height="56" loading="lazy" decoding="async" draggable="false">
         <div>
           <strong>${CasaMia.localized(p.name)}</strong>
           <span class="price">${CasaMia.formatPrice(p)}</span>

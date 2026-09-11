@@ -38,7 +38,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pelmeni-chicken-beef.png"
+      "images/products/пельмени куриные.png"
     ],
     "badges": {
       "hit": true,
@@ -88,7 +88,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pelmeni-turkey.png"
+      "images/products/пельмени из индейки филейные.png"
     ],
     "badges": {
       "hit": false,
@@ -138,7 +138,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pelmeni-chicken-beef.png"
+      "images/products/пельмени курино-говяжьи.png"
     ],
     "badges": {
       "hit": true,
@@ -188,7 +188,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/vareniki-potato.png"
+      "images/products/вареники с картофелем.png"
     ],
     "badges": {
       "hit": false,
@@ -238,7 +238,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/vareniki-potato.png"
+      "images/products/вареники с картофелем и грибами.png"
     ],
     "badges": {
       "hit": false,
@@ -288,7 +288,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/vareniki-potato-liver.png"
+      "images/products/вареники с картофелем и печенью.png"
     ],
     "badges": {
       "hit": false,
@@ -338,7 +338,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/vareniki-potato.png"
+      "images/products/вареники с творогом.png"
     ],
     "badges": {
       "hit": false,
@@ -388,7 +388,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/vareniki-potato.png"
+      "images/products/вареники ленивые.png"
     ],
     "badges": {
       "hit": false,
@@ -438,7 +438,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/ravioli-salmon.png"
+      "images/products/равиоли с лососем.png"
     ],
     "badges": {
       "hit": true,
@@ -488,7 +488,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cabbage-chicken.png"
+      "images/products/голубцы куриные.png"
     ],
     "badges": {
       "hit": true,
@@ -538,7 +538,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cabbage-chicken-beef.png"
+      "images/products/голубцы курино-говяжьи.png"
     ],
     "badges": {
       "hit": false,
@@ -588,7 +588,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/stuffed-pepper.png"
+      "images/products/перец фаршированный.png"
     ],
     "badges": {
       "hit": false,
@@ -638,7 +638,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cutlets-chicken.png"
+      "images/products/котлеты куриные.png"
     ],
     "badges": {
       "hit": false,
@@ -688,7 +688,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cutlets-chicken.png"
+      "images/products/фрикадельки куриные.png"
     ],
     "badges": {
       "hit": false,
@@ -738,7 +738,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pelmeni-turkey-fillet.png"
+      "images/products/тефтели из индейки.png"
     ],
     "badges": {
       "hit": false,
@@ -788,7 +788,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cutlets-chicken.png"
+      "images/brand/card.webp"
     ],
     "badges": {
       "hit": false,
@@ -838,7 +838,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pancakes-chicken.png"
+      "images/products/блинчики с курицей и сливочным сыром.png"
     ],
     "badges": {
       "hit": true,
@@ -888,7 +888,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pancakes-chicken.png"
+      "images/products/блинчики с курицей грибами и сливочным сыром.png"
     ],
     "badges": {
       "hit": false,
@@ -938,7 +938,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pancakes-chicken.png"
+      "images/products/блинчики с творогом и изюмом.png"
     ],
     "badges": {
       "hit": false,
@@ -988,7 +988,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/pancakes-chicken.png"
+      "images/brand/card.webp"
     ],
     "badges": {
       "hit": false,
@@ -1038,7 +1038,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/salad-olivier.png"
+      "images/products/салат оливье классический.png"
     ],
     "badges": {
       "hit": true,
@@ -1088,7 +1088,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/salad-salmon.png"
+      "images/products/салат лосось  под шубой.png"
     ],
     "badges": {
       "hit": false,
@@ -1138,7 +1138,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/salad-forest-heart.png"
+      "images/products/салат сердце леса.png"
     ],
     "badges": {
       "hit": false,
@@ -1212,7 +1212,7 @@
       }
     ],
     "images": [
-      "images/products/sauce-tomato.png"
+      "images/products/спагетти домашние.png"
     ],
     "badges": {
       "hit": false,
@@ -1286,7 +1286,7 @@
       }
     ],
     "images": [
-      "images/products/cinnabon.png"
+      "images/products/синнабоны с кремом.png"
     ],
     "badges": {
       "hit": true,
@@ -1336,7 +1336,7 @@
     "weight": 1,
     "weightUnit": "box",
     "images": [
-      "images/products/cinnabon.png"
+      "images/products/тирамису.png"
     ],
     "badges": {
       "hit": false,
@@ -1386,7 +1386,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cabbage-chicken.png"
+      "images/products/холодец куриный.png"
     ],
     "badges": {
       "hit": false,
@@ -1436,7 +1436,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cabbage-chicken.png"
+      "images/products/голубцы куриные.png"
     ],
     "badges": {
       "hit": false,
@@ -1486,7 +1486,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/cabbage-chicken-beef.png"
+      "images/products/голубцы курино-говяжьи.png"
     ],
     "badges": {
       "hit": false,
@@ -1536,7 +1536,7 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/stuffed-pepper.png"
+      "images/products/перец фаршированный.png"
     ],
     "badges": {
       "hit": false,
@@ -1586,7 +1586,7 @@
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
-      "images/products/sauce-tomato.png"
+      "images/brand/card.webp"
     ],
     "badges": {
       "hit": false,
@@ -1636,7 +1636,7 @@
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
-      "images/products/cutlets-chicken.png"
+      "images/brand/card.webp"
     ],
     "badges": {
       "hit": false,
@@ -1686,7 +1686,7 @@
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
-      "images/products/sauce-tomato.png"
+      "images/brand/card.webp"
     ],
     "badges": {
       "hit": true,
@@ -1736,7 +1736,7 @@
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
-      "images/products/sauce-tomato.png"
+      "images/brand/card.webp"
     ],
     "badges": {
       "hit": false,

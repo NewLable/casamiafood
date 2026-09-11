@@ -320,7 +320,7 @@ function sortProducts() {
 }
 
 function mediaUrl(path) {
-  const fallback = "images/brand/card.png";
+  const fallback = "images/brand/card.webp";
   if (!path) return fallback;
   return String(path)
     .split("/")

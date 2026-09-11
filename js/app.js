@@ -327,7 +327,7 @@ const CasaMia = (() => {
   }
 
   function mediaUrl(path) {
-    const fallback = "images/brand/card.png";
+    const fallback = "images/brand/card.webp";
     if (!path) return fallback;
     return String(path)
       .split("/")
@@ -384,7 +384,7 @@ const CasaMia = (() => {
       <article class="product-card">
         <a class="thumb" href="${href}">
           ${badgeHtml(product)}
-          <img src="${img}" alt="${localized(product.name)}" loading="lazy" width="400" height="400" draggable="false">
+          <img src="${img}" alt="${localized(product.name)}" loading="lazy" decoding="async" width="400" height="400" draggable="false">
         </a>
         <div class="body">
           <a href="${href}"><h3>${localized(product.name)}</h3></a>

@@ -21,14 +21,14 @@
   <meta property="og:url" content="https://casamiafood.vip/">
   <meta property="og:title" content="Доставка домашней еды в Анталии | Casa Mia">
   <meta property="og:description" content="Домашняя еда с любовью: ручная лепка, свежие продукты и доставка по Анталии — Лиман, Хурма, Лара, Коньяалты.">
-  <meta property="og:image" content="https://casamiafood.vip/images/brand/logo-big.png">
+  <meta property="og:image" content="https://casamiafood.vip/images/brand/og.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="images/brand/logo-big.webp" as="image" type="image/webp" fetchpriority="high">
+  <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="images/brand/favicon.png" type="image/png" sizes="any">
-  <link rel="apple-touch-icon" href="images/brand/favicon.png">
+  <link rel="icon" href="images/brand/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/brand/apple-touch.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,7 +36,7 @@
     "name": "Casa Mia",
     "alternateName": "Casa Mia Home Food",
     "url": "https://casamiafood.vip",
-    "image": "https://casamiafood.vip/images/brand/logo-big.png",
+    "image": "https://casamiafood.vip/images/brand/og.jpg",
     "telephone": "+905013381126",
     "servesCuisine": ["Homemade", "Russian", "Ukrainian"],
     "priceRange": "₺₺",
@@ -73,7 +73,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#top" aria-label="Casa Mia">
-        <img class="logo-img" src="images/brand/logo-big.png" alt="Casa Mia — домашняя еда в Анталии" width="160" height="70" draggable="false">
+        <img class="logo-img" src="images/brand/logo-header.webp" alt="Casa Mia — домашняя еда в Анталии" width="320" height="160" decoding="async" draggable="false">
       </a>
       <nav class="nav-desktop" aria-label="Main">
         <a href="#menu" data-i18n="nav_menu">Меню</a>
@@ -114,7 +114,7 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <img class="hero-logo" src="images/brand/logo-big.png" alt="Casa Mia — homemade with love" width="520" height="280" draggable="false">
+          <img class="hero-logo" src="images/brand/logo-big.webp" alt="Casa Mia — homemade with love" width="840" height="420" fetchpriority="high" decoding="sync" draggable="false">
           <h1 class="visually-hidden" data-i18n="hero_h1">Доставка домашней еды в Анталии — Casa Mia</h1>
           <p class="lead" id="hero-tagline" data-i18n="hero_lead">Домашняя кухня в Анталии, приготовленная с любовью к качеству. Пельмени, вареники, голубцы и блинчики — вручную и к вашему столу.</p>
           <ul class="hero-points">
@@ -129,7 +129,7 @@
           </div>
         </div>
         <div class="hero-media">
-          <img src="images/brand/info.png" alt="Casa Mia — домашняя еда с любовью, Анталия" width="900" height="900" draggable="false">
+          <img src="images/brand/info.webp" alt="Casa Mia — домашняя еда с любовью, Анталия" width="800" height="533" loading="lazy" fetchpriority="low" decoding="async" draggable="false">
         </div>
       </div>
     </section>
@@ -218,7 +218,7 @@
     <section class="section" id="about">
       <div class="container split">
         <div class="about-logo-panel">
-          <img src="images/brand/logo-big.png" alt="Casa Mia" width="640" height="360" draggable="false">
+          <img src="images/brand/logo-big.webp" alt="Casa Mia" width="840" height="420" loading="lazy" decoding="async" draggable="false">
         </div>
         <div class="about-copy">
           <p class="eyebrow" id="about-title">CASA MIA</p>

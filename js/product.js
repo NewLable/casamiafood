@@ -59,7 +59,7 @@ async function initProductPage() {
       <a class="back-link" href="${CasaMia.homeHref("#menu")}">← ${CasaMia.t("back_menu")}</a>
       <div class="product-layout">
         <div class="product-gallery">
-          <img src="${img}" alt="${CasaMia.localized(p.name)}" width="800" height="800" draggable="false">
+          <img src="${img}" alt="${CasaMia.localized(p.name)}" width="800" height="800" fetchpriority="high" decoding="async" draggable="false">
         </div>
         <div class="product-info">
           ${CasaMia.badgeHtml(p)}
