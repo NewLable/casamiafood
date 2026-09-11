@@ -3,10 +3,10 @@
     "name": "Casa Mia",
     "logo": "images/brand/logo-big.png",
     "tagline": {
-      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
-      "ua": "Домашня кухня, приготована з любов'ю до якості",
-      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
-      "en": "A home kitchen cooked with love for quality"
+      "ru": "Домашняя кухня в Анталии, приготовленная с любовью к качеству",
+      "ua": "Домашня кухня в Анталії, приготована з любов'ю до якості",
+      "tr": "Antalya'da kaliteye sevgiyle hazırlanan ev mutfağı",
+      "en": "A home kitchen in Antalya, cooked with love for quality"
     }
   },
   "contacts": {
@@ -25,10 +25,10 @@
   },
   "delivery": {
     "areas": {
-      "ru": "Коньяалты, Лара, Муратпаша и другие районы Анталии",
-      "ua": "Коньяалти, Лара, Муратпаша та інші райони Анталії",
-      "tr": "Konyaaltı, Lara, Muratpaşa ve Antalya'nın diğer semtleri",
-      "en": "Konyaaltı, Lara, Muratpaşa and other Antalya areas"
+      "ru": "Лиман, Хурма, Коньяалты, Лара, Муратпаша, Кунду и другие районы Анталии. Если вашего района нет в списке — напишите в WhatsApp.",
+      "ua": "Ліман, Хурма, Коньяалти, Лара, Муратпаша, Кунду та інші райони Анталії. Якщо вашого району немає в списку — напишіть у WhatsApp.",
+      "tr": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu ve Antalya'nın diğer semtleri. Listenizde yoksa WhatsApp'tan yazın.",
+      "en": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu and other Antalya areas. If yours is not listed, message us on WhatsApp."
     },
     "hours": {
       "ru": "Ежедневно с 10:00 до 20:00",
@@ -70,22 +70,36 @@
       "en": "CASA MIA"
     },
     "subtitle": {
-      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
-      "ua": "Домашня кухня, приготована з любов'ю до якості",
-      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
-      "en": "A home kitchen cooked with love for quality"
+      "ru": "О Casa Mia — домашняя кухня в Анталии",
+      "ua": "Про Casa Mia — домашня кухня в Анталії",
+      "tr": "Casa Mia hakkında — Antalya'da ev mutfağı",
+      "en": "About Casa Mia — a home kitchen in Antalya"
     },
     "text": {
-      "ru": "Casa Mia — это домашняя кухня в Анталье для тех, кто ценит настоящий вкус, свежесть и качество.\n\nМы готовим вручную, небольшими партиями и только из свежих продуктов. Не используем замороженное сырьё, готовые полуфабрикаты и массовое производство.\n\nКаждое блюдо готовится непосредственно под заказ — от замешивания теста и приготовления начинок до соусов, салатов и десертов.\n\nМы сохраняем главное в домашней кухне — натуральный вкус, знакомые рецепты и ощущение еды, приготовленной специально для вас. При этом уделяем особое внимание качеству продуктов, аккуратности приготовления и красивой подаче.\n\nCasa Mia — это домашняя еда, которую хочется подать своим близким.",
-      "ua": "Casa Mia — це домашня кухня в Анталії для тих, хто цінує справжній смак, свіжість і якість.\n\nМи готуємо вручну, невеликими партіями і лише зі свіжих продуктів. Не використовуємо заморожену сировину, готові напівфабрикати та масове виробництво.\n\nКожна страва готується безпосередньо під замовлення — від замішування тіста й приготування начинок до соусів, салатів і десертів.\n\nМи зберігаємо головне в домашній кухні — натуральний смак, знайомі рецепти й відчуття їжі, приготовленої спеціально для вас. При цьому особливу увагу приділяємо якості продуктів, акуратності приготування та красивій подачі.\n\nCasa Mia — це домашня їжа, яку хочеться подати своїм близьким.",
-      "tr": "Casa Mia, gerçek lezzeti, tazeliği ve kaliteyi önemseyenler için Antalya'da bir ev mutfağıdır.\n\nElle, küçük partiler halinde ve yalnızca taze ürünlerden pişiriyoruz. Dondurulmuş hammadde, hazır yarı mamul ve seri üretim kullanmıyoruz.\n\nHer yemek siparişe özel hazırlanır — hamurun yoğrulmasından içlerin, sosların, salataların ve tatlıların hazırlanmasına kadar.\n\nEv mutfağının özünü koruyoruz: doğal tat, tanıdık tarifler ve sizin için özel pişirilmiş yemek hissi. Aynı zamanda ürün kalitesine, özenli hazırlığa ve güzel sunuma önem veriyoruz.\n\nCasa Mia, sevdiklerinize ikram etmek isteyeceğiniz ev yemeğidir.",
-      "en": "Casa Mia is a home kitchen in Antalya for those who value real taste, freshness, and quality.\n\nWe cook by hand, in small batches, and only from fresh ingredients. We do not use frozen raw materials, ready-made semi-finished products, or mass production.\n\nEvery dish is prepared to order — from kneading dough and making fillings to sauces, salads, and desserts.\n\nWe keep what matters most in home cooking: natural taste, familiar recipes, and the feeling of food made especially for you. We also pay special attention to ingredient quality, careful cooking, and beautiful presentation.\n\nCasa Mia is homemade food you will want to share with the people you love."
+      "ru": "Casa Mia — это домашняя кухня в Анталье для тех, кто ценит настоящий вкус, свежесть и качество.\n\nМы готовим вручную, небольшими партиями и только из свежих продуктов. Не используем замороженное сырьё, готовые полуфабрикаты и массовое производство.\n\nКаждое блюдо готовится непосредственно под заказ — от замешивания теста и приготовления начинок до соусов, салатов и десертов.\n\nВ меню — пельмени (куриные, из индейки, курино-говяжьи), вареники с картофелем, грибами и творогом, равиоли с лососем, голубцы, фаршированный перец, блинчики, салаты, домашняя паста, синнабоны и готовые блюда. Тесто и начинки собираем сами: свежее мясо, овощи, яйца, творог и мука твёрдых сортов пшеницы.\n\nМы сохраняем главное в домашней кухне — натуральный вкус, знакомые рецепты и ощущение еды, приготовленной специально для вас. Casa Mia — это домашняя еда, которую хочется подать своим близким.",
+      "ua": "Casa Mia — це домашня кухня в Анталії для тих, хто цінує справжній смак, свіжість і якість.\n\nМи готуємо вручну, невеликими партіями і лише зі свіжих продуктів. Не використовуємо заморожену сировину, готові напівфабрикати та масове виробництво.\n\nКожна страва готується безпосередньо під замовлення — від замішування тіста й приготування начинок до соусів, салатів і десертів.\n\nУ меню — пельмені (курячі, з індички, курячо-яловичі), вареники з картоплею, грибами й сиром, равіолі з лососем, голубці, фарширований перець, млинці, салати, домашня паста, синнабони та готові страви. Тісто й начинки збираємо самі: свіже м'ясо, овочі, яйця, сир і борошно твердих сортів пшениці.\n\nМи зберігаємо головне в домашній кухні — натуральний смак, знайомі рецепти й відчуття їжі, приготовленої спеціально для вас. Casa Mia — це домашня їжа, яку хочеться подати своїм близьким.",
+      "tr": "Casa Mia, gerçek lezzeti, tazeliği ve kaliteyi önemseyenler için Antalya'da bir ev mutfağıdır.\n\nElle, küçük partiler halinde ve yalnızca taze ürünlerden pişiriyoruz. Dondurulmuş hammadde, hazır yarı mamul ve seri üretim kullanmıyoruz.\n\nHer yemek siparişe özel hazırlanır — hamurun yoğrulmasından içlerin, sosların, salataların ve tatlıların hazırlanmasına kadar.\n\nMenüde tavuk, hindi ve tavuk-dana mantı; patatesli, mantarlı ve peynirli vareniki; somonlu ravioli; lahana sarması, dolma biber, krep, salatalar, ev makarnası, cinnabon ve hazır yemekler var. Hamur ve içleri kendimiz hazırlıyoruz: taze et, sebze, yumurta, lor ve durum buğday unu.\n\nEv mutfağının özünü koruyoruz: doğal tat, tanıdık tarifler ve sizin için özel pişirilmiş yemek hissi. Casa Mia, sevdiklerinize ikram etmek isteyeceğiniz ev yemeğidir.",
+      "en": "Casa Mia is a home kitchen in Antalya for those who value real taste, freshness, and quality.\n\nWe cook by hand, in small batches, and only from fresh ingredients. We do not use frozen raw materials, ready-made semi-finished products, or mass production.\n\nEvery dish is prepared to order — from kneading dough and making fillings to sauces, salads, and desserts.\n\nThe menu includes chicken, turkey and chicken-beef pelmeni; potato, mushroom and cottage-cheese vareniki; salmon ravioli; cabbage rolls, stuffed peppers, pancakes, salads, homemade pasta, cinnabons and ready meals. We make the dough and fillings ourselves: fresh meat, vegetables, eggs, cottage cheese and durum wheat flour.\n\nWe keep what matters most in home cooking: natural taste, familiar recipes, and the feeling of food made especially for you. Casa Mia is homemade food you will want to share with the people you love."
     },
     "closing": {
       "ru": "Свежо. Вручную. С заботой о каждой детали.",
       "ua": "Свіжо. Вручну. З турботою про кожну деталь.",
       "tr": "Taze. Elle. Her detaya özenle.",
       "en": "Fresh. Handmade. With care in every detail."
+    }
+  },
+  "seo": {
+    "title": {
+      "ru": "Доставка домашней еды в Анталии | Casa Mia",
+      "ua": "Доставка домашньої їжі в Анталії | Casa Mia",
+      "tr": "Antalya ev yemeği teslimatı | Casa Mia",
+      "en": "Homemade food delivery in Antalya | Casa Mia"
+    },
+    "description": {
+      "ru": "Casa Mia — домашняя кухня в Анталии: пельмени, вареники, равиоли, голубцы, блинчики и салаты. Готовим вручную и доставляем в Лиман, Хурму, Лару и Коньяалты.",
+      "ua": "Casa Mia — домашня кухня в Анталії: пельмені, вареники, равіолі, голубці, млинці та салати. Готуємо вручну і доставляємо в Ліман, Хурму, Лару та Коньяалти.",
+      "tr": "Casa Mia — Antalya'da ev mutfağı: mantı, vareniki, ravioli, lahana sarması, krep ve salatalar. Elle hazırlıyor, Liman, Hurma, Lara ve Konyaaltı'na teslim ediyoruz.",
+      "en": "Casa Mia is a home kitchen in Antalya: pelmeni, vareniki, ravioli, cabbage rolls, pancakes and salads. Handmade and delivered to Liman, Hurma, Lara and Konyaaltı."
     }
   },
   "cookGuide": [
@@ -205,10 +219,10 @@
         "en": "Delivery in Antalya"
       },
       "text": {
-        "ru": "В удобное время по большинству районов.",
-        "ua": "У зручний час більшістю районів.",
-        "tr": "Çoğu semte uygun saatte.",
-        "en": "Most areas, at a convenient time."
+        "ru": "Лиман, Хурма, Лара, Коньяалты и большинство районов — в удобное время.",
+        "ua": "Ліман, Хурма, Лара, Коньяалти та більшість районів — у зручний час.",
+        "tr": "Liman, Hurma, Lara, Konyaaltı ve çoğu semte uygun saatte.",
+        "en": "Liman, Hurma, Lara, Konyaaltı and most areas, at a convenient time."
       }
     }
   ],
@@ -219,27 +233,27 @@
   "hero": {
     "title": {
       "ru": "Casa Mia",
-      "ua": "",
-      "tr": "",
-      "en": ""
+      "ua": "Casa Mia",
+      "tr": "Casa Mia",
+      "en": "Casa Mia"
     },
     "subtitle": {
-      "ru": "Домашняя кухня, приготовленная с любовью к качеству",
-      "ua": "Домашня кухня, приготована з любов'ю до якості",
-      "tr": "Kaliteye sevgiyle hazırlanan ev mutfağı",
-      "en": "A home kitchen cooked with love for quality"
+      "ru": "Домашняя кухня в Анталии: пельмени, вареники, голубцы и блинчики — готовим вручную и доставляем к столу",
+      "ua": "Домашня кухня в Анталії: пельмені, вареники, голубці й млинці — готуємо вручну і доставляємо до столу",
+      "tr": "Antalya ev mutfağı: mantı, vareniki, lahana sarması ve krep — elle pişirip sofranıza getiriyoruz",
+      "en": "A home kitchen in Antalya: pelmeni, vareniki, cabbage rolls and pancakes — handmade and delivered to your table"
     },
     "ctaWhatsapp": {
-      "ru": "",
-      "ua": "",
-      "tr": "",
-      "en": ""
+      "ru": "Написать в WhatsApp",
+      "ua": "Написати в WhatsApp",
+      "tr": "WhatsApp'tan yazın",
+      "en": "Message on WhatsApp"
     },
     "ctaInstagram": {
-      "ru": "",
-      "ua": "",
-      "tr": "",
-      "en": ""
+      "ru": "Мы в Instagram",
+      "ua": "Ми в Instagram",
+      "tr": "Instagram'dayız",
+      "en": "We're on Instagram"
     }
   }
 }

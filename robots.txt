@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /owner-guide.html
+Disallow: /docs/
+
+Sitemap: https://casamiafood.vip/sitemap.xml

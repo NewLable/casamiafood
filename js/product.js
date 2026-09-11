@@ -8,7 +8,7 @@ async function initProductPage() {
   const product = CasaMia.getProduct(id);
 
   if (!product || product.available === false) {
-    root.innerHTML = `<p>${CasaMia.t("not_found")}</p><a class="btn btn-secondary" href="index.html#menu">${CasaMia.t("back_menu")}</a>`;
+    root.innerHTML = `<p>${CasaMia.t("not_found")}</p><a class="btn btn-secondary" href="${CasaMia.homeHref("#menu")}">${CasaMia.t("back_menu")}</a>`;
     return;
   }
 
@@ -19,7 +19,28 @@ async function initProductPage() {
 
   function render(p, variant) {
     document.title = `${CasaMia.localized(p.name)} — Casa Mia`;
+    const desc = [CasaMia.localized(p.description), CasaMia.t("meta_title")].filter(Boolean).join(" · ");
+    CasaMia.applySeo({
+      title: `${CasaMia.localized(p.name)} — Casa Mia`,
+      description: desc
+    });
     const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
+    const absImg = img.startsWith("http") ? img : `${CasaMia.SITE_ORIGIN}/${img}`;
+    CasaMia.setJsonLd("schema-product", {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: CasaMia.localized(p.name),
+      description: CasaMia.localized(p.description),
+      image: absImg,
+      brand: { "@type": "Brand", name: "Casa Mia" },
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "TRY",
+        price: String(variant ? variant.price : p.price || p.variants?.[0]?.price || ""),
+        availability: p.inStock === false ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+        url: `${CasaMia.SITE_ORIGIN}/${CasaMia.productHref(p.id)}`
+      }
+    });
     const variantsHtml = p.variants?.length
       ? `<div>
           <strong style="font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--terracotta)">${CasaMia.t("choose_size")}</strong>
@@ -35,7 +56,7 @@ async function initProductPage() {
       : "";
 
     root.innerHTML = `
-      <a class="back-link" href="index.html#menu">← ${CasaMia.t("back_menu")}</a>
+      <a class="back-link" href="${CasaMia.homeHref("#menu")}">← ${CasaMia.t("back_menu")}</a>
       <div class="product-layout">
         <div class="product-gallery">
           <img src="${img}" alt="${CasaMia.localized(p.name)}" width="800" height="800" draggable="false">

@@ -6,12 +6,15 @@ async function initMenu() {
   renderFilters();
   renderHits();
   renderCatalog("all");
+  injectMenuSchema();
 
   document.addEventListener("casamia:lang", () => {
+    CasaMia.applySeo();
     renderStaticBlocks();
     renderFilters(currentCategory);
     renderHits();
     renderCatalog(currentCategory);
+    injectMenuSchema();
   });
 }
 
@@ -57,8 +60,8 @@ function renderHits() {
   wrap.innerHTML = hits
     .map((p) => {
       const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
-      return `<a class="hit-item" href="product.html?id=${encodeURIComponent(p.id)}">
-        <img src="${img}" alt="" width="56" height="56" loading="lazy" draggable="false">
+      return `<a class="hit-item" href="${CasaMia.productHref(p.id)}">
+        <img src="${img}" alt="${CasaMia.localized(p.name)}" width="56" height="56" loading="lazy" draggable="false">
         <div>
           <strong>${CasaMia.localized(p.name)}</strong>
           <span class="price">${CasaMia.formatPrice(p)}</span>
@@ -92,15 +95,17 @@ function renderStaticBlocks() {
   const heroTagline = document.getElementById("hero-tagline");
   if (aboutTitle) aboutTitle.textContent = CasaMia.localized(settings.about.title);
   if (aboutSubtitle) aboutSubtitle.textContent = CasaMia.localized(settings.about.subtitle);
-  if (aboutText) aboutText.innerHTML = CasaMia.localized(settings.about.text).replace(/\n\n/g, "<br><br>");
+  if (aboutText) {
+    const html = CasaMia.localized(settings.about.text)
+      .split(/\n\n+/)
+      .filter(Boolean)
+      .map((p) => `<p>${p.replace(/\n/g, "<br>")}</p>`)
+      .join("");
+    aboutText.innerHTML = html;
+  }
   if (aboutClosing) aboutClosing.textContent = CasaMia.localized(settings.about.closing);
   if (heroTagline) {
     heroTagline.textContent = CasaMia.localized(settings.hero?.subtitle || settings.brand?.tagline);
-  }
-
-  const heroTitle = document.querySelector(".hero h1");
-  if (heroTitle && settings.hero?.title) {
-    heroTitle.textContent = CasaMia.localized(settings.hero.title);
   }
 
   const waCta = CasaMia.localized(settings.hero?.ctaWhatsapp);
@@ -176,6 +181,29 @@ function renderStaticBlocks() {
     extra.textContent = bits.join(" · ");
     extra.hidden = !bits.length;
   }
+}
+
+function injectMenuSchema() {
+  const items = CasaMia.visibleProducts().map((p) => {
+    const price = p.price || p.variants?.[0]?.price;
+    const item = {
+      "@type": "MenuItem",
+      name: CasaMia.localized(p.name),
+      description: CasaMia.localized(p.description),
+      url: `${CasaMia.SITE_ORIGIN}/${CasaMia.productHref(p.id)}`
+    };
+    if (price) {
+      item.offers = { "@type": "Offer", price: String(price), priceCurrency: "TRY" };
+    }
+    return item;
+  });
+  CasaMia.setJsonLd("schema-menu", {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    name: "Casa Mia",
+    url: `${CasaMia.SITE_ORIGIN}/#menu`,
+    hasMenuItem: items
+  });
 }
 
 function iconSvg(name) {

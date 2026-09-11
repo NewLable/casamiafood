@@ -111,7 +111,7 @@ textarea {
 
 .section-head p {
   margin: 0 auto;
-  max-width: 36rem;
+  max-width: 42rem;
   color: var(--ink-soft);
 }
 
@@ -400,6 +400,77 @@ textarea {
   color: var(--ink-soft);
 }
 
+.about-copy #about-text p {
+  margin: 0 0 0.85rem;
+}
+
+.about-copy #about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.hits-heading {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0 0 1rem;
+}
+
+.local-seo {
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+.local-seo h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 1rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.local-seo h3 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  margin: 1.6rem 0 0.55rem;
+  font-weight: 600;
+}
+
+.local-seo p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.area-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.85rem 0 0;
+}
+
+.area-tags li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.92rem;
+}
+
+.geo-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1.15rem;
+}
+
+.geo-links a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  opacity: 0.9;
+}
+
 .about-closing {
   margin: 1.25rem 0 0;
   font-family: var(--font-display);
@@ -412,7 +483,7 @@ textarea {
   font-size: 1.08rem;
   color: var(--ink-soft);
   margin: 0 0 1.4rem;
-  max-width: 28rem;
+  max-width: 36rem;
 }
 
 .hero-points {

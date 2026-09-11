@@ -185,6 +185,9 @@ function ensureSettings(raw) {
   s.about.subtitle = I.ensureI18n(s.about.subtitle);
   s.about.text = I.ensureI18n(s.about.text);
   s.about.closing = I.ensureI18n(s.about.closing);
+  s.seo = s.seo || {};
+  s.seo.title = I.ensureI18n(s.seo.title);
+  s.seo.description = I.ensureI18n(s.seo.description);
   s.contacts = s.contacts || {};
   s.contacts.address = I.ensureI18n(s.contacts.address);
   s.contacts.phone = s.contacts.phone || s.contacts.whatsapp || "";
@@ -672,6 +675,12 @@ function renderSettingsForm() {
       ${I.blockHtml("Финальная фраза", "about-close", s.about.closing, { multiline: true, rows: 2 })}
     </div>
     <div class="section-card">
+      <h2>Поиск (SEO)</h2>
+      <p class="hint" style="margin-top:0">Уникальные Title и Description для каждой языковой версии. Поисковики читают их в сниппете.</p>
+      ${I.blockHtml("Title вкладки", "seo-title", s.seo.title)}
+      ${I.blockHtml("Description", "seo-desc", s.seo.description, { multiline: true, rows: 3 })}
+    </div>
+    <div class="section-card">
       <h2>Контакты</h2>
       ${I.blockHtml("Адрес", "addr", s.contacts.address)}
       <div class="grid-2">
@@ -702,6 +711,9 @@ function readSettingsForm() {
   s.about.subtitle = I.readFrom(form, "about-sub");
   s.about.text = I.readFrom(form, "about-text");
   s.about.closing = I.readFrom(form, "about-close");
+  s.seo = s.seo || {};
+  s.seo.title = I.readFrom(form, "seo-title");
+  s.seo.description = I.readFrom(form, "seo-desc");
   s.contacts.address = I.readFrom(form, "addr");
   s.contacts.phone = form.querySelector('[name="phone"]')?.value.trim() || "";
   s.contacts.whatsapp = form.querySelector('[name="whatsapp"]')?.value.trim() || "";

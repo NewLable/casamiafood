@@ -2,6 +2,15 @@
 const CasaMia = (() => {
   const LANG_KEY = "casamia_lang";
   const SUPPORTED = ["ru", "ua", "tr", "en"];
+  const SITE_ORIGIN = "https://casamiafood.vip";
+  const HTML_LANG = { ru: "ru", ua: "uk", tr: "tr", en: "en" };
+  const OG_LOCALE = { ru: "ru_RU", ua: "uk_UA", tr: "tr_TR", en: "en_US" };
+  const HREFLANG = [
+    { code: "ru", hreflang: "ru" },
+    { code: "ua", hreflang: "uk" },
+    { code: "tr", hreflang: "tr" },
+    { code: "en", hreflang: "en" }
+  ];
 
   const UI = {
     nav_home: { ru: "Главная", ua: "Головна", tr: "Ana sayfa", en: "Home" },
@@ -12,12 +21,66 @@ const CasaMia = (() => {
     nav_delivery: { ru: "Доставка", ua: "Доставка", tr: "Teslimat", en: "Delivery" },
     nav_reviews: { ru: "Отзывы", ua: "Відгуки", tr: "Yorumlar", en: "Reviews" },
     nav_contacts: { ru: "Контакты", ua: "Контакти", tr: "İletişim", en: "Contacts" },
-    hero_lead: {
-      ru: "Home food with love for your table.",
-      ua: "Домашня їжа з любов'ю до вашого столу.",
-      tr: "Sevgiyle ev yemeği sofranıza.",
-      en: "Home food with love for your table."
+    hero_h1: {
+      ru: "Доставка домашней еды в Анталии — Casa Mia",
+      ua: "Доставка домашньої їжі в Анталії — Casa Mia",
+      tr: "Antalya ev yemeği teslimatı — Casa Mia",
+      en: "Homemade food delivery in Antalya — Casa Mia"
     },
+    hero_lead: {
+      ru: "Домашняя кухня в Анталии, приготовленная с любовью к качеству. Пельмени, вареники, голубцы и блинчики — вручную и к вашему столу.",
+      ua: "Домашня кухня в Анталії, приготована з любов'ю до якості. Пельмені, вареники, голубці й млинці — вручну і до вашого столу.",
+      tr: "Antalya'da kaliteye sevgiyle hazırlanan ev mutfağı. Mantı, vareniki, lahana sarması ve krep — elle, sofranıza.",
+      en: "A home kitchen in Antalya, cooked with love for quality. Pelmeni, vareniki, cabbage rolls and pancakes — handmade for your table."
+    },
+    meta_title: {
+      ru: "Доставка домашней еды в Анталии | Casa Mia",
+      ua: "Доставка домашньої їжі в Анталії | Casa Mia",
+      tr: "Antalya ev yemeği teslimatı | Casa Mia",
+      en: "Homemade food delivery in Antalya | Casa Mia"
+    },
+    meta_description: {
+      ru: "Casa Mia — домашняя кухня в Анталии: пельмени, вареники, равиоли, голубцы, блинчики и салаты. Готовим вручную и доставляем в Лиман, Хурму, Лару и Коньяалты.",
+      ua: "Casa Mia — домашня кухня в Анталії: пельмені, вареники, равіолі, голубці, млинці та салати. Готуємо вручну і доставляємо в Ліман, Хурму, Лару та Коньяалти.",
+      tr: "Casa Mia — Antalya'da ev mutfağı: mantı, vareniki, ravioli, lahana sarması, krep ve salatalar. Elle hazırlıyor, Liman, Hurma, Lara ve Konyaaltı'na teslim ediyoruz.",
+      en: "Casa Mia is a home kitchen in Antalya: pelmeni, vareniki, ravioli, cabbage rolls, pancakes and salads. Handmade and delivered to Liman, Hurma, Lara and Konyaaltı."
+    },
+    catalog_eyebrow: { ru: "Каталог", ua: "Каталог", tr: "Katalog", en: "Catalog" },
+    local_title: {
+      ru: "Условия доставки по Анталии",
+      ua: "Умови доставки Анталією",
+      tr: "Antalya teslimat koşulları",
+      en: "Delivery terms in Antalya"
+    },
+    local_text: {
+      ru: "Готовим под заказ и привозим домой в удобное время. Доставка домашней еды работает по Лиману, Хурме, Коньяалты, Ларе, Муратпаше и соседним районам Анталии. Напишите в WhatsApp — подскажем стоимость и ближайший слот.",
+      ua: "Готуємо під замовлення і привозимо додому в зручний час. Доставка домашньої їжі працює Ліманом, Хурмою, Коньяалти, Ларою, Муратпашею та сусідніми районами Анталії. Напишіть у WhatsApp — підкажемо вартість і найближчий слот.",
+      tr: "Siparişe özel pişirip uygun saatte evinize getiriyoruz. Ev yemeği teslimatı Liman, Hurma, Konyaaltı, Lara, Muratpaşa ve yakın semtlerde. WhatsApp'tan yazın — ücreti ve en yakın saati söyleyelim.",
+      en: "We cook to order and deliver at a convenient time. Homemade food delivery covers Liman, Hurma, Konyaaltı, Lara, Muratpaşa and nearby Antalya areas. Message us on WhatsApp for cost and the next slot."
+    },
+    local_areas_title: { ru: "Районы доставки", ua: "Райони доставки", tr: "Teslimat semtleri", en: "Delivery areas" },
+    local_cook_title: { ru: "Что мы готовим", ua: "Що ми готуємо", tr: "Ne pişiriyoruz", en: "What we cook" },
+    local_cook_text: {
+      ru: "Пельмени куриные, из индейки и курино-говяжьи; вареники с картофелем, грибами и творогом; равиоли с лососем; голубцы и фаршированный перец; блинчики; салаты «Оливье» и с лососем; паста; синнабоны и готовые блюда — всё с ценами в каталоге.",
+      ua: "Пельмені курячі, з індички та курячо-яловичі; вареники з картоплею, грибами й сиром; равіолі з лососем; голубці й фарширований перець; млинці; салати «Олів'є» і з лососем; паста; синнабони та готові страви — усе з цінами в каталозі.",
+      tr: "Tavuk, hindi ve tavuk-dana mantı; patatesli, mantarlı ve peynirli vareniki; somonlu ravioli; lahana sarması ve dolma biber; krep; Olivier ve somon salataları; makarna; cinnabon ve hazır yemekler — fiyatlar katalogda.",
+      en: "Chicken, turkey and chicken-beef pelmeni; potato, mushroom and cottage-cheese vareniki; salmon ravioli; cabbage rolls and stuffed peppers; pancakes; Olivier and salmon salads; pasta; cinnabons and ready meals — all with prices in the catalog."
+    },
+    local_products_title: { ru: "Какие продукты используем", ua: "Які продукти використовуємо", tr: "Hangi ürünleri kullanıyoruz", en: "Ingredients we use" },
+    local_products_text: {
+      ru: "Свежее мясо и филе, овощи, яйца, творог, сливочное масло, мука твёрдых сортов пшеницы. Без усилителей вкуса, консервантов и заводских полуфабрикатов. Партии небольшие, заморозка — сразу после приготовления.",
+      ua: "Свіже м'ясо та філе, овочі, яйця, сир, вершкове масло, борошно твердих сортів пшениці. Без підсилювачів смаку, консервантів і заводських напівфабрикатів. Партії невеликі, заморозка — одразу після приготування.",
+      tr: "Taze et ve fileto, sebze, yumurta, lor, tereyağı, durum buğday unu. Tat artırıcı, koruyucu ve hazır yarı mamul yok. Küçük partiler, pişince hemen dondurma.",
+      en: "Fresh meat and fillet, vegetables, eggs, cottage cheese, butter, durum wheat flour. No flavor enhancers, preservatives or factory semi-finished products. Small batches, frozen right after cooking."
+    },
+    area_liman: { ru: "Лиман", ua: "Ліман", tr: "Liman", en: "Liman" },
+    area_hurma: { ru: "Хурма", ua: "Хурма", tr: "Hurma", en: "Hurma" },
+    area_konyaalti: { ru: "Коньяалты", ua: "Коньяалти", tr: "Konyaaltı", en: "Konyaaltı" },
+    area_lara: { ru: "Лара", ua: "Лара", tr: "Lara", en: "Lara" },
+    area_muratpasa: { ru: "Муратпаша", ua: "Муратпаша", tr: "Muratpaşa", en: "Muratpaşa" },
+    area_kundu: { ru: "Кунду", ua: "Кунду", tr: "Kundu", en: "Kundu" },
+    maps_google: { ru: "Google Карты", ua: "Google Карти", tr: "Google Haritalar", en: "Google Maps" },
+    maps_yandex: { ru: "Яндекс Карты", ua: "Яндекс Карти", tr: "Yandex Haritalar", en: "Yandex Maps" },
     hero_p1: { ru: "Натуральные ингредиенты", ua: "Натуральні інгредієнти", tr: "Doğal malzemeler", en: "Natural ingredients" },
     hero_p2: { ru: "Ручная лепка", ua: "Ручне ліплення", tr: "El yapımı", en: "Handmade" },
     hero_p3: { ru: "Шоковая заморозка", ua: "Шокове заморожування", tr: "Şok dondurma", en: "Flash freezing" },
@@ -25,12 +88,12 @@ const CasaMia = (() => {
     cta_wa: { ru: "Написать в WhatsApp", ua: "Написати в WhatsApp", tr: "WhatsApp'tan yazın", en: "Message on WhatsApp" },
     cta_ig: { ru: "Мы в Instagram", ua: "Ми в Instagram", tr: "Instagram'dayız", en: "We're on Instagram" },
     seal: { ru: "Made with love", ua: "З любов'ю", tr: "Sevgiyle", en: "Made with love" },
-    menu_title: { ru: "Меню", ua: "Меню", tr: "Menü", en: "Menu" },
+    menu_title: { ru: "Наше меню", ua: "Наше меню", tr: "Menümüz", en: "Our menu" },
     menu_sub: {
-      ru: "Актуальный прайс — листайте как каталог.",
-      ua: "Актуальний прайс — гортайте як каталог.",
-      tr: "Güncel fiyat listesi — katalog gibi gezinin.",
-      en: "Current price list — browse like a catalog."
+      ru: "Пельмени, вареники, равиоли, голубцы, блинчики, салаты, паста и выпечка — с ценами, фото и заказом в WhatsApp.",
+      ua: "Пельмені, вареники, равіолі, голубці, млинці, салати, паста й випічка — з цінами, фото та замовленням у WhatsApp.",
+      tr: "Mantı, vareniki, ravioli, lahana sarması, krep, salata, makarna ve hamur işi — fiyat, fotoğraf ve WhatsApp siparişiyle.",
+      en: "Pelmeni, vareniki, ravioli, cabbage rolls, pancakes, salads, pasta and bakery — with prices, photos and WhatsApp ordering."
     },
     hits_title: { ru: "Хиты недели", ua: "Хіти тижня", tr: "Haftanın hitleri", en: "Weekly hits" },
     all: { ru: "Все", ua: "Усі", tr: "Tümü", en: "All" },
@@ -84,7 +147,10 @@ const CasaMia = (() => {
     choose_size: { ru: "Выберите вариант", ua: "Оберіть варіант", tr: "Boyut seçin", en: "Choose option" }
   };
 
-  let lang = localStorage.getItem(LANG_KEY) || "ru";
+  const urlLang = new URLSearchParams(location.search).get("lang");
+  let lang = SUPPORTED.includes(urlLang)
+    ? urlLang
+    : localStorage.getItem(LANG_KEY) || "ru";
   if (!SUPPORTED.includes(lang)) lang = "ru";
 
   let products = [];
@@ -104,12 +170,115 @@ const CasaMia = (() => {
     return obj[lang] || obj.ru || "";
   }
 
+  function pagePath() {
+    let path = location.pathname || "/";
+    if (path.endsWith("/index.html")) path = path.slice(0, -10) || "/";
+    return path;
+  }
+
+  function languageUrl(code, extra = {}) {
+    const url = new URL(pagePath(), SITE_ORIGIN);
+    const id = extra.id || new URLSearchParams(location.search).get("id");
+    if (id) url.searchParams.set("id", id);
+    if (code && code !== "ru") url.searchParams.set("lang", code);
+    return url.href;
+  }
+
+  function canonicalUrl() {
+    return languageUrl(lang);
+  }
+
+  function setMeta(name, content, attr = "name") {
+    if (!content) return;
+    let el = document.head.querySelector(`meta[${attr}="${name}"]`);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attr, name);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", content);
+  }
+
+  function setLink(rel, href) {
+    let el = document.head.querySelector(`link[rel="${rel}"]:not([hreflang])`);
+    if (!el) {
+      el = document.createElement("link");
+      el.rel = rel;
+      document.head.appendChild(el);
+    }
+    el.href = href;
+  }
+
+  function upsertHreflang() {
+    document.querySelectorAll("link[rel='alternate'][hreflang]").forEach((el) => el.remove());
+    HREFLANG.forEach(({ code, hreflang }) => {
+      const link = document.createElement("link");
+      link.rel = "alternate";
+      link.hreflang = hreflang;
+      link.href = languageUrl(code);
+      document.head.appendChild(link);
+    });
+    const def = document.createElement("link");
+    def.rel = "alternate";
+    def.hreflang = "x-default";
+    def.href = languageUrl("ru");
+    document.head.appendChild(def);
+  }
+
+  function syncLangUrl() {
+    const url = new URL(location.href);
+    if (lang === "ru") url.searchParams.delete("lang");
+    else url.searchParams.set("lang", lang);
+    const next = url.pathname + url.search + url.hash;
+    if (next !== location.pathname + location.search + location.hash) {
+      history.replaceState({}, "", next);
+    }
+  }
+
+  function applySeo(overrides = {}) {
+    const title = overrides.title || localized(settings?.seo?.title) || t("meta_title");
+    const description = overrides.description || localized(settings?.seo?.description) || t("meta_description");
+    document.title = title;
+    document.documentElement.lang = HTML_LANG[lang] || "ru";
+    setMeta("description", description);
+    setMeta("og:title", title, "property");
+    setMeta("og:description", description, "property");
+    setMeta("og:locale", OG_LOCALE[lang] || "ru_RU", "property");
+    setMeta("og:url", canonicalUrl(), "property");
+    setLink("canonical", canonicalUrl());
+    upsertHreflang();
+    syncLangUrl();
+  }
+
+  function setJsonLd(id, data) {
+    let el = document.getElementById(id);
+    if (!el) {
+      el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.id = id;
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(data);
+  }
+
+  function productHref(id) {
+    const params = new URLSearchParams({ id });
+    if (lang !== "ru") params.set("lang", lang);
+    return `product.html?${params.toString()}`;
+  }
+
+  function homeHref(hash = "") {
+    const q = lang !== "ru" ? `?lang=${lang}` : "";
+    return `index.html${q}${hash}`;
+  }
+
   function setLang(next) {
     if (!SUPPORTED.includes(next)) return;
     lang = next;
     localStorage.setItem(LANG_KEY, lang);
-    document.documentElement.lang = lang === "ua" ? "uk" : lang;
+    document.documentElement.lang = HTML_LANG[lang] || "ru";
     applyStaticI18n();
+    syncLangUrl();
     document.dispatchEvent(new CustomEvent("casamia:lang", { detail: { lang } }));
   }
 
@@ -118,7 +287,9 @@ const CasaMia = (() => {
       el.textContent = t(el.dataset.i18n);
     });
     document.querySelectorAll(".lang-switch button").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
     });
   }
 
@@ -178,7 +349,7 @@ const CasaMia = (() => {
     reviews = (Array.isArray(revRes) && revRes.length ? revRes : s.reviews || [])
       .filter((item) => item.visible !== false)
       .sort((a, b) => (a.order || 0) - (b.order || 0));
-    if (!localStorage.getItem(LANG_KEY) && s.defaultLang) {
+    if (!urlLang && !localStorage.getItem(LANG_KEY) && SUPPORTED.includes(s.defaultLang)) {
       lang = s.defaultLang;
     }
     return { products, categories, settings, reviews };
@@ -207,7 +378,7 @@ const CasaMia = (() => {
   }
 
   function productCard(product) {
-    const href = `product.html?id=${encodeURIComponent(product.id)}`;
+    const href = productHref(product.id);
     const img = mediaUrl(product.thumbnail || product.images?.[0]);
     return `
       <article class="product-card">
@@ -220,7 +391,7 @@ const CasaMia = (() => {
           <p class="desc">${localized(product.description)}</p>
           <div class="product-meta">
             <div>
-              <div class="price">${formatPrice(product)}${product.priceUnit === "kg" ? "" : ""}<small></small></div>
+              <div class="price">${formatPrice(product)}</div>
               <div class="weight">${formatWeight(product)}</div>
             </div>
             <a class="wa-mini" href="${orderLink(product)}" aria-label="WhatsApp" target="_blank" rel="noopener">
@@ -248,6 +419,7 @@ const CasaMia = (() => {
       el.href = igLink();
     });
     applyStaticI18n();
+    applySeo();
   }
 
   function refreshLinks() {
@@ -319,6 +491,11 @@ const CasaMia = (() => {
     badgeHtml,
     mediaUrl,
     bindHeader,
+    applySeo,
+    setJsonLd,
+    productHref,
+    homeHref,
+    SITE_ORIGIN,
     SUPPORTED
   };
 })();
