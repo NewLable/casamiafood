@@ -81,6 +81,7 @@
   --terracotta-dark: #a84638;
   --olive: #5c6b3c;
   --olive-dark: #465230;
+  --olive-soft: #e4ead4;
   --gold: #c4a46a;
   --honey: #d4a574;
   --ink: #2a2420;
@@ -406,6 +407,13 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+}
+
+.hero-copy .btn-row .btn,
+.final-cta .btn-row .btn {
+  flex: 1 1 12.5rem;
+  min-height: 3.15rem;
+  text-align: center;
 }
 
 /* Hero */
@@ -1092,8 +1100,8 @@ textarea {
   overflow: hidden;
   background:
     radial-gradient(ellipse 80% 60% at 10% 0%, rgba(255, 252, 247, 0.55), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(196, 92, 74, 0.12), transparent 50%),
-    linear-gradient(145deg, #f6d5cc 0%, #efc4b8 45%, #e8b4a8 100%);
+    radial-gradient(ellipse 70% 50% at 100% 100%, rgba(92, 107, 60, 0.14), transparent 50%),
+    linear-gradient(145deg, #e8edd8 0%, #d7e0c4 45%, #c9d3b2 100%);
   color: var(--ink);
   padding: 2rem 1.25rem;
 }
@@ -1125,7 +1133,7 @@ textarea {
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--terracotta-dark);
+  color: var(--olive-dark);
   opacity: 1;
 }
 
@@ -1172,8 +1180,8 @@ textarea {
   overflow: hidden;
   background:
     radial-gradient(ellipse 70% 55% at 90% 0%, rgba(255, 252, 247, 0.5), transparent 55%),
-    radial-gradient(ellipse 60% 45% at 0% 100%, rgba(196, 92, 74, 0.14), transparent 50%),
-    linear-gradient(160deg, #f3cfc6 0%, #ebbbb0 50%, #e5a99c 100%);
+    radial-gradient(ellipse 60% 45% at 0% 100%, rgba(92, 107, 60, 0.16), transparent 50%),
+    linear-gradient(160deg, #e6ebd6 0%, #d4ddc0 50%, #c6d0ae 100%);
   color: var(--ink);
   padding: 2.5rem 1.25rem;
   text-align: center;
@@ -1197,6 +1205,17 @@ textarea {
 .final-cta .btn-secondary {
   border-color: var(--olive);
   color: var(--olive);
+}
+
+.final-cta .btn-row {
+  justify-content: center;
+  margin-inline: clamp(0.15rem, 4.5vw, 2rem);
+}
+
+@media (min-width: 768px) {
+  .final-cta .btn-row {
+    margin-inline: clamp(2.25rem, 6vw, 4.75rem);
+  }
 }
 
 .site-footer {
