@@ -18,6 +18,7 @@ const CasaMiaCart = (() => {
   let drawerOpen = false;
   let bound = false;
   let bounceTimer = 0;
+  let toastTimer = 0;
 
   function t(key, vars) {
     return CasaMia.t(key, vars);
@@ -408,11 +409,21 @@ const CasaMiaCart = (() => {
   function toast(key) {
     const wrap = document.getElementById("cart-toasts");
     if (!wrap) return;
-    const el = document.createElement("div");
-    el.className = "cart-toast";
+    let el = wrap.querySelector(".cart-toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.className = "cart-toast";
+      el.setAttribute("role", "status");
+      wrap.appendChild(el);
+    }
     el.textContent = t(key);
-    wrap.appendChild(el);
-    setTimeout(() => el.remove(), 2800);
+    el.classList.remove("is-blink");
+    void el.offsetWidth;
+    el.classList.add("is-blink");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      el.remove();
+    }, 2800);
   }
 
   function ping(id) {
@@ -613,11 +624,17 @@ const CasaMiaCart = (() => {
     }
   }
 
+  function syncSheetHeight() {
+    const h = window.visualViewport?.height || window.innerHeight;
+    document.documentElement.style.setProperty("--cart-sheet-h", `${Math.round(h)}px`);
+  }
+
   function openDrawer() {
     const overlay = document.getElementById("cart-overlay");
     const drawer = document.getElementById("cart-drawer");
     if (!drawer || !overlay) return;
     drawerOpen = true;
+    syncSheetHeight();
     overlay.hidden = false;
     drawer.hidden = false;
     requestAnimationFrame(() => {
@@ -626,7 +643,7 @@ const CasaMiaCart = (() => {
     });
     document.body.classList.add("cart-open");
     renderDrawer();
-    drawer.querySelector("[data-cart-close]")?.focus();
+    drawer.querySelector("[data-cart-close]")?.focus({ preventScroll: true });
   }
 
   function closeDrawer() {
@@ -815,6 +832,8 @@ const CasaMiaCart = (() => {
     const toasts = document.createElement("div");
     toasts.id = "cart-toasts";
     toasts.className = "cart-toasts";
+    toasts.setAttribute("aria-live", "polite");
+    toasts.setAttribute("aria-atomic", "true");
 
     document.body.append(overlay, drawer, fab, toasts);
   }
@@ -835,8 +854,12 @@ const CasaMiaCart = (() => {
       document.addEventListener("casamia:cart", renderAll);
       document.addEventListener("casamia:favorites", renderAll);
       document.addEventListener("casamia:lang", renderAll);
+      window.addEventListener("resize", syncSheetHeight);
+      window.visualViewport?.addEventListener("resize", syncSheetHeight);
+      window.visualViewport?.addEventListener("scroll", syncSheetHeight);
       bound = true;
     }
+    syncSheetHeight();
     renderAll();
   }
 
