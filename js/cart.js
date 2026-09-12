@@ -274,6 +274,42 @@ const CasaMiaCart = (() => {
     return `https://ig.me/m/${encodeURIComponent(user)}`;
   }
 
+  function isAppleTouch() {
+    const ua = navigator.userAgent || "";
+    if (/iP(ad|hone|od)/.test(ua)) return true;
+    return navigator.platform === "MacIntel" && (navigator.maxTouchPoints || 0) > 1;
+  }
+
+  function usesNativeMessenger() {
+    const ua = navigator.userAgent || "";
+    return isAppleTouch() || /Android/i.test(ua);
+  }
+
+  function withoutEmoji(text) {
+    const src = String(text || "");
+    const strip = (value, pattern) => value.replace(pattern, "");
+    let out = src;
+    try {
+      out = strip(out, /\p{Extended_Pictographic}/gu);
+    } catch {
+      out = strip(out, /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu);
+    }
+    return out
+      .replace(/\uFE0F/g, "")
+      .replace(/[ \t]{2,}/g, " ")
+      .replace(/^[ \t]+|[ \t]+$/gm, "");
+  }
+
+  function openExternal(url) {
+    if (isAppleTouch()) {
+      window.location.assign(url);
+      return;
+    }
+    const popup = window.open(url, "_blank");
+    if (popup) popup.opener = null;
+    else window.location.assign(url);
+  }
+
   function lineName(line) {
     if (!line.product) return line.id;
     let name = CasaMia.localized(line.product.name);
@@ -281,15 +317,17 @@ const CasaMiaCart = (() => {
     return name;
   }
 
-  function buildOrderText() {
+  function buildOrderText(options = {}) {
     const lines = getLineItems().filter((line) => line.product);
     if (!lines.length) return "";
-    const greeting = CasaMia.localized(cartSettings().greeting) || t("basket.greeting");
+    const plain = !!options.plain;
+    let greeting = CasaMia.localized(cartSettings().greeting) || t("basket.greeting");
+    if (plain) greeting = withoutEmoji(greeting);
     const body = lines
       .map((line) => {
-        const emoji = line.category?.emoji || "•";
+        const mark = plain ? "•" : (line.category?.emoji || "•");
         const qty = formatQty(line.qty, line.product);
-        return `${emoji} ${lineName(line)} — ${qty} × ${formatMoney(line.unitPrice)} = ${formatMoney(line.total)}`;
+        return `${mark} ${lineName(line)} — ${qty} × ${formatMoney(line.unitPrice)} = ${formatMoney(line.total)}`;
       })
       .join("\n");
     const checkout = readCheckout();
@@ -704,11 +742,11 @@ const CasaMiaCart = (() => {
   }
 
   async function checkoutWhatsApp() {
-    const text = buildOrderText();
+    const text = buildOrderText({ plain: !usesNativeMessenger() });
     if (!text) return;
     saveLastOrder();
     const phone = whatsappPhone();
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    openExternal(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
     renderHome();
   }
 
@@ -770,7 +808,7 @@ const CasaMiaCart = (() => {
 
   function confirmInstagram() {
     saveLastOrder();
-    window.open(instagramChatUrl(), "_blank", "noopener");
+    openExternal(instagramChatUrl());
     closeIgModal();
     renderHome();
   }
