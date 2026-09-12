@@ -152,10 +152,64 @@ const CasaMia = (() => {
       qty_changed: { ru: "Количество изменено", ua: "Кількість змінено", tr: "Miktar değişti", en: "Quantity updated" },
       copied: { ru: "Заказ скопирован", ua: "Замовлення скопійовано", tr: "Sipariş kopyalandı", en: "Order copied" },
       ig_copied: {
-        ru: "Заказ скопирован. Вставьте его в Instagram Direct.",
-        ua: "Замовлення скопійовано. Вставте його в Instagram Direct.",
-        tr: "Sipariş kopyalandı. Instagram Direct'e yapıştırmanız yeterli.",
-        en: "Order copied. Paste it into Instagram Direct."
+        ru: "Заказ скопирован. Вставьте его в открывшийся чат Instagram.",
+        ua: "Замовлення скопійовано. Вставте його у відкритий чат Instagram.",
+        tr: "Sipariş kopyalandı. Açılan Instagram sohbetine yapıştırın.",
+        en: "Order copied. Paste it into the Instagram chat that just opened."
+      },
+      ig_title: {
+        ru: "Отправка заказа в Instagram",
+        ua: "Надсилання замовлення в Instagram",
+        tr: "Instagram'dan sipariş gönderin",
+        en: "Send order on Instagram"
+      },
+      ig_hint: {
+        ru: "Список заказа скопирован. Сейчас откроется чат Casa Mia в Instagram. Нажмите и удерживайте поле ввода сообщения, затем выберите «Вставить» и отправьте заказ.",
+        ua: "Список замовлення скопійовано. Зараз відкриється чат Casa Mia в Instagram. Натисніть і утримуйте поле введення повідомлення, потім виберіть «Вставити» та надішліть замовлення.",
+        tr: "Sipariş listeniz kopyalandı. Şimdi Casa Mia Instagram sohbeti açılacak. Mesaj yazma alanına uzun basın, «Yapıştır» seçeneğini seçin ve siparişinizi gönderin.",
+        en: "Your order list has been copied. The Casa Mia Instagram chat will open next. Press and hold the message field, choose Paste, and send your order."
+      },
+      ig_copied_ok: {
+        ru: "Список заказа уже скопирован.",
+        ua: "Список замовлення вже скопійовано.",
+        tr: "Sipariş listeniz kopyalandı.",
+        en: "Your order list has been copied."
+      },
+      ig_soon: {
+        ru: "Сейчас откроется чат Casa Mia в Instagram.",
+        ua: "Зараз відкриється чат Casa Mia в Instagram.",
+        tr: "Şimdi Casa Mia Instagram sohbeti açılacak.",
+        en: "The Casa Mia Instagram chat will open next."
+      },
+      ig_next: {
+        ru: "Что делать дальше",
+        ua: "Що робити далі",
+        tr: "Bundan sonra",
+        en: "What to do next"
+      },
+      ig_step1: {
+        ru: "Нажмите и удерживайте поле ввода сообщения.",
+        ua: "Натисніть і утримуйте поле введення повідомлення.",
+        tr: "Mesaj yazma alanına uzun basın.",
+        en: "Press and hold the message field."
+      },
+      ig_step2: {
+        ru: "Выберите «Вставить».",
+        ua: "Виберіть «Вставити».",
+        tr: "«Yapıştır» seçeneğini seçin.",
+        en: "Choose “Paste”."
+      },
+      ig_step3: {
+        ru: "Отправьте сообщение — заказ уже готов.",
+        ua: "Надішліть повідомлення — замовлення вже готове.",
+        tr: "Mesajı gönderin — siparişiniz hazır.",
+        en: "Send the message — your order is ready."
+      },
+      ig_open: {
+        ru: "Открыть Instagram",
+        ua: "Відкрити Instagram",
+        tr: "Instagram'ı aç",
+        en: "Open Instagram"
       },
       copy_fail: {
         ru: "Не удалось скопировать заказ",
@@ -176,10 +230,10 @@ const CasaMia = (() => {
         en: "Send via Instagram"
       },
       copy_order: {
-        ru: "Скопировать заказ",
-        ua: "Скопіювати замовлення",
-        tr: "Siparişi kopyala",
-        en: "Copy order"
+        ru: "Скопировать список",
+        ua: "Скопіювати список",
+        tr: "Listeyi kopyala",
+        en: "Copy the list"
       },
       title: { ru: "Корзина", ua: "Кошик", tr: "Sepet", en: "Basket" },
       empty: { ru: "Корзина пуста", ua: "Кошик порожній", tr: "Sepetiniz boş", en: "Your basket is empty" },

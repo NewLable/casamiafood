@@ -18,7 +18,7 @@ const CasaMiaCart = (() => {
   let drawerOpen = false;
   let bound = false;
   let bounceTimer = 0;
-  let toastTimer = 0;
+  let igCopiedOk = true;
 
   function t(key, vars) {
     return CasaMia.t(key, vars);
@@ -264,11 +264,14 @@ const CasaMiaCart = (() => {
     return (cartSettings().whatsapp || s.contacts?.whatsapp || "").replace(/\D/g, "");
   }
 
-  function instagramUrl() {
+  function instagramHandle() {
     const s = CasaMia.getSettings() || {};
-    const user = (cartSettings().instagram || s.contacts?.instagram || "").replace(/^@/, "");
-    if (cartSettings().instagram && user) return `https://instagram.com/${user}`;
-    return s.contacts?.instagramUrl || (user ? `https://instagram.com/${user}` : "https://instagram.com/casa_mia_antalya");
+    return (cartSettings().instagram || s.contacts?.instagram || "casa_mia_antalya").replace(/^@/, "");
+  }
+
+  function instagramChatUrl() {
+    const user = instagramHandle();
+    return `https://ig.me/m/${encodeURIComponent(user)}`;
   }
 
   function lineName(line) {
@@ -464,6 +467,16 @@ const CasaMiaCart = (() => {
     return "";
   }
 
+  function checkoutIcon(name) {
+    if (name === "wa") {
+      return `<svg class="cart-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.7L2 22l4.4-1.1A11 11 0 1 0 20.5 3.5z"/></svg>`;
+    }
+    if (name === "ig") {
+      return `<svg class="cart-btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg>`;
+    }
+    return `<span class="cart-btn-emoji" aria-hidden="true">📋</span>`;
+  }
+
   function progressHtml(sum) {
     const freeFrom = Number(cartSettings().freeDeliveryFrom);
     if (!freeFrom) return "";
@@ -567,9 +580,9 @@ const CasaMiaCart = (() => {
       </div>
       ${minHtml}
       <div class="cart-checkout">
-        <button type="button" class="btn btn-wa cart-checkout-btn" data-cart-wa>${t("basket.send_wa")}</button>
-        <button type="button" class="btn btn-secondary cart-checkout-btn" data-cart-ig>${t("basket.send_ig")}</button>
-        <button type="button" class="btn btn-ghost cart-checkout-btn" data-cart-copy>${t("basket.copy_order")}</button>
+        <button type="button" class="btn btn-wa cart-checkout-btn" data-cart-wa>${checkoutIcon("wa")}${t("basket.send_wa")}</button>
+        <button type="button" class="btn btn-secondary cart-checkout-btn" data-cart-ig>${checkoutIcon("ig")}${t("basket.send_ig")}</button>
+        <button type="button" class="btn btn-ghost cart-checkout-btn" data-cart-copy>${checkoutIcon("copy")}${t("basket.copy_order")}</button>
       </div>`;
     if (scroller) scroller.scrollTop = keepY;
   }
@@ -654,6 +667,7 @@ const CasaMiaCart = (() => {
     overlay.classList.remove("is-open");
     drawer.classList.remove("is-open");
     document.body.classList.remove("cart-open");
+    closeIgModal();
     setTimeout(() => {
       if (!drawerOpen) {
         overlay.hidden = true;
@@ -694,11 +708,66 @@ const CasaMiaCart = (() => {
   }
 
   async function checkoutInstagram() {
+    const text = buildOrderText();
+    if (!text) return;
     const ok = await copyOrderText();
-    toast(ok ? "basket.ig_copied" : "basket.copy_fail");
-    setTimeout(() => {
-      window.open(instagramUrl(), "_blank", "noopener");
-    }, 350);
+    if (!ok) toast("basket.copy_fail");
+    openIgModal(ok);
+  }
+
+  function igModalEl() {
+    return document.getElementById("cart-ig-modal");
+  }
+
+  function fillIgModal(copied) {
+    const modal = igModalEl();
+    if (!modal) return;
+    const status = copied !== false;
+    modal.innerHTML = `
+      <div class="cart-ig-backdrop" data-cart-ig-close></div>
+      <div class="cart-ig-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-ig-title" aria-describedby="cart-ig-hint">
+        <button type="button" class="cart-close cart-ig-x" data-cart-ig-close aria-label="${esc(t("basket.close"))}">×</button>
+        <p class="cart-ig-kicker">${checkoutIcon("ig")}</p>
+        <h3 id="cart-ig-title">${esc(t("basket.ig_title"))}</h3>
+        <p id="cart-ig-hint" class="visually-hidden">${esc(t("basket.ig_hint"))}</p>
+        <div class="cart-ig-status${status ? "" : " is-fail"}">
+          <p><strong>${esc(status ? t("basket.ig_copied_ok") : t("basket.copy_fail"))}</strong></p>
+          <p>${esc(t("basket.ig_soon"))}</p>
+        </div>
+        <p class="cart-ig-next">${esc(t("basket.ig_next"))}</p>
+        <ol class="cart-ig-steps">
+          <li>${esc(t("basket.ig_step1"))}</li>
+          <li>${esc(t("basket.ig_step2"))}</li>
+          <li>${esc(t("basket.ig_step3"))}</li>
+        </ol>
+        <button type="button" class="btn cart-checkout-btn btn-ig" data-cart-ig-open>
+          ${checkoutIcon("ig")}${esc(t("basket.ig_open"))}
+        </button>
+      </div>`;
+  }
+
+  function openIgModal(copied) {
+    const modal = igModalEl();
+    if (!modal) return;
+    igCopiedOk = copied !== false;
+    fillIgModal(igCopiedOk);
+    modal.hidden = false;
+    requestAnimationFrame(() => modal.classList.add("is-open"));
+    modal.querySelector("[data-cart-ig-open]")?.focus({ preventScroll: true });
+  }
+
+  function closeIgModal() {
+    const modal = igModalEl();
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.hidden = true;
+  }
+
+  function confirmInstagram() {
+    saveLastOrder();
+    window.open(instagramChatUrl(), "_blank", "noopener");
+    closeIgModal();
+    renderHome();
   }
 
   async function copyOrder() {
@@ -750,6 +819,16 @@ const CasaMiaCart = (() => {
       toggleFavorite(fav.dataset.favToggle);
       return;
     }
+    if (e.target.closest("[data-cart-ig-open]")) {
+      e.preventDefault();
+      confirmInstagram();
+      return;
+    }
+    if (e.target.closest("[data-cart-ig-close]")) {
+      e.preventDefault();
+      closeIgModal();
+      return;
+    }
     if (e.target.closest("[data-cart-open]")) {
       e.preventDefault();
       openDrawer();
@@ -757,6 +836,10 @@ const CasaMiaCart = (() => {
     }
     if (e.target.closest("[data-cart-close]") || e.target.id === "cart-overlay") {
       e.preventDefault();
+      if (igModalEl() && !igModalEl().hidden) {
+        closeIgModal();
+        return;
+      }
       closeDrawer();
       return;
     }
@@ -785,7 +868,12 @@ const CasaMiaCart = (() => {
   }
 
   function onKey(e) {
-    if (e.key === "Escape" && drawerOpen) closeDrawer();
+    if (e.key !== "Escape") return;
+    if (igModalEl() && !igModalEl().hidden) {
+      closeIgModal();
+      return;
+    }
+    if (drawerOpen) closeDrawer();
   }
 
   function onInput(e) {
@@ -835,12 +923,19 @@ const CasaMiaCart = (() => {
     toasts.setAttribute("aria-live", "polite");
     toasts.setAttribute("aria-atomic", "true");
 
-    document.body.append(overlay, drawer, fab, toasts);
+    const igModal = document.createElement("div");
+    igModal.id = "cart-ig-modal";
+    igModal.className = "cart-ig-modal";
+    igModal.hidden = true;
+
+    document.body.append(overlay, drawer, fab, toasts, igModal);
   }
 
   function renderAll() {
     renderFab();
     if (drawerOpen) renderDrawer();
+    const ig = igModalEl();
+    if (ig && !ig.hidden) fillIgModal(igCopiedOk);
     refreshControls();
     renderHome();
   }
