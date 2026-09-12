@@ -232,7 +232,7 @@
   "defaultLang": "ru",
   "cart": {
     "minOrder": 300,
-    "freeDeliveryFrom": 800,
+    "freeDeliveryFrom": 2500,
     "whatsapp": "",
     "instagram": "",
     "greeting": {
