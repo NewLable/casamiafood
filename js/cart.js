@@ -6,6 +6,7 @@ const CasaMiaCart = (() => {
   const CART_KEY = "casamia_cart";
   const FAV_KEY = "casamia_favorites";
   const LAST_KEY = "casamia_lastOrder";
+  const CHECKOUT_KEY = "casamia_checkout";
 
   const QTY_PRESETS = {
     package: { type: "package", step: 1, min: 1, unitKey: "basket.unit_package" },
@@ -287,10 +288,34 @@ const CasaMiaCart = (() => {
         return `${emoji} ${lineName(line)} — ${qty} × ${formatMoney(line.unitPrice)} = ${formatMoney(line.total)}`;
       })
       .join("\n");
-    const fields = CasaMia.localized(cartSettings().fields) ||
-      `${t("basket.field_name")}\n${t("basket.field_area")}\n${t("basket.field_time")}`;
+    const checkout = readCheckout();
+    const fields = [
+      `${t("basket.field_name")} ${checkout.name}`.trimEnd(),
+      `${t("basket.field_area")} ${checkout.area}`.trimEnd(),
+      t("basket.field_time")
+    ].join("\n");
     const totalLine = `${t("basket.total")}: ${formatMoney(subtotal(lines))}`;
     return `${greeting}\n\n${body}\n\n————————————\n${totalLine}\n\n${fields}`;
+  }
+
+  function readCheckout() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(CHECKOUT_KEY) || "{}");
+      return {
+        name: String(raw.name || ""),
+        area: String(raw.area || "")
+      };
+    } catch {
+      return { name: "", area: "" };
+    }
+  }
+
+  function persistCheckout(partial) {
+    const next = { ...readCheckout(), ...partial };
+    localStorage.setItem(CHECKOUT_KEY, JSON.stringify({
+      name: String(next.name || "").slice(0, 80),
+      area: String(next.area || "").slice(0, 80)
+    }));
   }
 
   function readFavs() {
@@ -462,6 +487,8 @@ const CasaMiaCart = (() => {
     const foot = document.getElementById("cart-drawer-foot");
     const title = document.getElementById("cart-drawer-title");
     if (!body || !foot) return;
+    const scroller = document.querySelector(".cart-drawer-scroll");
+    const keepY = scroller ? scroller.scrollTop : 0;
     if (title) title.textContent = t("basket.title");
     const closeBtn = document.querySelector("[data-cart-close]");
     if (closeBtn) closeBtn.setAttribute("aria-label", t("basket.close"));
@@ -470,6 +497,7 @@ const CasaMiaCart = (() => {
     if (!lines.length) {
       body.innerHTML = `<p class="cart-empty">${t("basket.empty")}</p>`;
       foot.innerHTML = "";
+      if (scroller) scroller.scrollTop = keepY;
       return;
     }
 
@@ -480,7 +508,7 @@ const CasaMiaCart = (() => {
         const v = variantAttrs(line.variantId);
         const qty = line.product ? formatQtyLabel(line.qty, line.product) : formatQtyNumber(line.qty);
         return `<article class="cart-line${line.warning ? " has-warn" : ""}">
-          <img src="${esc(img)}" alt="" width="48" height="48" draggable="false">
+          <img src="${esc(img)}" alt="" width="72" height="72" draggable="false">
           <div class="cart-line-main">
             <h3>${esc(lineName(line))}</h3>
             <p class="cart-line-price">${formatMoney(line.unitPrice)} · ${formatMoney(line.total)}</p>
@@ -497,6 +525,19 @@ const CasaMiaCart = (() => {
         </article>`;
       })
       .join("");
+
+    const checkout = readCheckout();
+    body.insertAdjacentHTML("beforeend", `
+      <div class="cart-contact">
+        <label class="cart-field">
+          <span>${esc(t("basket.checkout_name"))}</span>
+          <input type="text" data-cart-name autocomplete="name" enterkeyhint="next" maxlength="80" placeholder="${esc(t("basket.name_ph"))}" value="${esc(checkout.name)}">
+        </label>
+        <label class="cart-field">
+          <span>${esc(t("basket.checkout_area"))}</span>
+          <input type="text" data-cart-area autocomplete="address-level2" enterkeyhint="done" maxlength="80" placeholder="${esc(t("basket.area_ph"))}" value="${esc(checkout.area)}">
+        </label>
+      </div>`);
 
     const sum = subtotal(lines);
     const count = itemCount(lines);
@@ -519,6 +560,7 @@ const CasaMiaCart = (() => {
         <button type="button" class="btn btn-secondary cart-checkout-btn" data-cart-ig>${t("basket.send_ig")}</button>
         <button type="button" class="btn btn-ghost cart-checkout-btn" data-cart-copy>${t("basket.copy_order")}</button>
       </div>`;
+    if (scroller) scroller.scrollTop = keepY;
   }
 
   function formatLastDate(iso) {
@@ -729,6 +771,16 @@ const CasaMiaCart = (() => {
     if (e.key === "Escape" && drawerOpen) closeDrawer();
   }
 
+  function onInput(e) {
+    const name = e.target.closest?.("[data-cart-name]");
+    if (name) {
+      persistCheckout({ name: name.value });
+      return;
+    }
+    const area = e.target.closest?.("[data-cart-area]");
+    if (area) persistCheckout({ area: area.value });
+  }
+
   function ensureUi() {
     if (document.getElementById("cart-fab")) return;
     const overlay = document.createElement("div");
@@ -748,8 +800,10 @@ const CasaMiaCart = (() => {
         <h2 id="cart-drawer-title"></h2>
         <button type="button" class="cart-close" data-cart-close aria-label="">×</button>
       </div>
-      <div class="cart-drawer-body" id="cart-drawer-body"></div>
-      <div class="cart-drawer-foot" id="cart-drawer-foot"></div>`;
+      <div class="cart-drawer-scroll">
+        <div class="cart-drawer-body" id="cart-drawer-body"></div>
+        <div class="cart-drawer-foot" id="cart-drawer-foot"></div>
+      </div>`;
 
     const fab = document.createElement("button");
     fab.type = "button";
@@ -776,6 +830,7 @@ const CasaMiaCart = (() => {
     ensureUi();
     if (!bound) {
       document.addEventListener("click", onClick);
+      document.addEventListener("input", onInput);
       document.addEventListener("keydown", onKey);
       document.addEventListener("casamia:cart", renderAll);
       document.addEventListener("casamia:favorites", renderAll);

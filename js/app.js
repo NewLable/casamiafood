@@ -221,6 +221,20 @@ const CasaMia = (() => {
       },
       field_name: { ru: "Имя:", ua: "Ім'я:", tr: "Adınız:", en: "Name:" },
       field_area: { ru: "Район доставки:", ua: "Район доставки:", tr: "Teslimat semtiniz:", en: "Delivery area:" },
+      checkout_name: { ru: "Имя", ua: "Ім'я", tr: "Adınız", en: "Name" },
+      checkout_area: { ru: "Район доставки", ua: "Район доставки", tr: "Teslimat semti", en: "Delivery area" },
+      name_ph: {
+        ru: "Как к вам обращаться",
+        ua: "Як до вас звертатися",
+        tr: "Adınız",
+        en: "Your name"
+      },
+      area_ph: {
+        ru: "Лиман, Хурма, Лара…",
+        ua: "Ліман, Хурма, Лара…",
+        tr: "Liman, Hurma, Lara…",
+        en: "Liman, Hurma, Lara…"
+      },
       field_time: {
         ru: "Желаемое время доставки:",
         ua: "Бажаний час доставки:",
