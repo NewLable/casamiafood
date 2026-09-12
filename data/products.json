@@ -98,7 +98,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -157,7 +157,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -216,7 +216,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -275,7 +275,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -334,7 +334,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -393,7 +393,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -452,7 +452,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -511,7 +511,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -570,7 +570,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -629,7 +629,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -688,7 +688,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -747,7 +747,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -806,7 +806,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -865,7 +865,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -924,7 +924,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -936,7 +936,7 @@
     ],
     "badges": {
       "hit": false,
-      "new": false,
+      "new": true,
       "sale": false
     },
     "available": true,
@@ -983,7 +983,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1042,7 +1042,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1053,7 +1053,7 @@
       "images/products/блинчики с курицей грибами и сливочным сыром.png"
     ],
     "badges": {
-      "hit": false,
+      "hit": true,
       "new": false,
       "sale": false
     },
@@ -1101,7 +1101,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1160,7 +1160,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1219,7 +1219,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1278,7 +1278,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1289,7 +1289,7 @@
       "images/products/салат лосось  под шубой.png"
     ],
     "badges": {
-      "hit": false,
+      "hit": true,
       "new": false,
       "sale": false
     },
@@ -1337,7 +1337,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1348,8 +1348,8 @@
       "images/products/салат сердце леса.png"
     ],
     "badges": {
-      "hit": false,
-      "new": true,
+      "hit": true,
+      "new": false,
       "sale": false
     },
     "available": true,
@@ -1633,7 +1633,7 @@
     ],
     "badges": {
       "hit": false,
-      "new": false,
+      "new": true,
       "sale": false
     },
     "available": true,
@@ -1680,7 +1680,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1739,7 +1739,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1798,7 +1798,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
