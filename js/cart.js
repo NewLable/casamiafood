@@ -412,21 +412,26 @@ const CasaMiaCart = (() => {
   function toast(key) {
     const wrap = document.getElementById("cart-toasts");
     if (!wrap) return;
-    let el = wrap.querySelector(".cart-toast");
-    if (!el) {
-      el = document.createElement("div");
-      el.className = "cart-toast";
-      el.setAttribute("role", "status");
-      wrap.appendChild(el);
-    }
+    wrap.replaceChildren();
+    const el = document.createElement("div");
+    el.className = "cart-toast is-show";
+    el.setAttribute("role", "status");
     el.textContent = t(key);
-    el.classList.remove("is-blink");
-    void el.offsetWidth;
-    el.classList.add("is-blink");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => {
-      el.remove();
-    }, 2800);
+    wrap.appendChild(el);
+
+    const hide = () => {
+      if (el.parentNode) el.remove();
+      window.clearTimeout(toastTimer);
+      toastTimer = 0;
+    };
+    const onEnd = (e) => {
+      if (e.animationName && e.animationName !== "cart-toast-life") return;
+      hide();
+    };
+    el.addEventListener("animationend", onEnd);
+    el.addEventListener("webkitAnimationEnd", onEnd);
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(hide, 3200);
   }
 
   function ping(id) {
@@ -937,7 +942,6 @@ const CasaMiaCart = (() => {
     const ig = igModalEl();
     if (ig && !ig.hidden) fillIgModal(igCopiedOk);
     refreshControls();
-    renderHome();
   }
 
   function mount() {
@@ -947,8 +951,14 @@ const CasaMiaCart = (() => {
       document.addEventListener("input", onInput);
       document.addEventListener("keydown", onKey);
       document.addEventListener("casamia:cart", renderAll);
-      document.addEventListener("casamia:favorites", renderAll);
-      document.addEventListener("casamia:lang", renderAll);
+      document.addEventListener("casamia:favorites", () => {
+        renderHome();
+        refreshControls();
+      });
+      document.addEventListener("casamia:lang", () => {
+        renderAll();
+        renderHome();
+      });
       window.addEventListener("resize", syncSheetHeight);
       window.visualViewport?.addEventListener("resize", syncSheetHeight);
       window.visualViewport?.addEventListener("scroll", syncSheetHeight);
@@ -956,6 +966,7 @@ const CasaMiaCart = (() => {
     }
     syncSheetHeight();
     renderAll();
+    renderHome();
   }
 
   return {
