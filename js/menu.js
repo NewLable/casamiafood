@@ -2,11 +2,13 @@
 async function initMenu() {
   await CasaMia.loadData();
   CasaMia.bindHeader();
+  CasaMiaCart.mount();
   renderStaticBlocks();
   renderFilters();
   renderHits();
   renderCatalog("all");
   injectMenuSchema();
+  CasaMia.pinTopIfReload();
 
   document.addEventListener("casamia:lang", () => {
     CasaMia.applySeo();

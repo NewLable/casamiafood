@@ -4,9 +4,9 @@
     "logo": "images/brand/logo-big.webp",
     "tagline": {
       "ru": "Домашняя кухня в Анталии, приготовленная с любовью к качеству",
-      "ua": "Домашня кухня в Анталії, приготована з любов'ю до якості",
-      "tr": "Antalya'da kaliteye sevgiyle hazırlanan ev mutfağı",
-      "en": "A home kitchen in Antalya, cooked with love for quality"
+      "ua": "Домашня кухня в Анталії, яку готуємо з турботою",
+      "tr": "Antalya'da özenle pişen ev yemekleri",
+      "en": "A home kitchen in Antalya, cooked with real care"
     }
   },
   "contacts": {
@@ -27,7 +27,7 @@
     "areas": {
       "ru": "Лиман, Хурма, Коньяалты, Лара, Муратпаша, Кунду и другие районы Анталии. Если вашего района нет в списке — напишите в WhatsApp.",
       "ua": "Ліман, Хурма, Коньяалти, Лара, Муратпаша, Кунду та інші райони Анталії. Якщо вашого району немає в списку — напишіть у WhatsApp.",
-      "tr": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu ve Antalya'nın diğer semtleri. Listenizde yoksa WhatsApp'tan yazın.",
+      "tr": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu ve Antalya'nın diğer semtleri. Semtiniz listede yoksa WhatsApp'tan yazın.",
       "en": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu and other Antalya areas. If yours is not listed, message us on WhatsApp."
     },
     "hours": {
@@ -46,13 +46,13 @@
     "title": {
       "ru": "Осуществляем доставку по адресу.",
       "ua": "Здійснюємо доставку на адресу.",
-      "tr": "Adresinize teslimat yapıyoruz.",
+      "tr": "Kapınıza teslim ediyoruz.",
       "en": "We deliver to your address."
     },
     "description": {
       "ru": "Доставка по Коньяалты от 300 лир. Доставка в другие районы при заказе от 2000 лир. Стоимость доставки индивидуальна и зависит от локации и времени доставки.",
       "ua": "Доставка по Коньяалти від 300 лір. Доставка в інші райони при замовленні від 2000 лір. Вартість доставки індивідуальна та залежить від локації та часу доставки.",
-      "tr": "Konyaaltı sınırları içinde 300 TL ve üzeri siparişlerde teslimat hizmeti mevcuttur. Diğer ilçelere ise 2.000 TL ve üzeri siparişlerde teslimat yapılmaktadır. Teslimat ücretleri, konuma ve teslimat zamanına göre değişiklik göstermektedir.",
+      "tr": "Konyaaltı'nda 300 TL ve üzeri siparişlerde getiriyoruz. Diğer semtlere 2.000 TL ve üzeri siparişlerde teslim ediyoruz. Ücret, adrese ve saate göre değişir.",
       "en": "Delivery within Konyaalti starts from 300 lira. Delivery to other areas is available for orders over 2,000 lira. Delivery costs vary depending on the location and delivery time."
     },
     "cost": {
@@ -78,13 +78,13 @@
     "text": {
       "ru": "Casa Mia — это домашняя кухня в Анталье для тех, кто ценит настоящий вкус, свежесть и качество.\n\nМы готовим вручную, небольшими партиями и только из свежих продуктов. Не используем замороженное сырьё, готовые полуфабрикаты и массовое производство.\n\nКаждое блюдо готовится непосредственно под заказ — от замешивания теста и приготовления начинок до соусов, салатов и десертов.\n\nВ меню — пельмени (куриные, из индейки, курино-говяжьи), вареники с картофелем, грибами и творогом, равиоли с лососем, голубцы, фаршированный перец, блинчики, салаты, домашняя паста, синнабоны и готовые блюда. Тесто и начинки собираем сами: свежее мясо, овощи, яйца, творог и мука твёрдых сортов пшеницы.\n\nМы сохраняем главное в домашней кухне — натуральный вкус, знакомые рецепты и ощущение еды, приготовленной специально для вас. Casa Mia — это домашняя еда, которую хочется подать своим близким.",
       "ua": "Casa Mia — це домашня кухня в Анталії для тих, хто цінує справжній смак, свіжість і якість.\n\nМи готуємо вручну, невеликими партіями і лише зі свіжих продуктів. Не використовуємо заморожену сировину, готові напівфабрикати та масове виробництво.\n\nКожна страва готується безпосередньо під замовлення — від замішування тіста й приготування начинок до соусів, салатів і десертів.\n\nУ меню — пельмені (курячі, з індички, курячо-яловичі), вареники з картоплею, грибами й сиром, равіолі з лососем, голубці, фарширований перець, млинці, салати, домашня паста, синнабони та готові страви. Тісто й начинки збираємо самі: свіже м'ясо, овочі, яйця, сир і борошно твердих сортів пшениці.\n\nМи зберігаємо головне в домашній кухні — натуральний смак, знайомі рецепти й відчуття їжі, приготовленої спеціально для вас. Casa Mia — це домашня їжа, яку хочеться подати своїм близьким.",
-      "tr": "Casa Mia, gerçek lezzeti, tazeliği ve kaliteyi önemseyenler için Antalya'da bir ev mutfağıdır.\n\nElle, küçük partiler halinde ve yalnızca taze ürünlerden pişiriyoruz. Dondurulmuş hammadde, hazır yarı mamul ve seri üretim kullanmıyoruz.\n\nHer yemek siparişe özel hazırlanır — hamurun yoğrulmasından içlerin, sosların, salataların ve tatlıların hazırlanmasına kadar.\n\nMenüde tavuk, hindi ve tavuk-dana mantı; patatesli, mantarlı ve peynirli vareniki; somonlu ravioli; lahana sarması, dolma biber, krep, salatalar, ev makarnası, cinnabon ve hazır yemekler var. Hamur ve içleri kendimiz hazırlıyoruz: taze et, sebze, yumurta, lor ve durum buğday unu.\n\nEv mutfağının özünü koruyoruz: doğal tat, tanıdık tarifler ve sizin için özel pişirilmiş yemek hissi. Casa Mia, sevdiklerinize ikram etmek isteyeceğiniz ev yemeğidir.",
+      "tr": "Casa Mia, gerçek lezzeti ve tazeliği önemseyenler için Antalya'da bir ev mutfağı.\n\nElle, küçük partiler halinde ve yalnızca taze malzemeyle pişiriyoruz. Dondurulmuş hammadde, hazır harç ve seri üretim kullanmıyoruz.\n\nHer yemek siparişe özel çıkar — hamur yoğrulmasından içlerin, sosların, salataların ve tatlıların hazırlanmasına kadar.\n\nMenüde tavuklu, hindili ve tavuklu-dana pelmeni; patatesli, mantarlı ve lorlu vareniki; somonlu ravioli; lahana sarması, biber dolması, krep, salatalar, ev makarnası, tarçınlı rulo ve hazır yemekler var. Hamuru ve içleri kendimiz yapıyoruz: taze et, sebze, yumurta, lor ve durum buğday unu.\n\nEv mutfağının ruhunu koruyoruz: doğal tat, tanıdık tarifler ve sizin için pişmiş yemek hissi. Casa Mia, sevdiklerinize ikram etmek isteyeceğiniz ev yemeğidir.",
       "en": "Casa Mia is a home kitchen in Antalya for those who value real taste, freshness, and quality.\n\nWe cook by hand, in small batches, and only from fresh ingredients. We do not use frozen raw materials, ready-made semi-finished products, or mass production.\n\nEvery dish is prepared to order — from kneading dough and making fillings to sauces, salads, and desserts.\n\nThe menu includes chicken, turkey and chicken-beef pelmeni; potato, mushroom and cottage-cheese vareniki; salmon ravioli; cabbage rolls, stuffed peppers, pancakes, salads, homemade pasta, cinnabons and ready meals. We make the dough and fillings ourselves: fresh meat, vegetables, eggs, cottage cheese and durum wheat flour.\n\nWe keep what matters most in home cooking: natural taste, familiar recipes, and the feeling of food made especially for you. Casa Mia is homemade food you will want to share with the people you love."
     },
     "closing": {
       "ru": "Свежо. Вручную. С заботой о каждой детали.",
       "ua": "Свіжо. Вручну. З турботою про кожну деталь.",
-      "tr": "Taze. Elle. Her detaya özenle.",
+      "tr": "Taze. Elle. Her ayrıntıya özenle.",
       "en": "Fresh. Handmade. With care in every detail."
     }
   },
@@ -98,7 +98,7 @@
     "description": {
       "ru": "Casa Mia — домашняя кухня в Анталии: пельмени, вареники, равиоли, голубцы, блинчики и салаты. Готовим вручную и доставляем в Лиман, Хурму, Лару и Коньяалты.",
       "ua": "Casa Mia — домашня кухня в Анталії: пельмені, вареники, равіолі, голубці, млинці та салати. Готуємо вручну і доставляємо в Ліман, Хурму, Лару та Коньяалти.",
-      "tr": "Casa Mia — Antalya'da ev mutfağı: mantı, vareniki, ravioli, lahana sarması, krep ve salatalar. Elle hazırlıyor, Liman, Hurma, Lara ve Konyaaltı'na teslim ediyoruz.",
+      "tr": "Casa Mia — Antalya'da ev mutfağı: pelmeni, vareniki, ravioli, lahana sarması, krep ve salatalar. Elle hazırlıyoruz; Liman, Hurma, Lara ve Konyaaltı'na teslim ediyoruz.",
       "en": "Casa Mia is a home kitchen in Antalya: pelmeni, vareniki, ravioli, cabbage rolls, pancakes and salads. Handmade and delivered to Liman, Hurma, Lara and Konyaaltı."
     }
   },
@@ -108,13 +108,13 @@
       "title": {
         "ru": "Пельмени / вареники",
         "ua": "Пельмені / вареники",
-        "tr": "Mantı / vareniki",
+        "tr": "Pelmeni / vareniki",
         "en": "Dumplings"
       },
       "time": {
         "ru": "8–10 минут после закипания",
         "ua": "8–10 хвилин після закипання",
-        "tr": "Kaynadıktan sonra 8–10 dk",
+        "tr": "Kaynayan suda 8–10 dk",
         "en": "8–10 minutes after boiling"
       }
     },
@@ -129,7 +129,7 @@
       "time": {
         "ru": "5–6 минут или обжарить на сливочном масле",
         "ua": "5–6 хвилин або обсмажити на вершковому маслі",
-        "tr": "5–6 dk veya tereyağında kızartın",
+        "tr": "5–6 dk haşlayın veya tereyağında kızartın",
         "en": "5–6 minutes or pan-fry in butter"
       }
     },
@@ -138,13 +138,13 @@
       "title": {
         "ru": "Голубцы / перец",
         "ua": "Голубці / перець",
-        "tr": "Lahana / biber dolması",
+        "tr": "Lahana sarması / dolma",
         "en": "Cabbage / stuffed pepper"
       },
       "time": {
         "ru": "20–25 минут под крышкой",
         "ua": "20–25 хвилин під кришкою",
-        "tr": "Kapak altında 20–25 dk",
+        "tr": "Kapağı kapalı 20–25 dk",
         "en": "20–25 minutes covered"
       }
     },
@@ -153,13 +153,13 @@
       "title": {
         "ru": "Котлеты / фрикадельки",
         "ua": "Котлети / фрикадельки",
-        "tr": "Köfte / toplar",
+        "tr": "Köfte / mini köfte",
         "en": "Cutlets / meatballs"
       },
       "time": {
         "ru": "На сковороде или в духовке 15–20 минут",
         "ua": "На сковороді або в духовці 15–20 хвилин",
-        "tr": "Tavada veya fırında 15–20 dk",
+        "tr": "Tava veya fırında 15–20 dk",
         "en": "Pan or oven 15–20 minutes"
       }
     }
@@ -170,13 +170,13 @@
       "title": {
         "ru": "Ручная лепка",
         "ua": "Ручне ліплення",
-        "tr": "El yapımı",
+        "tr": "Elle yapılır",
         "en": "Handmade"
       },
       "text": {
         "ru": "Каждая партия готовится вручную.",
         "ua": "Кожна партія готується вручну.",
-        "tr": "Her parti elle hazırlanır.",
+        "tr": "Her parti elle yapılır.",
         "en": "Every batch is made by hand."
       }
     },
@@ -191,7 +191,7 @@
       "text": {
         "ru": "Без усилителей вкуса и консервантов.",
         "ua": "Без підсилювачів смаку та консервантів.",
-        "tr": "Katkı maddesi ve koruyucu yok.",
+        "tr": "Katkısız, koruyucusuz.",
         "en": "No flavor enhancers or preservatives."
       }
     },
@@ -206,7 +206,7 @@
       "text": {
         "ru": "Свежесть сохраняется сразу после приготовления.",
         "ua": "Свіжість зберігається одразу після приготування.",
-        "tr": "Pişince hemen dondurulur, tazelik korunur.",
+        "tr": "Pişince hemen dondurulur, tazelik kalır.",
         "en": "Freshness locked in right after cooking."
       }
     },
@@ -215,13 +215,13 @@
       "title": {
         "ru": "Доставка по Анталии",
         "ua": "Доставка Анталією",
-        "tr": "Antalya teslimatı",
+        "tr": "Antalya'da teslimat",
         "en": "Delivery in Antalya"
       },
       "text": {
         "ru": "Лиман, Хурма, Лара, Коньяалты и большинство районов — в удобное время.",
         "ua": "Ліман, Хурма, Лара, Коньяалти та більшість районів — у зручний час.",
-        "tr": "Liman, Hurma, Lara, Konyaaltı ve çoğu semte uygun saatte.",
+        "tr": "Liman, Hurma, Lara, Konyaaltı ve çoğu semte, istediğiniz saatte.",
         "en": "Liman, Hurma, Lara, Konyaaltı and most areas, at a convenient time."
       }
     }
@@ -230,6 +230,24 @@
     "passwordHash": "99455ec09731f446d82d57b58a5d419e0fcbbe585db618c648f05039f8d3020c"
   },
   "defaultLang": "ru",
+  "cart": {
+    "minOrder": 300,
+    "freeDeliveryFrom": 800,
+    "whatsapp": "",
+    "instagram": "",
+    "greeting": {
+      "ru": "Здравствуйте! 👋 Хочу оформить заказ Casa Mia.",
+      "ua": "Вітаю! 👋 Хочу оформити замовлення Casa Mia.",
+      "tr": "Merhaba! 👋 Casa Mia'dan sipariş vermek istiyorum.",
+      "en": "Hello! 👋 I'd like to place a Casa Mia order."
+    },
+    "fields": {
+      "ru": "Имя:\nРайон доставки:\nЖелаемое время доставки:",
+      "ua": "Ім'я:\nРайон доставки:\nБажаний час доставки:",
+      "tr": "Adınız:\nTeslimat semtiniz:\nİstediğiniz teslimat saati:",
+      "en": "Name:\nDelivery area:\nPreferred delivery time:"
+    }
+  },
   "hero": {
     "title": {
       "ru": "Casa Mia",
@@ -240,8 +258,8 @@
     "subtitle": {
       "ru": "Домашняя кухня в Анталии: пельмени, вареники, голубцы и блинчики — готовим вручную и доставляем к столу",
       "ua": "Домашня кухня в Анталії: пельмені, вареники, голубці й млинці — готуємо вручну і доставляємо до столу",
-      "tr": "Antalya ev mutfağı: mantı, vareniki, lahana sarması ve krep — elle pişirip sofranıza getiriyoruz",
-      "en": "A home kitchen in Antalya: pelmeni, vareniki, cabbage rolls and pancakes — handmade and delivered to your table"
+      "tr": "Antalya'da ev mutfağı: pelmeni, vareniki, lahana sarması ve krep — elle pişirip kapınıza getiriyoruz",
+      "en": "A home kitchen in Antalya: pelmeni, vareniki, cabbage rolls and pancakes — handmade and brought to your table"
     },
     "ctaWhatsapp": {
       "ru": "Написать в WhatsApp",

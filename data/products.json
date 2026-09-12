@@ -6,37 +6,46 @@
     "name": {
       "ru": "Пельмени куриные",
       "ua": "Пельмені курячі",
-      "tr": "Tavuk mantı",
+      "tr": "Tavuklu pelmeni",
       "en": "Chicken pelmeni"
     },
     "description": {
       "ru": "Фарш только мясо, без кожи • ручная лепка",
       "ua": "Фарш лише м'ясо, без шкіри • ручне ліплення",
-      "tr": "Sadece et, derisiz • el yapımı",
+      "tr": "Derisiz tavuk eti • elle açılır",
       "en": "Meat only, no skin • handmade"
     },
     "ingredients": {
       "ru": "Куриное филе, пшеничная мука, яйца, лук, соль, перец",
       "ua": "Куряче філе, пшеничне борошно, яйця, цибуля, сіль, перець",
-      "tr": "Tavuk fileto, buğday unu, yumurta, soğan, tuz, karabiber",
+      "tr": "Tavuk göğsü, buğday unu, yumurta, soğan, tuz, karabiber",
       "en": "Chicken fillet, wheat flour, eggs, onion, salt, pepper"
     },
     "cook": {
       "ru": "Варить 8–10 минут после закипания.",
       "ua": "Варити 8–10 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 8–10 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 8–10 dakika haşlayın.",
       "en": "Boil 8–10 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной или сливочным маслом",
       "ua": "Зі сметаною або вершковим маслом",
-      "tr": "Ekşi krem veya tereyağı ile",
+      "tr": "Ekşi krema veya tereyağı ile",
       "en": "With sour cream or butter"
     },
     "price": 420,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/пельмени куриные.png"
     ],
@@ -55,38 +64,47 @@
     "order": 20,
     "name": {
       "ru": "Пельмени индейка",
-      "ua": "Пельмені індичка",
-      "tr": "Hindi mantı",
+      "ua": "Пельмені з індички",
+      "tr": "Hindili pelmeni",
       "en": "Turkey pelmeni"
     },
     "description": {
       "ru": "Филейная индейка • ручная лепка",
-      "ua": "Філейна індичка • ручне ліплення",
-      "tr": "Hindi fileto • el yapımı",
+      "ua": "Філе індички • ручне ліплення",
+      "tr": "Hindi göğsü • elle açılır",
       "en": "Turkey fillet • handmade"
     },
     "ingredients": {
       "ru": "Филе индейки, пшеничная мука, яйца, лук, соль, перец",
       "ua": "Філе індички, пшеничне борошно, яйця, цибуля, сіль, перець",
-      "tr": "Hindi fileto, buğday unu, yumurta, soğan, tuz, karabiber",
+      "tr": "Hindi göğsü, buğday unu, yumurta, soğan, tuz, karabiber",
       "en": "Turkey fillet, wheat flour, eggs, onion, salt, pepper"
     },
     "cook": {
       "ru": "Варить 8–10 минут после закипания.",
       "ua": "Варити 8–10 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 8–10 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 8–10 dakika haşlayın.",
       "en": "Boil 8–10 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 550,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/пельмени из индейки филейные.png"
     ],
@@ -104,15 +122,15 @@
     "categoryId": "frozen",
     "order": 30,
     "name": {
-      "ru": "Пельмени курица + говядина",
-      "ua": "Пельмені курка + яловичина",
-      "tr": "Tavuk + dana mantı",
+      "ru": "Пельмени курино-говяжьи",
+      "ua": "Пельмені курячо-яловичі",
+      "tr": "Tavuklu-dana pelmeni",
       "en": "Chicken & beef pelmeni"
     },
     "description": {
       "ru": "Смешанный фарш • сочный вкус",
       "ua": "Змішаний фарш • соковитий смак",
-      "tr": "Karışık kıyma • sulu lezzet",
+      "tr": "Karışık kıyma • sulu ve doyurucu",
       "en": "Mixed mince • juicy taste"
     },
     "ingredients": {
@@ -124,19 +142,28 @@
     "cook": {
       "ru": "Варить 8–10 минут после закипания.",
       "ua": "Варити 8–10 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 8–10 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 8–10 dakika haşlayın.",
       "en": "Boil 8–10 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной или бульоном",
       "ua": "Зі сметаною або бульйоном",
-      "tr": "Ekşi krem veya et suyu ile",
+      "tr": "Ekşi krema veya et suyu ile",
       "en": "With sour cream or broth"
     },
     "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/пельмени курино-говяжьи.png"
     ],
@@ -162,7 +189,7 @@
     "description": {
       "ru": "Классическая начинка • ручная лепка",
       "ua": "Класична начинка • ручне ліплення",
-      "tr": "Klasik iç • el yapımı",
+      "tr": "Klasik iç • elle açılır",
       "en": "Classic filling • handmade"
     },
     "ingredients": {
@@ -174,19 +201,28 @@
     "cook": {
       "ru": "Варить 8–10 минут после закипания.",
       "ua": "Варити 8–10 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 8–10 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 8–10 dakika haşlayın.",
       "en": "Boil 8–10 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной и жареным луком",
       "ua": "Зі сметаною та смаженою цибулею",
-      "tr": "Ekşi krem ve kızarmış soğan ile",
+      "tr": "Ekşi krema ve kızarmış soğan ile",
       "en": "With sour cream and fried onion"
     },
     "price": 370,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/вареники с картофелем.png"
     ],
@@ -212,7 +248,7 @@
     "description": {
       "ru": "Картофель и грибы • домашний вкус",
       "ua": "Картопля та гриби • домашній смак",
-      "tr": "Patates ve mantar • ev lezzeti",
+      "tr": "Patates ve mantar • ev usulü",
       "en": "Potato and mushrooms • homemade taste"
     },
     "ingredients": {
@@ -224,19 +260,28 @@
     "cook": {
       "ru": "Варить 8–10 минут после закипания.",
       "ua": "Варити 8–10 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 8–10 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 8–10 dakika haşlayın.",
       "en": "Boil 8–10 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/вареники с картофелем и грибами.png"
     ],
@@ -261,8 +306,8 @@
     },
     "description": {
       "ru": "Сытная начинка • ручная лепка",
-      "ua": "Ситий начинка • ручне ліплення",
-      "tr": "Doyurucu iç • el yapımı",
+      "ua": "Сита начинка • ручне ліплення",
+      "tr": "Doyurucu iç • elle açılır",
       "en": "Hearty filling • handmade"
     },
     "ingredients": {
@@ -274,19 +319,28 @@
     "cook": {
       "ru": "Варить 8–10 минут после закипания.",
       "ua": "Варити 8–10 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 8–10 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 8–10 dakika haşlayın.",
       "en": "Boil 8–10 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/вареники с картофелем и печенью.png"
     ],
@@ -324,19 +378,28 @@
     "cook": {
       "ru": "Варить 6–8 минут после закипания.",
       "ua": "Варити 6–8 хвилин після закипання.",
-      "tr": "Kaynadıktan sonra 6–8 dk haşlayın.",
+      "tr": "Suyu kaynadıktan sonra 6–8 dakika haşlayın.",
       "en": "Boil 6–8 minutes after water returns to a boil."
     },
     "serveWith": {
       "ru": "Со сметаной и сахаром или вареньем",
       "ua": "Зі сметаною і цукром або варенням",
-      "tr": "Ekşi krem, şeker veya reçel ile",
+      "tr": "Ekşi krema, şeker veya reçel ile",
       "en": "With sour cream and sugar or jam"
     },
     "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/вареники с творогом.png"
     ],
@@ -356,13 +419,13 @@
     "name": {
       "ru": "Вареники ленивые",
       "ua": "Вареники ліниві",
-      "tr": "Tembel vareniki",
+      "tr": "Kolay lorlu vareniki",
       "en": "Lazy vareniki"
     },
     "description": {
       "ru": "Творожные • быстро готовятся",
       "ua": "Сирні • швидко готуються",
-      "tr": "Lorlu • hızlı hazırlanır",
+      "tr": "Lorlu • çabuk pişer",
       "en": "Cottage cheese • quick to cook"
     },
     "ingredients": {
@@ -374,19 +437,28 @@
     "cook": {
       "ru": "Варить 3–5 минут после всплытия.",
       "ua": "Варити 3–5 хвилин після спливання.",
-      "tr": "Yüzeye çıktıktan sonra 3–5 dk haşlayın.",
+      "tr": "Suyun üstüne çıktıktan sonra 3–5 dakika daha haşlayın.",
       "en": "Boil 3–5 minutes after they float."
     },
     "serveWith": {
       "ru": "Со сметаной и маслом",
       "ua": "Зі сметаною та маслом",
-      "tr": "Ekşi krem ve tereyağı ile",
+      "tr": "Ekşi krema ve tereyağı ile",
       "en": "With sour cream and butter"
     },
     "price": 450,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/вареники ленивые.png"
     ],
@@ -406,13 +478,13 @@
     "name": {
       "ru": "Равиоли с сёмгой и сливочным сыром",
       "ua": "Равіолі з сьомгою та вершковим сиром",
-      "tr": "Somon ve krem peynirli ravioli",
+      "tr": "Somonlu krem peynirli ravioli",
       "en": "Salmon & cream cheese ravioli"
     },
     "description": {
       "ru": "Натуральные ингредиенты • домашний вкус",
       "ua": "Натуральні інгредієнти • домашній смак",
-      "tr": "Doğal malzemeler • ev lezzeti",
+      "tr": "Doğal malzemeyle, ev usulü",
       "en": "Natural ingredients • homemade taste"
     },
     "ingredients": {
@@ -424,7 +496,7 @@
     "cook": {
       "ru": "5–6 минут в кипящей воде или обжарить на сливочном масле.",
       "ua": "5–6 хвилин у киплячій воді або обсмажити на вершковому маслі.",
-      "tr": "Kaynar suda 5–6 dk veya tereyağında kızartın.",
+      "tr": "Kaynar suda 5–6 dakika haşlayın veya tereyağında kızartın.",
       "en": "5–6 minutes in boiling water or pan-fry in butter."
     },
     "serveWith": {
@@ -437,6 +509,15 @@
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/равиоли с лососем.png"
     ],
@@ -468,25 +549,34 @@
     "ingredients": {
       "ru": "Капуста, куриный фарш, рис, лук, морковь, соль, специи",
       "ua": "Капуста, курячий фарш, рис, цибуля, морква, сіль, спеції",
-      "tr": "Lahana, tavuk kıyma, pirinç, soğan, havuç, tuz, baharat",
+      "tr": "Lahana, tavuk kıyması, pirinç, soğan, havuç, tuz, baharat",
       "en": "Cabbage, chicken mince, rice, onion, carrot, salt, spices"
     },
     "cook": {
       "ru": "Тушить 20–25 минут под крышкой.",
       "ua": "Тушкувати 20–25 хвилин під кришкою.",
-      "tr": "Kapak altında 20–25 dk pişirin.",
+      "tr": "Kapağı kapalı 20–25 dakika pişirin.",
       "en": "Simmer covered 20–25 minutes."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/голубцы куриные.png"
     ],
@@ -504,9 +594,9 @@
     "categoryId": "frozen",
     "order": 110,
     "name": {
-      "ru": "Голубцы курица + говядина",
-      "ua": "Голубці курка + яловичина",
-      "tr": "Tavuk + dana lahana sarması",
+      "ru": "Голубцы курино-говяжьи",
+      "ua": "Голубці курячо-яловичі",
+      "tr": "Tavuklu-dana lahana sarması",
       "en": "Chicken & beef cabbage rolls"
     },
     "description": {
@@ -524,19 +614,28 @@
     "cook": {
       "ru": "Тушить 20–25 минут под крышкой.",
       "ua": "Тушкувати 20–25 хвилин під кришкою.",
-      "tr": "Kapak altında 20–25 dk pişirin.",
+      "tr": "Kapağı kapalı 20–25 dakika pişirin.",
       "en": "Simmer covered 20–25 minutes."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 800,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/голубцы курино-говяжьи.png"
     ],
@@ -554,39 +653,48 @@
     "categoryId": "frozen",
     "order": 120,
     "name": {
-      "ru": "Перец фаршированный курица + рис",
-      "ua": "Перець фарширований курка + рис",
-      "tr": "Tavuklu pirinçli biber dolması",
-      "en": "Stuffed pepper chicken & rice"
+      "ru": "Перец фаршированный курицей и рисом",
+      "ua": "Перець, фарширований куркою та рисом",
+      "tr": "Tavuklu pirinçli dolma",
+      "en": "Chicken and rice stuffed peppers"
     },
     "description": {
       "ru": "Сочный перец с домашней начинкой",
       "ua": "Соковитий перець із домашньою начинкою",
-      "tr": "Ev içli sulu biber",
+      "tr": "Ev usulü sulu dolma",
       "en": "Juicy pepper with homemade filling"
     },
     "ingredients": {
       "ru": "Перец, куриный фарш, рис, лук, морковь, томат, соль, специи",
       "ua": "Перець, курячий фарш, рис, цибуля, морква, томат, сіль, спеції",
-      "tr": "Biber, tavuk kıyma, pirinç, soğan, havuç, domates, tuz, baharat",
+      "tr": "Biber, tavuk kıyması, pirinç, soğan, havuç, domates, tuz, baharat",
       "en": "Pepper, chicken mince, rice, onion, carrot, tomato, salt, spices"
     },
     "cook": {
       "ru": "Тушить 25–30 минут под крышкой.",
-      "ua": "Туцювати 25–30 хвилин під кришкою.",
-      "tr": "Kapak altında 25–30 dk pişirin.",
+      "ua": "Тушкувати 25–30 хвилин під кришкою.",
+      "tr": "Kapağı kapalı 25–30 dakika pişirin.",
       "en": "Simmer covered 25–30 minutes."
     },
     "serveWith": {
       "ru": "Со сметаной или томатным соусом",
       "ua": "Зі сметаною або томатним соусом",
-      "tr": "Ekşi krem veya domates sosu ile",
+      "tr": "Ekşi krema veya domates sosu ile",
       "en": "With sour cream or tomato sauce"
     },
     "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/перец фаршированный.png"
     ],
@@ -606,37 +714,46 @@
     "name": {
       "ru": "Котлеты куриные в панировке",
       "ua": "Котлети курячі в паніровці",
-      "tr": "Pane tavuk köfte",
+      "tr": "Tavuk pane köfte",
       "en": "Breaded chicken cutlets"
     },
     "description": {
       "ru": "Хрустящая панировка • для сковороды и духовки",
       "ua": "Хрустка паніровка • для сковорідки та духовки",
-      "tr": "Çıtır pane • tava ve fırın için",
+      "tr": "Çıtır pane — tava veya fırın için",
       "en": "Crispy breading • pan or oven"
     },
     "ingredients": {
       "ru": "Куриный фарш, лук, яйца, панировочные сухари, соль, специи",
       "ua": "Курячий фарш, цибуля, яйця, панірувальні сухарі, сіль, спеції",
-      "tr": "Tavuk kıyma, soğan, yumurta, galeta unu, tuz, baharat",
+      "tr": "Tavuk kıyması, soğan, yumurta, galeta unu, tuz, baharat",
       "en": "Chicken mince, onion, eggs, breadcrumbs, salt, spices"
     },
     "cook": {
       "ru": "Жарить или запекать 15–20 минут.",
       "ua": "Смажити або запікати 15–20 хвилин.",
-      "tr": "15–20 dk kızartın veya fırınlayın.",
+      "tr": "15–20 dakika kızartın veya fırınlayın.",
       "en": "Fry or bake 15–20 minutes."
     },
     "serveWith": {
       "ru": "С гарниром и салатом",
       "ua": "З гарніром і салатом",
-      "tr": "Yanında garnitür ve salata",
+      "tr": "Yanına garnitür ve salata",
       "en": "With a side and salad"
     },
     "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/котлеты куриные.png"
     ],
@@ -655,26 +772,26 @@
     "order": 140,
     "name": {
       "ru": "Фрикадельки куриные филейные",
-      "ua": "Фрикадельки курячі філейні",
-      "tr": "Tavuk fileto toplar",
-      "en": "Chicken fillet meatballs"
+      "ua": "Курячі фрикадельки з філе",
+      "tr": "Tavuk mini köfte",
+      "en": "Chicken meatballs"
     },
     "description": {
       "ru": "Для супа и жарки",
       "ua": "Для супу та смаження",
-      "tr": "Çorba ve kızartma için",
+      "tr": "Çorba veya kızartma için",
       "en": "For soup or frying"
     },
     "ingredients": {
       "ru": "Куриное филе, лук, яйца, соль, перец",
       "ua": "Куряче філе, цибуля, яйця, сіль, перець",
-      "tr": "Tavuk fileto, soğan, yumurta, tuz, karabiber",
+      "tr": "Tavuk göğsü, soğan, yumurta, tuz, karabiber",
       "en": "Chicken fillet, onion, eggs, salt, pepper"
     },
     "cook": {
       "ru": "В супе 10–12 минут или на сковороде 15–20 минут.",
       "ua": "У супі 10–12 хвилин або на сковороді 15–20 хвилин.",
-      "tr": "Çorbada 10–12 dk veya tavada 15–20 dk.",
+      "tr": "Çorbada 10–12 dakika, tavada 15–20 dakika.",
       "en": "In soup 10–12 min or pan 15–20 min."
     },
     "serveWith": {
@@ -687,6 +804,15 @@
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/фрикадельки куриные.png"
     ],
@@ -705,26 +831,26 @@
     "order": 150,
     "name": {
       "ru": "Фрикадельки индейка филейные",
-      "ua": "Фрикадельки індичка філейні",
-      "tr": "Hindi fileto toplar",
-      "en": "Turkey fillet meatballs"
+      "ua": "Фрикадельки з індички",
+      "tr": "Hindi mini köfte",
+      "en": "Turkey meatballs"
     },
     "description": {
       "ru": "Нежные • для супа и жарки",
       "ua": "Ніжні • для супу та смаження",
-      "tr": "Yumuşak • çorba ve kızartma için",
+      "tr": "Yumuşak • çorba veya kızartma için",
       "en": "Tender • for soup or frying"
     },
     "ingredients": {
       "ru": "Филе индейки, лук, яйца, соль, перец",
       "ua": "Філе індички, цибуля, яйця, сіль, перець",
-      "tr": "Hindi fileto, soğan, yumurta, tuz, karabiber",
+      "tr": "Hindi göğsü, soğan, yumurta, tuz, karabiber",
       "en": "Turkey fillet, onion, eggs, salt, pepper"
     },
     "cook": {
       "ru": "В супе 10–12 минут или на сковороде 15–20 минут.",
       "ua": "У супі 10–12 хвилин або на сковороді 15–20 хвилин.",
-      "tr": "Çorbada 10–12 dk veya tavada 15–20 dk.",
+      "tr": "Çorbada 10–12 dakika, tavada 15–20 dakika.",
       "en": "In soup 10–12 min or pan 15–20 min."
     },
     "serveWith": {
@@ -737,6 +863,15 @@
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/тефтели из индейки.png"
     ],
@@ -756,7 +891,7 @@
     "name": {
       "ru": "Фарш куриный",
       "ua": "Фарш курячий",
-      "tr": "Tavuk kıyma",
+      "tr": "Tavuk kıyması",
       "en": "Chicken mince"
     },
     "description": {
@@ -787,6 +922,15 @@
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/mince-chicken.png"
     ],
@@ -804,15 +948,15 @@
     "categoryId": "pancakes",
     "order": 200,
     "name": {
-      "ru": "Блинчики курица + сливочный сыр",
-      "ua": "Млинці курка + вершковий сир",
-      "tr": "Tavuk + krem peynirli krep",
-      "en": "Pancakes chicken & cream cheese"
+      "ru": "Блинчики с курицей и сливочным сыром",
+      "ua": "Млинці з куркою та вершковим сиром",
+      "tr": "Tavuklu krem peynirli krep",
+      "en": "Chicken and cream cheese pancakes"
     },
     "description": {
       "ru": "Нежная начинка • ручная работа",
       "ua": "Ніжна начинка • ручна робота",
-      "tr": "Yumuşak iç • el yapımı",
+      "tr": "Yumuşak iç • elle hazırlanır",
       "en": "Delicate filling • handmade"
     },
     "ingredients": {
@@ -824,19 +968,28 @@
     "cook": {
       "ru": "Разогреть на сковороде 5–7 минут или в духовке.",
       "ua": "Розігріти на сковороді 5–7 хвилин або в духовці.",
-      "tr": "Tavada 5–7 dk veya fırında ısıtın.",
+      "tr": "Tavada 5–7 dakika ısıtın veya fırına verin.",
       "en": "Warm in a pan 5–7 min or in the oven."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 520,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/блинчики с курицей и сливочным сыром.png"
     ],
@@ -854,10 +1007,10 @@
     "categoryId": "pancakes",
     "order": 210,
     "name": {
-      "ru": "Блинчики курица + грибы + сыр",
-      "ua": "Млинці курка + гриби + сир",
-      "tr": "Tavuk + mantar + peynirli krep",
-      "en": "Pancakes chicken, mushroom & cheese"
+      "ru": "Блинчики с курицей, грибами и сыром",
+      "ua": "Млинці з куркою, грибами та сиром",
+      "tr": "Tavuklu, mantarlı ve peynirli krep",
+      "en": "Chicken, mushroom and cheese pancakes"
     },
     "description": {
       "ru": "Сытная начинка",
@@ -874,19 +1027,28 @@
     "cook": {
       "ru": "Разогреть на сковороде 5–7 минут или в духовке.",
       "ua": "Розігріти на сковороді 5–7 хвилин або в духовці.",
-      "tr": "Tavada 5–7 dk veya fırında ısıtın.",
+      "tr": "Tavada 5–7 dakika ısıtın veya fırına verin.",
       "en": "Warm in a pan 5–7 min or in the oven."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/блинчики с курицей грибами и сливочным сыром.png"
     ],
@@ -906,37 +1068,46 @@
     "name": {
       "ru": "Блинчики с творогом и изюмом",
       "ua": "Млинці з сиром і родзинками",
-      "tr": "Lor ve üzümlü krep",
-      "en": "Pancakes cottage cheese & raisins"
+      "tr": "Lorlu üzümlü krep",
+      "en": "Cottage cheese and raisin pancakes"
     },
     "description": {
       "ru": "Сладкая классика",
       "ua": "Солодка класика",
-      "tr": "Tatlı klasik",
+      "tr": "Klasik tatlı",
       "en": "Sweet classic"
     },
     "ingredients": {
       "ru": "Блинное тесто, творог, изюм, сахар, ваниль",
       "ua": "Млинцеве тісто, сир, родзинки, цукор, ваніль",
-      "tr": "Krep hamuru, lor, üzüm, şeker, vanilya",
+      "tr": "Krep hamuru, lor, kuru üzüm, şeker, vanilya",
       "en": "Pancake batter, cottage cheese, raisins, sugar, vanilla"
     },
     "cook": {
       "ru": "Разогреть на сковороде 4–6 минут.",
       "ua": "Розігріти на сковороді 4–6 хвилин.",
-      "tr": "Tavada 4–6 dk ısıtın.",
+      "tr": "Tavada 4–6 dakika ısıtın.",
       "en": "Warm in a pan 4–6 minutes."
     },
     "serveWith": {
       "ru": "Со сметаной или вареньем",
       "ua": "Зі сметаною або варенням",
-      "tr": "Ekşi krem veya reçel ile",
+      "tr": "Ekşi krema veya reçel ile",
       "en": "With sour cream or jam"
     },
     "price": 550,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/блинчики с творогом и изюмом.png"
     ],
@@ -957,12 +1128,12 @@
       "ru": "Блинчики с яблоком и корицей",
       "ua": "Млинці з яблуком і корицею",
       "tr": "Elmalı tarçınlı krep",
-      "en": "Pancakes apple & cinnamon"
+      "en": "Apple and cinnamon pancakes"
     },
     "description": {
       "ru": "Ароматная сладкая начинка",
       "ua": "Ароматна солодка начинка",
-      "tr": "Kokulu tatlı iç",
+      "tr": "Tarçınlı, mis kokulu iç",
       "en": "Fragrant sweet filling"
     },
     "ingredients": {
@@ -974,19 +1145,28 @@
     "cook": {
       "ru": "Разогреть на сковороде 4–6 минут.",
       "ua": "Розігріти на сковороді 4–6 хвилин.",
-      "tr": "Tavada 4–6 dk ısıtın.",
+      "tr": "Tavada 4–6 dakika ısıtın.",
       "en": "Warm in a pan 4–6 minutes."
     },
     "serveWith": {
       "ru": "С медом или сметаной",
       "ua": "З медом або сметаною",
-      "tr": "Bal veya ekşi krem ile",
+      "tr": "Bal veya ekşi krema ile",
       "en": "With honey or sour cream"
     },
     "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/pancakes-apple.png"
     ],
@@ -1012,31 +1192,40 @@
     "description": {
       "ru": "На выбор: колбаса или курица",
       "ua": "На вибір: ковбаса або курка",
-      "tr": "Seçmeli: sucuk veya tavuk",
+      "tr": "Salam veya tavuk, siz seçin",
       "en": "Choice of sausage or chicken"
     },
     "ingredients": {
       "ru": "Картофель, морковь, яйца, горошек, огурцы, майонез, колбаса или курица, соль",
       "ua": "Картопля, морква, яйця, горошок, огірки, майонез, ковбаса або курка, сіль",
-      "tr": "Patates, havuç, yumurta, bezelye, salatalık, mayonez, sucuk veya tavuk, tuz",
+      "tr": "Patates, havuç, yumurta, bezelye, salatalık, mayonez, salam veya tavuk, tuz",
       "en": "Potato, carrot, eggs, peas, cucumbers, mayo, sausage or chicken, salt"
     },
     "cook": {
       "ru": "Готов к подаче. Хранить в холодильнике.",
       "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Servise hazır. Buzdolabında saklayın.",
+      "tr": "Hazır. Buzdolabında saklayın.",
       "en": "Ready to serve. Keep refrigerated."
     },
     "serveWith": {
       "ru": "Как самостоятельное блюдо",
       "ua": "Як самостійна страва",
-      "tr": "Ana yemek olarak",
+      "tr": "Tek başına da yenir",
       "en": "As a main dish"
     },
     "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/салат оливье классический.png"
     ],
@@ -1056,7 +1245,7 @@
     "name": {
       "ru": "Салат «Лосось под шубой»",
       "ua": "Салат «Лосось під шубою»",
-      "tr": "Somon kürklü salata",
+      "tr": "Somonlu şuba",
       "en": "Salmon under a fur coat"
     },
     "description": {
@@ -1074,19 +1263,28 @@
     "cook": {
       "ru": "Готов к подаче. Хранить в холодильнике.",
       "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Servise hazır. Buzdolabında saklayın.",
+      "tr": "Hazır. Buzdolabında saklayın.",
       "en": "Ready to serve. Keep refrigerated."
     },
     "serveWith": {
       "ru": "Охлаждённым",
       "ua": "Охолодженим",
-      "tr": "Soğuk servis",
+      "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
     "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/салат лосось  под шубой.png"
     ],
@@ -1106,13 +1304,13 @@
     "name": {
       "ru": "Салат «Сердце леса»",
       "ua": "Салат «Серце лісу»",
-      "tr": "Orman kalbi salatası",
+      "tr": "Ormanın Kalbi",
       "en": "Forest Heart salad"
     },
     "description": {
       "ru": "Фирменный салат Casa Mia",
       "ua": "Фірмовий салат Casa Mia",
-      "tr": "Casa Mia özel salatası",
+      "tr": "Casa Mia'nın imza salatası",
       "en": "Casa Mia signature salad"
     },
     "ingredients": {
@@ -1124,19 +1322,28 @@
     "cook": {
       "ru": "Готов к подаче. Хранить в холодильнике.",
       "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Servise hazır. Buzdolabında saklayın.",
+      "tr": "Hazır. Buzdolabında saklayın.",
       "en": "Ready to serve. Keep refrigerated."
     },
     "serveWith": {
       "ru": "Охлаждённым",
       "ua": "Охолодженим",
-      "tr": "Soğuk servis",
+      "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
     "price": 680,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/салат сердце леса.png"
     ],
@@ -1162,7 +1369,7 @@
     "description": {
       "ru": "Классические и цветные • на желтках",
       "ua": "Класичні та кольорові • на жовтках",
-      "tr": "Klasik ve renkli • yumurta sarılı",
+      "tr": "Klasik ve renkli • yumurta sarısıyla",
       "en": "Classic and colored • egg yolk pasta"
     },
     "ingredients": {
@@ -1174,7 +1381,7 @@
     "cook": {
       "ru": "Варить 3–5 минут в подсоленной воде.",
       "ua": "Варити 3–5 хвилин у підсоленій воді.",
-      "tr": "Tuzlu suda 3–5 dk haşlayın.",
+      "tr": "Tuzlu suda 3–5 dakika haşlayın.",
       "en": "Boil 3–5 minutes in salted water."
     },
     "serveWith": {
@@ -1187,6 +1394,15 @@
     "priceUnit": "pack",
     "weight": 250,
     "weightUnit": "g",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "variants": [
       {
         "id": "250",
@@ -1261,6 +1477,15 @@
     "priceUnit": "pack",
     "weight": 6,
     "weightUnit": "pcs",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "variants": [
       {
         "id": "6",
@@ -1322,19 +1547,28 @@
     "cook": {
       "ru": "Готов к подаче. Хранить в холодильнике.",
       "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Servise hazır. Buzdolabında saklayın.",
+      "tr": "Hazır. Buzdolabında saklayın.",
       "en": "Ready to serve. Keep refrigerated."
     },
     "serveWith": {
       "ru": "Охлаждённым",
       "ua": "Охолодженим",
-      "tr": "Soğuk servis",
+      "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
     "price": 550,
     "priceUnit": "pack",
     "weight": 1,
     "weightUnit": "box",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "images": [
       "images/products/тирамису.png"
     ],
@@ -1354,25 +1588,25 @@
     "name": {
       "ru": "Холодец куриный",
       "ua": "Холодець курячий",
-      "tr": "Tavuk paça",
+      "tr": "Tavuklu jöle",
       "en": "Chicken aspic"
     },
     "description": {
       "ru": "Домашний холодец 1 кг",
       "ua": "Домашній холодець 1 кг",
-      "tr": "Ev yapımı 1 kg",
-      "en": "Homemade 1 kg"
+      "tr": "Ev usulü tavuklu jöle, 1 kg",
+      "en": "Homemade chicken aspic, 1 kg"
     },
     "ingredients": {
       "ru": "Курица, морковь, лук, чеснок, желатин/бульон, соль, специи",
       "ua": "Курка, морква, цибуля, часник, желатин/бульйон, сіль, спеції",
-      "tr": "Tavuk, havuç, soğan, sarımsak, jelatin/etli su, tuz, baharat",
+      "tr": "Tavuk, havuç, soğan, sarımsak, jelatin veya et suyu, tuz, baharat",
       "en": "Chicken, carrot, onion, garlic, gelatin/broth, salt, spices"
     },
     "cook": {
       "ru": "Готов к подаче. Хранить в холодильнике.",
       "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Servise hazır. Buzdolabında saklayın.",
+      "tr": "Hazır. Buzdolabında saklayın.",
       "en": "Ready to serve. Keep refrigerated."
     },
     "serveWith": {
@@ -1385,6 +1619,15 @@
     "priceUnit": "pack",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "images": [
       "images/products/холодец куриный.png"
     ],
@@ -1410,31 +1653,40 @@
     "description": {
       "ru": "Готовое блюдо • разогреть и подать",
       "ua": "Готова страва • розігріти й подати",
-      "tr": "Hazır yemek • ısıtıp servis",
+      "tr": "Isıtıp servis edin",
       "en": "Ready meal • heat and serve"
     },
     "ingredients": {
       "ru": "Капуста, куриный фарш, рис, лук, морковь, соус, соль, специи",
       "ua": "Капуста, курячий фарш, рис, цибуля, морква, соус, сіль, спеції",
-      "tr": "Lahana, tavuk kıyma, pirinç, soğan, havuç, sos, tuz, baharat",
+      "tr": "Lahana, tavuk kıyması, pirinç, soğan, havuç, sos, tuz, baharat",
       "en": "Cabbage, chicken mince, rice, onion, carrot, sauce, salt, spices"
     },
     "cook": {
       "ru": "Разогреть 10–15 минут на плите или в духовке.",
       "ua": "Розігріти 10–15 хвилин на плиті або в духовці.",
-      "tr": "Ocak veya fırında 10–15 dk ısıtın.",
+      "tr": "Ocakta veya fırında 10–15 dakika ısıtın.",
       "en": "Reheat 10–15 minutes on stove or in oven."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/голубцы куриные.png"
     ],
@@ -1452,15 +1704,15 @@
     "categoryId": "ready",
     "order": 620,
     "name": {
-      "ru": "Голубцы курица + говядина (готовые)",
-      "ua": "Голубці курка + яловичина (готові)",
-      "tr": "Hazır tavuk + dana lahana sarması",
-      "en": "Ready chicken & beef cabbage rolls"
+      "ru": "Голубцы курино-говяжьи (готовые)",
+      "ua": "Голубці курячо-яловичі (готові)",
+      "tr": "Hazır tavuklu-dana lahana sarması",
+      "en": "Ready chicken and beef cabbage rolls"
     },
     "description": {
       "ru": "Готовое блюдо • разогреть и подать",
       "ua": "Готова страва • розігріти й подати",
-      "tr": "Hazır yemek • ısıtıp servis",
+      "tr": "Isıtıp servis edin",
       "en": "Ready meal • heat and serve"
     },
     "ingredients": {
@@ -1472,19 +1724,28 @@
     "cook": {
       "ru": "Разогреть 10–15 минут на плите или в духовке.",
       "ua": "Розігріти 10–15 хвилин на плиті або в духовці.",
-      "tr": "Ocak veya fırında 10–15 dk ısıtın.",
+      "tr": "Ocakta veya fırında 10–15 dakika ısıtın.",
       "en": "Reheat 10–15 minutes on stove or in oven."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 800,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/голубцы курино-говяжьи.png"
     ],
@@ -1505,36 +1766,45 @@
       "ru": "Перец фаршированный (готовый)",
       "ua": "Перець фарширований (готовий)",
       "tr": "Hazır biber dolması",
-      "en": "Ready stuffed pepper"
+      "en": "Ready stuffed peppers"
     },
     "description": {
-      "ru": "Курица + рис • готовое блюдо",
-      "ua": "Курка + рис • готова страва",
-      "tr": "Tavuk + pirinç • hazır",
-      "en": "Chicken + rice • ready meal"
+      "ru": "Курица и рис • готовое блюдо",
+      "ua": "Курка та рис • готова страва",
+      "tr": "Tavuklu pirinçli • ısıtıp yiyin",
+      "en": "Chicken and rice • ready to heat"
     },
     "ingredients": {
       "ru": "Перец, куриный фарш, рис, лук, морковь, томат, соль, специи",
       "ua": "Перець, курячий фарш, рис, цибуля, морква, томат, сіль, спеції",
-      "tr": "Biber, tavuk kıyma, pirinç, soğan, havuç, domates, tuz, baharat",
+      "tr": "Biber, tavuk kıyması, pirinç, soğan, havuç, domates, tuz, baharat",
       "en": "Pepper, chicken mince, rice, onion, carrot, tomato, salt, spices"
     },
     "cook": {
       "ru": "Разогреть 10–15 минут на плите или в духовке.",
       "ua": "Розігріти 10–15 хвилин на плиті або в духовці.",
-      "tr": "Ocak veya fırında 10–15 dk ısıtın.",
+      "tr": "Ocakta veya fırında 10–15 dakika ısıtın.",
       "en": "Reheat 10–15 minutes on stove or in oven."
     },
     "serveWith": {
       "ru": "Со сметаной",
       "ua": "Зі сметаною",
-      "tr": "Ekşi krem ile",
+      "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
     "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    },
     "images": [
       "images/products/перец фаршированный.png"
     ],
@@ -1566,7 +1836,7 @@
     "ingredients": {
       "ru": "Говядина/курица, рис, томат, чеснок, зелень, специи",
       "ua": "Яловичина/курка, рис, томат, часник, зелень, спеції",
-      "tr": "Dana/tavuk, pirinç, domates, sarımsak, yeşillik, baharat",
+      "tr": "Dana veya tavuk, pirinç, domates, sarımsak, yeşillik, baharat",
       "en": "Beef/chicken, rice, tomato, garlic, herbs, spices"
     },
     "cook": {
@@ -1585,6 +1855,15 @@
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "images": [
       "images/products/soup-kharcho.png"
     ],
@@ -1635,6 +1914,15 @@
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "images": [
       "images/products/soup-chicken-meatballs.png"
     ],
@@ -1654,8 +1942,8 @@
     "name": {
       "ru": "Борщ славянский",
       "ua": "Борщ слов'янський",
-      "tr": "Slav borş çorbası",
-      "en": "Slavic borscht"
+      "tr": "Ev usulü borş",
+      "en": "Homestyle borscht"
     },
     "description": {
       "ru": "1,5 литра • домашний рецепт",
@@ -1678,13 +1966,22 @@
     "serveWith": {
       "ru": "Со сметаной и зеленью",
       "ua": "Зі сметаною та зеленню",
-      "tr": "Ekşi krem ve yeşillik ile",
+      "tr": "Ekşi krema ve yeşillik ile",
       "en": "With sour cream and herbs"
     },
     "price": 900,
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "images": [
       "images/products/soup-borsch.png"
     ],
@@ -1728,13 +2025,22 @@
     "serveWith": {
       "ru": "Со сметаной и лимоном",
       "ua": "Зі сметаною та лимоном",
-      "tr": "Ekşi krem ve limon ile",
+      "tr": "Ekşi krema ve limon ile",
       "en": "With sour cream and lemon"
     },
     "price": 900,
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
+    "quantityType": "package",
+    "step": 1,
+    "min": 1,
+    "unit": {
+      "ru": "уп.",
+      "ua": "уп.",
+      "tr": "paket",
+      "en": "pack"
+    },
     "images": [
       "images/products/soup-solyanka.png"
     ],

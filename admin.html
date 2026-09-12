@@ -44,6 +44,7 @@
         <button class="tab" type="button" data-tab="prices">Цены</button>
         <button class="tab" type="button" data-tab="categories">Категории</button>
         <button class="tab" type="button" data-tab="settings">Настройки сайта</button>
+        <button class="tab" type="button" data-tab="cart">🧺 Корзина</button>
         <button class="tab" type="button" data-tab="reviews">Отзывы</button>
         <button class="tab" type="button" data-tab="github">Настройки GitHub</button>
         <button class="tab" type="button" data-tab="help">📖 Помощь владельцу</button>
@@ -71,6 +72,11 @@
       <section class="panel hidden" data-panel="settings">
         <p class="panel-lead">Hero, доставка, «О нас» и контакты. Тексты — на RU / UA / TR / EN. Телефон, WhatsApp и Instagram общие для всех языков.</p>
         <form id="settings-form"></form>
+      </section>
+
+      <section class="panel hidden" data-panel="cart">
+        <p class="panel-lead">Суммы доставки, WhatsApp, Instagram и текст приветствия в заказе. Телефон и Instagram можно оставить пустыми — тогда возьмутся из «Контактов».</p>
+        <form id="cart-form"></form>
       </section>
 
       <section class="panel hidden" data-panel="reviews">
@@ -227,6 +233,16 @@
               <li>На сайте уже есть ссылки на поиск «Casa Mia Antalya». После регистрации карточки они начнут приводить заказы сами.</li>
             </ol>
             <div class="tip">Для локального бизнеса в Анталии карты часто дают больше заявок, чем SEO самого сайта.</div>
+          </article>
+          <article class="help-card" id="help-cart">
+            <h3>12. Как пользоваться корзиной</h3>
+            <ol>
+              <li>Вкладка «Корзина»: минимальная сумма доставки, сумма бесплатной доставки, WhatsApp и Instagram.</li>
+              <li>Текст приветствия заказа — на RU / UA / TR / EN. Меняйте его без программиста.</li>
+              <li>У товара выберите тип количества: упаковка, штуки, килограммы или граммы.</li>
+              <li>Если товар закончился — снимите «В наличии» или включите «Скрыт», затем сохраните.</li>
+            </ol>
+            <div class="tip">Гости собирают корзину на сайте и отправляют готовый текст в WhatsApp. Оплаты на сайте нет.</div>
           </article>
           <article class="help-card" id="help-stuck">
             <h3>Что делать, если сайт не обновился</h3>

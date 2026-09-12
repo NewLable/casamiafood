@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      var reload = nav ? nav.type === "reload" : (performance.navigation && performance.navigation.type === 1);
+      if (reload && "scrollRestoration" in history) history.scrollRestoration = "manual";
+    })();
+  </script>
   <title>Доставка домашней еды в Анталии | Casa Mia</title>
   <meta name="description" content="Casa Mia — домашняя кухня в Анталии: пельмени, вареники, равиоли, голубцы, блинчики и салаты. Готовим вручную и доставляем в Лиман, Хурму, Лару и Коньяалты.">
   <meta name="robots" content="index,follow">
@@ -140,6 +147,13 @@
           <p class="eyebrow" data-i18n="catalog_eyebrow">Каталог</p>
           <h2 data-i18n="menu_title">Наше меню</h2>
           <p data-i18n="menu_sub">Пельмени, вареники, равиоли, голубцы, блинчики, салаты, паста и выпечка — с ценами, фото и заказом в WhatsApp.</p>
+        </div>
+
+        <div id="last-order" class="last-order" hidden></div>
+
+        <div id="favorites-block" hidden>
+          <h3 class="hits-heading" id="favorites-title"></h3>
+          <div class="product-grid" id="favorites-grid"></div>
         </div>
 
         <h3 class="hits-heading" data-i18n="hits_title">Хиты недели</h3>
@@ -329,6 +343,7 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script src="js/cart.js?v=2"></script>
   <script src="js/menu.js"></script>
 </body>
 </html>

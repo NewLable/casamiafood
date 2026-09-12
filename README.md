@@ -101,7 +101,7 @@ Update Casa Mia content — 2026-09-10 21:45
   "name": {
     "ru": "Пельмени куриные",
     "ua": "Пельмені курячі",
-    "tr": "Tavuk mantı",
+    "tr": "Tavuklu pelmeni",
     "en": "Chicken pelmeni"
   }
 }

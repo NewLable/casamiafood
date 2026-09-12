@@ -96,6 +96,31 @@ function markDirty() {
 
 /* ---------- normalize ---------- */
 
+const QTY_PRESETS = {
+  package: { step: 1, min: 1, unit: { ru: "уп.", ua: "уп.", tr: "paket", en: "pack" } },
+  piece: { step: 1, min: 1, unit: { ru: "шт.", ua: "шт.", tr: "adet", en: "pcs" } },
+  kg: { step: 0.5, min: 0.5, unit: { ru: "кг", ua: "кг", tr: "kg", en: "kg" } },
+  gram: { step: 100, min: 100, unit: { ru: "г", ua: "г", tr: "g", en: "g" } }
+};
+
+function inferQuantityType(p) {
+  if (p.quantityType && QTY_PRESETS[p.quantityType]) return p.quantityType;
+  if (p.priceUnit === "kg") return "kg";
+  if (p.weightUnit === "pcs" && !p.variants) return "piece";
+  return "package";
+}
+
+function qtyFieldsFor(p) {
+  const type = inferQuantityType(p);
+  const preset = QTY_PRESETS[type];
+  return {
+    quantityType: type,
+    step: Number(p.step) > 0 ? Number(p.step) : preset.step,
+    min: Number(p.min) > 0 ? Number(p.min) : preset.min,
+    unit: I.ensureI18n(p.unit && (p.unit.ru || p.unit.ua || p.unit.tr || p.unit.en) ? p.unit : preset.unit)
+  };
+}
+
 function emptyProduct() {
   return {
     id: "",
@@ -114,7 +139,11 @@ function emptyProduct() {
     thumbnail: "",
     badges: { hit: false, new: false, sale: false },
     available: true,
-    inStock: true
+    inStock: true,
+    quantityType: "kg",
+    step: 0.5,
+    min: 0.5,
+    unit: { ...QTY_PRESETS.kg.unit }
   };
 }
 
@@ -137,7 +166,8 @@ function normalizeProduct(p) {
     thumbnail: p.thumbnail || "",
     price: Number(p.price) || 0,
     weight: Number(p.weight) || 0,
-    order: Number(p.order) || 0
+    order: Number(p.order) || 0,
+    ...qtyFieldsFor(p)
   };
 }
 
@@ -196,6 +226,13 @@ function ensureSettings(raw) {
   s.contacts.whatsappDisplay = s.contacts.whatsappDisplay || s.contacts.whatsapp;
   s.contacts.instagram = (s.contacts.instagram || "").replace(/^@/, "");
   s.contacts.instagramUrl = s.contacts.instagramUrl || "";
+  s.cart = s.cart || {};
+  s.cart.minOrder = s.cart.minOrder === "" || s.cart.minOrder == null ? "" : Number(s.cart.minOrder);
+  s.cart.freeDeliveryFrom = s.cart.freeDeliveryFrom === "" || s.cart.freeDeliveryFrom == null ? "" : Number(s.cart.freeDeliveryFrom);
+  s.cart.whatsapp = s.cart.whatsapp || "";
+  s.cart.instagram = (s.cart.instagram || "").replace(/^@/, "");
+  s.cart.greeting = I.ensureI18n(s.cart.greeting);
+  s.cart.fields = I.ensureI18n(s.cart.fields);
   return s;
 }
 
@@ -295,6 +332,10 @@ function bindGlobalActions() {
     readSettingsForm();
     markDirty();
   });
+  document.getElementById("cart-form").addEventListener("input", () => {
+    readCartForm();
+    markDirty();
+  });
   document.getElementById("product-list").addEventListener("input", onProductInput);
   document.getElementById("product-list").addEventListener("change", onProductInput);
   document.getElementById("category-list").addEventListener("input", onCategoryInput);
@@ -310,6 +351,7 @@ function renderAll() {
   renderCategoryCreate();
   renderCategories();
   renderSettingsForm();
+  renderCartForm();
   renderReviews();
 }
 
@@ -420,7 +462,18 @@ function productCardHtml(p) {
       </div>
       <div><label>Категория</label><select name="categoryId">${catOptions}</select></div>
       <div><label>Порядок отображения</label><input type="number" name="order" value="${p.order}"></div>
+      <div><label>Тип количества</label>
+        <select name="quantityType">
+          <option value="package" ${p.quantityType === "package" ? "selected" : ""}>Упаковка</option>
+          <option value="piece" ${p.quantityType === "piece" ? "selected" : ""}>Штуки</option>
+          <option value="kg" ${p.quantityType === "kg" ? "selected" : ""}>Килограммы</option>
+          <option value="gram" ${p.quantityType === "gram" ? "selected" : ""}>Граммы</option>
+        </select>
+      </div>
+      <div><label>Шаг</label><input type="number" name="step" min="0" step="0.1" value="${p.step}"></div>
+      <div><label>Минимум</label><input type="number" name="min" min="0" step="0.1" value="${p.min}"></div>
     </div>
+    ${I.blockHtml("Единица (уп., кг, шт.)", "unit", p.unit)}
     <div class="grid-2" style="margin-top:.6rem">
       <div class="check"><input type="checkbox" name="hit" id="hit-${p.id}" ${p.badges.hit ? "checked" : ""}><label for="hit-${p.id}">Хит продаж</label></div>
       <div class="check"><input type="checkbox" name="new" id="new-${p.id}" ${p.badges.new ? "checked" : ""}><label for="new-${p.id}">Новинка</label></div>
@@ -446,6 +499,10 @@ function readProductCard(card) {
   p.weightUnit = card.querySelector('[name="weightUnit"]')?.value || "g";
   p.categoryId = card.querySelector('[name="categoryId"]')?.value || p.categoryId;
   p.order = Number(card.querySelector('[name="order"]')?.value) || 0;
+  p.quantityType = card.querySelector('[name="quantityType"]')?.value || p.quantityType || "package";
+  p.step = Number(card.querySelector('[name="step"]')?.value) || QTY_PRESETS[p.quantityType]?.step || 1;
+  p.min = Number(card.querySelector('[name="min"]')?.value) || QTY_PRESETS[p.quantityType]?.min || 1;
+  p.unit = I.readFrom(card, "unit");
   p.badges.hit = card.querySelector('[name="hit"]')?.checked || false;
   p.badges.new = card.querySelector('[name="new"]')?.checked || false;
   p.badges.sale = card.querySelector('[name="sale"]')?.checked || false;
@@ -457,6 +514,19 @@ function onProductInput(e) {
   const card = e.target.closest("[data-product-id]");
   if (!card) return;
   if (e.target.closest("[data-act]")) return;
+  if (e.target.name === "quantityType") {
+    const preset = QTY_PRESETS[e.target.value];
+    if (preset) {
+      const step = card.querySelector('[name="step"]');
+      const min = card.querySelector('[name="min"]');
+      if (step) step.value = preset.step;
+      if (min) min.value = preset.min;
+      ["ru", "ua", "tr", "en"].forEach((lang) => {
+        const input = card.querySelector(`[name="unit.${lang}"]`);
+        if (input) input.value = preset.unit[lang];
+      });
+    }
+  }
   readProductCard(card);
   markDirty();
 }
@@ -723,6 +793,66 @@ function readSettingsForm() {
   s.contacts.email = form.querySelector('[name="email"]')?.value.trim() || "";
 }
 
+/* ---------- cart settings ---------- */
+
+function renderCartForm() {
+  const s = state.settings;
+  const form = document.getElementById("cart-form");
+  const minOrder = s.cart.minOrder === "" || s.cart.minOrder == null ? "" : s.cart.minOrder;
+  const freeFrom = s.cart.freeDeliveryFrom === "" || s.cart.freeDeliveryFrom == null ? "" : s.cart.freeDeliveryFrom;
+  form.innerHTML = `
+    <div class="section-card">
+      <h2>Суммы доставки</h2>
+      <div class="grid-2">
+        <div>
+          <label>Минимальная сумма доставки (₺)</label>
+          <input name="cart-min" type="number" min="0" step="1" value="${I.escAttr(minOrder)}" placeholder="например 300">
+        </div>
+        <div>
+          <label>Бесплатная доставка от (₺)</label>
+          <input name="cart-free" type="number" min="0" step="1" value="${I.escAttr(freeFrom)}" placeholder="например 800">
+        </div>
+      </div>
+      <p class="hint">Пустое поле — не показывать на сайте. Гость всё равно сможет отправить заказ.</p>
+    </div>
+    <div class="section-card">
+      <h2>WhatsApp и Instagram</h2>
+      <div class="grid-2">
+        <div>
+          <label>Телефон WhatsApp для заказов</label>
+          <input name="cart-wa" type="text" value="${I.escAttr(s.cart.whatsapp)}" placeholder="${I.escAttr(s.contacts.whatsapp || "+90…")}">
+        </div>
+        <div>
+          <label>Instagram username</label>
+          <input name="cart-ig" type="text" value="${I.escAttr(s.cart.instagram)}" placeholder="${I.escAttr(s.contacts.instagram || "casa_mia_antalya")}">
+        </div>
+      </div>
+      <p class="hint">Если пусто — используются контакты с вкладки «Настройки сайта».</p>
+    </div>
+    <div class="section-card">
+      <h2>Шаблон сообщения</h2>
+      ${I.blockHtml("Приветствие", "cart-greet", s.cart.greeting, { multiline: true, rows: 2 })}
+      ${I.blockHtml("Поля в конце сообщения", "cart-fields", s.cart.fields, { multiline: true, rows: 3 })}
+      <p class="hint">Список товаров и сумма подставляются сами. Здесь меняется только приветствие и строки «Имя / район / время».</p>
+    </div>
+  `;
+}
+
+function readCartForm() {
+  const form = document.getElementById("cart-form");
+  if (!form) return;
+  const s = state.settings;
+  s.cart = s.cart || {};
+  const minRaw = form.querySelector('[name="cart-min"]')?.value.trim();
+  const freeRaw = form.querySelector('[name="cart-free"]')?.value.trim();
+  s.cart.minOrder = minRaw === "" ? "" : Number(minRaw) || 0;
+  s.cart.freeDeliveryFrom = freeRaw === "" ? "" : Number(freeRaw) || 0;
+  s.cart.whatsapp = form.querySelector('[name="cart-wa"]')?.value.trim() || "";
+  s.cart.instagram = (form.querySelector('[name="cart-ig"]')?.value || "").trim().replace(/^@/, "");
+  s.cart.greeting = I.readFrom(form, "cart-greet");
+  s.cart.fields = I.readFrom(form, "cart-fields");
+}
+
 /* ---------- reviews ---------- */
 
 function renderReviews() {
@@ -889,6 +1019,7 @@ function pretty(data) {
 async function saveAll() {
   readOpenProductCards();
   readSettingsForm();
+  readCartForm();
   if (!isDirty()) return;
   if (!CasaMiaGitHub.hasConnection()) {
     toast("Сначала подключите GitHub", "err");

@@ -16,7 +16,7 @@ const CasaMia = (() => {
     nav_home: { ru: "Главная", ua: "Головна", tr: "Ana sayfa", en: "Home" },
     nav_menu: { ru: "Меню", ua: "Меню", tr: "Menü", en: "Menu" },
     nav_why: { ru: "Почему мы", ua: "Чому ми", tr: "Neden biz", en: "Why us" },
-    nav_cook: { ru: "Как готовить", ua: "Як готувати", tr: "Nasıl pişirilir", en: "How to cook" },
+    nav_cook: { ru: "Как готовить", ua: "Як готувати", tr: "Pişirme", en: "How to cook" },
     nav_about: { ru: "О нас", ua: "Про нас", tr: "Hakkımızda", en: "About" },
     nav_delivery: { ru: "Доставка", ua: "Доставка", tr: "Teslimat", en: "Delivery" },
     nav_reviews: { ru: "Отзывы", ua: "Відгуки", tr: "Yorumlar", en: "Reviews" },
@@ -24,38 +24,38 @@ const CasaMia = (() => {
     hero_h1: {
       ru: "Доставка домашней еды в Анталии — Casa Mia",
       ua: "Доставка домашньої їжі в Анталії — Casa Mia",
-      tr: "Antalya ev yemeği teslimatı — Casa Mia",
+      tr: "Antalya'da ev yemeği teslimatı — Casa Mia",
       en: "Homemade food delivery in Antalya — Casa Mia"
     },
     hero_lead: {
       ru: "Домашняя кухня в Анталии, приготовленная с любовью к качеству. Пельмени, вареники, голубцы и блинчики — вручную и к вашему столу.",
-      ua: "Домашня кухня в Анталії, приготована з любов'ю до якості. Пельмені, вареники, голубці й млинці — вручну і до вашого столу.",
-      tr: "Antalya'da kaliteye sevgiyle hazırlanan ev mutfağı. Mantı, vareniki, lahana sarması ve krep — elle, sofranıza.",
-      en: "A home kitchen in Antalya, cooked with love for quality. Pelmeni, vareniki, cabbage rolls and pancakes — handmade for your table."
+      ua: "Домашня кухня в Анталії, яку готуємо з турботою. Пельмені, вареники, голубці й млинці — вручну і до вашого столу.",
+      tr: "Antalya'da özenle pişen ev yemekleri. Pelmeni, vareniki, lahana sarması ve krep — elle hazırlanıp kapınıza geliyor.",
+      en: "A home kitchen in Antalya, cooked with real care. Pelmeni, vareniki, cabbage rolls and pancakes — handmade, then brought to your table."
     },
     meta_title: {
       ru: "Доставка домашней еды в Анталии | Casa Mia",
       ua: "Доставка домашньої їжі в Анталії | Casa Mia",
-      tr: "Antalya ev yemeği teslimatı | Casa Mia",
+      tr: "Antalya'da ev yemeği teslimatı | Casa Mia",
       en: "Homemade food delivery in Antalya | Casa Mia"
     },
     meta_description: {
       ru: "Casa Mia — домашняя кухня в Анталии: пельмени, вареники, равиоли, голубцы, блинчики и салаты. Готовим вручную и доставляем в Лиман, Хурму, Лару и Коньяалты.",
       ua: "Casa Mia — домашня кухня в Анталії: пельмені, вареники, равіолі, голубці, млинці та салати. Готуємо вручну і доставляємо в Ліман, Хурму, Лару та Коньяалти.",
-      tr: "Casa Mia — Antalya'da ev mutfağı: mantı, vareniki, ravioli, lahana sarması, krep ve salatalar. Elle hazırlıyor, Liman, Hurma, Lara ve Konyaaltı'na teslim ediyoruz.",
+      tr: "Casa Mia — Antalya'da ev mutfağı: pelmeni, vareniki, ravioli, lahana sarması, krep ve salatalar. Elle hazırlıyoruz; Liman, Hurma, Lara ve Konyaaltı'na teslim ediyoruz.",
       en: "Casa Mia is a home kitchen in Antalya: pelmeni, vareniki, ravioli, cabbage rolls, pancakes and salads. Handmade and delivered to Liman, Hurma, Lara and Konyaaltı."
     },
     catalog_eyebrow: { ru: "Каталог", ua: "Каталог", tr: "Katalog", en: "Catalog" },
     local_title: {
       ru: "Условия доставки по Анталии",
       ua: "Умови доставки Анталією",
-      tr: "Antalya teslimat koşulları",
+      tr: "Antalya'da teslimat",
       en: "Delivery terms in Antalya"
     },
     local_text: {
       ru: "Готовим под заказ и привозим домой в удобное время. Доставка домашней еды работает по Лиману, Хурме, Коньяалты, Ларе, Муратпаше и соседним районам Анталии. Напишите в WhatsApp — подскажем стоимость и ближайший слот.",
       ua: "Готуємо під замовлення і привозимо додому в зручний час. Доставка домашньої їжі працює Ліманом, Хурмою, Коньяалти, Ларою, Муратпашею та сусідніми районами Анталії. Напишіть у WhatsApp — підкажемо вартість і найближчий слот.",
-      tr: "Siparişe özel pişirip uygun saatte evinize getiriyoruz. Ev yemeği teslimatı Liman, Hurma, Konyaaltı, Lara, Muratpaşa ve yakın semtlerde. WhatsApp'tan yazın — ücreti ve en yakın saati söyleyelim.",
+      tr: "Siparişe göre pişirip, size uygun saatte eve bırakıyoruz. Liman, Hurma, Konyaaltı, Lara, Muratpaşa ve çevresine ev yemeği götürüyoruz. WhatsApp'tan yazın — ücreti ve en yakın saati söyleyelim.",
       en: "We cook to order and deliver at a convenient time. Homemade food delivery covers Liman, Hurma, Konyaaltı, Lara, Muratpaşa and nearby Antalya areas. Message us on WhatsApp for cost and the next slot."
     },
     local_areas_title: { ru: "Районы доставки", ua: "Райони доставки", tr: "Teslimat semtleri", en: "Delivery areas" },
@@ -63,14 +63,14 @@ const CasaMia = (() => {
     local_cook_text: {
       ru: "Пельмени куриные, из индейки и курино-говяжьи; вареники с картофелем, грибами и творогом; равиоли с лососем; голубцы и фаршированный перец; блинчики; салаты «Оливье» и с лососем; паста; синнабоны и готовые блюда — всё с ценами в каталоге.",
       ua: "Пельмені курячі, з індички та курячо-яловичі; вареники з картоплею, грибами й сиром; равіолі з лососем; голубці й фарширований перець; млинці; салати «Олів'є» і з лососем; паста; синнабони та готові страви — усе з цінами в каталозі.",
-      tr: "Tavuk, hindi ve tavuk-dana mantı; patatesli, mantarlı ve peynirli vareniki; somonlu ravioli; lahana sarması ve dolma biber; krep; Olivier ve somon salataları; makarna; cinnabon ve hazır yemekler — fiyatlar katalogda.",
+      tr: "Tavuklu, hindili ve tavuklu-dana pelmeni; patatesli, mantarlı ve lorlu vareniki; somonlu ravioli; lahana sarması ve biber dolması; krep; olivye ve somon salataları; ev makarnası, tarçınlı rulo ve hazır yemekler — fiyatlar menüde.",
       en: "Chicken, turkey and chicken-beef pelmeni; potato, mushroom and cottage-cheese vareniki; salmon ravioli; cabbage rolls and stuffed peppers; pancakes; Olivier and salmon salads; pasta; cinnabons and ready meals — all with prices in the catalog."
     },
     local_products_title: { ru: "Какие продукты используем", ua: "Які продукти використовуємо", tr: "Hangi ürünleri kullanıyoruz", en: "Ingredients we use" },
     local_products_text: {
       ru: "Свежее мясо и филе, овощи, яйца, творог, сливочное масло, мука твёрдых сортов пшеницы. Без усилителей вкуса, консервантов и заводских полуфабрикатов. Партии небольшие, заморозка — сразу после приготовления.",
       ua: "Свіже м'ясо та філе, овочі, яйця, сир, вершкове масло, борошно твердих сортів пшениці. Без підсилювачів смаку, консервантів і заводських напівфабрикатів. Партії невеликі, заморозка — одразу після приготування.",
-      tr: "Taze et ve fileto, sebze, yumurta, lor, tereyağı, durum buğday unu. Tat artırıcı, koruyucu ve hazır yarı mamul yok. Küçük partiler, pişince hemen dondurma.",
+      tr: "Taze et ve göğüs, sebze, yumurta, lor, tereyağı, durum buğday unu. Katkı maddesi, koruyucu ve hazır harç kullanmıyoruz. Küçük partiler halinde pişirip hemen donduruyoruz.",
       en: "Fresh meat and fillet, vegetables, eggs, cottage cheese, butter, durum wheat flour. No flavor enhancers, preservatives or factory semi-finished products. Small batches, frozen right after cooking."
     },
     area_liman: { ru: "Лиман", ua: "Ліман", tr: "Liman", en: "Liman" },
@@ -82,9 +82,9 @@ const CasaMia = (() => {
     maps_google: { ru: "Google Карты", ua: "Google Карти", tr: "Google Haritalar", en: "Google Maps" },
     maps_yandex: { ru: "Яндекс Карты", ua: "Яндекс Карти", tr: "Yandex Haritalar", en: "Yandex Maps" },
     hero_p1: { ru: "Натуральные ингредиенты", ua: "Натуральні інгредієнти", tr: "Doğal malzemeler", en: "Natural ingredients" },
-    hero_p2: { ru: "Ручная лепка", ua: "Ручне ліплення", tr: "El yapımı", en: "Handmade" },
+    hero_p2: { ru: "Ручная лепка", ua: "Ручне ліплення", tr: "Elle yapılır", en: "Handmade" },
     hero_p3: { ru: "Шоковая заморозка", ua: "Шокове заморожування", tr: "Şok dondurma", en: "Flash freezing" },
-    hero_p4: { ru: "Доставка по Анталии", ua: "Доставка Анталією", tr: "Antalya teslimatı", en: "Delivery in Antalya" },
+    hero_p4: { ru: "Доставка по Анталии", ua: "Доставка Анталією", tr: "Antalya'da teslimat", en: "Delivery in Antalya" },
     cta_wa: { ru: "Написать в WhatsApp", ua: "Написати в WhatsApp", tr: "WhatsApp'tan yazın", en: "Message on WhatsApp" },
     cta_ig: { ru: "Мы в Instagram", ua: "Ми в Instagram", tr: "Instagram'dayız", en: "We're on Instagram" },
     seal: { ru: "Made with love", ua: "З любов'ю", tr: "Sevgiyle", en: "Made with love" },
@@ -92,26 +92,26 @@ const CasaMia = (() => {
     menu_sub: {
       ru: "Пельмени, вареники, равиоли, голубцы, блинчики, салаты, паста и выпечка — с ценами, фото и заказом в WhatsApp.",
       ua: "Пельмені, вареники, равіолі, голубці, млинці, салати, паста й випічка — з цінами, фото та замовленням у WhatsApp.",
-      tr: "Mantı, vareniki, ravioli, lahana sarması, krep, salata, makarna ve hamur işi — fiyat, fotoğraf ve WhatsApp siparişiyle.",
+      tr: "Pelmeni, vareniki, ravioli, lahana sarması, krep, salata, makarna ve tatlı — fiyatlar, fotoğraflar ve WhatsApp'tan sipariş.",
       en: "Pelmeni, vareniki, ravioli, cabbage rolls, pancakes, salads, pasta and bakery — with prices, photos and WhatsApp ordering."
     },
-    hits_title: { ru: "Хиты недели", ua: "Хіти тижня", tr: "Haftanın hitleri", en: "Weekly hits" },
+    hits_title: { ru: "Хиты недели", ua: "Хіти тижня", tr: "Haftanın favorileri", en: "This week's favorites" },
     all: { ru: "Все", ua: "Усі", tr: "Tümü", en: "All" },
     why_title: { ru: "Почему Casa Mia?", ua: "Чому Casa Mia?", tr: "Neden Casa Mia?", en: "Why Casa Mia?" },
     cook_title: { ru: "Как готовить?", ua: "Як готувати?", tr: "Nasıl pişirilir?", en: "How to cook?" },
     cook_sub: {
       ru: "Просто и быстро — для замороженных продуктов.",
       ua: "Просто й швидко — для заморожених продуктів.",
-      tr: "Dondurulmuş ürünler için basit ve hızlı.",
+      tr: "Donuklar için kısa ve pratik.",
       en: "Simple and fast — for frozen products."
     },
-    delivery_title: { ru: "Доставка по Анталии", ua: "Доставка Анталією", tr: "Antalya teslimatı", en: "Delivery in Antalya" },
+    delivery_title: { ru: "Доставка по Анталии", ua: "Доставка Анталією", tr: "Antalya'da teslimat", en: "Delivery in Antalya" },
     delivery_cost: { ru: "Стоимость", ua: "Вартість", tr: "Ücret", en: "Cost" },
     areas: { ru: "Районы", ua: "Райони", tr: "Semtler", en: "Areas" },
     hours: { ru: "Время", ua: "Час", tr: "Saatler", en: "Hours" },
     payment: { ru: "Оплата", ua: "Оплата", tr: "Ödeme", en: "Payment" },
-    reviews_title: { ru: "Спасибо, что выбираете нас", ua: "Дякуємо, що обираєте нас", tr: "Bizi seçtiğiniz için teşekkürler", en: "Thank you for choosing us" },
-    contacts_title: { ru: "Есть вопросы или хотите заказать?", ua: "Є питання чи хочете замовити?", tr: "Sorunuz veya siparişiniz mi var?", en: "Questions or ready to order?" },
+    reviews_title: { ru: "Спасибо, что выбираете нас", ua: "Дякуємо, що обираєте нас", tr: "Bizi tercih ettiğiniz için teşekkürler", en: "Thank you for choosing us" },
+    contacts_title: { ru: "Есть вопросы или хотите заказать?", ua: "Є питання чи хочете замовити?", tr: "Sorunuz mu var? Sipariş vermek ister misiniz?", en: "Questions, or ready to order?" },
     contacts_sub: {
       ru: "Напишите в WhatsApp или Instagram — отправим актуальное меню и оформим доставку.",
       ua: "Напишіть у WhatsApp або Instagram — надішлемо актуальне меню й оформимо доставку.",
@@ -121,10 +121,10 @@ const CasaMia = (() => {
     thanks: { ru: "Спасибо, что вы с нами!", ua: "Дякуємо, що ви з нами!", tr: "Bizimle olduğunuz için teşekkürler!", en: "Thanks for being with us!" },
     ingredients: { ru: "Состав", ua: "Склад", tr: "İçindekiler", en: "Ingredients" },
     how_cook: { ru: "Как приготовить", ua: "Як приготувати", tr: "Nasıl pişirilir", en: "How to cook" },
-    serve: { ru: "С чем подавать", ua: "З чим подавати", tr: "Ne ile servis", en: "Serve with" },
-    order_more: { ru: "Заказать ещё", ua: "Замовити ще", tr: "Tekrar sipariş", en: "Order again" },
+    serve: { ru: "С чем подавать", ua: "З чим подавати", tr: "Yanında ne gider", en: "Serve with" },
+    order_more: { ru: "Заказать ещё", ua: "Замовити ще", tr: "Tekrar sipariş ver", en: "Order again" },
     back_menu: { ru: "К меню", ua: "До меню", tr: "Menüye dön", en: "Back to menu" },
-    hit: { ru: "Хит", ua: "Хіт", tr: "Hit", en: "Hit" },
+    hit: { ru: "Хит", ua: "Хіт", tr: "Favori", en: "Favorite" },
     new: { ru: "Новинка", ua: "Новинка", tr: "Yeni", en: "New" },
     sale: { ru: "Акция", ua: "Акція", tr: "İndirim", en: "Sale" },
     soldout: { ru: "Нет в наличии", ua: "Немає в наявності", tr: "Stokta yok", en: "Sold out" },
@@ -138,13 +138,147 @@ const CasaMia = (() => {
     general_msg: {
       ru: "Здравствуйте! Хочу посмотреть меню и оформить доставку.",
       ua: "Вітаю! Хочу подивитися меню й оформити доставку.",
-      tr: "Merhaba! Menüyü görmek ve teslimat ayarlamak istiyorum.",
+      tr: "Merhaba! Menüye bakmak ve teslimat ayarlamak istiyorum.",
       en: "Hello! I'd like to see the menu and arrange delivery."
     },
     not_found: { ru: "Товар не найден", ua: "Товар не знайдено", tr: "Ürün bulunamadı", en: "Product not found" },
-    weight: { ru: "Вес / объём", ua: "Вага / об'єм", tr: "Ağırlık / hacim", en: "Weight / volume" },
+    weight: { ru: "Вес / объём", ua: "Вага / об'єм", tr: "Gramaj", en: "Weight / volume" },
     price: { ru: "Цена", ua: "Ціна", tr: "Fiyat", en: "Price" },
-    choose_size: { ru: "Выберите вариант", ua: "Оберіть варіант", tr: "Boyut seçin", en: "Choose option" }
+    choose_size: { ru: "Выберите вариант", ua: "Оберіть варіант", tr: "Gramaj seçin", en: "Choose option" },
+    basket: {
+      add: { ru: "Добавить", ua: "Додати", tr: "Ekle", en: "Add" },
+      added: { ru: "Добавлено в корзину", ua: "Додано до кошика", tr: "Sepete eklendi", en: "Added to basket" },
+      removed: { ru: "Удалено", ua: "Видалено", tr: "Kaldırıldı", en: "Removed" },
+      qty_changed: { ru: "Количество изменено", ua: "Кількість змінено", tr: "Miktar değişti", en: "Quantity updated" },
+      copied: { ru: "Заказ скопирован", ua: "Замовлення скопійовано", tr: "Sipariş kopyalandı", en: "Order copied" },
+      ig_copied: {
+        ru: "Заказ скопирован. Вставьте его в Instagram Direct.",
+        ua: "Замовлення скопійовано. Вставте його в Instagram Direct.",
+        tr: "Sipariş kopyalandı. Instagram Direct'e yapıştırmanız yeterli.",
+        en: "Order copied. Paste it into Instagram Direct."
+      },
+      copy_fail: {
+        ru: "Не удалось скопировать заказ",
+        ua: "Не вдалося скопіювати замовлення",
+        tr: "Sipariş kopyalanamadı",
+        en: "Could not copy the order"
+      },
+      send_wa: {
+        ru: "Отправить заказ в WhatsApp",
+        ua: "Надіслати замовлення у WhatsApp",
+        tr: "WhatsApp'a gönder",
+        en: "Send order on WhatsApp"
+      },
+      send_ig: {
+        ru: "Отправить в Instagram",
+        ua: "Надіслати в Instagram",
+        tr: "Instagram'a gönder",
+        en: "Send via Instagram"
+      },
+      copy_order: {
+        ru: "Скопировать заказ",
+        ua: "Скопіювати замовлення",
+        tr: "Siparişi kopyala",
+        en: "Copy order"
+      },
+      title: { ru: "Корзина", ua: "Кошик", tr: "Sepet", en: "Basket" },
+      empty: { ru: "Корзина пуста", ua: "Кошик порожній", tr: "Sepetiniz boş", en: "Your basket is empty" },
+      items_total: {
+        ru: "Итого товаров: {count}",
+        ua: "Разом товарів: {count}",
+        tr: "Ürün sayısı: {count}",
+        en: "Items: {count}"
+      },
+      sum_total: {
+        ru: "Итого: {sum}",
+        ua: "Разом: {sum}",
+        tr: "Toplam: {sum}",
+        en: "Total: {sum}"
+      },
+      min_order: {
+        ru: "Минимальная сумма доставки: {amount}",
+        ua: "Мінімальна сума доставки: {amount}",
+        tr: "Minimum teslimat tutarı: {amount}",
+        en: "Minimum delivery amount: {amount}"
+      },
+      min_order_left: {
+        ru: "осталось {amount}",
+        ua: "залишилось {amount}",
+        tr: "{amount} kaldı",
+        en: "{amount} left"
+      },
+      free_left: {
+        ru: "До бесплатной доставки осталось {amount}",
+        ua: "До безкоштовної доставки залишилось {amount}",
+        tr: "Ücretsiz teslimat için {amount} kaldı",
+        en: "{amount} left until free delivery"
+      },
+      free_done: {
+        ru: "🎉 Бесплатная доставка доступна.",
+        ua: "🎉 Безкоштовна доставка доступна.",
+        tr: "🎉 Tebrikler, ücretsiz teslimat!",
+        en: "🎉 Free delivery is available."
+      },
+      field_name: { ru: "Имя:", ua: "Ім'я:", tr: "Adınız:", en: "Name:" },
+      field_area: { ru: "Район доставки:", ua: "Район доставки:", tr: "Teslimat semtiniz:", en: "Delivery area:" },
+      field_time: {
+        ru: "Желаемое время доставки:",
+        ua: "Бажаний час доставки:",
+        tr: "İstediğiniz teslimat saati:",
+        en: "Preferred delivery time:"
+      },
+      greeting: {
+        ru: "Здравствуйте! 👋 Хочу оформить заказ Casa Mia.",
+        ua: "Вітаю! 👋 Хочу оформити замовлення Casa Mia.",
+        tr: "Merhaba! 👋 Casa Mia'dan sipariş vermek istiyorum.",
+        en: "Hello! 👋 I'd like to place a Casa Mia order."
+      },
+      total: { ru: "Итого", ua: "Разом", tr: "Toplam", en: "Total" },
+      repeat: {
+        ru: "Повторить прошлый заказ",
+        ua: "Повторити минуле замовлення",
+        tr: "Son siparişi tekrarla",
+        en: "Repeat last order"
+      },
+      repeat_btn: {
+        ru: "Повторить заказ",
+        ua: "Повторити замовлення",
+        tr: "Siparişi tekrarla",
+        en: "Repeat order"
+      },
+      repeat_done: {
+        ru: "Прошлый заказ добавлен в корзину",
+        ua: "Минуле замовлення додано до кошика",
+        tr: "Son sipariş sepete eklendi",
+        en: "Last order added to basket"
+      },
+      favorites: { ru: "Любимые товары", ua: "Улюблені товари", tr: "Favorilerim", en: "Favorites" },
+      unavailable: {
+        ru: "Товара больше нет в меню",
+        ua: "Товару більше немає в меню",
+        tr: "Bu ürün artık menüde yok",
+        en: "This item is no longer on the menu"
+      },
+      hidden_warn: {
+        ru: "Товар скрыт из меню",
+        ua: "Товар приховано з меню",
+        tr: "Bu ürün şu an menüde yok",
+        en: "This item is hidden from the menu"
+      },
+      soldout_warn: { ru: "Нет в наличии", ua: "Немає в наявності", tr: "Stokta yok", en: "Sold out" },
+      remove: { ru: "Удалить", ua: "Видалити", tr: "Sil", en: "Remove" },
+      close: { ru: "Закрыть", ua: "Закрити", tr: "Kapat", en: "Close" },
+      decrease: { ru: "Уменьшить количество", ua: "Зменшити кількість", tr: "Miktarı azalt", en: "Decrease quantity" },
+      increase: { ru: "Увеличить количество", ua: "Збільшити кількість", tr: "Miktarı artır", en: "Increase quantity" },
+      unit_package: { ru: "уп.", ua: "уп.", tr: "paket", en: "pack" },
+      unit_piece: { ru: "шт.", ua: "шт.", tr: "adet", en: "pcs" },
+      unit_kg: { ru: "кг", ua: "кг", tr: "kg", en: "kg" },
+      unit_gram: { ru: "г", ua: "г", tr: "g", en: "g" },
+      fab: { ru: "{count} • {sum}", ua: "{count} • {sum}", tr: "{count} • {sum}", en: "{count} • {sum}" },
+      fav_add: { ru: "В избранное", ua: "До обраного", tr: "Favorilere ekle", en: "Add to favorites" },
+      fav_remove: { ru: "Убрать из избранного", ua: "Прибрати з обраного", tr: "Favorilerden çıkar", en: "Remove from favorites" },
+      open: { ru: "Открыть корзину", ua: "Відкрити кошик", tr: "Sepeti aç", en: "Open basket" }
+    }
   };
 
   const urlLang = new URLSearchParams(location.search).get("lang");
@@ -158,10 +292,21 @@ const CasaMia = (() => {
   let settings = null;
   let reviews = [];
 
-  function t(key) {
-    const row = UI[key];
-    if (!row) return key;
-    return row[lang] || row.ru || key;
+  function t(key, vars) {
+    const parts = String(key).split(".");
+    let row = UI;
+    for (const part of parts) {
+      if (row == null) return key;
+      row = row[part];
+    }
+    if (row == null) return key;
+    let text = typeof row === "string" ? row : (row[lang] || row.ru || key);
+    if (vars) {
+      Object.keys(vars).forEach((name) => {
+        text = text.replaceAll(`{${name}}`, vars[name]);
+      });
+    }
+    return text;
   }
 
   function localized(obj) {
@@ -380,12 +525,18 @@ const CasaMia = (() => {
   function productCard(product) {
     const href = productHref(product.id);
     const img = mediaUrl(product.thumbnail || product.images?.[0]);
+    const cart = window.CasaMiaCart;
+    const fav = cart ? cart.favBtnHtml(product.id) : "";
+    const controls = cart ? cart.controlsHtml(product.id) : "";
     return `
-      <article class="product-card">
-        <a class="thumb" href="${href}">
-          ${badgeHtml(product)}
-          <img src="${img}" alt="${localized(product.name)}" loading="lazy" decoding="async" width="400" height="400" draggable="false">
-        </a>
+      <article class="product-card" data-product-id="${product.id}">
+        <div class="thumb-wrap">
+          <a class="thumb" href="${href}">
+            ${badgeHtml(product)}
+            <img src="${img}" alt="${localized(product.name)}" loading="lazy" decoding="async" width="400" height="400" draggable="false">
+          </a>
+          ${fav}
+        </div>
         <div class="body">
           <a href="${href}"><h3>${localized(product.name)}</h3></a>
           <p class="desc">${localized(product.description)}</p>
@@ -394,9 +545,7 @@ const CasaMia = (() => {
               <div class="price">${formatPrice(product)}</div>
               <div class="weight">${formatWeight(product)}</div>
             </div>
-            <a class="wa-mini" href="${orderLink(product)}" aria-label="WhatsApp" target="_blank" rel="noopener">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11 11 0 0 0 3.2 17.7L2 22l4.4-1.1A11 11 0 1 0 20.5 3.5zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-2.6.7.7-2.5-.2-.3A9 9 0 1 1 12 20.5zm5.2-6.7c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.3-.4c.1-.2 0-.4 0-.5l-.9-2.1c-.2-.5-.5-.5-.6-.5h-.5c-.2 0-.5.1-.7.3s-1 1-1 2.4 1 2.8 1.2 3 2 3.1 4.9 4.2c.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.6-.7 1.8-1.3.2-.6.2-1.2.1-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
-            </a>
+            ${controls}
           </div>
         </div>
       </article>`;
@@ -471,6 +620,30 @@ const CasaMia = (() => {
 
   protectPublicContent();
 
+  function isReloadNavigation() {
+    try {
+      const nav = performance.getEntriesByType("navigation")[0];
+      if (nav) return nav.type === "reload";
+      return performance.navigation && performance.navigation.type === 1;
+    } catch {
+      return false;
+    }
+  }
+
+  function pinTopIfReload() {
+    if (!isReloadNavigation()) return;
+    if (location.hash) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+    window.scrollTo(0, 0);
+  }
+
+  if (isReloadNavigation() && "scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  pinTopIfReload();
+  window.addEventListener("load", pinTopIfReload);
+
   return {
     t,
     localized,
@@ -479,6 +652,8 @@ const CasaMia = (() => {
     loadData,
     visibleProducts,
     getProduct,
+    getCategory: (id) => categories.find((c) => c.id === id),
+    getAllCategories: () => categories,
     getCategories: () => enabledCategories(),
     getSettings: () => settings,
     getReviews: () => reviews,
@@ -491,6 +666,7 @@ const CasaMia = (() => {
     badgeHtml,
     mediaUrl,
     bindHeader,
+    pinTopIfReload,
     applySeo,
     setJsonLd,
     productHref,

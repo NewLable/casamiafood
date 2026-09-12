@@ -1,6 +1,7 @@
 async function initProductPage() {
   await CasaMia.loadData();
   CasaMia.bindHeader();
+  CasaMiaCart.mount();
 
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
@@ -41,7 +42,7 @@ async function initProductPage() {
         url: `${CasaMia.SITE_ORIGIN}/${CasaMia.productHref(p.id)}`
       }
     });
-    const variantsHtml = p.variants?.length
+  const variantsHtml = p.variants?.length
       ? `<div>
           <strong style="font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--terracotta)">${CasaMia.t("choose_size")}</strong>
           <div class="variants">
@@ -55,6 +56,12 @@ async function initProductPage() {
         </div>`
       : "";
 
+    const cart = window.CasaMiaCart;
+    const fav = cart ? cart.favBtnHtml(p.id) : "";
+    const controls = cart
+      ? cart.controlsHtml(p.id, { size: "lg", variantId: variant?.id || "" })
+      : `<a class="btn btn-wa" href="${CasaMia.orderLink(p, variant)}" target="_blank" rel="noopener">${CasaMia.t("order_more")}</a>`;
+
     root.innerHTML = `
       <a class="back-link" href="${CasaMia.homeHref("#menu")}">← ${CasaMia.t("back_menu")}</a>
       <div class="product-layout">
@@ -63,13 +70,16 @@ async function initProductPage() {
         </div>
         <div class="product-info">
           ${CasaMia.badgeHtml(p)}
-          <h1>${CasaMia.localized(p.name)}</h1>
+          <div class="product-title-row">
+            <h1>${CasaMia.localized(p.name)}</h1>
+            ${fav}
+          </div>
           <p class="desc">${CasaMia.localized(p.description)}</p>
           ${variantsHtml}
           <div class="price" style="font-size:1.6rem;margin:.4rem 0">${CasaMia.formatPrice(p, variant)}</div>
           <div class="weight" style="margin-bottom:1rem">${CasaMia.formatWeight(p, variant)}</div>
-          <div class="btn-row">
-            <a class="btn btn-wa" href="${CasaMia.orderLink(p, variant)}" target="_blank" rel="noopener">${CasaMia.t("order_more")}</a>
+          <div class="btn-row product-cart-row">
+            ${controls}
             <a class="btn btn-secondary" data-ig href="${CasaMia.igLink()}" target="_blank" rel="noopener">${CasaMia.t("cta_ig")}</a>
           </div>
           <div class="product-facts">

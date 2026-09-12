@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      var reload = nav ? nav.type === "reload" : (performance.navigation && performance.navigation.type === 1);
+      if (reload && "scrollRestoration" in history) history.scrollRestoration = "manual";
+    })();
+  </script>
   <title>Casa Mia — домашняя еда в Анталии</title>
   <meta name="description" content="Блюдо Casa Mia — домашняя кухня в Анталии. Заказ в WhatsApp, доставка по Лиману, Хурме, Ларе и Коньяалты.">
   <link rel="canonical" href="https://casamiafood.vip/product.html">
@@ -48,6 +55,7 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script src="js/cart.js?v=2"></script>
   <script src="js/product.js"></script>
 </body>
 </html>
