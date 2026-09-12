@@ -39,7 +39,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -98,7 +98,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -157,7 +157,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -216,7 +216,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -275,7 +275,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -334,7 +334,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -393,7 +393,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -452,7 +452,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -511,7 +511,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -570,7 +570,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -629,7 +629,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -688,7 +688,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -747,7 +747,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -806,7 +806,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -865,7 +865,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -924,7 +924,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -936,7 +936,7 @@
     ],
     "badges": {
       "hit": false,
-      "new": false,
+      "new": true,
       "sale": false
     },
     "available": true,
@@ -983,7 +983,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1042,7 +1042,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1053,7 +1053,7 @@
       "images/products/блинчики с курицей грибами и сливочным сыром.png"
     ],
     "badges": {
-      "hit": false,
+      "hit": true,
       "new": false,
       "sale": false
     },
@@ -1101,7 +1101,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1160,7 +1160,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1219,7 +1219,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1278,7 +1278,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1289,7 +1289,7 @@
       "images/products/салат лосось  под шубой.png"
     ],
     "badges": {
-      "hit": false,
+      "hit": true,
       "new": false,
       "sale": false
     },
@@ -1337,7 +1337,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1348,8 +1348,8 @@
       "images/products/салат сердце леса.png"
     ],
     "badges": {
-      "hit": false,
-      "new": true,
+      "hit": true,
+      "new": false,
       "sale": false
     },
     "available": true,
@@ -1633,7 +1633,7 @@
     ],
     "badges": {
       "hit": false,
-      "new": false,
+      "new": true,
       "sale": false
     },
     "available": true,
@@ -1680,7 +1680,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1739,7 +1739,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1798,7 +1798,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -2052,5 +2052,64 @@
     "available": true,
     "inStock": true,
     "thumbnail": ""
+  },
+  {
+    "id": "product-1789221227986",
+    "categoryId": "frozen",
+    "order": 740,
+    "name": {
+      "ru": "Тефтели куриные",
+      "ua": "Курячі тефтелі",
+      "tr": "Tavuk Köftesi",
+      "en": "Chicken Meatballs"
+    },
+    "description": {
+      "ru": "Нежные домашние куриные тефтели с рисом и овощами. Полностью готовы к приготовлению — отличный вариант для семейного обеда или ужина.",
+      "ua": "Ніжні домашні курячі тефтелі з рисом та овочами. Повністю готові до приготування — чудовий варіант для сімейного обіду чи вечері.",
+      "tr": "Pirinç ve sebzelerle hazırlanan yumuşacık ev yapımı tavuk köfteleri. Ailece keyifle tüketebileceğiniz pratik ve lezzetli bir öğün.",
+      "en": "Tender homemade chicken meatballs with rice and vegetables. Ready to cook and perfect for a family lunch or dinner."
+    },
+    "ingredients": {
+      "ru": "Филе куриное, рис, лук, морковь, соль, перец чёрный молотый.",
+      "ua": "Куряче філе, рис, цибуля, морква, сіль, чорний мелений перець.",
+      "tr": "Tavuk fileto, pirinç, soğan, havuç, tuz, öğütülmüş karabiber.",
+      "en": "Chicken fillet, rice, onion, carrot, salt, ground black pepper."
+    },
+    "cook": {
+      "ru": "Не размораживая, выложите тефтели на сковороду или в форму для запекания. Добавьте немного воды или соуса и готовьте под крышкой 20–25 минут на среднем огне либо запекайте в духовке при 180°C около 30 минут.",
+      "ua": "Не розморожуючи, викладіть тефтелі на сковороду або у форму для запікання. Додайте трохи води чи соусу та готуйте під кришкою 20–25 хвилин на середньому вогні або запікайте в духовці при 180°C близько 30 хвилин.",
+      "tr": "Çözdürmeden tavaya veya fırın kabına yerleştirin. Biraz su ya da sos ekleyip orta ateşte kapağı kapalı şekilde 20–25 dakika pişirin veya 180°C fırında yaklaşık 30 dakika pişirin.",
+      "en": "Cook from frozen. Place the meatballs in a frying pan or baking dish, add a little water or sauce, and cook covered for 20–25 minutes over medium heat, or bake at 180°C for about 30 minutes."
+    },
+    "serveWith": {
+      "ru": "Подавайте с картофельным пюре, рисом, гречкой или пастой. Особенно вкусно в томатном или сливочном соусе.",
+      "ua": "Подавайте з картопляним пюре, рисом, гречкою або пастою. Особливо смачно з томатним чи вершковим соусом.",
+      "tr": "Patates püresi, pilav, makarna veya karabuğday ile servis edebilirsiniz. Domates ya da kremalı sos ile özellikle lezzetlidir.",
+      "en": "Serve with mashed potatoes, rice, buckwheat, or pasta. Especially delicious with tomato or creamy sauce."
+    },
+    "price": 500,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1789221227986.webp"
+    ],
+    "thumbnail": "images/products/product-1789221227986-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
   }
 ]

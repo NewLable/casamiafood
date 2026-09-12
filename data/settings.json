@@ -3,10 +3,10 @@
     "name": "Casa Mia",
     "logo": "images/brand/logo-big.webp",
     "tagline": {
-      "ru": "Домашняя кухня в Анталии, приготовленная с любовью к качеству",
-      "ua": "Домашня кухня в Анталії, яку готуємо з турботою",
-      "tr": "Antalya'da özenle pişen ev yemekleri",
-      "en": "A home kitchen in Antalya, cooked with real care"
+      "ru": "Домашняя кухня в Анталии: пельмени, вареники, голубцы и блинчики — готовим вручную и доставляем к столу",
+      "ua": "Домашня кухня в Анталії: пельмені, вареники, голубці й млинці — готуємо вручну і доставляємо до столу",
+      "tr": "Antalya'da ev mutfağı: pelmeni, vareniki, lahana sarması ve krep — elle pişirip kapınıza getiriyoruz",
+      "en": "A home kitchen in Antalya: pelmeni, vareniki, cabbage rolls and pancakes — handmade and brought to your table"
     }
   },
   "contacts": {
@@ -31,10 +31,10 @@
       "en": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu and other Antalya areas. If yours is not listed, message us on WhatsApp."
     },
     "hours": {
-      "ru": "Ежедневно с 10:00 до 20:00",
-      "ua": "Щодня з 10:00 до 20:00",
-      "tr": "Her gün 10:00–20:00",
-      "en": "Daily 10:00–20:00"
+      "ru": "Ежедневно",
+      "ua": "Щодня",
+      "tr": "Her gün",
+      "en": "Daily"
     },
     "payment": {
       "ru": "Наличными или переводом",
@@ -232,7 +232,7 @@
   "defaultLang": "ru",
   "cart": {
     "minOrder": 300,
-    "freeDeliveryFrom": 800,
+    "freeDeliveryFrom": 2500,
     "whatsapp": "",
     "instagram": "",
     "greeting": {
