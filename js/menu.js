@@ -4,6 +4,8 @@ async function initMenu() {
   CasaMia.bindHeader();
   CasaMiaCart.mount();
   renderStaticBlocks();
+  renderSort();
+  bindSearch();
   renderFilters();
   renderHits();
   renderCatalog("all");
@@ -13,6 +15,8 @@ async function initMenu() {
   document.addEventListener("casamia:lang", () => {
     CasaMia.applySeo();
     renderStaticBlocks();
+    renderSort();
+    syncSearchI18n();
     renderFilters(currentCategory);
     renderHits();
     renderCatalog(currentCategory);
@@ -20,7 +24,218 @@ async function initMenu() {
   });
 }
 
+const SORT_KEY = "casamia_catalog_sort";
+const SEARCH_KEY = "casamia_catalog_query";
+const SORT_OPTIONS = [
+  { id: "menu", key: "sort.menu" },
+  { id: "name-asc", key: "sort.name_az" },
+  { id: "name-desc", key: "sort.name_za" },
+  { id: "price-asc", key: "sort.price_asc" },
+  { id: "price-desc", key: "sort.price_desc" }
+];
+
 let currentCategory = "all";
+let currentSort = readSort();
+let currentQuery = readQuery();
+let searchTimer = 0;
+let sortMenuOpen = false;
+let sortChromeBound = false;
+let searchBound = false;
+
+function readSort() {
+  try {
+    const saved = sessionStorage.getItem(SORT_KEY);
+    if (SORT_OPTIONS.some((opt) => opt.id === saved)) return saved;
+  } catch {
+    /* private mode */
+  }
+  return "menu";
+}
+
+function persistSort(id) {
+  currentSort = id;
+  try {
+    sessionStorage.setItem(SORT_KEY, id);
+  } catch {
+    /* private mode */
+  }
+}
+
+function readQuery() {
+  try {
+    return String(sessionStorage.getItem(SEARCH_KEY) || "");
+  } catch {
+    return "";
+  }
+}
+
+function persistQuery(value) {
+  currentQuery = String(value || "");
+  try {
+    if (currentQuery) sessionStorage.setItem(SEARCH_KEY, currentQuery);
+    else sessionStorage.removeItem(SEARCH_KEY);
+  } catch {
+    /* private mode */
+  }
+}
+
+function foldText(value) {
+  return String(value || "")
+    .toLocaleLowerCase()
+    .replace(/ё/g, "е")
+    .replace(/ı/g, "i")
+    .replace(/i̇/g, "i")
+    .trim();
+}
+
+function matchesQuery(product, query) {
+  const needle = foldText(query);
+  if (!needle) return true;
+  const parts = [];
+  for (const field of [product.name, product.description]) {
+    if (!field) continue;
+    if (typeof field === "string") parts.push(field);
+    else parts.push(...Object.values(field));
+  }
+  return foldText(parts.join(" ")).includes(needle);
+}
+
+function catalogPrice(product) {
+  return Number(product.price ?? product.variants?.[0]?.price) || 0;
+}
+
+function compareNames(a, b) {
+  const locale = { ru: "ru", ua: "uk", tr: "tr", en: "en" }[CasaMia.getLang()] || "ru";
+  const cmp = CasaMia.localized(a.name).localeCompare(CasaMia.localized(b.name), locale, {
+    sensitivity: "base",
+    numeric: true
+  });
+  return cmp || ((a.order || 0) - (b.order || 0));
+}
+
+function sortProducts(list) {
+  const items = list.slice();
+  if (currentSort === "name-asc") items.sort(compareNames);
+  else if (currentSort === "name-desc") items.sort((a, b) => compareNames(b, a));
+  else if (currentSort === "price-asc") {
+    items.sort((a, b) => catalogPrice(a) - catalogPrice(b) || compareNames(a, b));
+  } else if (currentSort === "price-desc") {
+    items.sort((a, b) => catalogPrice(b) - catalogPrice(a) || compareNames(a, b));
+  } else {
+    items.sort((a, b) => (a.order || 0) - (b.order || 0));
+  }
+  return items;
+}
+
+function closeSortMenu() {
+  sortMenuOpen = false;
+  const menu = document.getElementById("sort-menu");
+  const btn = document.getElementById("sort-btn");
+  if (menu) menu.hidden = true;
+  if (btn) btn.setAttribute("aria-expanded", "false");
+}
+
+function bindSortChrome() {
+  if (sortChromeBound) return;
+  sortChromeBound = true;
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".catalog-sort")) closeSortMenu();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    const search = document.getElementById("catalog-search");
+    if (search && document.activeElement === search && search.value) {
+      search.value = "";
+      applySearch("", false);
+      return;
+    }
+    closeSortMenu();
+  });
+}
+
+function renderSort() {
+  const wrap = document.getElementById("catalog-sort");
+  if (!wrap) return;
+  sortMenuOpen = false;
+  bindSortChrome();
+  const active = SORT_OPTIONS.find((opt) => opt.id === currentSort) || SORT_OPTIONS[0];
+  const label = currentSort === "menu" ? CasaMia.t("sort.label") : CasaMia.t(active.key);
+  wrap.innerHTML = `
+    <button type="button" class="sort-btn${currentSort === "menu" ? "" : " is-on"}" id="sort-btn" aria-expanded="false" aria-haspopup="listbox" aria-controls="sort-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 15V5M8 5 5 8M8 5l3 3M16 9v10M16 19l3-3M16 19l-3-3"/></svg>
+      <span>${label}</span>
+      <svg class="sort-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+    <div class="sort-menu" id="sort-menu" role="listbox" aria-label="${CasaMia.t("sort.label")}" hidden>
+      ${SORT_OPTIONS.map((opt) => `
+        <button type="button" class="sort-option${opt.id === currentSort ? " is-active" : ""}" role="option" aria-selected="${opt.id === currentSort ? "true" : "false"}" data-sort="${opt.id}">${CasaMia.t(opt.key)}</button>
+      `).join("")}
+    </div>`;
+  const btn = wrap.querySelector("#sort-btn");
+  const menu = wrap.querySelector("#sort-menu");
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    sortMenuOpen = !sortMenuOpen;
+    menu.hidden = !sortMenuOpen;
+    btn.setAttribute("aria-expanded", sortMenuOpen ? "true" : "false");
+  });
+  wrap.querySelectorAll("[data-sort]").forEach((option) => {
+    option.addEventListener("click", (e) => {
+      e.stopPropagation();
+      persistSort(option.dataset.sort);
+      closeSortMenu();
+      renderSort();
+      renderCatalog(currentCategory);
+    });
+  });
+}
+
+function syncSearchI18n() {
+  const input = document.getElementById("catalog-search");
+  const clear = document.getElementById("catalog-search-clear");
+  if (input) {
+    input.placeholder = CasaMia.t("sort.search_ph");
+    input.setAttribute("aria-label", CasaMia.t("sort.search"));
+  }
+  if (clear) clear.setAttribute("aria-label", CasaMia.t("sort.clear"));
+}
+
+function syncSearchClear() {
+  const input = document.getElementById("catalog-search");
+  const clear = document.getElementById("catalog-search-clear");
+  if (!clear) return;
+  clear.hidden = !(input && input.value.trim());
+}
+
+function applySearch(value, animate) {
+  persistQuery(value);
+  syncSearchClear();
+  renderCatalog(currentCategory, { animate: animate !== false });
+}
+
+function bindSearch() {
+  const input = document.getElementById("catalog-search");
+  const clear = document.getElementById("catalog-search-clear");
+  if (!input) return;
+  syncSearchI18n();
+  if (currentQuery) input.value = currentQuery;
+  syncSearchClear();
+  if (searchBound) return;
+  searchBound = true;
+  input.addEventListener("input", () => {
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(() => {
+      applySearch(input.value, false);
+    }, 120);
+  });
+  clear?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.clearTimeout(searchTimer);
+    input.value = "";
+    applySearch("", false);
+    input.focus();
+  });
+}
 
 function renderFilters(active = "all") {
   currentCategory = active;
@@ -42,16 +257,26 @@ function renderFilters(active = "all") {
   });
 }
 
-function renderCatalog(categoryId) {
+function renderCatalog(categoryId, options = {}) {
   const grid = document.getElementById("product-grid");
   if (!grid) return;
+  const animate = options.animate !== false;
   let list = CasaMia.visibleProducts();
   if (categoryId && categoryId !== "all") {
     list = list.filter((p) => p.categoryId === categoryId);
   }
+  if (currentQuery.trim()) {
+    list = list.filter((p) => matchesQuery(p, currentQuery));
+  }
+  list = sortProducts(list);
+  if (!list.length) {
+    grid.innerHTML = `<p class="catalog-empty">${CasaMia.t("sort.empty")}</p>`;
+    return;
+  }
   grid.innerHTML = list.map((p, i) => {
     const card = CasaMia.productCard(p);
-    return card.replace('class="product-card"', `class="product-card" style="animation-delay:${Math.min(i, 12) * 40}ms"`);
+    const delay = animate ? ` style="animation-delay:${Math.min(i, 12) * 40}ms"` : ` style="animation:none"`;
+    return card.replace('class="product-card"', `class="product-card"${delay}`);
   }).join("");
 }
 

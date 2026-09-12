@@ -830,10 +830,10 @@
     "categoryId": "frozen",
     "order": 150,
     "name": {
-      "ru": "Фрикадельки индейка филейные",
-      "ua": "Фрикадельки з індички",
-      "tr": "Hindi mini köfte",
-      "en": "Turkey meatballs"
+      "ru": "Тефтели из индейки филейные",
+      "ua": "Тефтелі з індички філейні",
+      "tr": "Fileto hindi köfte",
+      "en": "Turkey fillet tefteli"
     },
     "description": {
       "ru": "Нежные • для супа и жарки",

@@ -33,7 +33,7 @@
   <link rel="preload" href="images/brand/logo-big.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=11">
+  <link rel="stylesheet" href="css/style.css?v=13">
   <link rel="icon" href="images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="images/brand/apple-touch.png">
   <script type="application/ld+json">
@@ -159,6 +159,14 @@
         <h3 class="hits-heading" data-i18n="hits_title">Хиты недели</h3>
         <div class="hits-row" id="hits"></div>
 
+        <div class="catalog-bar">
+          <div class="catalog-sort" id="catalog-sort"></div>
+          <label class="catalog-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input class="allow-copy" id="catalog-search" type="search" name="q" maxlength="80" autocomplete="off" enterkeyhint="search" aria-controls="product-grid">
+            <button type="button" class="catalog-search-clear" id="catalog-search-clear" hidden>×</button>
+          </label>
+        </div>
         <div class="filters" id="filters"></div>
         <div class="product-grid" id="product-grid"></div>
       </div>
@@ -342,8 +350,8 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=7"></script>
+  <script src="js/app.js?v=9"></script>
   <script src="js/cart.js?v=12"></script>
-  <script src="js/menu.js"></script>
+  <script src="js/menu.js?v=2"></script>
 </body>
 </html>

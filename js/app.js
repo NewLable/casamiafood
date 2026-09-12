@@ -97,6 +97,23 @@ const CasaMia = (() => {
     },
     hits_title: { ru: "Хиты недели", ua: "Хіти тижня", tr: "Haftanın favorileri", en: "This week's favorites" },
     all: { ru: "Все", ua: "Усі", tr: "Tümü", en: "All" },
+    sort: {
+      label: { ru: "Сортировка", ua: "Сортування", tr: "Sıralama", en: "Sort" },
+      menu: { ru: "Как в меню", ua: "Як у меню", tr: "Menü sırası", en: "Menu order" },
+      name_az: { ru: "А–Я", ua: "А–Я", tr: "A–Z", en: "A–Z" },
+      name_za: { ru: "Я–А", ua: "Я–А", tr: "Z–A", en: "Z–A" },
+      price_asc: { ru: "Сначала дешевле", ua: "Спочатку дешевші", tr: "Önce ucuz", en: "Price: low to high" },
+      price_desc: { ru: "Сначала дороже", ua: "Спочатку дорожчі", tr: "Önce pahalı", en: "Price: high to low" },
+      search: { ru: "Поиск", ua: "Пошук", tr: "Arama", en: "Search" },
+      search_ph: { ru: "Найти блюдо", ua: "Знайти страву", tr: "Yemek ara", en: "Search dishes" },
+      clear: { ru: "Очистить", ua: "Очистити", tr: "Temizle", en: "Clear" },
+      empty: {
+        ru: "Ничего не нашлось. Попробуйте другое название или категорию «Все».",
+        ua: "Нічого не знайшлося. Спробуйте іншу назву або категорію «Усі».",
+        tr: "Sonuç yok. Başka bir ad deneyin veya «Tümü» kategorisini seçin.",
+        en: "Nothing found. Try another name or the All category."
+      }
+    },
     why_title: { ru: "Почему Casa Mia?", ua: "Чому Casa Mia?", tr: "Neden Casa Mia?", en: "Why Casa Mia?" },
     cook_title: { ru: "Как готовить?", ua: "Як готувати?", tr: "Nasıl pişirilir?", en: "How to cook?" },
     cook_sub: {
