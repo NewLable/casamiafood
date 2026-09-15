@@ -47,7 +47,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pelmeni-chicken.webp"
+      "images/products/пельмени куриные.png"
     ],
     "badges": {
       "hit": true,
@@ -106,7 +106,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pelmeni-turkey.webp"
+      "images/products/пельмени из индейки филейные.png"
     ],
     "badges": {
       "hit": false,
@@ -165,7 +165,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pelmeni-chicken-beef.webp"
+      "images/products/пельмени курино-говяжьи.png"
     ],
     "badges": {
       "hit": true,
@@ -224,7 +224,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/vareniki-potato.webp"
+      "images/products/вареники с картофелем.png"
     ],
     "badges": {
       "hit": false,
@@ -283,7 +283,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/vareniki-potato-mushroom.webp"
+      "images/products/вареники с картофелем и грибами.png"
     ],
     "badges": {
       "hit": false,
@@ -342,7 +342,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/vareniki-potato-liver.webp"
+      "images/products/вареники с картофелем и печенью.png"
     ],
     "badges": {
       "hit": false,
@@ -401,7 +401,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/vareniki-cottage.webp"
+      "images/products/вареники с творогом.png"
     ],
     "badges": {
       "hit": false,
@@ -460,7 +460,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/vareniki-lazy.webp"
+      "images/products/вареники ленивые.png"
     ],
     "badges": {
       "hit": false,
@@ -519,7 +519,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/ravioli-salmon.webp"
+      "images/products/равиоли с лососем.png"
     ],
     "badges": {
       "hit": true,
@@ -578,7 +578,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/cabbage-chicken.webp"
+      "images/products/голубцы куриные.png"
     ],
     "badges": {
       "hit": true,
@@ -637,7 +637,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/cabbage-chicken-beef.webp"
+      "images/products/голубцы курино-говяжьи.png"
     ],
     "badges": {
       "hit": false,
@@ -696,7 +696,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/stuffed-pepper.webp"
+      "images/products/перец фаршированный.png"
     ],
     "badges": {
       "hit": false,
@@ -755,7 +755,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/cutlets-chicken.webp"
+      "images/products/котлеты куриные.png"
     ],
     "badges": {
       "hit": false,
@@ -814,7 +814,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/meatballs-chicken.webp"
+      "images/products/фрикадельки куриные.png"
     ],
     "badges": {
       "hit": false,
@@ -873,7 +873,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/meatballs-turkey.webp"
+      "images/products/тефтели из индейки.png"
     ],
     "badges": {
       "hit": false,
@@ -932,7 +932,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/mince-chicken.webp"
+      "images/products/mince-chicken.png"
     ],
     "badges": {
       "hit": false,
@@ -991,7 +991,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pancakes-chicken-cheese.webp"
+      "images/products/блинчики с курицей и сливочным сыром.png"
     ],
     "badges": {
       "hit": true,
@@ -1050,7 +1050,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pancakes-chicken-mushroom.webp"
+      "images/products/блинчики с курицей грибами и сливочным сыром.png"
     ],
     "badges": {
       "hit": true,
@@ -1109,7 +1109,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pancakes-cottage-raisin.webp"
+      "images/products/блинчики с творогом и изюмом.png"
     ],
     "badges": {
       "hit": false,
@@ -1168,7 +1168,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/pancakes-apple.webp"
+      "images/products/pancakes-apple.png"
     ],
     "badges": {
       "hit": false,
@@ -1227,69 +1227,10 @@
       "en": "kg"
     },
     "images": [
-      "images/products/salad-olivier.webp"
+      "images/products/салат оливье классический.png"
     ],
     "badges": {
       "hit": true,
-      "new": false,
-      "sale": false
-    },
-    "available": true,
-    "inStock": true,
-    "thumbnail": ""
-  },
-  {
-    "id": "salad-olivier-premium",
-    "categoryId": "salads",
-    "order": 305,
-    "name": {
-      "ru": "Салат «Оливье» изысканный",
-      "ua": "Салат «Олів'є» вишуканий",
-      "tr": "Gourmet olivye",
-      "en": "Deluxe Olivier salad"
-    },
-    "description": {
-      "ru": "С куриным филе",
-      "ua": "З курячим філе",
-      "tr": "Tavuk fileto ile",
-      "en": "With chicken fillet"
-    },
-    "ingredients": {
-      "ru": "Картофель, морковь, яйца, горошек, огурцы, майонез, куриное филе, соль",
-      "ua": "Картопля, морква, яйця, горошок, огірки, майонез, куряче філе, сіль",
-      "tr": "Patates, havuç, yumurta, bezelye, salatalık, mayonez, tavuk fileto, tuz",
-      "en": "Potato, carrot, eggs, peas, cucumbers, mayo, chicken fillet, salt"
-    },
-    "cook": {
-      "ru": "Готов к подаче. Хранить в холодильнике.",
-      "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Hazır. Buzdolabında saklayın.",
-      "en": "Ready to serve. Keep refrigerated."
-    },
-    "serveWith": {
-      "ru": "Как самостоятельное блюдо",
-      "ua": "Як самостійна страва",
-      "tr": "Tek başına da yenir",
-      "en": "As a main dish"
-    },
-    "price": 400,
-    "priceUnit": "kg",
-    "weight": 1000,
-    "weightUnit": "g",
-    "quantityType": "kg",
-    "step": 0.5,
-    "min": 1,
-    "unit": {
-      "ru": "кг",
-      "ua": "кг",
-      "tr": "kg",
-      "en": "kg"
-    },
-    "images": [
-      "images/products/salad-olivier-deluxe.webp"
-    ],
-    "badges": {
-      "hit": false,
       "new": false,
       "sale": false
     },
@@ -1345,7 +1286,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/salad-salmon.webp"
+      "images/products/салат лосось  под шубой.png"
     ],
     "badges": {
       "hit": true,
@@ -1404,69 +1345,10 @@
       "en": "kg"
     },
     "images": [
-      "images/products/salad-forest-heart.webp"
+      "images/products/салат сердце леса.png"
     ],
     "badges": {
       "hit": true,
-      "new": false,
-      "sale": false
-    },
-    "available": true,
-    "inStock": true,
-    "thumbnail": ""
-  },
-  {
-    "id": "salad-forest-heart-turkey",
-    "categoryId": "salads",
-    "order": 325,
-    "name": {
-      "ru": "Салат «Сердце леса» с индейкой",
-      "ua": "Салат «Серце лісу» з індички",
-      "tr": "Hindi yürekli Ormanın Kalbi",
-      "en": "Forest Heart salad with turkey"
-    },
-    "description": {
-      "ru": "Фирменный салат Casa Mia",
-      "ua": "Фірмовий салат Casa Mia",
-      "tr": "Casa Mia'nın imza salatası",
-      "en": "Casa Mia signature salad"
-    },
-    "ingredients": {
-      "ru": "Грибы, индюшиное сердце, сыр, яйца, майонез, зелень, специи",
-      "ua": "Гриби, серце індички, сир, яйця, майонез, зелень, спеції",
-      "tr": "Mantar, hindi yüreği, peynir, yumurta, mayonez, yeşillik, baharat",
-      "en": "Mushrooms, turkey heart, cheese, eggs, mayo, herbs, spices"
-    },
-    "cook": {
-      "ru": "Готов к подаче. Хранить в холодильнике.",
-      "ua": "Готовий до подачі. Зберігати в холодильнику.",
-      "tr": "Hazır. Buzdolabında saklayın.",
-      "en": "Ready to serve. Keep refrigerated."
-    },
-    "serveWith": {
-      "ru": "Охлаждённым",
-      "ua": "Охолодженим",
-      "tr": "Soğuk servis edin",
-      "en": "Chilled"
-    },
-    "price": 680,
-    "priceUnit": "kg",
-    "weight": 1000,
-    "weightUnit": "g",
-    "quantityType": "kg",
-    "step": 0.5,
-    "min": 1,
-    "unit": {
-      "ru": "кг",
-      "ua": "кг",
-      "tr": "kg",
-      "en": "kg"
-    },
-    "images": [
-      "images/products/salad-forest-heart-turkey.webp"
-    ],
-    "badges": {
-      "hit": false,
       "new": false,
       "sale": false
     },
@@ -1479,10 +1361,10 @@
     "categoryId": "pasta",
     "order": 400,
     "name": {
-      "ru": "Спагетти",
-      "ua": "Спагеті",
-      "tr": "Spagetti",
-      "en": "Spaghetti"
+      "ru": "Спагетти и феттучини",
+      "ua": "Спагеті та феттучині",
+      "tr": "Spagetti ve fettuccine",
+      "en": "Spaghetti & fettuccine"
     },
     "description": {
       "ru": "Классические и цветные • на желтках",
@@ -1546,149 +1428,7 @@
       }
     ],
     "images": [
-      "images/products/pasta-spaghetti.webp"
-    ],
-    "badges": {
-      "hit": false,
-      "new": false,
-      "sale": false
-    },
-    "available": true,
-    "inStock": true,
-    "thumbnail": ""
-  },
-  {
-    "id": "pasta-fettuccine",
-    "categoryId": "pasta",
-    "order": 410,
-    "name": {
-      "ru": "Феттучини",
-      "ua": "Феттучині",
-      "tr": "Fettuccine",
-      "en": "Fettuccine"
-    },
-    "description": {
-      "ru": "Классические и цветные • на желтках",
-      "ua": "Класичні та кольорові • на жовтках",
-      "tr": "Klasik ve renkli • yumurta sarısıyla",
-      "en": "Classic and colored • egg yolk pasta"
-    },
-    "ingredients": {
-      "ru": "Мука из твёрдых сортов пшеницы, желтки, мука, соль",
-      "ua": "Борошно твердих сортів пшениці, жовтки, борошно, сіль",
-      "tr": "Durum buğday unu, yumurta sarısı, un, tuz",
-      "en": "Durum wheat flour, egg yolks, flour, salt"
-    },
-    "cook": {
-      "ru": "Варить 3–5 минут в подсоленной воде.",
-      "ua": "Варити 3–5 хвилин у підсоленій воді.",
-      "tr": "Tuzlu suda 3–5 dakika haşlayın.",
-      "en": "Boil 3–5 minutes in salted water."
-    },
-    "serveWith": {
-      "ru": "С томатным или сливочным соусом",
-      "ua": "З томатним або вершковим соусом",
-      "tr": "Domates veya krem sos ile",
-      "en": "With tomato or cream sauce"
-    },
-    "price": 270,
-    "priceUnit": "pack",
-    "weight": 250,
-    "weightUnit": "g",
-    "quantityType": "package",
-    "step": 1,
-    "min": 1,
-    "unit": {
-      "ru": "уп.",
-      "ua": "уп.",
-      "tr": "paket",
-      "en": "pack"
-    },
-    "variants": [
-      {
-        "id": "250",
-        "label": {
-          "ru": "250 г",
-          "ua": "250 г",
-          "tr": "250 g",
-          "en": "250 g"
-        },
-        "price": 270,
-        "weight": 250
-      },
-      {
-        "id": "500",
-        "label": {
-          "ru": "500 г",
-          "ua": "500 г",
-          "tr": "500 g",
-          "en": "500 g"
-        },
-        "price": 420,
-        "weight": 500
-      }
-    ],
-    "images": [
-      "images/products/pasta-fettuccine.webp"
-    ],
-    "badges": {
-      "hit": false,
-      "new": false,
-      "sale": false
-    },
-    "available": true,
-    "inStock": true,
-    "thumbnail": ""
-  },
-  {
-    "id": "sauce-tomato-basil",
-    "categoryId": "pasta",
-    "order": 420,
-    "name": {
-      "ru": "Соус томатный с базиликом",
-      "ua": "Томатний соус із базиліком",
-      "tr": "Fesleğenli domates sosu",
-      "en": "Tomato sauce with basil"
-    },
-    "description": {
-      "ru": "Домашний • к пасте и голубцам",
-      "ua": "Домашній • до пасти й голубців",
-      "tr": "Ev yapımı • makarna ve sarmaya",
-      "en": "Homemade • for pasta and cabbage rolls"
-    },
-    "ingredients": {
-      "ru": "Помидоры, базилик, лук, чеснок, растительное масло, соль, сахар, специи",
-      "ua": "Помідори, базилік, цибуля, часник, олія, сіль, цукор, спеції",
-      "tr": "Domates, fesleğen, soğan, sarımsak, sıvı yağ, tuz, şeker, baharat",
-      "en": "Tomatoes, basil, onion, garlic, oil, salt, sugar, spices"
-    },
-    "cook": {
-      "ru": "Разогреть и подать к пасте, голубцам или фаршированному перцу.",
-      "ua": "Розігріти й подати до пасти, голубців або фаршированого перцю.",
-      "tr": "Isıtıp makarna, lahana sarması veya dolma biberle servis edin.",
-      "en": "Heat and serve with pasta, cabbage rolls or stuffed peppers."
-    },
-    "serveWith": {
-      "ru": "Со спагетти, феттучини или голубцами",
-      "ua": "Зі спагеті, феттучині або голубцями",
-      "tr": "Spagetti, fettuccine veya lahana sarması ile",
-      "en": "With spaghetti, fettuccine or cabbage rolls"
-    },
-    "price": 180,
-    "priceUnit": "pack",
-    "weight": 250,
-    "weightUnit": "g",
-    "quantityType": "package",
-    "step": 1,
-    "min": 1,
-    "unit": {
-      "ru": "уп.",
-      "ua": "уп.",
-      "tr": "paket",
-      "en": "pack"
-    },
-    "images": [
-      "images/products/sauce-tomato-basil.webp"
+      "images/products/спагетти домашние.png"
     ],
     "badges": {
       "hit": false,
@@ -1771,7 +1511,7 @@
       }
     ],
     "images": [
-      "images/products/cinnabon.webp"
+      "images/products/синнабоны с кремом.png"
     ],
     "badges": {
       "hit": true,
@@ -1830,7 +1570,7 @@
       "en": "pack"
     },
     "images": [
-      "images/products/tiramisu.webp"
+      "images/products/тирамису.png"
     ],
     "badges": {
       "hit": false,
@@ -1889,7 +1629,7 @@
       "en": "pack"
     },
     "images": [
-      "images/products/aspic-chicken.webp"
+      "images/products/холодец куриный.png"
     ],
     "badges": {
       "hit": false,
@@ -1934,7 +1674,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1948,7 +1688,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/cabbage-chicken.webp"
+      "images/products/голубцы куриные.png"
     ],
     "badges": {
       "hit": false,
@@ -1993,7 +1733,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 800,
+    "price": 900,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2007,7 +1747,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/cabbage-chicken-beef.webp"
+      "images/products/голубцы курино-говяжьи.png"
     ],
     "badges": {
       "hit": false,
@@ -2066,7 +1806,7 @@
       "en": "kg"
     },
     "images": [
-      "images/products/stuffed-pepper.webp"
+      "images/products/перец фаршированный.png"
     ],
     "badges": {
       "hit": false,
@@ -2125,7 +1865,7 @@
       "en": "pack"
     },
     "images": [
-      "images/products/soup-kharcho.webp"
+      "images/products/soup-kharcho.png"
     ],
     "badges": {
       "hit": false,
@@ -2184,7 +1924,7 @@
       "en": "pack"
     },
     "images": [
-      "images/products/soup-chicken-meatballs.webp"
+      "images/products/soup-chicken-meatballs.png"
     ],
     "badges": {
       "hit": false,
@@ -2243,7 +1983,7 @@
       "en": "pack"
     },
     "images": [
-      "images/products/soup-borsch.webp"
+      "images/products/soup-borsch.png"
     ],
     "badges": {
       "hit": true,
@@ -2302,7 +2042,7 @@
       "en": "pack"
     },
     "images": [
-      "images/products/soup-solyanka.webp"
+      "images/products/soup-solyanka.png"
     ],
     "badges": {
       "hit": false,
@@ -2352,9 +2092,9 @@
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/tefteli-chicken.webp"
+      "images/products/product-1789221227986.webp"
     ],
-    "thumbnail": "",
+    "thumbnail": "images/products/product-1789221227986-thumb.webp",
     "badges": {
       "hit": false,
       "new": true,
