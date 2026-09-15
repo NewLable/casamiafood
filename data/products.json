@@ -2111,5 +2111,64 @@
       "tr": "kg",
       "en": "kg"
     }
+  },
+  {
+    "id": "product-1789470095259",
+    "categoryId": "frozen",
+    "order": 750,
+    "name": {
+      "ru": "Творог домашний 4%",
+      "ua": "Домашній сир 4%",
+      "tr": "Ev Yapımı Lor Peyniri %4",
+      "en": "Homemade Cottage Cheese 4%"
+    },
+    "description": {
+      "ru": "Нежный домашний творог 4% жирности без соли. Из натурального молока, с мягким сливочным вкусом — идеально для завтраков, выпечки и полезных десертов.",
+      "ua": "Ніжний домашній сир 4% жирності без солі. З натурального молока, з м'яким вершковим смаком — ідеально для сніданків, випічки та корисних десертів.",
+      "tr": "Doğal sütten hazırlanan, tuzsuz ve %4 yağ oranına sahip yumuşak ev yapımı lor peyniri. Kahvaltılar, tatlılar ve hamur işleri için mükemmel bir seçim.",
+      "en": "Tender homemade 4% cottage cheese with no added salt. Made from natural milk with a mild creamy taste, perfect for breakfasts, baking and healthy desserts."
+    },
+    "ingredients": {
+      "ru": "Натуральное молоко, закваска. Без соли.",
+      "ua": "Натуральне молоко, закваска. Без солі.",
+      "tr": "Doğal süt, maya kültürü. Tuz içermez.",
+      "en": "Natural milk, starter culture. No added salt."
+    },
+    "cook": {
+      "ru": "Продукт полностью готов к употреблению. Храните в холодильнике при температуре +2…+6°C.",
+      "ua": "Продукт повністю готовий до вживання. Зберігайте в холодильнику при температурі +2…+6°C.",
+      "tr": "Ürün tüketime hazırdır. +2…+6°C arasında buzdolabında saklayınız.",
+      "en": "Ready to eat. Keep refrigerated at +2…+6°C."
+    },
+    "serveWith": {
+      "ru": "Подавайте со сметаной, мёдом, ягодами или фруктами. Отлично подходит для сырников, запеканок, вареников и домашней выпечки.",
+      "ua": "Подавайте зі сметаною, медом, ягодами або фруктами. Чудово підходить для сирників, запіканок, вареників і домашньої випічки.",
+      "tr": "Ekşi krema, bal, meyve veya taze meyvelerle servis edebilirsiniz. Syrniki, fırın tatlıları, vareniki ve ev yapımı hamur işleri için idealdir.",
+      "en": "Serve with sour cream, honey, berries or fresh fruit. Perfect for cheesecakes, baked dishes, vareniki and homemade pastries."
+    },
+    "price": 650,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1789470095259.webp"
+    ],
+    "thumbnail": "images/products/product-1789470095259-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
   }
 ]
