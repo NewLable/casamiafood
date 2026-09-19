@@ -264,6 +264,14 @@ const CasaMiaCart = (() => {
     return (cartSettings().whatsapp || s.contacts?.whatsapp || "").replace(/\D/g, "");
   }
 
+  function track(name) {
+    try {
+      if (typeof umami === "object" && typeof umami.track === "function") umami.track(name);
+    } catch {
+      /* analytics must never block checkout */
+    }
+  }
+
   function instagramHandle() {
     const s = CasaMia.getSettings() || {};
     return (cartSettings().instagram || s.contacts?.instagram || "casa_mia_antalya").replace(/^@/, "");
@@ -745,6 +753,7 @@ const CasaMiaCart = (() => {
     const text = buildOrderText({ plain: !usesNativeMessenger() });
     if (!text) return;
     saveLastOrder();
+    track("whatsapp-order");
     const phone = whatsappPhone();
     openExternal(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`);
     renderHome();
@@ -755,6 +764,7 @@ const CasaMiaCart = (() => {
     if (!text) return;
     const ok = await copyOrderText();
     if (!ok) toast("basket.copy_fail");
+    track("instagram-order");
     openIgModal(ok);
   }
 

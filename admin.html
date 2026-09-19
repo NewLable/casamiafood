@@ -46,6 +46,7 @@
         <button class="tab" type="button" data-tab="settings">Настройки сайта</button>
         <button class="tab" type="button" data-tab="cart">🧺 Корзина</button>
         <button class="tab" type="button" data-tab="reviews">Отзывы</button>
+        <button class="tab" type="button" data-tab="stats">Статистика</button>
         <button class="tab" type="button" data-tab="github">Настройки GitHub</button>
         <button class="tab" type="button" data-tab="help">📖 Помощь владельцу</button>
       </div>
@@ -85,6 +86,48 @@
           <button class="btn" id="add-review-btn" type="button">+ Новый отзыв</button>
         </div>
         <div class="editor-list" id="review-list"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="stats">
+        <div class="help-hero">
+          <h2>Статистика сайта</h2>
+          <p class="panel-lead" style="margin:0">Визиты, страна, телефон или компьютер и откуда пришли гости. Без cookies и без баннера на сайте — считает <strong>Umami</strong>.</p>
+        </div>
+        <div class="section-card">
+          <h2>Кабинет Umami</h2>
+          <p class="hint" style="margin-top:0">Цифры живут в облаке Umami, не в GitHub. Войдите тем же аккаунтом, которым создавали счётчик, и откройте сайт <strong>casamiafood.vip</strong>.</p>
+          <div class="btn-row" style="margin-top:0.4rem">
+            <a class="btn" href="https://cloud.umami.is/" target="_blank" rel="noopener">Открыть статистику</a>
+          </div>
+          <div class="tip">Админка в отчёт не попадает. Локальный просмотр сайта тоже не считается — только casamiafood.vip.</div>
+        </div>
+        <div class="stats-grid">
+          <article class="help-card">
+            <h3>Посещения</h3>
+            <p>Сколько человек открыли сайт и сколько страниц посмотрели. Карточки товаров считаются отдельно.</p>
+          </article>
+          <article class="help-card">
+            <h3>Страна</h3>
+            <p>Турция, Россия, Украина и другие. Город и район (Лиман, Лара) Umami без cookies не показывает.</p>
+          </article>
+          <article class="help-card">
+            <h3>Устройство</h3>
+            <p>Телефон, планшет или компьютер, браузер и система.</p>
+          </article>
+          <article class="help-card">
+            <h3>Откуда пришли</h3>
+            <p>Instagram, Google, прямой заход. В событиях — клики WhatsApp и заказы из корзины.</p>
+          </article>
+        </div>
+        <div class="section-card">
+          <h2>Как смотреть</h2>
+          <ol class="stats-steps">
+            <li>Нажмите «Открыть статистику» и войдите в Umami.</li>
+            <li>Выберите website <strong>casamiafood.vip</strong>.</li>
+            <li>Вкладка <strong>Pages</strong> — какие страницы открывали, <strong>Referrers</strong> — откуда пришли, <strong>Events</strong> — WhatsApp и заказы.</li>
+            <li>Первые цифры появляются после того, как гости зайдут на уже опубликованный сайт. Обычно 1–2 минуты.</li>
+          </ol>
+        </div>
       </section>
 
       <section class="panel hidden" data-panel="github">
@@ -243,6 +286,15 @@
               <li>Если товар закончился — снимите «В наличии» или включите «Скрыт», затем сохраните.</li>
             </ol>
             <div class="tip">Гости собирают корзину на сайте и отправляют готовый текст в WhatsApp. Оплаты на сайте нет.</div>
+          </article>
+          <article class="help-card" id="help-stats">
+            <h3>13. Как смотреть статистику</h3>
+            <ol>
+              <li>Вкладка «Статистика» → «Открыть статистику».</li>
+              <li>Войдите в Umami тем же аккаунтом, которым подключали сайт.</li>
+              <li>Там: визиты, страна, телефон или компьютер, Instagram/Google, клики WhatsApp.</li>
+            </ol>
+            <div class="tip">На сайте нет баннера про cookies. Админка и проверка с компьютера разработчика в цифры не попадают.</div>
           </article>
           <article class="help-card" id="help-stuck">
             <h3>Что делать, если сайт не обновился</h3>
