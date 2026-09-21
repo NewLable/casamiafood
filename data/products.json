@@ -33,7 +33,7 @@
       "tr": "Ekşi krema veya tereyağı ile",
       "en": "With sour cream or butter"
     },
-    "price": 420,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -92,7 +92,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 550,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -151,7 +151,7 @@
       "tr": "Ekşi krema veya et suyu ile",
       "en": "With sour cream or broth"
     },
-    "price": 600,
+    "price": 680,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -210,7 +210,7 @@
       "tr": "Ekşi krema ve kızarmış soğan ile",
       "en": "With sour cream and fried onion"
     },
-    "price": 370,
+    "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -269,7 +269,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 400,
+    "price": 450,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -387,7 +387,7 @@
       "tr": "Ekşi krema, şeker veya reçel ile",
       "en": "With sour cream and sugar or jam"
     },
-    "price": 400,
+    "price": 450,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -505,7 +505,7 @@
       "tr": "Krem sos veya tereyağı ile",
       "en": "With cream sauce or butter"
     },
-    "price": 400,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -564,7 +564,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -623,7 +623,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 800,
+    "price": 850,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -682,7 +682,7 @@
       "tr": "Ekşi krema veya domates sosu ile",
       "en": "With sour cream or tomato sauce"
     },
-    "price": 500,
+    "price": 570,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -741,7 +741,7 @@
       "tr": "Yanına garnitür ve salata",
       "en": "With a side and salad"
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -800,7 +800,7 @@
       "tr": "Çorba veya garnitür ile",
       "en": "In soup or with a side"
     },
-    "price": 550,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -977,7 +977,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 520,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1095,7 +1095,7 @@
       "tr": "Ekşi krema veya reçel ile",
       "en": "With sour cream or jam"
     },
-    "price": 550,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1213,7 +1213,7 @@
       "tr": "Tek başına da yenir",
       "en": "As a main dish"
     },
-    "price": 400,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1272,7 +1272,7 @@
       "tr": "Tek başına da yenir",
       "en": "As a main dish"
     },
-    "price": 400,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1331,7 +1331,7 @@
       "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
-    "price": 400,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1390,7 +1390,7 @@
       "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
-    "price": 680,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1449,7 +1449,7 @@
       "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
-    "price": 680,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1508,7 +1508,7 @@
       "tr": "Domates veya krem sos ile",
       "en": "With tomato or cream sauce"
     },
-    "price": 270,
+    "price": 300,
     "priceUnit": "pack",
     "weight": 250,
     "weightUnit": "g",
@@ -1591,7 +1591,7 @@
       "tr": "Domates veya krem sos ile",
       "en": "With tomato or cream sauce"
     },
-    "price": 270,
+    "price": 300,
     "priceUnit": "pack",
     "weight": 250,
     "weightUnit": "g",
@@ -1674,7 +1674,7 @@
       "tr": "Spagetti, fettuccine veya lahana sarması ile",
       "en": "With spaghetti, fettuccine or cabbage rolls"
     },
-    "price": 220,
+    "price": 200,
     "priceUnit": "pack",
     "weight": 250,
     "weightUnit": "g",
@@ -1816,7 +1816,7 @@
       "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
-    "price": 550,
+    "price": 548,
     "priceUnit": "pack",
     "weight": 1,
     "weightUnit": "box",
@@ -1934,7 +1934,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 600,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1993,7 +1993,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 900,
+    "price": 950,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2052,7 +2052,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 500,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2170,7 +2170,7 @@
       "tr": "Yeşillik ile",
       "en": "With fresh herbs"
     },
-    "price": 900,
+    "price": 600,
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
@@ -2229,7 +2229,7 @@
       "tr": "Ekşi krema ve yeşillik ile",
       "en": "With sour cream and herbs"
     },
-    "price": 900,
+    "price": 800,
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
@@ -2347,7 +2347,7 @@
       "tr": "Patates püresi, pilav, makarna veya karabuğday ile servis edebilirsiniz. Domates ya da kremalı sos ile özellikle lezzetlidir.",
       "en": "Serve with mashed potatoes, rice, buckwheat, or pasta. Especially delicious with tomato or creamy sauce."
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
