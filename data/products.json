@@ -151,7 +151,7 @@
       "tr": "Ekşi krema veya et suyu ile",
       "en": "With sour cream or broth"
     },
-    "price": 680,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -505,7 +505,7 @@
       "tr": "Krem sos veya tereyağı ile",
       "en": "With cream sauce or butter"
     },
-    "price": 500,
+    "price": 550,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -682,7 +682,7 @@
       "tr": "Ekşi krema veya domates sosu ile",
       "en": "With sour cream or tomato sauce"
     },
-    "price": 570,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -918,7 +918,7 @@
       "tr": "",
       "en": ""
     },
-    "price": 380,
+    "price": 400,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1154,7 +1154,7 @@
       "tr": "Bal veya ekşi krema ile",
       "en": "With honey or sour cream"
     },
-    "price": 400,
+    "price": 450,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1816,7 +1816,7 @@
       "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
-    "price": 548,
+    "price": 550,
     "priceUnit": "pack",
     "weight": 1,
     "weightUnit": "box",
