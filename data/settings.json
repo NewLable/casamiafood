@@ -25,10 +25,10 @@
   },
   "delivery": {
     "areas": {
-      "ru": "Лиман, Хурма, Коньяалты, Лара, Муратпаша, Кунду и другие районы Анталии. Если вашего района нет в списке — напишите в WhatsApp.",
-      "ua": "Ліман, Хурма, Коньяалти, Лара, Муратпаша, Кунду та інші райони Анталії. Якщо вашого району немає в списку — напишіть у WhatsApp.",
-      "tr": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu ve Antalya'nın diğer semtleri. Semtiniz listede yoksa WhatsApp'tan yazın.",
-      "en": "Liman, Hurma, Konyaaltı, Lara, Muratpaşa, Kundu and other Antalya areas. If yours is not listed, message us on WhatsApp."
+      "ru": "Лиман, Хурма, Коньяалты, Муратпаша, Кепез и другие районы Анталии. Если вашего района нет в списке — напишите в WhatsApp.",
+      "ua": "Ліман, Хурма, Коньяалти, Муратпаша, Кепез та інші райони Анталії. Якщо вашого району немає в списку — напишіть у WhatsApp.",
+      "tr": "Liman, Hurma, Konyaaltı, Muratpaşa, Kepez ve Antalya'nın diğer semtleri. Semtiniz listede yoksa WhatsApp'tan yazın.",
+      "en": "Liman, Hurma, Konyaaltı, Muratpaşa, Kepez and other Antalya areas. If yours is not listed, message us on WhatsApp."
     },
     "hours": {
       "ru": "Ежедневно",
