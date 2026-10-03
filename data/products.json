@@ -467,8 +467,8 @@
       "new": false,
       "sale": false
     },
-    "available": true,
-    "inStock": true,
+    "available": false,
+    "inStock": false,
     "thumbnail": ""
   },
   {
