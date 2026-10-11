@@ -231,7 +231,7 @@
   },
   "defaultLang": "ru",
   "cart": {
-    "minOrder": 300,
+    "minOrder": 650,
     "freeDeliveryFrom": 2500,
     "whatsapp": "",
     "instagram": "",
