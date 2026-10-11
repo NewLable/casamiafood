@@ -2430,5 +2430,64 @@
       "tr": "kg",
       "en": "kg"
     }
+  },
+  {
+    "id": "product-1791717012890",
+    "categoryId": "frozen",
+    "order": 760,
+    "name": {
+      "ru": "Блинчики с грушей, карамелью и грецким орехом",
+      "ua": "Млинці з грушею, карамеллю та волоським горіхом",
+      "tr": "Armutlu, Karamelli ve Cevizli Krep",
+      "en": "Pancakes with Pear, Caramel and Walnuts"
+    },
+    "description": {
+      "ru": "Нежные блинчики со сладкой грушей, карамелью и ароматным грецким орехом. Гармоничное сочетание фруктовой свежести, мягкой сладости и приятного орехового вкуса.",
+      "ua": "Ніжні млинці із солодкою грушею, карамеллю та ароматним волоським горіхом. Гармонійне поєднання фруктової свіжості, м’якої солодкості та приємного горіхового смаку.",
+      "tr": "Tatlı armut, karamel ve cevizle hazırlanan yumuşacık krepler. Meyvemsi lezzet, karamelin tatlılığı ve cevizin enfes aroması bir arada.",
+      "en": "Delicate pancakes filled with sweet pear, caramel and aromatic walnuts. A delicious combination of fruity freshness, gentle sweetness and rich nutty flavour."
+    },
+    "ingredients": {
+      "ru": "Пшеничная мука, молоко, яйца, соль, сахар, подсолнечное масло, груша, домашняя карамель, грецкий орех.",
+      "ua": "Пшеничне борошно, молоко, яйця, сіль, цукор, соняшникова олія, груша, домашня карамель, волоський горіх.",
+      "tr": "Buğday unu, süt, yumurta, tuz, şeker, ayçiçek yağı, armut, ev yapımı karamel, ceviz.",
+      "en": "Wheat flour, milk, eggs, salt, sugar, sunflower oil, pear, homemade caramel, walnuts."
+    },
+    "cook": {
+      "ru": "Разогрейте на сковороде на слабом огне под крышкой или в микроволновой печи до полной готовности к подаче.",
+      "ua": "Розігрійте на сковороді на слабкому вогні під кришкою або в мікрохвильовій печі до потрібної температури.",
+      "tr": "Tavada kısık ateşte kapağı kapalı olarak veya mikrodalgada servis sıcaklığına gelene kadar ısıtın.",
+      "en": "Reheat in a covered pan over low heat or in the microwave until warm and ready to serve."
+    },
+    "serveWith": {
+      "ru": "Подавайте тёплыми. По желанию добавьте шарик мороженого, немного карамельного соуса или свежие ломтики груши.",
+      "ua": "Подавайте теплими. За бажанням додайте кульку морозива, трохи карамельного соусу або свіжі скибочки груші.",
+      "tr": "Ilık servis edin. Dilerseniz yanında bir top dondurma, biraz karamel sosu veya taze armut dilimleri sunabilirsiniz.",
+      "en": "Serve warm. For an extra treat, add a scoop of ice cream, a drizzle of caramel sauce or fresh pear slices."
+    },
+    "price": 550,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1791717012890.webp"
+    ],
+    "thumbnail": "images/products/product-1791717012890-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
   }
 ]
