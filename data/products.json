@@ -2489,5 +2489,64 @@
       "tr": "kg",
       "en": "kg"
     }
+  },
+  {
+    "id": "product-1791719428343",
+    "categoryId": "frozen",
+    "order": 770,
+    "name": {
+      "ru": "Блинчики с творогом — ванильные",
+      "ua": "Млинці з кисломолочним сиром — ванільні",
+      "tr": "Vanilyalı Lor Peynirli Krep",
+      "en": "Vanilla Cottage Cheese Pancakes"
+    },
+    "description": {
+      "ru": "Нежные блинчики с творожной начинкой и тонким ароматом ванили. Мягкий сливочный вкус и приятная сладость — уютный домашний десерт.",
+      "ua": "Ніжні млинці з сирною начинкою та легким ароматом ванілі. М’який вершковий смак і приємна солодкість — затишний домашній десерт.",
+      "tr": "Vanilya aromalı lor peynirli iç harçla hazırlanan yumuşacık krepler. Hafif tatlı ve kremamsı lezzetiyle ev yapımı tatlı keyfi.",
+      "en": "Delicate pancakes filled with vanilla-flavoured cottage cheese. A creamy taste and gentle sweetness make this a comforting homemade dessert."
+    },
+    "ingredients": {
+      "ru": "Пшеничная мука, молоко, яйца, соль, сахар, подсолнечное масло, творог, ваниль.",
+      "ua": "Пшеничне борошно, молоко, яйця, сіль, цукор, соняшникова олія, кисломолочний сир, ваніль.",
+      "tr": "Buğday unu, süt, yumurta, tuz, şeker, ayçiçek yağı, lor peyniri, vanilya.",
+      "en": "Wheat flour, milk, eggs, salt, sugar, sunflower oil, cottage cheese, vanilla."
+    },
+    "cook": {
+      "ru": "Разогрейте на сковороде на слабом огне под крышкой или в микроволновой печи до нужной температуры.",
+      "ua": "Розігрійте на сковороді на слабкому вогні під кришкою або в мікрохвильовій печі до потрібної температури.",
+      "tr": "Tavada kısık ateşte kapağı kapalı olarak veya mikrodalgada istediğiniz sıcaklığa gelene kadar ısıtın.",
+      "en": "Reheat in a covered pan over low heat or in the microwave until warmed through."
+    },
+    "serveWith": {
+      "ru": "Подавайте тёплыми. По желанию добавьте сметану, свежие ягоды или немного сахарной пудры.",
+      "ua": "Подавайте теплими. За бажанням додайте сметану, свіжі ягоди або трохи цукрової пудри.",
+      "tr": "Ilık servis edin. Dilerseniz yanında ekşi krema, taze meyveler veya biraz pudra şekeri sunabilirsiniz.",
+      "en": "Serve warm. If desired, add sour cream, fresh berries or a light dusting of icing sugar."
+    },
+    "price": 580,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1791719428343.webp"
+    ],
+    "thumbnail": "images/products/product-1791719428343-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": false,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
   }
 ]
