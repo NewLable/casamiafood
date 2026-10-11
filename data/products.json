@@ -2534,7 +2534,7 @@
     "thumbnail": "images/products/product-1791719428343-thumb.webp",
     "badges": {
       "hit": false,
-      "new": false,
+      "new": true,
       "sale": false
     },
     "available": true,
