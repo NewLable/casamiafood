@@ -2548,5 +2548,64 @@
       "tr": "kg",
       "en": "kg"
     }
+  },
+  {
+    "id": "product-1791815249096",
+    "categoryId": "frozen",
+    "order": 780,
+    "name": {
+      "ru": "Лосось слабосолёный",
+      "ua": "Лосось слабосолений",
+      "tr": "Az Tuzlu Somon",
+      "en": "Lightly Salted Salmon"
+    },
+    "description": {
+      "ru": "Нежный лосось слабого посола с деликатным вкусом и приятной текстурой. Отлично подходит для бутербродов, закусок, салатов и завтраков.",
+      "ua": "Ніжний лосось слабкого посолу з делікатним смаком і приємною текстурою. Чудово підходить для бутербродів, закусок, салатів і сніданків.",
+      "tr": "Hafif tuzlanmış, yumuşak dokulu ve zarif lezzetli somon. Kahvaltılarda, sandviçlerde, salatalarda ve soğuk atıştırmalıklarda keyifle tüketilebilir.",
+      "en": "Tender, lightly salted salmon with a delicate flavour and pleasant texture. Perfect for sandwiches, salads, appetisers and breakfast."
+    },
+    "ingredients": {
+      "ru": "Лосось, соль.",
+      "ua": "Лосось, сіль.",
+      "tr": "Somon, tuz.",
+      "en": "Salmon, salt."
+    },
+    "cook": {
+      "ru": "Продукт готов к употреблению. Термическая обработка не требуется.",
+      "ua": "Продукт готовий до споживання. Термічна обробка не потрібна.",
+      "tr": "Tüketime hazırdır. Pişirme gerektirmez.",
+      "en": "Ready to eat. No cooking required."
+    },
+    "serveWith": {
+      "ru": "Подавайте охлаждённым. Прекрасно сочетается с тостами, сливочным сыром, лимоном, зеленью и свежими овощами.",
+      "ua": "Подавайте охолодженим. Чудово смакує з тостами, вершковим сиром, лимоном, зеленню та свіжими овочами.",
+      "tr": "Soğuk servis edin. Kızarmış ekmek, krem peynir, limon, yeşillikler ve taze sebzelerle çok yakışır.",
+      "en": "Serve chilled. Pairs beautifully with toast, cream cheese, lemon, fresh herbs and vegetables."
+    },
+    "price": 1000,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1791815249096.webp"
+    ],
+    "thumbnail": "images/products/product-1791815249096-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
   }
 ]
