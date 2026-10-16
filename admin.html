@@ -53,6 +53,24 @@
 
       <section class="panel" data-panel="products">
         <p class="panel-lead">Откройте карточку, чтобы править фото, названия на 4 языках, цену и бейджи. Красным ничего копировать не нужно: RU, UA, TR и EN заполняются отдельно.</p>
+        <div class="product-tools">
+          <label class="admin-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="product-search" type="search" name="product-q" maxlength="80" autocomplete="off" enterkeyhint="search" placeholder="Найти товар" aria-label="Поиск товара" aria-controls="product-list">
+            <button type="button" class="admin-search-clear" id="product-search-clear" hidden aria-label="Очистить">×</button>
+          </label>
+          <label class="admin-sort">
+            <span class="visually-hidden">Сортировка</span>
+            <select id="product-sort" aria-label="Сортировка">
+              <option value="order">Как в меню</option>
+              <option value="name-asc">Название А–Я</option>
+              <option value="name-desc">Название Я–А</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+            </select>
+          </label>
+        </div>
+        <p class="hint product-query-meta hidden" id="product-query-meta"></p>
         <div class="btn-row" style="margin-top:0;margin-bottom:1rem">
           <button class="btn" id="add-product-btn" type="button">+ Новый товар</button>
         </div>
@@ -203,7 +221,8 @@
           <article class="help-card" id="help-add">
             <h3>3. Как добавить товар — 30 секунд</h3>
             <ol>
-              <li>Вкладка «Товары» → «+ Новый товар».</li>
+              <li>Вкладка «Товары» → «+ Новый товар». Карточка откроется сразу под этой кнопкой.</li>
+              <li>Нужный товар можно найти поиском или сменить порядок: как в меню, по названию, по цене.</li>
               <li>Загрузите фото (можно с телефона, перетащите в рамку).</li>
               <li>Заполните название хотя бы на русском, цену и категорию.</li>
               <li>Нажмите «Сохранить изменения» внизу страницы.</li>

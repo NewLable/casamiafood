@@ -14,6 +14,8 @@ const state = {
   expandedProducts: new Set(),
   expandedCategories: new Set(),
   expandedReviews: new Set(),
+  productQuery: "",
+  productSort: "order",
   snapshot: "",
   saving: false,
   connected: false
@@ -121,11 +123,20 @@ function qtyFieldsFor(p) {
   };
 }
 
+function leadingOrder() {
+  let min = Infinity;
+  for (const item of state.products) {
+    const value = Number(item.order);
+    if (Number.isFinite(value)) min = Math.min(min, value);
+  }
+  return Number.isFinite(min) ? min - 10 : 10;
+}
+
 function emptyProduct() {
   return {
     id: "",
     categoryId: state.categories[0]?.id || "frozen",
-    order: (state.products.reduce((m, p) => Math.max(m, Number(p.order) || 0), 0) || 0) + 10,
+    order: leadingOrder(),
     name: I.emptyI18n(),
     description: I.emptyI18n(),
     ingredients: I.emptyI18n(),
@@ -338,6 +349,7 @@ function bindGlobalActions() {
   });
   document.getElementById("product-list").addEventListener("input", onProductInput);
   document.getElementById("product-list").addEventListener("change", onProductInput);
+  bindProductTools();
   document.getElementById("category-list").addEventListener("input", onCategoryInput);
   document.getElementById("category-list").addEventListener("change", onCategoryInput);
   document.getElementById("review-list").addEventListener("input", onReviewInput);
@@ -357,8 +369,102 @@ function renderAll() {
 
 /* ---------- products ---------- */
 
-function sortProducts() {
-  state.products.sort((a, b) => a.order - b.order);
+let productSearchTimer = 0;
+
+function foldText(value) {
+  return String(value || "")
+    .toLocaleLowerCase()
+    .replace(/ё/g, "е")
+    .replace(/ı/g, "i")
+    .replace(/i̇/g, "i")
+    .trim();
+}
+
+function productSearchText(p) {
+  const parts = [p.id];
+  for (const field of [p.name, p.description]) {
+    if (!field) continue;
+    if (typeof field === "string") parts.push(field);
+    else parts.push(...Object.values(field));
+  }
+  const cat = state.categories.find((c) => c.id === p.categoryId);
+  if (cat?.name) {
+    if (typeof cat.name === "string") parts.push(cat.name);
+    else parts.push(...Object.values(cat.name));
+  }
+  return foldText(parts.join(" "));
+}
+
+function compareProductNames(a, b) {
+  const an = a.name?.ru || a.id || "";
+  const bn = b.name?.ru || b.id || "";
+  return an.localeCompare(bn, "ru", { sensitivity: "base", numeric: true }) || ((Number(a.order) || 0) - (Number(b.order) || 0));
+}
+
+function productsInMenuOrder() {
+  return state.products
+    .slice()
+    .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0) || compareProductNames(a, b));
+}
+
+function orderedProducts() {
+  const items = state.products.slice();
+  const mode = state.productSort;
+  if (mode === "name-asc") items.sort(compareProductNames);
+  else if (mode === "name-desc") items.sort((a, b) => compareProductNames(b, a));
+  else if (mode === "price-asc") {
+    items.sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0) || compareProductNames(a, b));
+  } else if (mode === "price-desc") {
+    items.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0) || compareProductNames(a, b));
+  } else {
+    items.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0) || compareProductNames(a, b));
+  }
+  return items;
+}
+
+function visibleProducts() {
+  const needle = foldText(state.productQuery);
+  const items = orderedProducts();
+  if (!needle) return items;
+  return items.filter((p) => productSearchText(p).includes(needle));
+}
+
+function syncProductSearchClear() {
+  const search = document.getElementById("product-search");
+  const clear = document.getElementById("product-search-clear");
+  if (!clear || !search) return;
+  clear.hidden = !search.value.trim();
+}
+
+function bindProductTools() {
+  const search = document.getElementById("product-search");
+  const clear = document.getElementById("product-search-clear");
+  const sort = document.getElementById("product-sort");
+  if (!search || search.dataset.bound) return;
+  search.dataset.bound = "1";
+  search.addEventListener("input", () => {
+    syncProductSearchClear();
+    window.clearTimeout(productSearchTimer);
+    productSearchTimer = window.setTimeout(() => {
+      readOpenProductCards();
+      state.productQuery = search.value;
+      renderProducts();
+    }, 120);
+  });
+  clear?.addEventListener("click", () => {
+    window.clearTimeout(productSearchTimer);
+    search.value = "";
+    state.productQuery = "";
+    syncProductSearchClear();
+    readOpenProductCards();
+    renderProducts();
+    search.focus();
+  });
+  sort?.addEventListener("change", () => {
+    readOpenProductCards();
+    state.productSort = sort.value;
+    renderProducts();
+  });
 }
 
 function mediaUrl(path) {
@@ -375,9 +481,26 @@ function productThumb(p) {
 }
 
 function renderProducts() {
-  sortProducts();
   const list = document.getElementById("product-list");
-  list.innerHTML = state.products.map(productCardHtml).join("");
+  const items = visibleProducts();
+  const meta = document.getElementById("product-query-meta");
+  const query = state.productQuery.trim();
+  if (meta) {
+    if (query && items.length) {
+      meta.classList.remove("hidden");
+      meta.textContent = `Найдено ${items.length} из ${state.products.length}`;
+    } else {
+      meta.classList.add("hidden");
+      meta.textContent = "";
+    }
+  }
+  if (!items.length) {
+    list.innerHTML = query
+      ? `<p class="product-empty">Ничего не нашлось. Попробуйте другое название.</p>`
+      : "";
+    return;
+  }
+  list.innerHTML = items.map(productCardHtml).join("");
   list.querySelectorAll("[data-product-id]").forEach((card) => {
     const id = card.dataset.productId;
     const p = state.products.find((x) => x.id === id);
@@ -565,14 +688,26 @@ function readOpenProductCards() {
 }
 
 function addProduct() {
+  readOpenProductCards();
   const p = emptyProduct();
   p.id = uniqueId("product-" + Date.now(), new Set(state.products.map((x) => x.id)));
   p.name.ru = "Новый товар";
   state.products.push(p);
   state.expandedProducts.add(p.id);
+  state.productQuery = "";
+  state.productSort = "order";
+  const search = document.getElementById("product-search");
+  const sort = document.getElementById("product-sort");
+  if (search) search.value = "";
+  if (sort) sort.value = "order";
+  syncProductSearchClear();
   renderProducts();
   markDirty();
   switchTab("products");
+  const card = document.querySelector(`#product-list [data-product-id="${CSS.escape(p.id)}"]`);
+  if (!card) return;
+  card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  card.querySelector('[name="name.ru"]')?.focus({ preventScroll: true });
 }
 
 function duplicateProduct(id) {
@@ -1035,7 +1170,7 @@ async function saveAll() {
 
   try {
     const jsonFiles = [
-      { path: "data/products.json", text: pretty(state.products) },
+      { path: "data/products.json", text: pretty(productsInMenuOrder()) },
       { path: "data/categories.json", text: pretty(state.categories) },
       { path: "data/settings.json", text: pretty(stripSettings(state.settings)) },
       { path: "data/reviews.json", text: pretty(state.reviews) }
