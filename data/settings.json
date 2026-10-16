@@ -242,10 +242,10 @@
       "en": "Hello! 👋 I'd like to place a Casa Mia order."
     },
     "fields": {
-      "ru": "Имя:\nРайон доставки:\nЖелаемое время доставки:",
-      "ua": "Ім'я:\nРайон доставки:\nБажаний час доставки:",
-      "tr": "Adınız:\nTeslimat semtiniz:\nİstediğiniz teslimat saati:",
-      "en": "Name:\nDelivery area:\nPreferred delivery time:"
+      "ru": "Имя:\nРайон доставки:\nЖелаемая дата доставки:",
+      "ua": "Ім'я:\nРайон доставки:\nБажана дата доставки:",
+      "tr": "Adınız:\nTeslimat semtiniz:\nİstenen teslimat tarihi:",
+      "en": "Name:\nDelivery area:\nPreferred delivery date:"
     }
   },
   "hero": {

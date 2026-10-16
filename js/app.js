@@ -306,11 +306,83 @@ const CasaMia = (() => {
         tr: "Liman, Hurma, Lara…",
         en: "Liman, Hurma, Lara…"
       },
-      field_time: {
-        ru: "Желаемое время доставки:",
-        ua: "Бажаний час доставки:",
-        tr: "İstediğiniz teslimat saati:",
-        en: "Preferred delivery time:"
+      map_pick: {
+        ru: "Выбрать на карте",
+        ua: "Обрати на карті",
+        tr: "Haritadan seç",
+        en: "Choose on the map"
+      },
+      checkout_location: {
+        ru: "Выбранная локация",
+        ua: "Обрана локація",
+        tr: "Seçilen konum",
+        en: "Selected location"
+      },
+      location_ph: {
+        ru: "Появится после выбора на карте",
+        ua: "З’явиться після вибору на карті",
+        tr: "Haritadan seçince görünür",
+        en: "Appears after you choose on the map"
+      },
+      field_location: {
+        ru: "Локация:",
+        ua: "Локація:",
+        tr: "Konum:",
+        en: "Location:"
+      },
+      map_title: {
+        ru: "Точка доставки",
+        ua: "Точка доставки",
+        tr: "Teslimat noktası",
+        en: "Delivery point"
+      },
+      map_hint: {
+        ru: "Нажмите на карту и отметьте, куда привезти заказ.",
+        ua: "Натисніть на карту й позначте, куди привезти замовлення.",
+        tr: "Haritaya dokunun ve siparişin geleceği noktayı işaretleyin.",
+        en: "Tap the map and mark where the order should arrive."
+      },
+      map_save: {
+        ru: "Сохранить",
+        ua: "Зберегти",
+        tr: "Kaydet",
+        en: "Save"
+      },
+      map_fail: {
+        ru: "Не удалось открыть карту",
+        ua: "Не вдалося відкрити карту",
+        tr: "Harita açılamadı",
+        en: "Could not open the map"
+      },
+      checkout_date: {
+        ru: "Желаемая дата доставки",
+        ua: "Бажана дата доставки",
+        tr: "İstenen teslimat tarihi",
+        en: "Preferred delivery date"
+      },
+      field_date: {
+        ru: "Желаемая дата доставки:",
+        ua: "Бажана дата доставки:",
+        tr: "İstenen teslimat tarihi:",
+        en: "Preferred delivery date:"
+      },
+      date_ph: {
+        ru: "Выберите дату",
+        ua: "Оберіть дату",
+        tr: "Tarih seçin",
+        en: "Choose a date"
+      },
+      date_prev: {
+        ru: "Предыдущий месяц",
+        ua: "Попередній місяць",
+        tr: "Önceki ay",
+        en: "Previous month"
+      },
+      date_next: {
+        ru: "Следующий месяц",
+        ua: "Наступний місяць",
+        tr: "Sonraki ay",
+        en: "Next month"
       },
       greeting: {
         ru: "Здравствуйте! 👋 Хочу оформить заказ Casa Mia.",

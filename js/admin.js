@@ -968,7 +968,7 @@ function renderCartForm() {
       <h2>Шаблон сообщения</h2>
       ${I.blockHtml("Приветствие", "cart-greet", s.cart.greeting, { multiline: true, rows: 2 })}
       ${I.blockHtml("Поля в конце сообщения", "cart-fields", s.cart.fields, { multiline: true, rows: 3 })}
-      <p class="hint">Список товаров и сумма подставляются сами. Здесь меняется только приветствие и строки «Имя / район / время».</p>
+      <p class="hint">Список товаров и сумма подставляются сами. Здесь меняется только приветствие и строки «Имя / район / дата».</p>
     </div>
   `;
 }
