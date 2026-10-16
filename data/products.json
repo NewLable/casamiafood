@@ -1219,7 +1219,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 1,
+    "min": 0.5,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1396,7 +1396,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 1,
+    "min": 0.4,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -1455,7 +1455,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 1,
+    "min": 0.5,
     "unit": {
       "ru": "кг",
       "ua": "кг",
