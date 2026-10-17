@@ -1,5 +1,64 @@
 [
   {
+    "id": "product-1792241297453",
+    "categoryId": "frozen",
+    "order": -10,
+    "name": {
+      "ru": "Котлеты курино-говяжьи",
+      "ua": "Курячо-яловичі котлети",
+      "tr": "Tavuk ve Dana Etli Köfte",
+      "en": "Chicken and Beef Patties"
+    },
+    "description": {
+      "ru": "Сочные домашние котлеты из куриного и говяжьего фарша с луком и ароматными специями. Нежные внутри, с аппетитным мясным вкусом — отличный вариант для семейного обеда или ужина.",
+      "ua": "Соковиті домашні котлети з курячого та яловичого фаршу з цибулею й ароматними спеціями. Ніжні всередині, з апетитним м’ясним смаком — чудовий варіант для сімейного обіду чи вечері.",
+      "tr": "Tavuk ve dana kıymasından, soğan ve aromatik baharatlarla hazırlanan ev yapımı köfteler. Yumuşak dokusu ve zengin et lezzetiyle aile sofraları için ideal.",
+      "en": "Juicy homemade patties made with chicken and beef mince, onion and aromatic spices. Tender inside with a rich, savoury flavour, perfect for a family lunch or dinner."
+    },
+    "ingredients": {
+      "ru": "Куриный фарш, говяжий фарш, лук, яйца, панировочные сухари, соль, специи.",
+      "ua": "Курячий фарш, яловичий фарш, цибуля, яйця, панірувальні сухарі, сіль, спеції.",
+      "tr": "Tavuk kıyması, dana kıyması, soğan, yumurta, galeta unu, tuz, baharatlar.",
+      "en": "Chicken mince, beef mince, onion, eggs, breadcrumbs, salt, spices."
+    },
+    "cook": {
+      "ru": "Приготовьте до полной готовности на сковороде с небольшим количеством масла, в духовке или в аэрогриле. Время приготовления зависит от размера котлет и состояния продукта. Перед подачей убедитесь, что мясо полностью приготовилось.",
+      "ua": "Готуйте до повної готовності на сковороді з невеликою кількістю олії, у духовці або в аерогрилі. Час приготування залежить від розміру котлет і стану продукту. Перед подачею переконайтеся, що м’ясо повністю приготувалося.",
+      "tr": "Az miktarda yağ eklenmiş tavada, fırında veya airfryer'da tamamen pişene kadar pişirin. Pişirme süresi köftelerin boyutuna ve ürünün durumuna göre değişir. Servis etmeden önce etin tamamen piştiğinden emin olun.",
+      "en": "Cook thoroughly in a lightly oiled pan, oven or air fryer. Cooking time depends on the size of the patties and the product's condition. Ensure the meat is fully cooked before serving."
+    },
+    "serveWith": {
+      "ru": "Подавайте горячими с картофельным пюре, рисом, свежими овощами или любимым гарниром.",
+      "ua": "Подавайте гарячими з картопляним пюре, рисом, свіжими овочами або улюбленим гарніром.",
+      "tr": "Patates püresi, pilav, taze sebzeler veya sevdiğiniz bir garnitürle sıcak servis edin.",
+      "en": "Serve hot with mashed potatoes, rice, fresh vegetables or your favourite side dish."
+    },
+    "price": 850,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1792241297453.webp"
+    ],
+    "thumbnail": "images/products/product-1792241297453-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
+  },
+  {
     "id": "product-1792235225449",
     "categoryId": "frozen",
     "order": 0,
