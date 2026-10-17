@@ -2550,65 +2550,6 @@
     "thumbnail": ""
   },
   {
-    "id": "soup-borsch",
-    "categoryId": "soups",
-    "order": 720,
-    "name": {
-      "ru": "Борщ славянский",
-      "ua": "Борщ слов'янський",
-      "tr": "Ev usulü borş",
-      "en": "Homestyle borscht"
-    },
-    "description": {
-      "ru": "1,5 литра • домашний рецепт",
-      "ua": "1,5 літра • домашній рецепт",
-      "tr": "1,5 litre • ev tarifi",
-      "en": "1.5 liters • home recipe"
-    },
-    "ingredients": {
-      "ru": "Свёкла, капуста, картофель, морковь, мясо, томат, специи",
-      "ua": "Буряк, капуста, картопля, морква, м'ясо, томат, спеції",
-      "tr": "Pancar, lahana, patates, havuç, et, domates, baharat",
-      "en": "Beetroot, cabbage, potato, carrot, meat, tomato, spices"
-    },
-    "cook": {
-      "ru": "Разогреть до кипения.",
-      "ua": "Розігріти до кипіння.",
-      "tr": "Kaynayıncaya kadar ısıtın.",
-      "en": "Heat until simmering."
-    },
-    "serveWith": {
-      "ru": "Со сметаной и зеленью",
-      "ua": "Зі сметаною та зеленню",
-      "tr": "Ekşi krema ve yeşillik ile",
-      "en": "With sour cream and herbs"
-    },
-    "price": 800,
-    "priceUnit": "pack",
-    "weight": 1500,
-    "weightUnit": "ml",
-    "quantityType": "package",
-    "step": 1,
-    "min": 1,
-    "unit": {
-      "ru": "уп.",
-      "ua": "уп.",
-      "tr": "paket",
-      "en": "pack"
-    },
-    "images": [
-      "images/products/soup-borsch.webp"
-    ],
-    "badges": {
-      "hit": true,
-      "new": false,
-      "sale": false
-    },
-    "available": true,
-    "inStock": true,
-    "thumbnail": ""
-  },
-  {
     "id": "soup-solyanka",
     "categoryId": "soups",
     "order": 730,
