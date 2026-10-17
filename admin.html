@@ -7,7 +7,7 @@
   <title>Casa Mia CMS</title>
   <link rel="icon" href="images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/admin.css?v=4">
+  <link rel="stylesheet" href="css/admin.css?v=5">
 </head>
 <body>
   <div class="admin-wrap">
@@ -46,6 +46,7 @@
         <button class="tab" type="button" data-tab="settings">Настройки сайта</button>
         <button class="tab" type="button" data-tab="cart">🧺 Корзина</button>
         <button class="tab" type="button" data-tab="reviews">Отзывы</button>
+        <button class="tab" type="button" data-tab="gallery">Фото</button>
         <button class="tab" type="button" data-tab="stats">Статистика</button>
         <button class="tab" type="button" data-tab="github">Настройки GitHub</button>
         <button class="tab" type="button" data-tab="help">📖 Помощь владельцу</button>
@@ -108,10 +109,24 @@
 
       <section class="panel hidden" data-panel="reviews">
         <p class="panel-lead">Отзывы на сайте. Текст — на четырёх языках. Скрытый отзыв не публикуется.</p>
-        <div class="btn-row" style="margin-top:0;margin-bottom:1rem">
+        <div class="btn-row" style="margin-top:0;margin-bottom:0.4rem">
+          <button class="btn secondary" id="toggle-reviews-btn" type="button">Скрыть раздел</button>
           <button class="btn" id="add-review-btn" type="button">+ Новый отзыв</button>
         </div>
+        <p class="hint" id="reviews-visibility"></p>
+        <form id="reviews-settings" class="section-card"></form>
         <div class="editor-list" id="review-list"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="gallery">
+        <p class="panel-lead">Фото блюд, производства и процесса. Блок стоит на сайте сразу после «Почему Casa Mia». Подпись — на четырёх языках. Для карусели лучше фото <strong>1200 × 800 px</strong>, пропорция 3:2.</p>
+        <div class="btn-row" style="margin-top:0;margin-bottom:0.4rem">
+          <button class="btn secondary" id="toggle-gallery-btn" type="button">Скрыть раздел</button>
+          <button class="btn" id="add-gallery-btn" type="button">+ Новое фото</button>
+        </div>
+        <p class="hint" id="gallery-visibility"></p>
+        <form id="gallery-settings" class="section-card"></form>
+        <div class="editor-list" id="gallery-list"></div>
       </section>
 
       <section class="panel hidden" data-panel="stats">
@@ -349,6 +364,6 @@
   <script src="js/seo.js?v=1"></script>
   <script src="js/github-api.js?v=2"></script>
   <script src="js/image-manager.js"></script>
-  <script src="js/admin.js?v=7"></script>
+  <script src="js/admin.js?v=9"></script>
 </body>
 </html>

@@ -2,6 +2,8 @@
   "brand": {
     "name": "Casa Mia",
     "logo": "images/brand/logo-big.webp",
+    "logoHeader": "images/brand/logo-header.webp",
+    "heroImage": "images/brand/info.webp",
     "tagline": {
       "ru": "Домашняя кухня в Анталии: пельмени, вареники, голубцы и блинчики — готовим вручную и доставляем к столу",
       "ua": "Домашня кухня в Анталії: пельмені, вареники, голубці й млинці — готуємо вручну і доставляємо до столу",
@@ -272,6 +274,13 @@
       "ua": "Ми в Instagram",
       "tr": "Instagram'dayız",
       "en": "We're on Instagram"
+    }
+  },
+  "sections": {
+    "reviews": true,
+    "reviewsCarousel": {
+      "autoplay": true,
+      "interval": 5
     }
   }
 }

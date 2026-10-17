@@ -10,6 +10,7 @@ const state = {
   categories: [],
   settings: null,
   reviews: [],
+  gallery: { visible: true, autoplay: true, interval: 5, title: {}, items: [] },
   pendingImages: {},
   expandedProducts: new Set(),
   expandedCategories: new Set(),
@@ -39,6 +40,7 @@ function payload() {
     categories: state.categories,
     settings: stripSettings(state.settings),
     reviews: state.reviews,
+    gallery: state.gallery,
     pending: Object.keys(state.pendingImages).sort()
   };
 }
@@ -227,6 +229,28 @@ function normalizeCategory(c) {
   };
 }
 
+function normalizeGallery(raw) {
+  const source = raw && typeof raw === "object" ? raw : {};
+  const items = Array.isArray(source.items) ? source.items : [];
+  return {
+    visible: source.visible !== false,
+    autoplay: source.autoplay !== false,
+    interval: Math.min(30, Math.max(2, Number(source.interval) || 5)),
+    title: I.ensureI18n(source.title || { ru: "Наша кухня", ua: "Наша кухня", tr: "Mutfağımız", en: "Our kitchen" }),
+    items: items.map(normalizeGalleryItem)
+  };
+}
+
+function normalizeGalleryItem(item, i) {
+  return {
+    id: item.id || `gallery-${i + 1}`,
+    image: item.image || "",
+    order: Number(item.order) || (i + 1) * 10,
+    visible: item.visible !== false,
+    caption: I.ensureI18n(item.caption)
+  };
+}
+
 function normalizeReview(r, i) {
   return {
     id: r.id || `review-${i + 1}`,
@@ -242,7 +266,17 @@ function normalizeReview(r, i) {
 function ensureSettings(raw) {
   const s = clone(raw || {});
   s.brand = s.brand || {};
+  s.brand.logo = s.brand.logo || "images/brand/logo-big.webp";
+  s.brand.logoHeader = s.brand.logoHeader || "images/brand/logo-header.webp";
+  s.brand.heroImage = s.brand.heroImage || "images/brand/info.webp";
   s.brand.tagline = I.ensureI18n(s.brand.tagline);
+  s.sections = s.sections || {};
+  if (typeof s.sections.reviews !== "boolean") s.sections.reviews = true;
+  const reviewsCarousel = s.sections.reviewsCarousel || {};
+  s.sections.reviewsCarousel = {
+    autoplay: reviewsCarousel.autoplay !== false,
+    interval: Math.min(30, Math.max(2, Number(reviewsCarousel.interval) || 5))
+  };
   s.hero = s.hero || {};
   s.hero.title = I.ensureI18n(s.hero.title || { ru: s.brand.name || "Casa Mia" });
   s.hero.subtitle = I.ensureI18n(s.hero.subtitle || s.brand.tagline);
@@ -307,11 +341,12 @@ function slugFromName(name) {
 
 async function initAdmin() {
   const fresh = { cache: "no-store" };
-  const [products, categories, settings, reviewsRes] = await Promise.all([
+  const [products, categories, settings, reviewsRes, galleryRes] = await Promise.all([
     fetch("data/products.json", fresh).then((r) => r.json()),
     fetch("data/categories.json", fresh).then((r) => r.json()),
     fetch("data/settings.json", fresh).then((r) => r.json()),
-    fetch("data/reviews.json", fresh).then((r) => (r.ok ? r.json() : []))
+    fetch("data/reviews.json", fresh).then((r) => (r.ok ? r.json() : [])),
+    fetch("data/gallery.json", fresh).then((r) => (r.ok ? r.json() : null))
   ]);
 
   state.products = products.map(normalizeProduct);
@@ -320,6 +355,7 @@ async function initAdmin() {
   state.settings = ensureSettings(settings);
   const reviewSource = Array.isArray(reviewsRes) && reviewsRes.length ? reviewsRes : settings.reviews || [];
   state.reviews = reviewSource.map(normalizeReview);
+  state.gallery = normalizeGallery(galleryRes);
   takeSnapshot();
 
   if (sessionStorage.getItem(SESSION_KEY) === "1") {
@@ -373,6 +409,17 @@ function switchTab(id) {
 function bindGlobalActions() {
   document.getElementById("add-product-btn").onclick = addProduct;
   document.getElementById("add-review-btn").onclick = addReview;
+  document.getElementById("toggle-reviews-btn").onclick = () => {
+    state.settings.sections.reviews = state.settings.sections.reviews === false;
+    paintSectionToggles();
+    markDirty();
+  };
+  document.getElementById("add-gallery-btn").onclick = addGalleryItem;
+  document.getElementById("toggle-gallery-btn").onclick = () => {
+    state.gallery.visible = state.gallery.visible === false;
+    paintSectionToggles();
+    markDirty();
+  };
   document.getElementById("save-btn").onclick = saveAll;
   document.getElementById("github-form").addEventListener("submit", saveGithubConnection);
   document.getElementById("settings-form").addEventListener("input", () => {
@@ -391,6 +438,13 @@ function bindGlobalActions() {
   document.getElementById("category-list").addEventListener("change", onCategoryInput);
   document.getElementById("review-list").addEventListener("input", onReviewInput);
   document.getElementById("review-list").addEventListener("change", onReviewInput);
+  document.getElementById("gallery-settings").addEventListener("input", onGallerySettings);
+  document.getElementById("reviews-settings").addEventListener("input", () => {
+    readReviewsCarousel();
+    markDirty();
+  });
+  document.getElementById("gallery-list").addEventListener("input", onGalleryInput);
+  document.getElementById("gallery-list").addEventListener("change", onGalleryInput);
   document.getElementById("quick-prices").addEventListener("input", onQuickPriceInput);
   document.getElementById("quick-prices").addEventListener("change", onQuickFlagChange);
 }
@@ -403,6 +457,7 @@ function renderAll() {
   renderSettingsForm();
   renderCartForm();
   renderReviews();
+  renderGalleryAdmin();
 }
 
 /* ---------- products ---------- */
@@ -1007,6 +1062,26 @@ function renderSettingsForm() {
   const form = document.getElementById("settings-form");
   form.innerHTML = `
     <div class="section-card">
+      <h2>Изображения сайта</h2>
+      <div class="brand-images">
+        <div>
+          <h3>Логотип в шапке</h3>
+          <p class="hint">Левый верхний угол. Рекомендуемый размер: <strong>640 × 320 px</strong>, пропорция 2:1, прозрачный фон.</p>
+          <div data-brand-image="logoHeader"></div>
+        </div>
+        <div>
+          <h3>Большое лого</h3>
+          <p class="hint">Первый экран и блок «О нас». Рекомендуемый размер: <strong>1200 × 600 px</strong>, пропорция 2:1, прозрачный фон.</p>
+          <div data-brand-image="logo"></div>
+        </div>
+        <div>
+          <h3>Большое изображение</h3>
+          <p class="hint">Фото справа на первом экране. Рекомендуемый размер: <strong>1200 × 800 px</strong>, пропорция 3:2.</p>
+          <div data-brand-image="heroImage"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-card">
       <h2>Hero</h2>
       ${I.blockHtml("Название", "hero-title", s.hero.title)}
       ${I.blockHtml("Подзаголовок", "hero-subtitle", s.hero.subtitle, { multiline: true, rows: 2 })}
@@ -1046,6 +1121,34 @@ function renderSettingsForm() {
       </div>
     </div>
   `;
+  const names = { logoHeader: "logo-header", logo: "logo-big", heroImage: "hero" };
+  form.querySelectorAll("[data-brand-image]").forEach((slot) => {
+    const key = slot.dataset.brandImage;
+    CasaMiaImages.mount(slot, {
+      src: s.brand[key] || "",
+      label: slot.parentElement?.querySelector("h3")?.textContent || "Изображение",
+      onPick: (processed) => {
+        const path = `images/brand/${names[key]}.${processed.ext}`;
+        state.pendingImages[path] = processed.blob;
+        state.settings.brand[key] = path;
+        markDirty();
+      },
+      onRemove: () => {
+        readSettingsForm();
+        const fallback = {
+          logoHeader: "images/brand/logo-header.webp",
+          logo: "images/brand/logo-big.webp",
+          heroImage: "images/brand/info.webp"
+        }[key];
+        ["webp", "jpg", "png"].forEach((ext) => {
+          delete state.pendingImages[`images/brand/${names[key]}.${ext}`];
+        });
+        state.settings.brand[key] = fallback;
+        renderSettingsForm();
+        markDirty();
+      }
+    });
+  });
 }
 
 function readSettingsForm() {
@@ -1140,7 +1243,28 @@ function readCartForm() {
 
 /* ---------- reviews ---------- */
 
+function readReviewsCarousel() {
+  const form = document.getElementById("reviews-settings");
+  const input = form?.querySelector('[name="reviews-interval"]');
+  if (!input) return;
+  const carousel = state.settings.sections.reviewsCarousel;
+  carousel.autoplay = !!form.querySelector('[name="reviews-autoplay"]')?.checked;
+  carousel.interval = Math.min(30, Math.max(2, Number(input.value) || 5));
+}
+
 function renderReviews() {
+  const carousel = state.settings.sections.reviewsCarousel;
+  const settingsForm = document.getElementById("reviews-settings");
+  if (settingsForm) {
+    settingsForm.innerHTML = `
+      <h2>Карусель</h2>
+      <div class="grid-2">
+        <div class="check"><input type="checkbox" name="reviews-autoplay" id="reviews-autoplay" ${carousel.autoplay ? "checked" : ""}><label for="reviews-autoplay">Листать отзывы автоматически</label></div>
+        <div><label for="reviews-interval">Смена отзыва, секунды</label><input id="reviews-interval" name="reviews-interval" type="number" min="2" max="30" value="${carousel.interval}"></div>
+      </div>
+      <p class="hint">На сайте сразу видно три отзыва. Стрелки и свайп листают по одному. Автопрокрутка останавливается, когда гость наводит курсор.</p>
+    `;
+  }
   const box = document.getElementById("review-list");
   const rows = [...state.reviews].sort((a, b) => a.order - b.order);
   box.innerHTML = rows
@@ -1187,6 +1311,7 @@ function renderReviews() {
       markDirty();
     };
   });
+  paintSectionToggles();
 }
 
 function onReviewInput(e) {
@@ -1202,6 +1327,115 @@ function onReviewInput(e) {
   markDirty();
 }
 
+function paintSectionToggles() {
+  const reviewsOn = state.settings.sections?.reviews !== false;
+  const reviewsBtn = document.getElementById("toggle-reviews-btn");
+  const reviewsHint = document.getElementById("reviews-visibility");
+  if (reviewsBtn) reviewsBtn.textContent = reviewsOn ? "Скрыть раздел" : "Показать раздел";
+  if (reviewsHint) reviewsHint.textContent = reviewsOn ? "Раздел «Отзывы» виден на сайте." : "Раздел «Отзывы» скрыт на сайте.";
+
+  const galleryOn = state.gallery?.visible !== false;
+  const galleryBtn = document.getElementById("toggle-gallery-btn");
+  const galleryHint = document.getElementById("gallery-visibility");
+  if (galleryBtn) galleryBtn.textContent = galleryOn ? "Скрыть раздел" : "Показать раздел";
+  if (galleryHint) galleryHint.textContent = galleryOn ? "Раздел с фото виден на сайте." : "Раздел с фото скрыт на сайте.";
+}
+
+function renderGalleryAdmin() {
+  const g = state.gallery;
+  const form = document.getElementById("gallery-settings");
+  form.innerHTML = `
+    <h2>Карусель</h2>
+    ${I.blockHtml("Заголовок раздела", "gallery-title", g.title)}
+    <div class="grid-2">
+      <div class="check"><input type="checkbox" name="gallery-autoplay" id="gallery-autoplay" ${g.autoplay ? "checked" : ""}><label for="gallery-autoplay">Листать фото автоматически</label></div>
+      <div><label for="gallery-interval">Смена фото, секунды</label><input id="gallery-interval" name="gallery-interval" type="number" min="2" max="30" value="${g.interval}"></div>
+    </div>
+    <p class="hint">Автопрокрутка останавливается, когда гость наводит курсор на фото. Стрелки и точки работают всегда.</p>
+  `;
+  const box = document.getElementById("gallery-list");
+  const rows = [...g.items].sort((a, b) => a.order - b.order);
+  box.innerHTML = rows
+    .map(
+      (item) => `<article class="admin-card product-editor" data-gallery-id="${I.escAttr(item.id)}">
+        <div class="editor-head">
+          <h3>Фото</h3>
+          <button class="btn danger" type="button" data-del-gallery="${I.escAttr(item.id)}">Удалить</button>
+        </div>
+        <div data-gallery-photo></div>
+        <div class="grid-2">
+          <div><label>Порядок</label><input name="order" type="number" value="${item.order}"></div>
+          <div class="check"><input type="checkbox" name="visible" id="gvis-${item.id}" ${item.visible ? "checked" : ""}><label for="gvis-${item.id}">Показывать на сайте</label></div>
+        </div>
+        ${I.blockHtml("Подпись", "caption", item.caption)}
+      </article>`
+    )
+    .join("");
+  box.querySelectorAll("[data-gallery-id]").forEach((card) => {
+    const item = g.items.find((entry) => entry.id === card.dataset.galleryId);
+    const heading = card.querySelector("h3");
+    if (heading) heading.textContent = item.caption?.ru || "Фото";
+    CasaMiaImages.mount(card.querySelector("[data-gallery-photo]"), {
+      src: item.image || "",
+      label: "Фото для карусели",
+      onPick: (processed) => {
+        const path = `images/gallery/${CasaMiaImages.slugName(item.id)}.${processed.ext}`;
+        state.pendingImages[path] = processed.blob;
+        item.image = path;
+        markDirty();
+      },
+      onRemove: () => {
+        item.image = "";
+        markDirty();
+      }
+    });
+  });
+  box.querySelectorAll("[data-del-gallery]").forEach((btn) => {
+    btn.onclick = () => {
+      state.gallery.items = state.gallery.items.filter((item) => item.id !== btn.dataset.delGallery);
+      renderGalleryAdmin();
+      markDirty();
+    };
+  });
+  paintSectionToggles();
+}
+
+function onGallerySettings() {
+  const form = document.getElementById("gallery-settings");
+  if (!form) return;
+  state.gallery.title = I.readFrom(form, "gallery-title");
+  state.gallery.autoplay = !!form.querySelector('[name="gallery-autoplay"]')?.checked;
+  const seconds = Number(form.querySelector('[name="gallery-interval"]')?.value);
+  state.gallery.interval = Math.min(30, Math.max(2, seconds || 5));
+  markDirty();
+}
+
+function onGalleryInput(e) {
+  const card = e.target.closest("[data-gallery-id]");
+  if (!card) return;
+  const item = state.gallery.items.find((entry) => entry.id === card.dataset.galleryId);
+  if (!item) return;
+  item.order = Number(card.querySelector('[name="order"]')?.value) || 0;
+  item.visible = !!card.querySelector('[name="visible"]')?.checked;
+  item.caption = I.readFrom(card, "caption");
+  const heading = card.querySelector("h3");
+  if (heading) heading.textContent = item.caption?.ru || "Фото";
+  markDirty();
+}
+
+function addGalleryItem() {
+  const item = normalizeGalleryItem({
+    id: uniqueId("gallery-" + Date.now(), new Set(state.gallery.items.map((entry) => entry.id))),
+    image: "",
+    order: (state.gallery.items.reduce((max, entry) => Math.max(max, Number(entry.order) || 0), 0) || 0) + 10,
+    visible: true,
+    caption: I.emptyI18n()
+  }, state.gallery.items.length);
+  state.gallery.items.push(item);
+  renderGalleryAdmin();
+  markDirty();
+}
+
 function addReview() {
   const r = {
     id: uniqueId("review-" + Date.now(), new Set(state.reviews.map((x) => x.id))),
@@ -1214,6 +1448,7 @@ function addReview() {
   };
   state.reviews.push(r);
   renderReviews();
+  paintSectionToggles();
   markDirty();
 }
 
@@ -1340,6 +1575,8 @@ async function saveAll() {
   readOpenProductCards();
   readSettingsForm();
   readCartForm();
+  onGallerySettings();
+  readReviewsCarousel();
   if (!isDirty()) return;
   if (!CasaMiaGitHub.hasConnection()) {
     toast("Сначала откройте вкладку «Настройки GitHub» и подключите репозиторий.", "err");
@@ -1359,7 +1596,8 @@ async function saveAll() {
       { path: "data/products.json", text: pretty(productsInMenuOrder()) },
       { path: "data/categories.json", text: pretty(state.categories) },
       { path: "data/settings.json", text: pretty(stripSettings(state.settings)) },
-      { path: "data/reviews.json", text: pretty(state.reviews) }
+      { path: "data/reviews.json", text: pretty(state.reviews) },
+      { path: "data/gallery.json", text: pretty(state.gallery) }
     ];
     const blobs = Object.entries(state.pendingImages).map(([path, blob]) => ({ path, blob }));
     const result = await CasaMiaGitHub.publish({ jsonFiles, blobs });

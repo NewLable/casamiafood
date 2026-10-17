@@ -466,6 +466,20 @@ textarea { min-height: 72px; resize: vertical; }
   margin-bottom: 1rem;
   background: #fff;
 }
+.brand-images {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.brand-images h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 900px) {
+  .brand-images { grid-template-columns: repeat(3, 1fr); }
+}
+
 .section-card h2 {
   font-family: var(--display);
   margin: 0 0 0.75rem;

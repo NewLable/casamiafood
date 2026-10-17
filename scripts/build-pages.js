@@ -25,7 +25,7 @@ function resetGenerated() {
   }
 }
 
-function shell({ lang, head, main, jsonld, attrs }) {
+function shell({ lang, head, main, jsonld, attrs, logo }) {
   const htmlLang = seo.HTML_LANG[lang] || "ru";
   const scripts = (jsonld || []).map((block) => `<script type="application/ld+json">${seo.jsonScript(block)}</script>`).join("\n  ");
   return `<!DOCTYPE html>
@@ -34,7 +34,7 @@ function shell({ lang, head, main, jsonld, attrs }) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   ${head}
-  <link rel="stylesheet" href="/css/style.css?v=22">
+  <link rel="stylesheet" href="/css/style.css?v=28">
   <link rel="icon" href="/images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch.png">
   ${scripts}
@@ -43,7 +43,7 @@ function shell({ lang, head, main, jsonld, attrs }) {
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="${seo.pagePath("home", "", lang)}" aria-label="Casa Mia">
-        <img class="logo-img" src="/images/brand/logo-header.webp" alt="Casa Mia" width="320" height="160" decoding="async">
+        <img class="logo-img" src="${seo.escapeHtml(logo || "/images/brand/logo-header.webp")}" alt="Casa Mia" width="320" height="160" decoding="async">
       </a>
       <div class="header-actions">
         <div class="lang-switch" role="group" aria-label="Language">
@@ -66,7 +66,7 @@ function shell({ lang, head, main, jsonld, attrs }) {
     </div>
   </footer>
   <script src="/js/seo.js?v=1"></script>
-  <script src="/js/app.js?v=15"></script>
+  <script src="/js/app.js?v=17"></script>
   <script src="/js/cart.js?v=19"></script>
   <script src="/js/product.js?v=3"></script>
 </body>
@@ -199,7 +199,22 @@ function replaceInner(html, id, inner) {
   return html;
 }
 
-function applyLanguage(html, lang, settings, reviews, appSource) {
+function publicPath(file) {
+  const clean = String(file || "").replace(/^\/+/, "");
+  return clean ? `/${clean}` : "";
+}
+
+function gallerySlides(gallery, lang) {
+  const items = ((gallery && gallery.items) || [])
+    .filter((item) => item && item.visible !== false && item.image)
+    .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+  return items.map((item) => {
+    const caption = seo.pick(item.caption, lang);
+    return `<div class="carousel-slide"><img src="${seo.escapeHtml(publicPath(item.image))}" alt="${seo.escapeHtml(caption)}" width="1200" height="800"><p class="carousel-caption">${seo.escapeHtml(caption)}</p></div>`;
+  }).join("");
+}
+
+function applyLanguage(html, lang, settings, reviews, appSource, gallery) {
   let page = html.replace(/data-i18n="([^"]+)"([^>]*)>([\s\S]*?)</g, (full, key, rest) => {
     const value = uiString(appSource, key, lang);
     return value ? `data-i18n="${key}"${rest}>${seo.escapeHtml(value)}<` : full;
@@ -237,9 +252,21 @@ function applyLanguage(html, lang, settings, reviews, appSource) {
   }
   const cards = (reviews || []).filter((item) => item.visible !== false).sort((a, b) => (a.order || 0) - (b.order || 0)).map((item) => {
     const stars = "★".repeat(Math.min(5, Number(item.rating) || 5));
-    return `<article class="review-card"><div class="stars">${stars}</div><p>«${text(item.text)}»</p><div class="name">${seo.escapeHtml(item.name || "")}</div></article>`;
+    return `<article class="carousel-slide review-card"><div class="stars">${stars}</div><p>«${text(item.text)}»</p><div class="name">${seo.escapeHtml(item.name || "")}</div></article>`;
   }).join("");
   if (cards) page = replaceInner(page, "reviews-list", cards);
+  const slides = gallerySlides(gallery, lang);
+  if (slides) page = replaceInner(page, "gallery-track", slides);
+  const galleryTitle = seo.pick(gallery && gallery.title, lang);
+  if (galleryTitle) page = page.replace(/(id="gallery-title"[^>]*>)[\s\S]*?(<\/h2>)/, `$1${seo.escapeHtml(galleryTitle)}$2`);
+  if (gallery && gallery.visible === false) page = page.replace('id="gallery"', 'id="gallery" hidden');
+  if (settings.sections && settings.sections.reviews === false) page = page.replace('id="reviews"', 'id="reviews" hidden');
+  const headerLogo = publicPath(settings.brand && settings.brand.logoHeader) || "/images/brand/logo-header.webp";
+  const bigLogo = publicPath(settings.brand && settings.brand.logo) || "/images/brand/logo-big.webp";
+  const heroImage = publicPath(settings.brand && settings.brand.heroImage) || "/images/brand/info.webp";
+  page = page.replaceAll("images/brand/logo-header.webp", headerLogo.replace(/^\//, ""));
+  page = page.replaceAll("images/brand/logo-big.webp", bigLogo.replace(/^\//, ""));
+  page = page.replaceAll("images/brand/info.webp", heroImage.replace(/^\//, ""));
   const address = seo.pick(settings.contacts && settings.contacts.address, lang);
   const bits = [address, settings.contacts && settings.contacts.phone, settings.contacts && settings.contacts.email].filter(Boolean);
   page = page.replace(/(id="contact-extra"[^>]*>)[\s\S]*?(<\/span>)/, `$1${seo.escapeHtml(bits.join(" · "))}$2`);
@@ -252,6 +279,8 @@ function build() {
   const categories = readJson("categories.json");
   const settings = readJson("settings.json");
   const reviews = readJson("reviews.json");
+  const gallery = readJson("gallery.json");
+  const headerLogo = `/${String((settings.brand && settings.brand.logoHeader) || "images/brand/logo-header.webp").replace(/^\/+/, "")}`;
   const appSource = fs.readFileSync(path.join(ROOT, "js", "app.js"), "utf8");
   resetGenerated();
 
@@ -268,7 +297,8 @@ function build() {
         head: seo.metaBlock(info, "product", product.id, seo.productImage(product)),
         main: `<div id="product-root">${body.html}</div>`,
         jsonld: [seo.productJsonLd(product, lang, category), body.crumbLd],
-        attrs: `data-product-id="${seo.escapeHtml(product.id)}"`
+        attrs: `data-product-id="${seo.escapeHtml(product.id)}"`,
+        logo: headerLogo
       });
       const rel = seo.pagePath("product", product.id, lang).replace(/^\//, "") + "index.html";
       write(rel, html);
@@ -281,7 +311,8 @@ function build() {
         lang,
         head: seo.metaBlock(info, "category", category.id, `${seo.ORIGIN}/images/brand/og.jpg`),
         main: body.html,
-        jsonld: [seo.categoryJsonLd(category, lang, items), body.crumbLd]
+        jsonld: [seo.categoryJsonLd(category, lang, items), body.crumbLd],
+        logo: headerLogo
       });
       const rel = seo.pagePath("category", category.id, lang).replace(/^\//, "") + "index.html";
       write(rel, html);
@@ -292,7 +323,7 @@ function build() {
   index = replaceBlock(index, "seo-meta", homeHead(settings, "ru"));
   index = replaceBlock(index, "seo-catalog", catalogBlock(categories, products, "ru"));
   index = localizeHome(index, "ru");
-  index = applyLanguage(index, "ru", settings, reviews, appSource);
+  index = applyLanguage(index, "ru", settings, reviews, appSource, gallery);
   if (!index.includes('data-base=')) index = index.replace("<body>", '<body data-base="/">');
   fs.writeFileSync(path.join(ROOT, "index.html"), index);
 
@@ -301,7 +332,7 @@ function build() {
     copy = replaceBlock(copy, "seo-meta", homeHead(settings, lang));
     copy = replaceBlock(copy, "seo-catalog", catalogBlock(categories, products, lang));
     copy = localizeHome(copy, lang);
-    copy = applyLanguage(copy, lang, settings, reviews, appSource);
+    copy = applyLanguage(copy, lang, settings, reviews, appSource, gallery);
     copy = copy.replace(/<html lang="[^"]*">/, `<html lang="${seo.HTML_LANG[lang]}">`);
     copy = rootify(copy);
     write(`${lang}/index.html`, copy);

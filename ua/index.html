@@ -32,7 +32,7 @@
   <link rel="preload" href="/images/brand/logo-big.webp" as="image" type="image/webp" fetchpriority="high">
   <link rel="preload" href="/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=22">
+  <link rel="stylesheet" href="/css/style.css?v=28">
   <link rel="icon" href="/images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch.png">
   <script type="application/ld+json">
@@ -112,6 +112,7 @@
       <a href="#cook" data-i18n="nav_cook">Як готувати</a>
       <a href="#about" data-i18n="nav_about">Про нас</a>
       <a href="#delivery" data-i18n="nav_delivery">Доставка</a>
+      <a href="#gallery" data-i18n="nav_gallery">Фото</a>
       <a href="#reviews" data-i18n="nav_reviews">Відгуки</a>
       <a href="#contacts" data-i18n="nav_contacts">Контакти</a>
     </div>
@@ -184,6 +185,24 @@
       </div>
     </section>
 
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="gallery-title" data-i18n="gallery_title">Наша кухня</h2>
+        </div>
+        <div class="photo-carousel" id="photo-carousel" data-autoplay="true" data-interval="5">
+          <div class="carousel-frame">
+            <button class="carousel-btn prev" type="button" data-carousel-prev aria-label="Предыдущее фото">‹</button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="gallery-track"><div class="carousel-slide"><img src="/images/products/pelmeni-chicken.webp" alt="Наші страви" width="1200" height="800"><p class="carousel-caption">Наші страви</p></div><div class="carousel-slide"><img src="/images/products/cinnabon.webp" alt="Процес приготування" width="1200" height="800"><p class="carousel-caption">Процес приготування</p></div><div class="carousel-slide"><img src="/images/brand/info.webp" alt="Наше виробництво" width="1200" height="800"><p class="carousel-caption">Наше виробництво</p></div></div>
+            </div>
+            <button class="carousel-btn next" type="button" data-carousel-next aria-label="Следующее фото">›</button>
+          </div>
+          <div class="carousel-dots" id="gallery-dots"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="cook">
       <div class="container">
         <div class="section-head">
@@ -248,7 +267,16 @@
         <div class="section-head">
           <h2 data-i18n="reviews_title">Дякуємо, що обираєте нас</h2>
         </div>
-        <div class="reviews" id="reviews-list"><article class="review-card"><div class="stars">★★★★★</div><p>«Дуже смачні равіолі, як домашні. Тепер завжди тримаємо упаковку в морозилці.»</p><div class="name">Анна</div></article><article class="review-card"><div class="stars">★★★★★</div><p>«Пельмені й голубці сподобалися всій родині. Зручно, що доставка прямо додому.»</p><div class="name">Марина</div></article><article class="review-card"><div class="stars">★★★★★</div><p>«Синнабони — як із кав'ярні. Замовляємо на вихідні разом із млинцями.»</p><div class="name">Елена</div></article></div>
+        <div class="photo-carousel reviews-carousel" id="reviews-carousel" data-autoplay="true" data-interval="5">
+          <div class="carousel-frame">
+            <button class="carousel-btn prev" type="button" data-carousel-prev aria-label="Предыдущий отзыв">‹</button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="reviews-list"><article class="carousel-slide review-card"><div class="stars">★★★★★</div><p>«Дуже смачні равіолі, як домашні. Тепер завжди тримаємо упаковку в морозилці.»</p><div class="name">Анна</div></article><article class="carousel-slide review-card"><div class="stars">★★★★★</div><p>«Пельмені й голубці сподобалися всій родині. Зручно, що доставка прямо додому.»</p><div class="name">Марина</div></article><article class="carousel-slide review-card"><div class="stars">★★★★★</div><p>«Синнабони — як із кав'ярні. Замовляємо на вихідні разом із млинцями.»</p><div class="name">Елена</div></article></div>
+            </div>
+            <button class="carousel-btn next" type="button" data-carousel-next aria-label="Следующий отзыв">›</button>
+          </div>
+          <div class="carousel-dots" id="reviews-dots"></div>
+        </div>
       </div>
     </section>
 
@@ -297,8 +325,8 @@
   </footer>
 
   <script src="/js/seo.js?v=1"></script>
-  <script src="/js/app.js?v=15"></script>
+  <script src="/js/app.js?v=17"></script>
   <script src="/js/cart.js?v=19"></script>
-  <script src="/js/menu.js?v=3"></script>
+  <script src="/js/menu.js?v=7"></script>
 </body>
 </html>

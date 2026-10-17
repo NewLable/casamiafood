@@ -4,6 +4,7 @@ async function initMenu() {
   CasaMia.bindHeader();
   CasaMiaCart.mount();
   renderStaticBlocks();
+  bindGallery();
   renderSort();
   bindSearch();
   renderFilters();
@@ -301,6 +302,226 @@ function renderHits() {
     .join("");
 }
 
+function galleryItems(gallery) {
+  return (gallery?.items || [])
+    .filter((item) => item.visible !== false && item.image)
+    .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+}
+
+function escHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+}
+
+function mountCarousel(root, slidesHtml, options) {
+  const track = root.querySelector(".carousel-track");
+  const dots = root.querySelector(".carousel-dots");
+  if (!track || !dots) return;
+  const count = slidesHtml.length;
+  const canLoop = count > 1;
+  const sequence = canLoop ? slidesHtml.concat(slidesHtml) : slidesHtml;
+  track.innerHTML = sequence.join("");
+  track.style.transition = "none";
+  track.style.transform = "";
+  delete track.dataset.moving;
+  dots.innerHTML = canLoop
+    ? slidesHtml.map((_, index) => `<button type="button" class="carousel-dot${index === 0 ? " is-on" : ""}" data-index="${index}" aria-label="${index + 1}"></button>`).join("")
+    : "";
+  root.classList.toggle("is-static", !canLoop);
+  root.dataset.count = String(count);
+  root.dataset.pos = "0";
+  root.dataset.autoplay = options.autoplay === false ? "false" : "true";
+  root.dataset.interval = String(Math.min(30, Math.max(2, Number(options.interval) || 5)));
+  root.querySelector("[data-carousel-prev]")?.setAttribute("aria-label", options.prevLabel || "");
+  root.querySelector("[data-carousel-next]")?.setAttribute("aria-label", options.nextLabel || "");
+  markVisibleSlides(track);
+  startCarousel(root);
+}
+
+function renderGallery() {
+  const root = document.getElementById("photo-carousel");
+  const section = document.getElementById("gallery");
+  if (!root || !section) return;
+  const gallery = CasaMia.getGallery() || {};
+  const items = galleryItems(gallery);
+  const show = gallery.visible !== false && items.length > 0;
+  section.hidden = !show;
+  document.querySelectorAll('a[href="#gallery"]').forEach((link) => {
+    link.hidden = !show;
+  });
+  if (!show) {
+    window.clearInterval(root._timer);
+    return;
+  }
+
+  const title = document.getElementById("gallery-title");
+  const heading = CasaMia.localized(gallery.title) || CasaMia.t("gallery_title");
+  if (title && heading) title.textContent = heading;
+  const slides = items.map((item) => {
+    const caption = escHtml(CasaMia.localized(item.caption));
+    return `<div class="carousel-slide"><img src="${CasaMia.mediaUrl(item.image)}" alt="${caption}" width="1200" height="1067" decoding="async" draggable="false"><p class="carousel-caption">${caption}</p></div>`;
+  });
+  mountCarousel(root, slides, {
+    autoplay: gallery.autoplay !== false,
+    interval: gallery.interval,
+    prevLabel: CasaMia.t("gallery_prev"),
+    nextLabel: CasaMia.t("gallery_next")
+  });
+}
+
+function bindCarousel(root) {
+  if (!root || root.dataset.bound) return;
+  root.dataset.bound = "1";
+  root.querySelector("[data-carousel-prev]")?.addEventListener("click", () => shiftCarousel(root, -1));
+  root.querySelector("[data-carousel-next]")?.addEventListener("click", () => shiftCarousel(root, 1));
+  root.querySelector(".carousel-dots")?.addEventListener("click", (event) => {
+    const dot = event.target.closest("[data-index]");
+    if (!dot) return;
+    jumpCarousel(root, Number(dot.dataset.index));
+  });
+  const frame = root.querySelector(".carousel-viewport");
+  let startX = 0;
+  let pointer = 0;
+  frame?.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0 && event.pointerType === "mouse") return;
+    pointer = event.pointerId;
+    startX = event.clientX;
+    frame.setPointerCapture?.(event.pointerId);
+  });
+  frame?.addEventListener("pointerup", (event) => {
+    if (event.pointerId !== pointer) return;
+    const delta = event.clientX - startX;
+    if (Math.abs(delta) < 36) return;
+    shiftCarousel(root, delta > 0 ? -1 : 1);
+  });
+  root.addEventListener("mouseenter", () => {
+    root.dataset.paused = "1";
+  });
+  root.addEventListener("mouseleave", () => {
+    delete root.dataset.paused;
+  });
+  window.addEventListener("resize", () => {
+    const track = root.querySelector(".carousel-track");
+    if (!track) return;
+    track.style.transition = "none";
+    track.style.transform = "";
+  });
+}
+
+function bindGallery() {
+  document.querySelectorAll(".photo-carousel").forEach(bindCarousel);
+}
+
+function carouselStep(track) {
+  const slide = track.children[0];
+  if (!slide) return 0;
+  const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+  return slide.getBoundingClientRect().width + gap;
+}
+
+function markVisibleSlides(track) {
+  [...track.children].forEach((slide, index) => {
+    if (index < 3) slide.removeAttribute("aria-hidden");
+    else slide.setAttribute("aria-hidden", "true");
+  });
+}
+
+function paintCarouselPos(root) {
+  const pos = Number(root.dataset.pos) || 0;
+  root.querySelectorAll(".carousel-dot").forEach((dot, index) => {
+    dot.classList.toggle("is-on", index === pos);
+  });
+}
+
+function shiftCarousel(root, direction) {
+  const count = Number(root.dataset.count) || 0;
+  const track = root.querySelector(".carousel-track");
+  if (!track || count < 2 || track.dataset.moving) return;
+  const step = carouselStep(track);
+  if (!step) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const pos = Number(root.dataset.pos) || 0;
+  track.dataset.moving = "1";
+
+  const settle = (next) => {
+    track.style.transition = "none";
+    track.style.transform = "";
+    void track.offsetWidth;
+    track.style.transition = "";
+    delete track.dataset.moving;
+    root.dataset.pos = String((next + count) % count);
+    markVisibleSlides(track);
+    paintCarouselPos(root);
+  };
+
+  if (direction > 0) {
+    track.style.transition = reduce ? "none" : "";
+    track.style.transform = `translateX(-${step}px)`;
+    let finished = false;
+    const done = () => {
+      if (finished) return;
+      finished = true;
+      track.appendChild(track.firstElementChild);
+      settle(pos + 1);
+    };
+    if (reduce) done();
+    else {
+      track.addEventListener("transitionend", done, { once: true });
+      window.setTimeout(() => {
+        if (track.dataset.moving) done();
+      }, 600);
+    }
+    return;
+  }
+
+  track.insertBefore(track.lastElementChild, track.firstElementChild);
+  track.style.transition = "none";
+  track.style.transform = `translateX(-${step}px)`;
+  void track.offsetWidth;
+  track.style.transition = reduce ? "none" : "";
+  window.requestAnimationFrame(() => {
+    track.style.transform = "";
+    let finished = false;
+    const done = () => {
+      if (finished) return;
+      finished = true;
+      settle(pos - 1);
+    };
+    if (reduce) done();
+    else {
+      track.addEventListener("transitionend", done, { once: true });
+      window.setTimeout(() => {
+        if (track.dataset.moving) done();
+      }, 600);
+    }
+  });
+}
+
+function jumpCarousel(root, target) {
+  const count = Number(root.dataset.count) || 0;
+  const track = root.querySelector(".carousel-track");
+  if (!track || count < 2) return;
+  const pos = Number(root.dataset.pos) || 0;
+  const hops = (target - pos + count) % count;
+  track.style.transition = "none";
+  track.style.transform = "";
+  for (let i = 0; i < hops; i += 1) track.appendChild(track.firstElementChild);
+  delete track.dataset.moving;
+  root.dataset.pos = String(target % count);
+  markVisibleSlides(track);
+  paintCarouselPos(root);
+}
+
+function startCarousel(root) {
+  window.clearInterval(root._timer);
+  if (root.classList.contains("is-static") || root.dataset.autoplay !== "true") return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const seconds = Math.min(30, Math.max(2, Number(root.dataset.interval) || 5));
+  root._timer = window.setInterval(() => {
+    if (root.dataset.paused || document.hidden || root.closest("[hidden]")) return;
+    shiftCarousel(root, 1);
+  }, seconds * 1000);
+}
+
 function renderStaticBlocks() {
   const settings = CasaMia.getSettings();
   if (!settings) return;
@@ -378,24 +599,41 @@ function renderStaticBlocks() {
       <div><strong>${CasaMia.t("payment")}</strong><span>${CasaMia.localized(settings.delivery.payment)}</span></div>`;
   }
 
-  const reviews = document.getElementById("reviews-list");
-  if (reviews) {
+  const reviewsSection = document.getElementById("reviews");
+  const reviewsOn = settings.sections?.reviews !== false;
+  if (reviewsSection) reviewsSection.hidden = !reviewsOn;
+  document.querySelectorAll('a[href="#reviews"]').forEach((link) => {
+    link.hidden = !reviewsOn;
+  });
+
+  const reviewsRoot = document.getElementById("reviews-carousel");
+  if (reviewsRoot && reviewsOn) {
     const list = CasaMia.getReviews() || [];
-    reviews.innerHTML = list
-      .map((r) => {
-        const stars = "★".repeat(Math.min(5, Number(r.rating) || 5));
-        const photo = r.photo
-          ? `<img class="review-photo" src="${r.photo}" alt="" width="48" height="48" draggable="false">`
-          : "";
-        return `<article class="review-card">
+    const carousel = settings.sections?.reviewsCarousel || {};
+    const slides = list.map((r) => {
+      const stars = "★".repeat(Math.min(5, Number(r.rating) || 5));
+      const photo = r.photo
+        ? `<img class="review-photo" src="${CasaMia.mediaUrl(r.photo)}" alt="" width="48" height="48" draggable="false">`
+        : "";
+      const text = escHtml(CasaMia.localized(r.text));
+      return `<article class="carousel-slide review-card">
         ${photo}
         <div class="stars" aria-label="${r.rating || 5}">${stars}</div>
-        <p>«${CasaMia.localized(r.text)}»</p>
-        <div class="name">${r.name}</div>
+        <p>«${text}»</p>
+        <div class="name">${escHtml(r.name)}</div>
       </article>`;
-      })
-      .join("");
+    });
+    mountCarousel(reviewsRoot, slides, {
+      autoplay: carousel.autoplay !== false,
+      interval: carousel.interval,
+      prevLabel: CasaMia.t("reviews_prev"),
+      nextLabel: CasaMia.t("reviews_next")
+    });
+  } else if (reviewsRoot) {
+    window.clearInterval(reviewsRoot._timer);
   }
+
+  renderGallery();
 
   const waDisplay = document.getElementById("wa-display");
   const igDisplay = document.getElementById("ig-display");

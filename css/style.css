@@ -1180,11 +1180,115 @@ textarea {
   opacity: 1;
 }
 
-/* Reviews */
-.reviews {
-  display: grid;
-  gap: 0.9rem;
+/* Photo carousel */
+.photo-carousel {
+  position: relative;
 }
+
+.carousel-frame {
+  position: relative;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+  flex: 1;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 0.85rem;
+  transition: transform 0.45s var(--ease);
+}
+
+.carousel-slide {
+  flex: 0 0 calc((100% - 1.7rem) / 3);
+  min-width: calc((100% - 1.7rem) / 3);
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 8;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+  background: var(--cream-deep);
+}
+
+.carousel-caption {
+  margin: 0.7rem 0.15rem 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(42, 36, 32, 0.18);
+}
+
+.carousel-btn.prev { left: 0.4rem; }
+.carousel-btn.next { right: 0.4rem; }
+.carousel-btn:hover { color: var(--terracotta); }
+
+.photo-carousel.is-static .carousel-btn,
+.photo-carousel.is-static .carousel-dots {
+  display: none;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(42, 36, 32, 0.22);
+  cursor: pointer;
+}
+
+.carousel-dot.is-on {
+  background: var(--terracotta);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { transition: none; }
+}
+
+/* Reviews */
+.reviews-carousel .review-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviews-carousel .carousel-frame {
+  padding: 0 3.4rem;
+}
+
+.reviews-carousel .carousel-btn.prev { left: 0; }
+.reviews-carousel .carousel-btn.next { right: 0; }
 
 .review-card {
   background: var(--white);
@@ -1469,10 +1573,6 @@ textarea {
 
   .cook-grid {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .reviews {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .product-layout {

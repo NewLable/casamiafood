@@ -1,0 +1,49 @@
+{
+  "visible": true,
+  "autoplay": true,
+  "interval": 5,
+  "title": {
+    "ru": "Наша кухня",
+    "ua": "Наша кухня",
+    "tr": "Mutfağımız",
+    "en": "Our kitchen"
+  },
+  "items": [
+    {
+      "id": "gallery-dishes",
+      "image": "images/products/pelmeni-chicken.webp",
+      "order": 10,
+      "visible": true,
+      "caption": {
+        "ru": "Наши блюда",
+        "ua": "Наші страви",
+        "tr": "Yemeklerimiz",
+        "en": "Our dishes"
+      }
+    },
+    {
+      "id": "gallery-process",
+      "image": "images/products/cinnabon.webp",
+      "order": 20,
+      "visible": true,
+      "caption": {
+        "ru": "Процесс приготовления",
+        "ua": "Процес приготування",
+        "tr": "Hazırlık süreci",
+        "en": "How we cook"
+      }
+    },
+    {
+      "id": "gallery-kitchen",
+      "image": "images/brand/info.webp",
+      "order": 30,
+      "visible": true,
+      "caption": {
+        "ru": "Наше производство",
+        "ua": "Наше виробництво",
+        "tr": "Üretimimiz",
+        "en": "Our kitchen"
+      }
+    }
+  ]
+}

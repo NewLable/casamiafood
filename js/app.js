@@ -19,6 +19,7 @@ const CasaMia = (() => {
     nav_cook: { ru: "Как готовить", ua: "Як готувати", tr: "Pişirme", en: "How to cook" },
     nav_about: { ru: "О нас", ua: "Про нас", tr: "Hakkımızda", en: "About" },
     nav_delivery: { ru: "Доставка", ua: "Доставка", tr: "Teslimat", en: "Delivery" },
+    nav_gallery: { ru: "Фото", ua: "Фото", tr: "Fotoğraflar", en: "Photos" },
     nav_reviews: { ru: "Отзывы", ua: "Відгуки", tr: "Yorumlar", en: "Reviews" },
     nav_contacts: { ru: "Контакты", ua: "Контакти", tr: "İletişim", en: "Contacts" },
     hero_h1: {
@@ -115,6 +116,11 @@ const CasaMia = (() => {
       }
     },
     why_title: { ru: "Почему Casa Mia?", ua: "Чому Casa Mia?", tr: "Neden Casa Mia?", en: "Why Casa Mia?" },
+    gallery_title: { ru: "Наша кухня", ua: "Наша кухня", tr: "Mutfağımız", en: "Our kitchen" },
+    gallery_prev: { ru: "Предыдущее фото", ua: "Попереднє фото", tr: "Önceki fotoğraf", en: "Previous photo" },
+    gallery_next: { ru: "Следующее фото", ua: "Наступне фото", tr: "Sonraki fotoğraf", en: "Next photo" },
+    reviews_prev: { ru: "Предыдущий отзыв", ua: "Попередній відгук", tr: "Önceki yorum", en: "Previous review" },
+    reviews_next: { ru: "Следующий отзыв", ua: "Наступний відгук", tr: "Sonraki yorum", en: "Next review" },
     cook_title: { ru: "Как готовить?", ua: "Як готувати?", tr: "Nasıl pişirilir?", en: "How to cook?" },
     cook_sub: {
       ru: "Просто и быстро — для замороженных продуктов.",
@@ -471,6 +477,7 @@ const CasaMia = (() => {
   let categories = [];
   let settings = null;
   let reviews = [];
+  let gallery = { visible: true, autoplay: true, interval: 5, title: {}, items: [] };
 
   function t(key, vars) {
     const parts = String(key).split(".");
@@ -688,11 +695,12 @@ const CasaMia = (() => {
 
   async function loadData() {
     const base = document.body.dataset.base || "";
-    const [p, c, s, revRes] = await Promise.all([
+    const [p, c, s, revRes, galleryRes] = await Promise.all([
       fetch(`${base}data/products.json`).then((r) => r.json()),
       fetch(`${base}data/categories.json`).then((r) => r.json()),
       fetch(`${base}data/settings.json`).then((r) => r.json()),
-      fetch(`${base}data/reviews.json`).then((r) => (r.ok ? r.json() : [])).catch(() => [])
+      fetch(`${base}data/reviews.json`).then((r) => (r.ok ? r.json() : [])).catch(() => []),
+      fetch(`${base}data/gallery.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null)
     ]);
     products = p.sort((a, b) => a.order - b.order);
     categories = c.sort((a, b) => a.order - b.order);
@@ -700,6 +708,7 @@ const CasaMia = (() => {
     reviews = (Array.isArray(revRes) && revRes.length ? revRes : s.reviews || [])
       .filter((item) => item.visible !== false)
       .sort((a, b) => (a.order || 0) - (b.order || 0));
+    gallery = galleryRes && typeof galleryRes === "object" ? galleryRes : gallery;
     const locked = parsePath(location.pathname);
     const pathChoosesLang = locked.kind === "home" || locked.kind === "product" || locked.kind === "category";
     if (!pathChoosesLang && !urlLang && !localStorage.getItem(LANG_KEY) && SUPPORTED.includes(s.defaultLang)) {
@@ -781,7 +790,25 @@ const CasaMia = (() => {
       el.href = igLink();
     });
     applyStaticI18n();
+    applyBrandImages();
     applySeo();
+  }
+
+  function applyBrandImages() {
+    if (!settings) return;
+    const brand = settings.brand || {};
+    const header = mediaUrl(brand.logoHeader || "images/brand/logo-header.webp");
+    const logo = mediaUrl(brand.logo || "images/brand/logo-big.webp");
+    const hero = mediaUrl(brand.heroImage || "images/brand/info.webp");
+    document.querySelectorAll(".logo-img").forEach((img) => {
+      img.src = header;
+    });
+    document.querySelectorAll(".hero-logo, .about-logo-panel img").forEach((img) => {
+      img.src = logo;
+    });
+    document.querySelectorAll(".hero-media img").forEach((img) => {
+      img.src = hero;
+    });
   }
 
   function refreshLinks() {
@@ -870,6 +897,7 @@ const CasaMia = (() => {
     getCategories: () => enabledCategories(),
     getSettings: () => settings,
     getReviews: () => reviews,
+    getGallery: () => gallery,
     formatPrice,
     formatWeight,
     orderLink,
