@@ -1,56 +1,56 @@
 [
   {
-    "id": "product-1792234997854",
+    "id": "product-1792235225449",
     "categoryId": "frozen",
     "order": 0,
     "name": {
-      "ru": "Жульен в мясной короне",
-      "ua": "Жульєн у м’ясній короні",
-      "tr": "Et Tacında Jülyen",
-      "en": "Julienne in a Meat Crown"
+      "ru": "Блинчики с лососем и сливочным сыром",
+      "ua": "Млинці з лососем і вершковим сиром",
+      "tr": "Somonlu ve Krem Peynirli Krep",
+      "en": "Salmon and Cream Cheese Pancakes"
     },
     "description": {
-      "ru": "Нежная курица с ароматными шампиньонами, сливочным сыром и тягучей моцареллой в аппетитной мясной короне. Сытное домашнее блюдо с насыщенным сливочно-грибным вкусом.",
-      "ua": "Ніжна курятина з ароматними печерицями, вершковим сиром і тягучою моцарелою в апетитній м’ясній короні. Ситна домашня страва з насиченим вершково-грибним смаком.",
-      "tr": "Lezzetli bir et tacının içinde tavuk, aromatik mantar, krem peynir ve uzayan mozzarella peyniri. Yoğun kremamsı ve mantarlı lezzetiyle doyurucu, ev yapımı bir lezzet.",
-      "en": "Tender chicken with aromatic mushrooms, cream cheese and melted mozzarella, wrapped in an appetising meat crown. A hearty homemade dish with a rich, creamy mushroom flavour."
+      "ru": "Нежные блинчики с ароматным лососем и мягким сливочным сыром. Гармоничное сочетание деликатного рыбного вкуса и нежной сливочной текстуры — для вкусного завтрака или лёгкого перекуса.",
+      "ua": "Ніжні млинці з лососем і м’яким вершковим сиром. Гармонійне поєднання делікатного смаку риби та ніжної вершкової текстури — для смачного сніданку або легкого перекусу.",
+      "tr": "Somon ve yumuşak krem peynirle hazırlanan nefis krepler. Somonun kendine özgü lezzeti ile krem peynirin yumuşak dokusunu buluşturan bu lezzet, kahvaltı veya hafif bir öğün için idealdir.",
+      "en": "Delicate pancakes filled with salmon and smooth cream cheese. A delicious combination of the salmon's delicate flavour and creamy texture, perfect for breakfast or a light meal."
     },
     "ingredients": {
-      "ru": "Мясо курицы, шампиньоны, яйцо куриное, лук репчатый, сыр сливочный, сыр моцарелла, соль, перец.",
-      "ua": "М’ясо курки, печериці, куряче яйце, ріпчаста цибуля, вершковий сир, сир моцарела, сіль, перець.",
-      "tr": "Tavuk eti, kültür mantarı, yumurta, kuru soğan, krem peynir, mozzarella peyniri, tuz, karabiber.",
-      "en": "Chicken meat, champignon mushrooms, chicken egg, onion, cream cheese, mozzarella cheese, salt, pepper."
+      "ru": "Лосось, сливочный сыр, пшеничная мука, молоко, яйца, соль, сахар.",
+      "ua": "Лосось, вершковий сир, пшеничне борошно, молоко, яйця, сіль, цукор.",
+      "tr": "Somon, krem peynir, buğday unu, süt, yumurta, tuz, şeker.",
+      "en": "Salmon, cream cheese, wheat flour, milk, eggs, salt, sugar."
     },
     "cook": {
-      "ru": "Готовить из замороженного состояния в разогретой духовке при 180°C в течение 20–25 минут или в аэрогриле до готовности. Время приготовления может зависеть от мощности прибора и размера изделия. Перед подачей убедитесь, что курица полностью приготовилась.",
-      "ua": "Готувати із замороженого стану в розігрітій духовці за температури 180°C протягом 20–25 хвилин або в аерогрилі до готовності. Час приготування може залежати від потужності приладу та розміру виробу. Перед подачею переконайтеся, що курятина повністю приготувалася.",
-      "tr": "Donmuş halde, önceden ısıtılmış 180°C fırında 20–25 dakika veya airfryer'da tamamen pişene kadar pişirin. Pişirme süresi cihazın gücüne ve ürünün boyutuna göre değişebilir. Servis etmeden önce tavuğun tamamen piştiğinden emin olun.",
-      "en": "Cook from frozen in a preheated oven at 180°C for 20–25 minutes, or in an air fryer until fully cooked. Cooking time may vary depending on the appliance and product size. Ensure the chicken is thoroughly cooked before serving."
+      "ru": "Готовить из замороженного состояния. Лучше всего разогревать на сковороде со сливочным маслом на слабом или среднем огне под крышкой, затем слегка обжарить до золотистой хрустящей корочки. Также можно разогреть в аэрогриле при умеренной температуре или в микроволновой печи до полного прогрева начинки. Время зависит от прибора и размера блинчиков.",
+      "ua": "Готувати із замороженого стану. Найкраще розігрівати на сковороді з вершковим маслом на слабкому або середньому вогні під кришкою, а потім злегка обсмажити до золотистої хрусткої скоринки. Також можна розігріти в аерогрилі за помірної температури або в мікрохвильовій печі до повного прогрівання начинки. Час залежить від приладу та розміру млинців.",
+      "tr": "Donmuş halde hazırlayın. En iyi sonuç için krepleri tereyağı ile tavada, kısık veya orta ateşte kapağı kapalı olarak ısıtın; ardından altın renginde çıtır bir yüzey elde edene kadar hafifçe kızartın. Alternatif olarak airfryer'da orta sıcaklıkta veya mikrodalgada iç harcı tamamen ısınana kadar ısıtabilirsiniz. Süre, cihazın türüne ve kreplerin boyutuna göre değişebilir.",
+      "en": "Prepare from frozen. For the best result, heat the pancakes in a pan with butter over low to medium heat, covered, then lightly fry until golden and crispy. Alternatively, heat in an air fryer at a moderate temperature or microwave until the filling is thoroughly heated. Cooking time depends on the appliance and pancake size."
     },
     "serveWith": {
-      "ru": "Подавайте горячим, пока сыр остаётся нежным и тягучим. По желанию дополните свежей зеленью и овощами.",
-      "ua": "Подавайте гарячим, поки сир залишається ніжним і тягучим. За бажанням доповніть свіжою зеленню та овочами.",
-      "tr": "Peynir yumuşak ve uzayan kıvamdayken sıcak servis edin. Dilerseniz yanında taze yeşillikler ve sebzeler sunun.",
-      "en": "Serve hot while the cheese is soft and stretchy. Add fresh herbs and vegetables if desired."
+      "ru": "Подавайте горячими, сразу после приготовления. Особенно вкусны с хрустящей золотистой корочкой. По желанию дополните свежей зеленью или долькой лимона.",
+      "ua": "Подавайте гарячими, одразу після приготування. Особливо смакують із хрусткою золотистою скоринкою. За бажанням доповніть свіжою зеленню або часточкою лимона.",
+      "tr": "Pişirdikten hemen sonra sıcak servis edin. Altın renginde çıtır dış yüzeyiyle özellikle lezzetlidir. Dilerseniz taze yeşillik veya bir dilim limonla sunabilirsiniz.",
+      "en": "Serve hot, immediately after heating. Especially delicious with a golden, crispy exterior. Add fresh herbs or a lemon wedge if desired."
     },
-    "price": 800,
+    "price": 0,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
     "images": [
-      "images/products/product-1792234997854.webp"
+      "images/products/product-1792235225449.webp"
     ],
-    "thumbnail": "images/products/product-1792234997854-thumb.webp",
+    "thumbnail": "images/products/product-1792235225449-thumb.webp",
     "badges": {
       "hit": false,
-      "new": true,
+      "new": false,
       "sale": false
     },
     "available": true,
-    "inStock": false,
+    "inStock": true,
     "quantityType": "kg",
     "step": 0.5,
-    "min": 1,
+    "min": 0.5,
     "unit": {
       "ru": "кг",
       "ua": "кг",
