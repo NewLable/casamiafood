@@ -1191,12 +1191,13 @@ function pretty(data) {
 }
 
 async function saveAll() {
+  if (state.saving) return;
   readOpenProductCards();
   readSettingsForm();
   readCartForm();
   if (!isDirty()) return;
   if (!CasaMiaGitHub.hasConnection()) {
-    toast("Сначала подключите GitHub", "err");
+    toast("Сначала откройте вкладку «Настройки GitHub» и подключите репозиторий.", "err");
     switchTab("github");
     return;
   }
@@ -1222,14 +1223,15 @@ async function saveAll() {
     const when = new Date().toLocaleString("ru-RU");
     const banner = document.getElementById("publish-banner");
     banner.classList.remove("hidden");
+    const names = kept.map((p) => p.name?.ru || p.id).join(", ");
     banner.textContent = kept.length
-      ? `✅ Изменения опубликованы на сайте. ${when} Сохранены товары из другого окна: ${kept.map((p) => p.name?.ru || p.id).join(", ")}.`
-      : `✅ Изменения опубликованы на сайте. ${when}`;
-    toast("Сайт обновлён", "ok");
+      ? `Готово, ${when}. Изменения записаны на сайт. Также оставлены товары, добавленные в другом окне: ${names}.`
+      : `Готово, ${when}. Изменения записаны на сайт. Страница обновится в течение минуты.`;
+    toast(kept.length ? "Записано. Товары из другого окна тоже сохранены." : "Изменения записаны на сайт.", "ok");
     await loadCommits();
     void result;
   } catch (err) {
-    toast(err.message || "Не удалось сохранить", "err");
+    toast(err.message || "Не удалось записать изменения. Нажмите «Сохранить изменения» ещё раз.", "err");
   } finally {
     state.saving = false;
     btn.classList.remove("is-loading");

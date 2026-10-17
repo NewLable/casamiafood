@@ -117,13 +117,74 @@
     }
 
     if (!res.ok) {
-      const msg = data?.message || `GitHub API ${res.status}`;
-      const err = new Error(msg);
+      const msg = data?.message || data?.errors?.[0]?.message || `GitHub API ${res.status}`;
+      const err = new Error(explainGithubError(msg, res.status));
       err.status = res.status;
       err.data = data;
+      err.detail = msg;
       throw err;
     }
     return data;
+  }
+
+  function fileLabel(path) {
+    const name = String(path || "");
+    if (name.endsWith("products.json")) return "Каталог товаров";
+    if (name.endsWith("categories.json")) return "Список категорий";
+    if (name.endsWith("settings.json")) return "Настройки сайта";
+    if (name.endsWith("reviews.json")) return "Отзывы";
+    if (name.startsWith("images/")) return "Фото";
+    return "Данные сайта";
+  }
+
+  function explainGithubError(message, status) {
+    const raw = String(message || "");
+    const mismatch = raw.match(/^(.*?) does not match [0-9a-f]{40}$/i);
+    if (mismatch) {
+      return `${fileLabel(mismatch[1])} на сайте уже изменились, пока шла запись. Нажмите «Сохранить изменения» ещё раз — правка не потеряется.`;
+    }
+    if (status === 409 || /not a fast forward/i.test(raw)) {
+      return "Пока шла запись, на сайте появилась более новая версия. Нажмите «Сохранить изменения» ещё раз — правка не потеряется.";
+    }
+    if (status === 401 || /bad credentials/i.test(raw)) {
+      return "GitHub не принял токен. Откройте «Настройки GitHub» и вставьте токен заново.";
+    }
+    if (status === 403 && /rate limit/i.test(raw)) {
+      return "GitHub временно ограничил число запросов. Подождите минуту и сохраните снова.";
+    }
+    if (status === 403) {
+      return "У токена нет права записывать в репозиторий. Нужен доступ Contents: Read and write.";
+    }
+    if (status === 404) {
+      return "GitHub не нашёл репозиторий или файл. Проверьте имя пользователя, репозиторий и ветку.";
+    }
+    if (status === 422) {
+      return "GitHub не принял эту запись. Нажмите «Сохранить изменения» ещё раз.";
+    }
+    if (/Failed to fetch|NetworkError|Load failed|network/i.test(raw)) {
+      return "Нет связи с GitHub. Проверьте интернет и сохраните снова.";
+    }
+    return "Не удалось записать изменения на сайт. Нажмите «Сохранить изменения» ещё раз.";
+  }
+
+  function delay(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async function sha1Hex(bytes) {
+    const hash = await crypto.subtle.digest("SHA-1", bytes);
+    return [...new Uint8Array(hash)].map((b) => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  async function gitBlobSha(base64) {
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+    const header = new TextEncoder().encode(`blob ${bytes.length}\0`);
+    const data = new Uint8Array(header.length + bytes.length);
+    data.set(header, 0);
+    data.set(bytes, header.length);
+    return sha1Hex(data);
   }
 
   async function verify(config) {
@@ -165,19 +226,49 @@
    * Contents API write: get SHA → Base64 → PUT.
    * Used as a fallback and for single-file updates.
    */
+  async function currentBlobSha(path) {
+    const { owner, repo, branch } = readConfig();
+    const base = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}`;
+    try {
+      const ref = await request(`${base}/git/ref/heads/${encodeURIComponent(branch)}`);
+      const commit = await request(`${base}/git/commits/${ref.object.sha}`);
+      const tree = await request(`${base}/git/trees/${commit.tree.sha}?recursive=1`);
+      const entry = (tree.tree || []).find((item) => item.path === path);
+      return entry?.sha || null;
+    } catch {
+      const existing = await getFile(path);
+      return existing?.sha || null;
+    }
+  }
+
   async function putFile(path, contentBase64, message) {
     const { owner, repo, branch } = readConfig();
-    const existing = await getFile(path);
-    const body = {
-      message: message || formatCommitMessage(),
-      content: contentBase64,
-      branch
-    };
-    if (existing?.sha) body.sha = existing.sha;
-    return request(
-      `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${path}`,
-      { method: "PUT", body }
-    );
+    const url = `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${path}`;
+    let lastError = null;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const sha = await currentBlobSha(path);
+      let unchanged = false;
+      try {
+        unchanged = Boolean(sha) && sha === await gitBlobSha(contentBase64);
+      } catch {
+        unchanged = false;
+      }
+      if (unchanged) return { skipped: true, path };
+      const body = {
+        message: message || formatCommitMessage(),
+        content: contentBase64,
+        branch
+      };
+      if (sha) body.sha = sha;
+      try {
+        return await request(url, { method: "PUT", body });
+      } catch (err) {
+        lastError = err;
+        if (err.status !== 409 || attempt === 2) throw err;
+        await delay(600 * (attempt + 1));
+      }
+    }
+    throw lastError;
   }
 
   async function putTextFile(path, text, message) {
@@ -228,22 +319,36 @@
       });
     }
 
-    const tree = await request(`${base}/git/trees`, {
-      method: "POST",
-      body: { base_tree: parent.tree.sha, tree: treeItems }
-    });
-
-    const commit = await request(`${base}/git/commits`, {
-      method: "POST",
-      body: { message: msg, tree: tree.sha, parents: [parentSha] }
-    });
-
-    await request(`${base}/git/refs/heads/${encodeURIComponent(branch)}`, {
-      method: "PATCH",
-      body: { sha: commit.sha, force: false }
-    });
-
-    return { sha: commit.sha, message: msg, htmlUrl: commit.html_url };
+    let lastError = null;
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const ref = attempt === 0
+        ? { object: { sha: parentSha } }
+        : await request(`${base}/git/ref/heads/${encodeURIComponent(branch)}`);
+      const baseSha = ref.object.sha;
+      const baseCommit = baseSha === parentSha
+        ? parent
+        : await request(`${base}/git/commits/${baseSha}`);
+      const tree = await request(`${base}/git/trees`, {
+        method: "POST",
+        body: { base_tree: baseCommit.tree.sha, tree: treeItems }
+      });
+      const commit = await request(`${base}/git/commits`, {
+        method: "POST",
+        body: { message: msg, tree: tree.sha, parents: [baseSha] }
+      });
+      try {
+        await request(`${base}/git/refs/heads/${encodeURIComponent(branch)}`, {
+          method: "PATCH",
+          body: { sha: commit.sha, force: false }
+        });
+        return { sha: commit.sha, message: msg, htmlUrl: commit.html_url };
+      } catch (err) {
+        lastError = err;
+        if (!(err.status === 409 || err.status === 422) || attempt === 2) throw err;
+        await delay(600 * (attempt + 1));
+      }
+    }
+    throw lastError;
   }
 
   /**
