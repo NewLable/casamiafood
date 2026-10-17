@@ -37,8 +37,10 @@
     "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
-    "images": [],
-    "thumbnail": "",
+    "images": [
+      "images/products/product-1792246662016.webp"
+    ],
+    "thumbnail": "images/products/product-1792246662016-thumb.webp",
     "badges": {
       "hit": false,
       "new": true,
