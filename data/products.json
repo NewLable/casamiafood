@@ -1,7 +1,7 @@
 [
   {
     "id": "product-1792246662016",
-    "categoryId": "frozen",
+    "categoryId": "ready",
     "order": -20,
     "name": {
       "ru": "Борщ говяжий",
@@ -60,7 +60,7 @@
   },
   {
     "id": "product-1792246662016-copy",
-    "categoryId": "frozen",
+    "categoryId": "ready",
     "order": -19,
     "name": {
       "ru": "Борщ куриный",
