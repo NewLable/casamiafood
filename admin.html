@@ -7,7 +7,7 @@
   <title>Casa Mia CMS</title>
   <link rel="icon" href="images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/admin.css?v=3">
+  <link rel="stylesheet" href="css/admin.css?v=4">
 </head>
 <body>
   <div class="admin-wrap">
@@ -79,6 +79,14 @@
 
       <section class="panel hidden" data-panel="prices">
         <p class="panel-lead">Цены и отметки без открытия карточки. Скрытые товары тоже в списке. После правок нажмите «Сохранить изменения» внизу.</p>
+        <div class="product-tools">
+          <label class="admin-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+            <input id="price-search" type="search" name="price-q" maxlength="80" autocomplete="off" enterkeyhint="search" placeholder="Найти товар" aria-label="Поиск товара" aria-controls="quick-prices">
+            <button type="button" class="admin-search-clear" id="price-search-clear" hidden aria-label="Очистить">×</button>
+          </label>
+        </div>
+        <p class="hint product-query-meta hidden" id="price-query-meta"></p>
         <div class="product-list" id="quick-prices"></div>
       </section>
 
@@ -341,6 +349,6 @@
   <script src="js/seo.js?v=1"></script>
   <script src="js/github-api.js?v=2"></script>
   <script src="js/image-manager.js"></script>
-  <script src="js/admin.js?v=6"></script>
+  <script src="js/admin.js?v=7"></script>
 </body>
 </html>

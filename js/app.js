@@ -143,7 +143,7 @@ const CasaMia = (() => {
     back_menu: { ru: "К меню", ua: "До меню", tr: "Menüye dön", en: "Back to menu" },
     hit: { ru: "Хит", ua: "Хіт", tr: "Favori", en: "Favorite" },
     new: { ru: "Новинка", ua: "Новинка", tr: "Yeni", en: "New" },
-    sale: { ru: "Акция", ua: "Акція", tr: "İndirim", en: "Sale" },
+    sale: { ru: "Акция", ua: "Акція", tr: "Kampanya", en: "Sale" },
     soldout: { ru: "Нет в наличии", ua: "Немає в наявності", tr: "Stokta yok", en: "Sold out" },
     per_kg: { ru: "/кг", ua: "/кг", tr: "/kg", en: "/kg" },
     order_msg: {
@@ -725,9 +725,13 @@ const CasaMia = (() => {
     const parts = [];
     if (product.badges?.hit) parts.push(`<span class="badge">${t("hit")}</span>`);
     if (product.badges?.new) parts.push(`<span class="badge new">${t("new")}</span>`);
-    if (product.badges?.sale) parts.push(`<span class="badge sale">${t("sale")}</span>`);
-    if (product.inStock === false) parts.push(`<span class="badge sale">${t("soldout")}</span>`);
+    if (product.inStock === false) parts.push(`<span class="badge soldout">${t("soldout")}</span>`);
     return parts.length ? `<div class="badges">${parts.join("")}</div>` : "";
+  }
+
+  function saleMarkHtml(product) {
+    if (!product.badges?.sale) return "";
+    return `<span class="sale-mark">${t("sale")}</span>`;
   }
 
   function productCard(product) {
@@ -742,6 +746,7 @@ const CasaMia = (() => {
           <a class="thumb" href="${href}">
             ${badgeHtml(product)}
             <img src="${img}" alt="${localized(product.name)}" loading="lazy" decoding="async" width="400" height="400" draggable="false">
+            ${saleMarkHtml(product)}
           </a>
           ${fav}
         </div>
@@ -872,6 +877,7 @@ const CasaMia = (() => {
     igLink,
     productCard,
     badgeHtml,
+    saleMarkHtml,
     mediaUrl,
     bindHeader,
     pinTopIfReload,

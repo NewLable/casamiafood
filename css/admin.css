@@ -399,6 +399,27 @@ textarea { min-height: 72px; resize: vertical; }
   padding: 0.8rem 0;
 }
 .seo-fold summary:hover { color: var(--olive-dark); }
+.product-editor[data-product-id] {
+  position: relative;
+  padding-bottom: 3.2rem;
+}
+.editor-collapse {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--olive-dark);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(42, 36, 32, 0.08);
+}
+.editor-collapse svg { width: 16px; height: 16px; }
+.editor-collapse:hover { border-color: var(--olive); color: var(--olive); }
 .product-editor .editor-head {
   display: flex;
   justify-content: space-between;

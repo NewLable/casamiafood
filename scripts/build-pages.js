@@ -34,7 +34,7 @@ function shell({ lang, head, main, jsonld, attrs }) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   ${head}
-  <link rel="stylesheet" href="/css/style.css?v=21">
+  <link rel="stylesheet" href="/css/style.css?v=22">
   <link rel="icon" href="/images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch.png">
   ${scripts}
@@ -66,12 +66,18 @@ function shell({ lang, head, main, jsonld, attrs }) {
     </div>
   </footer>
   <script src="/js/seo.js?v=1"></script>
-  <script src="/js/app.js?v=14"></script>
+  <script src="/js/app.js?v=15"></script>
   <script src="/js/cart.js?v=19"></script>
-  <script src="/js/product.js?v=2"></script>
+  <script src="/js/product.js?v=3"></script>
 </body>
 </html>
 `;
+}
+
+function saleMark(product, lang) {
+  const label = { ru: "Акция", ua: "Акція", tr: "Kampanya", en: "Sale" }[lang] || "Акция";
+  if (!product.badges || !product.badges.sale) return "";
+  return `<span class="sale-mark">${seo.escapeHtml(label)}</span>`;
 }
 
 function crumbs(lang, items) {
@@ -104,7 +110,7 @@ function productMain(product, category, lang) {
     html: `${trail.html}
     ${catLink ? `<p class="meta">${catLink}</p>` : ""}
     <div class="product-layout">
-      <div class="product-gallery"><img src="${seo.escapeHtml(img)}" alt="${seo.escapeHtml(info.name)}" width="800" height="800"></div>
+      <div class="product-gallery"><img src="${seo.escapeHtml(img)}" alt="${seo.escapeHtml(info.name)}" width="800" height="800">${saleMark(product, lang)}</div>
       <div class="product-info">
         <h1>${seo.escapeHtml(info.name)}</h1>
         <p class="desc">${seo.escapeHtml(seo.pick(product.description, lang))}</p>
@@ -125,7 +131,7 @@ function categoryMain(category, products, lang) {
     const desc = seo.pick(product.description, lang);
     const img = `/${String((product.thumbnail || (product.images && product.images[0]) || "images/brand/card.webp")).replace(/^\/+/, "")}`;
     return `<article class="product-card">
-      <a class="thumb" href="${seo.pagePath("product", product.id, lang)}"><img src="${seo.escapeHtml(img)}" alt="${seo.escapeHtml(name)}" width="400" height="400"></a>
+      <a class="thumb" href="${seo.pagePath("product", product.id, lang)}"><img src="${seo.escapeHtml(img)}" alt="${seo.escapeHtml(name)}" width="400" height="400">${saleMark(product, lang)}</a>
       <div class="body"><a href="${seo.pagePath("product", product.id, lang)}"><h2>${seo.escapeHtml(name)}</h2></a><p class="desc">${seo.escapeHtml(desc)}</p></div>
     </article>`;
   }).join("");

@@ -15,6 +15,7 @@ const state = {
   expandedCategories: new Set(),
   expandedReviews: new Set(),
   productQuery: "",
+  priceQuery: "",
   productSort: "order",
   knownProductIds: new Set(),
   snapshot: "",
@@ -385,6 +386,7 @@ function bindGlobalActions() {
   document.getElementById("product-list").addEventListener("input", onProductInput);
   document.getElementById("product-list").addEventListener("change", onProductInput);
   bindProductTools();
+  bindPriceTools();
   document.getElementById("category-list").addEventListener("input", onCategoryInput);
   document.getElementById("category-list").addEventListener("change", onCategoryInput);
   document.getElementById("review-list").addEventListener("input", onReviewInput);
@@ -406,6 +408,7 @@ function renderAll() {
 /* ---------- products ---------- */
 
 let productSearchTimer = 0;
+let priceSearchTimer = 0;
 
 function foldText(value) {
   return String(value || "")
@@ -500,6 +503,29 @@ function bindProductTools() {
     readOpenProductCards();
     state.productSort = sort.value;
     renderProducts();
+  });
+}
+
+function bindPriceTools() {
+  const search = document.getElementById("price-search");
+  const clear = document.getElementById("price-search-clear");
+  if (!search || search.dataset.bound) return;
+  search.dataset.bound = "1";
+  search.addEventListener("input", () => {
+    if (clear) clear.hidden = !search.value.trim();
+    window.clearTimeout(priceSearchTimer);
+    priceSearchTimer = window.setTimeout(() => {
+      state.priceQuery = search.value;
+      renderQuickPrices();
+    }, 120);
+  });
+  clear?.addEventListener("click", () => {
+    window.clearTimeout(priceSearchTimer);
+    search.value = "";
+    state.priceQuery = "";
+    clear.hidden = true;
+    renderQuickPrices();
+    search.focus();
   });
 }
 
@@ -647,6 +673,9 @@ function productCardHtml(p) {
       ${I.blockHtml("SEO Description — пустое поле заполнится само", "seo-desc", p.seo.description, { multiline: true, rows: 2 })}
       <div class="seo-preview" data-seo-preview>${seoPreviewHtml(p, "product")}</div>
     </details>
+    <button class="editor-collapse" type="button" data-act="collapse" aria-label="Свернуть" title="Свернуть">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>
+    </button>
   </article>`;
 }
 
@@ -795,8 +824,25 @@ function priceFlag(id, flag, label, checked) {
 
 function renderQuickPrices() {
   const box = document.getElementById("quick-prices");
-  const items = state.products.slice().sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
-  box.innerHTML = items
+  const meta = document.getElementById("price-query-meta");
+  const needle = foldText(state.priceQuery);
+  const items = state.products
+    .slice()
+    .sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0))
+    .filter((product) => !needle || productSearchText(product).includes(needle));
+  if (meta) {
+    if (needle) {
+      meta.classList.remove("hidden");
+      meta.textContent = items.length
+        ? `Найдено ${items.length} из ${state.products.length}`
+        : "Ничего не нашлось. Попробуйте другое название.";
+    } else {
+      meta.classList.add("hidden");
+      meta.textContent = "";
+    }
+  }
+  box.innerHTML = items.length
+    ? items
     .map(
       (p) => `<article class="admin-card price-card${p.available ? "" : " is-hidden"}" data-price-card="${I.escAttr(p.id)}">
         <div class="price-card-main">
@@ -818,7 +864,8 @@ function renderQuickPrices() {
         </div>
       </article>`
     )
-    .join("");
+    .join("")
+    : "";
 }
 
 function onQuickPriceInput(e) {

@@ -954,8 +954,25 @@ textarea {
   color: var(--ink);
 }
 
-.badge.sale {
+.badge.soldout {
   background: var(--olive);
+}
+
+.sale-mark {
+  position: absolute;
+  left: 0.55rem;
+  bottom: 0.55rem;
+  z-index: 3;
+  background: #ff1a1a;
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 0.42rem 0.62rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(255, 26, 26, 0.45);
 }
 
 .product-card .body {

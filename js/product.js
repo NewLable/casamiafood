@@ -61,6 +61,7 @@ async function initProductPage() {
       <div class="product-layout">
         <div class="product-gallery">
           <img src="${img}" alt="${CasaMia.localized(p.name)}" width="800" height="800" fetchpriority="high" decoding="async" draggable="false">
+          ${CasaMia.saleMarkHtml(p)}
         </div>
         <div class="product-info">
           ${CasaMia.badgeHtml(p)}
