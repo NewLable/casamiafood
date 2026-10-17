@@ -33,7 +33,7 @@
       "tr": "Pişirdikten hemen sonra sıcak servis edin. Altın renginde çıtır dış yüzeyiyle özellikle lezzetlidir. Dilerseniz taze yeşillik veya bir dilim limonla sunabilirsiniz.",
       "en": "Serve hot, immediately after heating. Especially delicious with a golden, crispy exterior. Add fresh herbs or a lemon wedge if desired."
     },
-    "price": 0,
+    "price": 750,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -43,14 +43,14 @@
     "thumbnail": "images/products/product-1792235225449-thumb.webp",
     "badges": {
       "hit": false,
-      "new": false,
+      "new": true,
       "sale": false
     },
     "available": true,
     "inStock": true,
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.5,
+    "min": 1,
     "unit": {
       "ru": "кг",
       "ua": "кг",
