@@ -59,6 +59,65 @@
     }
   },
   {
+    "id": "product-1792246662016-copy",
+    "categoryId": "frozen",
+    "order": -19,
+    "name": {
+      "ru": "Борщ куриный",
+      "ua": "Борщ із куркою",
+      "tr": "Tavuklu Borş Çorbası",
+      "en": "Chicken Borscht"
+    },
+    "description": {
+      "ru": "Наваристый домашний борщ на говядине с косточкой, со свежими овощами, свёклой и томатами. Насыщенный вкус, аппетитный цвет и аромат зелени — классика домашней кухни.",
+      "ua": "Наваристий домашній борщ із яловичиною на кістці, свіжими овочами, буряком і томатами. Насичений смак, апетитний колір та аромат зелені — класика домашньої кухні.",
+      "tr": "Kemikli dana eti, pancar, taze sebzeler ve domatesle hazırlanan ev yapımı, doyurucu borş çorbası. Zengin lezzeti ve mis kokulu yeşillikleriyle geleneksel bir ev yemeği.",
+      "en": "Hearty homemade borscht made with bone-in beef, beetroot, fresh vegetables and tomatoes. Rich in flavour, with a beautiful colour and fragrant herbs."
+    },
+    "ingredients": {
+      "ru": "Говядина на кости, картофель, капуста, свёкла, морковь, свежий помидор, томатная паста, подсолнечное масло, зелень, специи.",
+      "ua": "Яловичина на кістці, картопля, капуста, буряк, морква, свіжий помідор, томатна паста, соняшникова олія, зелень, спеції.",
+      "tr": "Kemikli dana eti, patates, lahana, pancar, havuç, taze domates, domates salçası, ayçiçek yağı, yeşillikler, baharatlar.",
+      "en": "Bone-in beef, potatoes, cabbage, beetroot, carrots, fresh tomato, tomato paste, sunflower oil, herbs, spices."
+    },
+    "cook": {
+      "ru": "Разогрейте до горячего состояния на плите на слабом или среднем огне, периодически помешивая. Также можно разогреть в микроволновой печи в подходящей посуде.",
+      "ua": "Розігрійте до гарячого стану на плиті на слабкому або середньому вогні, періодично помішуючи. Також можна розігріти в мікрохвильовій печі у відповідному посуді.",
+      "tr": "Ara sıra karıştırarak ocakta kısık veya orta ateşte iyice ısıtın. Mikrodalgaya uygun bir kapta da ısıtabilirsiniz.",
+      "en": "Reheat on the stove over low to medium heat, stirring occasionally, until piping hot. Alternatively, heat in a microwave-safe container."
+    },
+    "serveWith": {
+      "ru": "Подавайте горячим. По желанию добавьте сметану, свежую зелень и ржаной хлеб.",
+      "ua": "Подавайте гарячим. За бажанням додайте сметану, свіжу зелень і житній хліб.",
+      "tr": "Sıcak servis edin. Dilerseniz yanında ekşi krema, taze yeşillikler ve çavdar ekmeği sunabilirsiniz.",
+      "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
+    },
+    "price": 600,
+    "priceUnit": "kg",
+    "weight": 1500,
+    "weightUnit": "ml",
+    "images": [
+      "images/products/product-1792246662016-copy.webp"
+    ],
+    "thumbnail": "images/products/product-1792246662016-copy-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1.5,
+    "unit": {
+      "ru": "мл",
+      "ua": "мл",
+      "tr": "ml",
+      "en": "ml"
+    }
+  },
+  {
     "id": "product-1792241297453",
     "categoryId": "frozen",
     "order": -10,
