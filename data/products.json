@@ -1,5 +1,64 @@
 [
   {
+    "id": "product-1792247291470",
+    "categoryId": "salads",
+    "order": -30,
+    "name": {
+      "ru": "Салат крабовый классический",
+      "ua": "Крабовий салат класичний",
+      "tr": "Klasik Yengeç Çubuklu Salata",
+      "en": "Classic Crab Stick Salad"
+    },
+    "description": {
+      "ru": "Любимый классический салат с крабовыми палочками, свежим огурцом, яйцом и сладкой кукурузой. Нежный, сочный и сбалансированный вкус для повседневного обеда или праздничного стола.",
+      "ua": "Улюблений класичний салат із крабовими паличками, свіжим огірком, яйцем і солодкою кукурудзою. Ніжний, соковитий і збалансований смак для щоденного обіду чи святкового столу.",
+      "tr": "Yengeç çubukları, taze salatalık, yumurta ve tatlı mısırla hazırlanan klasik salata. Mayonezle tamamlanan yumuşak ve ferah lezzetiyle sofralarınıza çok yakışır.",
+      "en": "\"A classic salad made with crab sticks, fresh cucumber, egg and sweet corn. Creamy, refreshing and full of familiar flavour, perfect for everyday meals or special occasions."
+    },
+    "ingredients": {
+      "ru": "Крабовые палочки, свежий огурец, куриное яйцо, кукуруза, майонез, соль.",
+      "ua": "Крабові палички, свіжий огірок, куряче яйце, кукурудза, майонез, сіль.",
+      "tr": "Yengeç çubukları, taze salatalık, yumurta, mısır, mayonez, tuz.",
+      "en": "Crab sticks, fresh cucumber, chicken egg, corn, mayonnaise, salt."
+    },
+    "cook": {
+      "ru": "Продукт готов к употреблению. Не требует термической обработки. Хранить в холодильнике согласно указанным условиям хранения.",
+      "ua": "Продукт готовий до споживання. Не потребує термічної обробки. Зберігати в холодильнику відповідно до зазначених умов зберігання.",
+      "tr": "Tüketime hazırdır. Pişirme gerektirmez. Belirtilen saklama koşullarına uygun olarak buzdolabında muhafaza edin.",
+      "en": "Ready to eat. No cooking required. Keep refrigerated according to the specified storage instructions."
+    },
+    "serveWith": {
+      "ru": "Подавайте охлаждённым. Можно украсить свежей зеленью или ломтиками огурца.",
+      "ua": "Подавайте охолодженим. Можна прикрасити свіжою зеленню або скибочками огірка.",
+      "tr": "Soğuk servis edin. Dilerseniz taze yeşillikler veya salatalık dilimleriyle süsleyebilirsiniz.",
+      "en": "Serve chilled. Garnish with fresh herbs or cucumber slices if desired."
+    },
+    "price": 650,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1792247291470.webp"
+    ],
+    "thumbnail": "images/products/product-1792247291470-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 0.5,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
+  },
+  {
     "id": "product-1792246662016",
     "categoryId": "ready",
     "order": -20,
