@@ -128,10 +128,10 @@
       "en": "Chicken Borscht"
     },
     "description": {
-      "ru": "Наваристый домашний борщ на говядине с косточкой, со свежими овощами, свёклой и томатами. Насыщенный вкус, аппетитный цвет и аромат зелени — классика домашней кухни.",
-      "ua": "Наваристий домашній борщ із яловичиною на кістці, свіжими овочами, буряком і томатами. Насичений смак, апетитний колір та аромат зелені — класика домашньої кухні.",
-      "tr": "Kemikli dana eti, pancar, taze sebzeler ve domatesle hazırlanan ev yapımı, doyurucu borş çorbası. Zengin lezzeti ve mis kokulu yeşillikleriyle geleneksel bir ev yemeği.",
-      "en": "Hearty homemade borscht made with bone-in beef, beetroot, fresh vegetables and tomatoes. Rich in flavour, with a beautiful colour and fragrant herbs."
+      "ru": "Домашний борщ на курином мясе со свёклой, капустой, картофелем и свежими овощами. Лёгкий, ароматный и сытный суп с традиционным домашним вкусом.",
+      "ua": "Домашній борщ із курячим м’ясом, буряком, капустою, картоплею та свіжими овочами. Легкий, ароматний і ситний суп із традиційним домашнім смаком.",
+      "tr": "Tavuk eti, pancar, lahana, patates ve taze sebzelerle hazırlanan ev yapımı borş çorbası. Hafif, doyurucu ve geleneksel ev lezzetinde.",
+      "en": "Homemade borscht with chicken, beetroot, cabbage, potatoes and fresh vegetables. A comforting, aromatic soup with a traditional homemade taste."
     },
     "ingredients": {
       "ru": "\"Куриное мясо, картофель, капуста, свёкла, морковь, свежий помидор, томатная паста, подсолнечное масло, зелень, специи.",
