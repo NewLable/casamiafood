@@ -358,6 +358,7 @@ function bindGlobalActions() {
   document.getElementById("review-list").addEventListener("input", onReviewInput);
   document.getElementById("review-list").addEventListener("change", onReviewInput);
   document.getElementById("quick-prices").addEventListener("input", onQuickPriceInput);
+  document.getElementById("quick-prices").addEventListener("change", onQuickFlagChange);
 }
 
 function renderAll() {
@@ -741,31 +742,59 @@ function assignProductImage(p, processed) {
   markDirty();
 }
 
+function priceFlag(id, flag, label, checked) {
+  const safe = I.escAttr(id);
+  const inputId = `price-${flag}-${safe}`;
+  return `<div class="check"><input type="checkbox" id="${inputId}" data-flag="${flag}" data-flag-id="${safe}" ${checked ? "checked" : ""}><label for="${inputId}">${label}</label></div>`;
+}
+
 function renderQuickPrices() {
   const box = document.getElementById("quick-prices");
-  box.innerHTML = state.products
-    .filter((p) => p.available)
-    .sort((a, b) => a.order - b.order)
+  const items = state.products.slice().sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+  box.innerHTML = items
     .map(
-      (p) => `<div class="admin-card compact" style="grid-template-columns:1fr auto">
-        <div>
-          <h3>${I.esc(p.name.ru)}</h3>
-          <div class="meta">${I.esc(p.weight)}${I.esc(p.weightUnit || "g")}</div>
+      (p) => `<article class="admin-card price-card${p.available ? "" : " is-hidden"}" data-price-card="${I.escAttr(p.id)}">
+        <div class="price-card-main">
+          <div>
+            <h3>${I.esc(p.name.ru)}</h3>
+            <div class="meta">${I.esc(p.weight)}${I.esc(p.weightUnit || "g")}</div>
+          </div>
+          <div class="inline-price">
+            <input type="number" data-price-id="${I.escAttr(p.id)}" value="${p.price}" min="0" step="1">
+            <span>₺</span>
+          </div>
         </div>
-        <div class="inline-price">
-          <input type="number" data-price-id="${I.escAttr(p.id)}" value="${p.price}" min="0" step="1">
-          <span>₺</span>
+        <div class="price-flags">
+          ${priceFlag(p.id, "new", "Новинка", p.badges.new)}
+          ${priceFlag(p.id, "inStock", "В наличии", p.inStock)}
+          ${priceFlag(p.id, "hidden", "Скрыт", !p.available)}
+          ${priceFlag(p.id, "sale", "Акция", p.badges.sale)}
+          ${priceFlag(p.id, "hit", "Хит продаж", p.badges.hit)}
         </div>
-      </div>`
+      </article>`
     )
     .join("");
 }
 
 function onQuickPriceInput(e) {
   const input = e.target.closest("[data-price-id]");
-  if (!input) return;
+  if (!input || input.type === "checkbox") return;
   const p = state.products.find((x) => x.id === input.dataset.priceId);
   if (p) p.price = Number(input.value) || 0;
+  markDirty();
+}
+
+function onQuickFlagChange(e) {
+  const input = e.target.closest("[data-flag]");
+  if (!input) return;
+  const p = state.products.find((x) => x.id === input.dataset.flagId);
+  if (!p) return;
+  const flag = input.dataset.flag;
+  if (flag === "inStock") p.inStock = input.checked;
+  else if (flag === "hidden") p.available = !input.checked;
+  else if (p.badges) p.badges[flag] = input.checked;
+  input.closest("[data-price-card]")?.classList.toggle("is-hidden", !p.available);
+  renderProducts();
   markDirty();
 }
 

@@ -305,6 +305,24 @@ textarea { min-height: 72px; resize: vertical; }
 .inline-price { display: flex; align-items: center; gap: 0.4rem; }
 .inline-price input { width: 110px; }
 
+.price-card { gap: 0.7rem; }
+.price-card-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  flex-wrap: wrap;
+}
+.price-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+.price-flags .check { margin: 0; }
+.price-card.is-hidden { background: #f6f3ee; }
+.price-card.is-hidden h3,
+.price-card.is-hidden .meta { color: var(--ink-soft); }
+
 .field-block {
   margin: 0.9rem 0;
   padding: 0.95rem;
