@@ -75,10 +75,10 @@
       "en": "Hearty homemade borscht made with bone-in beef, beetroot, fresh vegetables and tomatoes. Rich in flavour, with a beautiful colour and fragrant herbs."
     },
     "ingredients": {
-      "ru": "Говядина на кости, картофель, капуста, свёкла, морковь, свежий помидор, томатная паста, подсолнечное масло, зелень, специи.",
-      "ua": "Яловичина на кістці, картопля, капуста, буряк, морква, свіжий помідор, томатна паста, соняшникова олія, зелень, спеції.",
-      "tr": "Kemikli dana eti, patates, lahana, pancar, havuç, taze domates, domates salçası, ayçiçek yağı, yeşillikler, baharatlar.",
-      "en": "Bone-in beef, potatoes, cabbage, beetroot, carrots, fresh tomato, tomato paste, sunflower oil, herbs, spices."
+      "ru": "\"Куриное мясо, картофель, капуста, свёкла, морковь, свежий помидор, томатная паста, подсолнечное масло, зелень, специи.",
+      "ua": "Куряче м’ясо, картопля, капуста, буряк, морква, свіжий помідор, томатна паста, соняшникова олія, зелень, спеції.",
+      "tr": "Tavuk eti, patates, lahana, pancar, havuç, taze domates, domates salçası, ayçiçek yağı, yeşillikler, baharatlar.",
+      "en": "Chicken meat, potatoes, cabbage, beetroot, carrots, fresh tomato, tomato paste, sunflower oil, herbs, spices."
     },
     "cook": {
       "ru": "Разогрейте до горячего состояния на плите на слабом или среднем огне, периодически помешивая. Также можно разогреть в микроволновой печи в подходящей посуде.",
