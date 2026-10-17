@@ -66,7 +66,7 @@ function shell({ lang, head, main, jsonld, attrs, logo }) {
     </div>
   </footer>
   <script src="/js/seo.js?v=1"></script>
-  <script src="/js/app.js?v=17"></script>
+  <script src="/js/app.js?v=18"></script>
   <script src="/js/cart.js?v=19"></script>
   <script src="/js/product.js?v=3"></script>
 </body>
@@ -264,9 +264,11 @@ function applyLanguage(html, lang, settings, reviews, appSource, gallery) {
   const headerLogo = publicPath(settings.brand && settings.brand.logoHeader) || "/images/brand/logo-header.webp";
   const bigLogo = publicPath(settings.brand && settings.brand.logo) || "/images/brand/logo-big.webp";
   const heroImage = publicPath(settings.brand && settings.brand.heroImage) || "/images/brand/info.webp";
+  const aboutImage = publicPath(settings.brand && settings.brand.aboutImage) || "/images/brand/logo-big.webp";
   page = page.replaceAll("images/brand/logo-header.webp", headerLogo.replace(/^\//, ""));
   page = page.replaceAll("images/brand/logo-big.webp", bigLogo.replace(/^\//, ""));
   page = page.replaceAll("images/brand/info.webp", heroImage.replace(/^\//, ""));
+  page = page.replace(/(<img class="about-photo"[^>]*src=")[^"]+/, `$1${aboutImage.replace(/^\//, "")}`);
   const address = seo.pick(settings.contacts && settings.contacts.address, lang);
   const bits = [address, settings.contacts && settings.contacts.phone, settings.contacts && settings.contacts.email].filter(Boolean);
   page = page.replace(/(id="contact-extra"[^>]*>)[\s\S]*?(<\/span>)/, `$1${seo.escapeHtml(bits.join(" · "))}$2`);

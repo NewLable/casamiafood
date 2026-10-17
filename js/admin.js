@@ -269,6 +269,7 @@ function ensureSettings(raw) {
   s.brand.logo = s.brand.logo || "images/brand/logo-big.webp";
   s.brand.logoHeader = s.brand.logoHeader || "images/brand/logo-header.webp";
   s.brand.heroImage = s.brand.heroImage || "images/brand/info.webp";
+  s.brand.aboutImage = s.brand.aboutImage || "images/brand/logo-big.webp";
   s.brand.tagline = I.ensureI18n(s.brand.tagline);
   s.sections = s.sections || {};
   if (typeof s.sections.reviews !== "boolean") s.sections.reviews = true;
@@ -1071,13 +1072,18 @@ function renderSettingsForm() {
         </div>
         <div>
           <h3>Большое лого</h3>
-          <p class="hint">Первый экран и блок «О нас». Рекомендуемый размер: <strong>1200 × 600 px</strong>, пропорция 2:1, прозрачный фон.</p>
+          <p class="hint">На первом экране. Рекомендуемый размер: <strong>1200 × 600 px</strong>, пропорция 2:1, прозрачный фон.</p>
           <div data-brand-image="logo"></div>
         </div>
         <div>
           <h3>Большое изображение</h3>
           <p class="hint">Фото справа на первом экране. Рекомендуемый размер: <strong>1200 × 800 px</strong>, пропорция 3:2.</p>
           <div data-brand-image="heroImage"></div>
+        </div>
+        <div>
+          <h3>Фото в разделе «О нас»</h3>
+          <p class="hint">Слева в блоке «О Casa Mia». Рекомендуемый размер: <strong>1200 × 600 px</strong>, пропорция 2:1. Для логотипа лучше прозрачный фон.</p>
+          <div data-brand-image="aboutImage"></div>
         </div>
       </div>
     </div>
@@ -1121,7 +1127,7 @@ function renderSettingsForm() {
       </div>
     </div>
   `;
-  const names = { logoHeader: "logo-header", logo: "logo-big", heroImage: "hero" };
+  const names = { logoHeader: "logo-header", logo: "logo-big", heroImage: "hero", aboutImage: "about" };
   form.querySelectorAll("[data-brand-image]").forEach((slot) => {
     const key = slot.dataset.brandImage;
     CasaMiaImages.mount(slot, {
@@ -1138,7 +1144,8 @@ function renderSettingsForm() {
         const fallback = {
           logoHeader: "images/brand/logo-header.webp",
           logo: "images/brand/logo-big.webp",
-          heroImage: "images/brand/info.webp"
+          heroImage: "images/brand/info.webp",
+          aboutImage: "images/brand/logo-big.webp"
         }[key];
         ["webp", "jpg", "png"].forEach((ext) => {
           delete state.pendingImages[`images/brand/${names[key]}.${ext}`];

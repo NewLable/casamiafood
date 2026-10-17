@@ -800,11 +800,15 @@ const CasaMia = (() => {
     const header = mediaUrl(brand.logoHeader || "images/brand/logo-header.webp");
     const logo = mediaUrl(brand.logo || "images/brand/logo-big.webp");
     const hero = mediaUrl(brand.heroImage || "images/brand/info.webp");
+    const about = mediaUrl(brand.aboutImage || "images/brand/logo-big.webp");
     document.querySelectorAll(".logo-img").forEach((img) => {
       img.src = header;
     });
-    document.querySelectorAll(".hero-logo, .about-logo-panel img").forEach((img) => {
+    document.querySelectorAll(".hero-logo").forEach((img) => {
       img.src = logo;
+    });
+    document.querySelectorAll(".about-photo").forEach((img) => {
+      img.src = about;
     });
     document.querySelectorAll(".hero-media img").forEach((img) => {
       img.src = hero;
