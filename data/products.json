@@ -44,7 +44,7 @@
     "badges": {
       "hit": false,
       "new": true,
-      "sale": false
+      "sale": true
     },
     "available": true,
     "inStock": true,
