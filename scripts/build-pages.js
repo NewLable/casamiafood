@@ -214,6 +214,15 @@ function gallerySlides(gallery, lang) {
   }).join("");
 }
 
+function setSectionHidden(page, id, hidden) {
+  const marked = new RegExp(`id="${id}"(?:\\s+hidden)+`);
+  if (hidden) {
+    if (marked.test(page)) return page.replace(marked, `id="${id}" hidden`);
+    return page.replace(`id="${id}"`, `id="${id}" hidden`);
+  }
+  return page.replace(marked, `id="${id}"`);
+}
+
 function applyLanguage(html, lang, settings, reviews, appSource, gallery) {
   let page = html.replace(/data-i18n="([^"]+)"([^>]*)>([\s\S]*?)</g, (full, key, rest) => {
     const value = uiString(appSource, key, lang);
@@ -259,8 +268,8 @@ function applyLanguage(html, lang, settings, reviews, appSource, gallery) {
   if (slides) page = replaceInner(page, "gallery-track", slides);
   const galleryTitle = seo.pick(gallery && gallery.title, lang);
   if (galleryTitle) page = page.replace(/(id="gallery-title"[^>]*>)[\s\S]*?(<\/h2>)/, `$1${seo.escapeHtml(galleryTitle)}$2`);
-  if (gallery && gallery.visible === false) page = page.replace('id="gallery"', 'id="gallery" hidden');
-  if (settings.sections && settings.sections.reviews === false) page = page.replace('id="reviews"', 'id="reviews" hidden');
+  page = setSectionHidden(page, "gallery", gallery && gallery.visible === false);
+  page = setSectionHidden(page, "reviews", settings.sections && settings.sections.reviews === false);
   const headerLogo = publicPath(settings.brand && settings.brand.logoHeader) || "/images/brand/logo-header.webp";
   const bigLogo = publicPath(settings.brand && settings.brand.logo) || "/images/brand/logo-big.webp";
   const heroImage = publicPath(settings.brand && settings.brand.heroImage) || "/images/brand/info.webp";
