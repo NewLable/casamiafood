@@ -438,10 +438,33 @@ const CasaMia = (() => {
     }
   };
 
+  function parsePath(pathname) {
+    if (typeof CasaMiaSeo !== "undefined" && CasaMiaSeo.parsePath) return CasaMiaSeo.parsePath(pathname);
+    return { lang: "ru", kind: "other", id: "" };
+  }
+
+  function pageUrl(kind, id, code) {
+    if (typeof CasaMiaSeo !== "undefined" && CasaMiaSeo.pagePath) return CasaMiaSeo.pagePath(kind, id, code);
+    const params = new URLSearchParams();
+    if (id) params.set("id", id);
+    if (code && code !== "ru") params.set("lang", code);
+    const file = kind === "product" ? "product.html" : "index.html";
+    const query = params.toString();
+    return `${file}${query ? `?${query}` : ""}`;
+  }
+
+  const pathInfo = parsePath(location.pathname);
   const urlLang = new URLSearchParams(location.search).get("lang");
-  let lang = SUPPORTED.includes(urlLang)
-    ? urlLang
-    : localStorage.getItem(LANG_KEY) || "ru";
+  const bareHome = pathInfo.kind === "home" && pathInfo.lang === "ru" && (location.pathname === "/" || location.pathname === "/index.html");
+  if (bareHome) {
+    const preferred = SUPPORTED.includes(urlLang) ? urlLang : (localStorage.getItem(LANG_KEY) || "ru");
+    if (SUPPORTED.includes(preferred) && preferred !== "ru") {
+      location.replace(pageUrl("home", "", preferred) + location.hash);
+    }
+  }
+  let lang = pathInfo.kind === "home" || pathInfo.kind === "product" || pathInfo.kind === "category"
+    ? pathInfo.lang
+    : (SUPPORTED.includes(urlLang) ? urlLang : (localStorage.getItem(LANG_KEY) || "ru"));
   if (!SUPPORTED.includes(lang)) lang = "ru";
 
   let products = [];
@@ -472,18 +495,17 @@ const CasaMia = (() => {
     return obj[lang] || obj.ru || "";
   }
 
-  function pagePath() {
-    let path = location.pathname || "/";
-    if (path.endsWith("/index.html")) path = path.slice(0, -10) || "/";
-    return path;
+  function currentPage() {
+    const here = parsePath(location.pathname);
+    if (here.kind === "product" || here.kind === "category" || here.kind === "home") return here;
+    const id = new URLSearchParams(location.search).get("id");
+    if (id && /product\.html$/.test(location.pathname)) return { lang, kind: "product", id };
+    return { lang, kind: "home", id: "" };
   }
 
-  function languageUrl(code, extra = {}) {
-    const url = new URL(pagePath(), SITE_ORIGIN);
-    const id = extra.id || new URLSearchParams(location.search).get("id");
-    if (id) url.searchParams.set("id", id);
-    if (code && code !== "ru") url.searchParams.set("lang", code);
-    return url.href;
+  function languageUrl(code) {
+    const here = currentPage();
+    return `${SITE_ORIGIN}${pageUrl(here.kind, here.id, code)}`;
   }
 
   function canonicalUrl() {
@@ -528,6 +550,7 @@ const CasaMia = (() => {
   }
 
   function syncLangUrl() {
+    if (parsePath(location.pathname).kind !== "other") return;
     const url = new URL(location.href);
     if (lang === "ru") url.searchParams.delete("lang");
     else url.searchParams.set("lang", lang);
@@ -537,9 +560,27 @@ const CasaMia = (() => {
     }
   }
 
+  function pageSeoFallback() {
+    const here = currentPage();
+    if (typeof CasaMiaSeo !== "undefined" && here.kind === "category") {
+      const category = categories.find((item) => item.id === here.id);
+      if (category) return CasaMiaSeo.categorySeo(category, lang);
+    }
+    if (typeof CasaMiaSeo !== "undefined" && here.kind === "product") {
+      const product = products.find((item) => item.id === here.id);
+      if (product) return CasaMiaSeo.productSeo(product, lang, categories.find((item) => item.id === product.categoryId));
+    }
+    if (typeof CasaMiaSeo !== "undefined" && here.kind === "home") return CasaMiaSeo.homeSeo(settings, lang);
+    return {
+      title: localized(settings?.seo?.title) || t("meta_title"),
+      description: localized(settings?.seo?.description) || t("meta_description")
+    };
+  }
+
   function applySeo(overrides = {}) {
-    const title = overrides.title || localized(settings?.seo?.title) || t("meta_title");
-    const description = overrides.description || localized(settings?.seo?.description) || t("meta_description");
+    const fallback = pageSeoFallback();
+    const title = overrides.title || fallback.title;
+    const description = overrides.description || fallback.description;
     document.title = title;
     document.documentElement.lang = HTML_LANG[lang] || "ru";
     setMeta("description", description);
@@ -564,20 +605,26 @@ const CasaMia = (() => {
   }
 
   function productHref(id) {
-    const params = new URLSearchParams({ id });
-    if (lang !== "ru") params.set("lang", lang);
-    return `product.html?${params.toString()}`;
+    return pageUrl("product", id, lang);
+  }
+
+  function categoryHref(id) {
+    return pageUrl("category", id, lang);
   }
 
   function homeHref(hash = "") {
-    const q = lang !== "ru" ? `?lang=${lang}` : "";
-    return `index.html${q}${hash}`;
+    return `${pageUrl("home", "", lang)}${hash}`;
   }
 
   function setLang(next) {
     if (!SUPPORTED.includes(next)) return;
+    localStorage.setItem(LANG_KEY, next);
+    const here = parsePath(location.pathname);
+    if ((here.kind === "home" || here.kind === "product" || here.kind === "category") && here.lang !== next) {
+      location.href = pageUrl(here.kind, here.id, next) + location.hash;
+      return;
+    }
     lang = next;
-    localStorage.setItem(LANG_KEY, lang);
     document.documentElement.lang = HTML_LANG[lang] || "ru";
     applyStaticI18n();
     syncLangUrl();
@@ -629,12 +676,14 @@ const CasaMia = (() => {
   }
 
   function mediaUrl(path) {
-    const fallback = "images/brand/card.webp";
+    const fallback = "/images/brand/card.webp";
     if (!path) return fallback;
-    return String(path)
+    const encoded = String(path)
       .split("/")
       .map((part) => encodeURIComponent(part))
       .join("/");
+    if (/^(https?:|\/)/.test(encoded)) return encoded;
+    return `/${encoded}`;
   }
 
   async function loadData() {
@@ -651,7 +700,9 @@ const CasaMia = (() => {
     reviews = (Array.isArray(revRes) && revRes.length ? revRes : s.reviews || [])
       .filter((item) => item.visible !== false)
       .sort((a, b) => (a.order || 0) - (b.order || 0));
-    if (!urlLang && !localStorage.getItem(LANG_KEY) && SUPPORTED.includes(s.defaultLang)) {
+    const locked = parsePath(location.pathname);
+    const pathChoosesLang = locked.kind === "home" || locked.kind === "product" || locked.kind === "category";
+    if (!pathChoosesLang && !urlLang && !localStorage.getItem(LANG_KEY) && SUPPORTED.includes(s.defaultLang)) {
       lang = s.defaultLang;
     }
     return { products, categories, settings, reviews };
@@ -827,7 +878,9 @@ const CasaMia = (() => {
     applySeo,
     setJsonLd,
     productHref,
+    categoryHref,
     homeHref,
+    pageUrl,
     SITE_ORIGIN,
     SUPPORTED
   };

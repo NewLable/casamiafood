@@ -9,6 +9,7 @@ async function initMenu() {
   renderFilters();
   renderHits();
   renderCatalog("all");
+  document.getElementById("seo-catalog")?.remove();
   injectMenuSchema();
   CasaMia.pinTopIfReload();
 
@@ -243,14 +244,16 @@ function renderFilters(active = "all") {
   if (!wrap) return;
   const cats = CasaMia.getCategories();
   wrap.innerHTML = [
-    `<button class="filter-btn ${active === "all" ? "active" : ""}" data-cat="all">${CasaMia.t("all")}</button>`,
+    `<a class="filter-btn ${active === "all" ? "active" : ""}" href="${CasaMia.homeHref("#menu")}" data-cat="all">${CasaMia.t("all")}</a>`,
     ...cats.map(
       (c) =>
-        `<button class="filter-btn ${active === c.id ? "active" : ""}" data-cat="${c.id}"><span class="cat-dot" style="background:${c.color || "var(--olive)"}"></span>${c.emoji || ""} ${CasaMia.localized(c.name)}</button>`
+        `<a class="filter-btn ${active === c.id ? "active" : ""}" href="${CasaMia.categoryHref(c.id)}" data-cat="${c.id}"><span class="cat-dot" style="background:${c.color || "var(--olive)"}"></span>${c.emoji || ""} ${CasaMia.localized(c.name)}</a>`
     )
   ].join("");
   wrap.querySelectorAll(".filter-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
       renderFilters(btn.dataset.cat);
       renderCatalog(btn.dataset.cat);
     });
@@ -417,7 +420,7 @@ function injectMenuSchema() {
       "@type": "MenuItem",
       name: CasaMia.localized(p.name),
       description: CasaMia.localized(p.description),
-      url: `${CasaMia.SITE_ORIGIN}/${CasaMia.productHref(p.id)}`
+      url: `${CasaMia.SITE_ORIGIN}${CasaMia.productHref(p.id).replace(/^(?!\/)/, "/")}`
     };
     if (price) {
       item.offers = { "@type": "Offer", price: String(price), priceCurrency: "TRY" };

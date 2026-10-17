@@ -322,6 +322,8 @@ textarea { min-height: 72px; resize: vertical; }
 .price-card.is-hidden { background: #f6f3ee; }
 .price-card.is-hidden h3,
 .price-card.is-hidden .meta { color: var(--ink-soft); }
+.seo-preview { margin-top: 0.4rem; }
+.seo-preview .hint { margin: 0.35rem 0; }
 
 .field-block {
   margin: 0.9rem 0;

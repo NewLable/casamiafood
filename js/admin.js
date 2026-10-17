@@ -150,6 +150,7 @@ function emptyProduct() {
     images: [],
     thumbnail: "",
     badges: { hit: false, new: false, sale: false },
+    seo: { title: I.emptyI18n(), description: I.emptyI18n() },
     available: true,
     inStock: true,
     quantityType: "kg",
@@ -172,6 +173,10 @@ function normalizeProduct(p) {
       new: !!p.badges?.new,
       sale: !!p.badges?.sale
     },
+    seo: {
+      title: I.ensureI18n(p.seo && p.seo.title),
+      description: I.ensureI18n(p.seo && p.seo.description)
+    },
     available: p.available !== false,
     inStock: p.inStock !== false,
     images: Array.isArray(p.images) ? p.images.slice() : [],
@@ -190,7 +195,11 @@ function normalizeCategory(c) {
     order: Number(c.order) || 0,
     color: c.color || "#5c6b3c",
     enabled: c.enabled !== false,
-    name: I.ensureI18n(c.name)
+    name: I.ensureI18n(c.name),
+    seo: {
+      title: I.ensureI18n(c.seo && c.seo.title),
+      description: I.ensureI18n(c.seo && c.seo.description)
+    }
   };
 }
 
@@ -570,6 +579,9 @@ function productCardHtml(p) {
     ${I.blockHtml("Состав", "ingredients", p.ingredients, { multiline: true, rows: 3 })}
     ${I.blockHtml("Как приготовить", "cook", p.cook, { multiline: true, rows: 2 })}
     ${I.blockHtml("Подача", "serveWith", p.serveWith, { multiline: true, rows: 2 })}
+    ${I.blockHtml("SEO Title — пустое поле заполнится само", "seo-title", p.seo.title)}
+    ${I.blockHtml("SEO Description — пустое поле заполнится само", "seo-desc", p.seo.description, { multiline: true, rows: 2 })}
+    <div class="seo-preview" data-seo-preview>${seoPreviewHtml(p, "product")}</div>
     <div class="grid-2">
       <div><label>Цена (₺)</label><input type="number" name="price" min="0" step="1" value="${p.price}"></div>
       <div><label>Единица цены</label>
@@ -635,6 +647,9 @@ function readProductCard(card) {
   p.badges.sale = card.querySelector('[name="sale"]')?.checked || false;
   p.inStock = card.querySelector('[name="inStock"]')?.checked || false;
   p.available = !card.querySelector('[name="hidden"]')?.checked;
+  p.seo = p.seo || { title: I.emptyI18n(), description: I.emptyI18n() };
+  p.seo.title = I.readFrom(card, "seo-title");
+  p.seo.description = I.readFrom(card, "seo-desc");
 }
 
 function onProductInput(e) {
@@ -655,6 +670,9 @@ function onProductInput(e) {
     }
   }
   readProductCard(card);
+  const product = state.products.find((item) => item.id === card.dataset.productId);
+  const preview = card.querySelector("[data-seo-preview]");
+  if (preview && product) preview.innerHTML = seoPreviewHtml(product, "product");
   markDirty();
 }
 
@@ -826,7 +844,8 @@ function addCategory() {
     color: box.querySelector('[name="new-cat-color"]').value || "#5c6b3c",
     order: Number(box.querySelector('[name="new-cat-order"]').value) || 0,
     enabled: true,
-    name
+    name,
+    seo: { title: I.emptyI18n(), description: I.emptyI18n() }
   };
   state.categories.push(cat);
   state.expandedCategories.add(cat.id);
@@ -853,6 +872,9 @@ function renderCategories() {
           <div><label>Порядок сортировки</label><input name="order" type="number" value="${c.order}"></div>
         </div>
         <div class="check"><input type="checkbox" name="enabled" id="en-${c.id}" ${c.enabled ? "checked" : ""}><label for="en-${c.id}">Включена</label></div>
+        ${I.blockHtml("SEO Title — пустое поле заполнится само", "seo-title", c.seo.title)}
+        ${I.blockHtml("SEO Description — пустое поле заполнится само", "seo-desc", c.seo.description, { multiline: true, rows: 2 })}
+        <div class="seo-preview" data-seo-preview>${seoPreviewHtml(c, "category")}</div>
       </article>`
     )
     .join("");
@@ -881,7 +903,27 @@ function onCategoryInput(e) {
   c.color = card.querySelector('[name="color"]')?.value || c.color;
   c.order = Number(card.querySelector('[name="order"]')?.value) || 0;
   c.enabled = card.querySelector('[name="enabled"]')?.checked || false;
+  c.seo = c.seo || { title: I.emptyI18n(), description: I.emptyI18n() };
+  c.seo.title = I.readFrom(card, "seo-title");
+  c.seo.description = I.readFrom(card, "seo-desc");
+  const preview = card.querySelector("[data-seo-preview]");
+  if (preview) preview.innerHTML = seoPreviewHtml(c, "category");
   markDirty();
+}
+
+function seoPreviewHtml(entity, kind) {
+  if (!window.CasaMiaSeo || !entity) return "";
+  const category = kind === "product" ? state.categories.find((item) => item.id === entity.categoryId) : null;
+  return I.LANGS.map((lang) => {
+    const seo = kind === "product"
+      ? CasaMiaSeo.productSeo(entity, lang.code, category)
+      : CasaMiaSeo.categorySeo(entity, lang.code);
+    const titleMark = seo.title.length > 60 ? " — длинноват для сниппета" : "";
+    const descMark = seo.description.length > 155 ? " — длинноват для сниппета" : "";
+    const titleMode = seo.titleSource === "manual" ? "свой заголовок" : "заголовок составится сам";
+    const descMode = seo.descriptionSource === "manual" ? "своё описание" : "описание составится само";
+    return `<p class="hint"><strong>${lang.label}.</strong> ${titleMode}${titleMark} (${seo.title.length}): ${I.esc(seo.title)}<br>${descMode}${descMark} (${seo.description.length}): ${I.esc(seo.description)}</p>`;
+  }).join("");
 }
 
 /* ---------- settings ---------- */

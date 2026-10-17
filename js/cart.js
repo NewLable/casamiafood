@@ -18,6 +18,7 @@ const CasaMiaCart = (() => {
   let drawerOpen = false;
   let bound = false;
   let bounceTimer = 0;
+  let toastTimer = 0;
   let igCopiedOk = true;
   let mapPicker = null;
   let mapSaveToken = 0;
@@ -1010,12 +1011,12 @@ const CasaMiaCart = (() => {
       if (!document.querySelector("link[data-leaflet]")) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = "css/vendor/leaflet.css";
+        link.href = "/css/vendor/leaflet.css";
         link.dataset.leaflet = "1";
         document.head.appendChild(link);
       }
       const script = document.createElement("script");
-      script.src = "js/vendor/leaflet.js";
+      script.src = "/js/vendor/leaflet.js";
       script.async = true;
       script.onload = () => {
         if (window.L?.map) resolve(window.L);

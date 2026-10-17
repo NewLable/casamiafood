@@ -1,11 +1,12 @@
 async function initProductPage() {
   await CasaMia.loadData();
   CasaMia.bindHeader();
-  CasaMiaCart.mount();
+  if (window.CasaMiaCart) CasaMiaCart.mount();
 
-  const params = new URLSearchParams(location.search);
-  const id = params.get("id");
   const root = document.getElementById("product-root");
+  if (!root) return;
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id") || document.body.dataset.productId || "";
   const product = CasaMia.getProduct(id);
 
   if (!product || product.available === false) {
@@ -19,29 +20,16 @@ async function initProductPage() {
   document.addEventListener("casamia:lang", () => render(product, activeVariant));
 
   function render(p, variant) {
-    document.title = `${CasaMia.localized(p.name)} — Casa Mia`;
-    const desc = [CasaMia.localized(p.description), CasaMia.t("meta_title")].filter(Boolean).join(" · ");
-    CasaMia.applySeo({
-      title: `${CasaMia.localized(p.name)} — Casa Mia`,
-      description: desc
-    });
+    const category = CasaMia.getCategory(p.categoryId);
+    const seo = window.CasaMiaSeo
+      ? CasaMiaSeo.productSeo(p, CasaMia.getLang(), category)
+      : { title: `${CasaMia.localized(p.name)} | Casa Mia`, description: CasaMia.localized(p.description), name: CasaMia.localized(p.name) };
+    CasaMia.applySeo({ title: seo.title, description: seo.description });
     const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
-    const absImg = img.startsWith("http") ? img : `${CasaMia.SITE_ORIGIN}/${img}`;
-    CasaMia.setJsonLd("schema-product", {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      name: CasaMia.localized(p.name),
-      description: CasaMia.localized(p.description),
-      image: absImg,
-      brand: { "@type": "Brand", name: "Casa Mia" },
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "TRY",
-        price: String(variant ? variant.price : p.price || p.variants?.[0]?.price || ""),
-        availability: p.inStock === false ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
-        url: `${CasaMia.SITE_ORIGIN}/${CasaMia.productHref(p.id)}`
-      }
-    });
+    const ld = window.CasaMiaSeo
+      ? CasaMiaSeo.productJsonLd({ ...p, price: variant ? variant.price : p.price }, CasaMia.getLang(), category)
+      : null;
+    if (ld) CasaMia.setJsonLd("schema-product", ld);
   const variantsHtml = p.variants?.length
       ? `<div>
           <strong style="font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--terracotta)">${CasaMia.t("choose_size")}</strong>
@@ -62,7 +50,13 @@ async function initProductPage() {
       ? cart.controlsHtml(p.id, { size: "lg", variantId: variant?.id || "" })
       : `<a class="btn btn-wa" href="${CasaMia.orderLink(p, variant)}" target="_blank" rel="noopener">${CasaMia.t("order_more")}</a>`;
 
+    const catName = category ? CasaMia.localized(category.name) : "";
     root.innerHTML = `
+      <nav class="crumbs" aria-label="breadcrumb">
+        <a href="${CasaMia.homeHref("#menu")}">${CasaMia.t("nav_home")}</a>
+        ${catName ? `<span aria-hidden="true">/</span> <a href="${CasaMia.categoryHref(category.id)}">${catName}</a>` : ""}
+        <span aria-hidden="true">/</span> <span>${CasaMia.localized(p.name)}</span>
+      </nav>
       <a class="back-link" href="${CasaMia.homeHref("#menu")}">← ${CasaMia.t("back_menu")}</a>
       <div class="product-layout">
         <div class="product-gallery">
