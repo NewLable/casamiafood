@@ -253,7 +253,7 @@ textarea {
 }
 
 .hero-logo {
-  width: min(100%, 420px);
+  width: 100%;
   height: auto;
   margin: 0 0 1rem;
   filter: drop-shadow(0 8px 24px rgba(42, 36, 32, 0.08));
@@ -477,7 +477,7 @@ textarea {
 }
 
 .about-logo-panel img {
-  width: min(100%, 480px);
+  width: 100%;
   height: auto;
 }
 
@@ -1544,15 +1544,6 @@ textarea {
     display: flex;
   }
 
-  .hero-grid {
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 2.5rem;
-  }
-
-  .hero-media {
-    order: 2;
-  }
-
   .features {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -1564,11 +1555,6 @@ textarea {
 
   .hits-row {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .split {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
   }
 
   .cook-grid {
@@ -1586,6 +1572,20 @@ textarea {
 }
 
 @media (min-width: 1024px) {
+  .hero-grid {
+    width: min(1280px, calc(100% - 2rem));
+    grid-template-columns: 0.78fr 1.22fr;
+    gap: 2.5rem;
+  }
+
+  .hero-logo {
+    width: min(100%, 420px);
+  }
+
+  .hero-media {
+    order: 2;
+  }
+
   .product-grid {
     grid-template-columns: repeat(4, 1fr);
   }

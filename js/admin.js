@@ -1082,7 +1082,7 @@ function renderSettingsForm() {
         </div>
         <div>
           <h3>Фото в разделе «О нас»</h3>
-          <p class="hint">Слева в блоке «О Casa Mia». Рекомендуемый размер: <strong>1200 × 600 px</strong>, пропорция 2:1. Для логотипа лучше прозрачный фон.</p>
+          <p class="hint">Над текстом «О Casa Mia», на всю ширину экрана. Рекомендуемый размер: <strong>1200 × 600 px</strong>, пропорция 2:1. Для логотипа лучше прозрачный фон.</p>
           <div data-brand-image="aboutImage"></div>
         </div>
       </div>

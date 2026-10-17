@@ -34,7 +34,7 @@ function shell({ lang, head, main, jsonld, attrs, logo }) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   ${head}
-  <link rel="stylesheet" href="/css/style.css?v=28">
+  <link rel="stylesheet" href="/css/style.css?v=32">
   <link rel="icon" href="/images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch.png">
   ${scripts}
@@ -66,7 +66,7 @@ function shell({ lang, head, main, jsonld, attrs, logo }) {
     </div>
   </footer>
   <script src="/js/seo.js?v=1"></script>
-  <script src="/js/app.js?v=18"></script>
+  <script src="/js/app.js?v=20"></script>
   <script src="/js/cart.js?v=19"></script>
   <script src="/js/product.js?v=3"></script>
 </body>
