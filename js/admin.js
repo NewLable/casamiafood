@@ -16,6 +16,7 @@ const state = {
   expandedReviews: new Set(),
   productQuery: "",
   productSort: "order",
+  knownProductIds: new Set(),
   snapshot: "",
   saving: false,
   connected: false
@@ -272,14 +273,16 @@ function slugFromName(name) {
 /* ---------- boot ---------- */
 
 async function initAdmin() {
+  const fresh = { cache: "no-store" };
   const [products, categories, settings, reviewsRes] = await Promise.all([
-    fetch("data/products.json").then((r) => r.json()),
-    fetch("data/categories.json").then((r) => r.json()),
-    fetch("data/settings.json").then((r) => r.json()),
-    fetch("data/reviews.json").then((r) => (r.ok ? r.json() : []))
+    fetch("data/products.json", fresh).then((r) => r.json()),
+    fetch("data/categories.json", fresh).then((r) => r.json()),
+    fetch("data/settings.json", fresh).then((r) => r.json()),
+    fetch("data/reviews.json", fresh).then((r) => (r.ok ? r.json() : []))
   ]);
 
   state.products = products.map(normalizeProduct);
+  state.knownProductIds = new Set(state.products.map((p) => p.id));
   state.categories = categories.map(normalizeCategory);
   state.settings = ensureSettings(settings);
   const reviewSource = Array.isArray(reviewsRes) && reviewsRes.length ? reviewsRes : settings.reviews || [];
@@ -693,6 +696,7 @@ function addProduct() {
   p.id = uniqueId("product-" + Date.now(), new Set(state.products.map((x) => x.id)));
   p.name.ru = "Новый товар";
   state.products.push(p);
+  state.knownProductIds.add(p.id);
   state.expandedProducts.add(p.id);
   state.productQuery = "";
   state.productSort = "order";
@@ -716,6 +720,7 @@ function duplicateProduct(id) {
   const copy = clone(src);
   copy.id = uniqueId(`${src.id}-copy`, new Set(state.products.map((x) => x.id)));
   copy.name.ru = `${src.name.ru || src.id} (копия)`;
+  state.knownProductIds.add(copy.id);
   copy.order = (Number(src.order) || 0) + 1;
   copy.badges = { ...src.badges, new: true };
   state.products.push(copy);
@@ -1147,6 +1152,40 @@ async function loadCommits() {
 
 /* ---------- save ---------- */
 
+function decodeGithubText(file) {
+  const raw = String(file?.content || "").replace(/\s/g, "");
+  if (!raw) return "";
+  const binary = atob(raw);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+async function keepProductsSavedElsewhere() {
+  const file = await CasaMiaGitHub.getFile("data/products.json");
+  if (!file?.content) {
+    throw new Error("Не удалось сверить каталог с сайтом. Сохранение отменено, чтобы не стереть товары.");
+  }
+  let remote;
+  try {
+    remote = JSON.parse(decodeGithubText(file));
+  } catch {
+    throw new Error("Не удалось прочитать каталог на сайте. Сохранение отменено, чтобы не стереть товары.");
+  }
+  if (!Array.isArray(remote)) return [];
+  const localIds = new Set(state.products.map((p) => p.id));
+  const kept = [];
+  for (const product of remote) {
+    const id = product && product.id;
+    if (!id || localIds.has(id) || state.knownProductIds.has(id)) continue;
+    kept.push(normalizeProduct(product));
+    localIds.add(id);
+    state.knownProductIds.add(id);
+  }
+  if (kept.length) state.products.push(...kept);
+  return kept;
+}
+
 function pretty(data) {
   return `${JSON.stringify(data, null, 2)}\n`;
 }
@@ -1169,6 +1208,7 @@ async function saveAll() {
   refreshChrome();
 
   try {
+    const kept = await keepProductsSavedElsewhere();
     const jsonFiles = [
       { path: "data/products.json", text: pretty(productsInMenuOrder()) },
       { path: "data/categories.json", text: pretty(state.categories) },
@@ -1182,7 +1222,9 @@ async function saveAll() {
     const when = new Date().toLocaleString("ru-RU");
     const banner = document.getElementById("publish-banner");
     banner.classList.remove("hidden");
-    banner.textContent = `✅ Изменения опубликованы на сайте. ${when}`;
+    banner.textContent = kept.length
+      ? `✅ Изменения опубликованы на сайте. ${when} Сохранены товары из другого окна: ${kept.map((p) => p.name?.ru || p.id).join(", ")}.`
+      : `✅ Изменения опубликованы на сайте. ${when}`;
     toast("Сайт обновлён", "ok");
     await loadCommits();
     void result;

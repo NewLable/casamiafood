@@ -1,5 +1,64 @@
 [
   {
+    "id": "product-1792234997854",
+    "categoryId": "frozen",
+    "order": 0,
+    "name": {
+      "ru": "Жульен в мясной короне",
+      "ua": "Жульєн у м’ясній короні",
+      "tr": "Et Tacında Jülyen",
+      "en": "Julienne in a Meat Crown"
+    },
+    "description": {
+      "ru": "Нежная курица с ароматными шампиньонами, сливочным сыром и тягучей моцареллой в аппетитной мясной короне. Сытное домашнее блюдо с насыщенным сливочно-грибным вкусом.",
+      "ua": "Ніжна курятина з ароматними печерицями, вершковим сиром і тягучою моцарелою в апетитній м’ясній короні. Ситна домашня страва з насиченим вершково-грибним смаком.",
+      "tr": "Lezzetli bir et tacının içinde tavuk, aromatik mantar, krem peynir ve uzayan mozzarella peyniri. Yoğun kremamsı ve mantarlı lezzetiyle doyurucu, ev yapımı bir lezzet.",
+      "en": "Tender chicken with aromatic mushrooms, cream cheese and melted mozzarella, wrapped in an appetising meat crown. A hearty homemade dish with a rich, creamy mushroom flavour."
+    },
+    "ingredients": {
+      "ru": "Мясо курицы, шампиньоны, яйцо куриное, лук репчатый, сыр сливочный, сыр моцарелла, соль, перец.",
+      "ua": "М’ясо курки, печериці, куряче яйце, ріпчаста цибуля, вершковий сир, сир моцарела, сіль, перець.",
+      "tr": "Tavuk eti, kültür mantarı, yumurta, kuru soğan, krem peynir, mozzarella peyniri, tuz, karabiber.",
+      "en": "Chicken meat, champignon mushrooms, chicken egg, onion, cream cheese, mozzarella cheese, salt, pepper."
+    },
+    "cook": {
+      "ru": "Готовить из замороженного состояния в разогретой духовке при 180°C в течение 20–25 минут или в аэрогриле до готовности. Время приготовления может зависеть от мощности прибора и размера изделия. Перед подачей убедитесь, что курица полностью приготовилась.",
+      "ua": "Готувати із замороженого стану в розігрітій духовці за температури 180°C протягом 20–25 хвилин або в аерогрилі до готовності. Час приготування може залежати від потужності приладу та розміру виробу. Перед подачею переконайтеся, що курятина повністю приготувалася.",
+      "tr": "Donmuş halde, önceden ısıtılmış 180°C fırında 20–25 dakika veya airfryer'da tamamen pişene kadar pişirin. Pişirme süresi cihazın gücüne ve ürünün boyutuna göre değişebilir. Servis etmeden önce tavuğun tamamen piştiğinden emin olun.",
+      "en": "Cook from frozen in a preheated oven at 180°C for 20–25 minutes, or in an air fryer until fully cooked. Cooking time may vary depending on the appliance and product size. Ensure the chicken is thoroughly cooked before serving."
+    },
+    "serveWith": {
+      "ru": "Подавайте горячим, пока сыр остаётся нежным и тягучим. По желанию дополните свежей зеленью и овощами.",
+      "ua": "Подавайте гарячим, поки сир залишається ніжним і тягучим. За бажанням доповніть свіжою зеленню та овочами.",
+      "tr": "Peynir yumuşak ve uzayan kıvamdayken sıcak servis edin. Dilerseniz yanında taze yeşillikler ve sebzeler sunun.",
+      "en": "Serve hot while the cheese is soft and stretchy. Add fresh herbs and vegetables if desired."
+    },
+    "price": 800,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1792234997854.webp"
+    ],
+    "thumbnail": "images/products/product-1792234997854-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "available": true,
+    "inStock": false,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
+  },
+  {
     "id": "product-1792241297453",
     "categoryId": "frozen",
     "order": -10,
