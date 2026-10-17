@@ -10,6 +10,20 @@
       "ua": "Заморозка",
       "tr": "Donuklar",
       "en": "Frozen"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -23,6 +37,20 @@
       "ua": "Млинці",
       "tr": "Krep",
       "en": "Pancakes"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -36,6 +64,20 @@
       "ua": "Салати",
       "tr": "Salatalar",
       "en": "Salads"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -49,6 +91,20 @@
       "ua": "Спагеті",
       "tr": "Makarna",
       "en": "Pasta"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -62,6 +118,20 @@
       "ua": "Випічка",
       "tr": "Tatlılar",
       "en": "Bakery"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -75,6 +145,20 @@
       "ua": "Готові страви",
       "tr": "Hazır yemekler",
       "en": "Ready meals"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -88,6 +172,20 @@
       "ua": "Перші страви",
       "tr": "Çorbalar",
       "en": "Soups"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   }
 ]

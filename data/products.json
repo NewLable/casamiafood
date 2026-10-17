@@ -56,6 +56,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -115,6 +129,20 @@
       "ua": "мл",
       "tr": "ml",
       "en": "ml"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -174,6 +202,20 @@
       "ua": "мл",
       "tr": "ml",
       "en": "ml"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -233,6 +275,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -292,6 +348,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -351,6 +421,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -410,7 +494,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pelmeni-turkey",
@@ -469,7 +567,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pelmeni-chicken-beef",
@@ -528,7 +640,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "vareniki-potato",
@@ -587,7 +713,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "vareniki-potato-mushroom",
@@ -646,7 +786,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "vareniki-potato-liver",
@@ -705,7 +859,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "vareniki-cottage",
@@ -764,7 +932,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "vareniki-lazy",
@@ -823,7 +1005,21 @@
     },
     "available": false,
     "inStock": false,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "ravioli-salmon",
@@ -882,7 +1078,21 @@
     },
     "available": false,
     "inStock": false,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "cabbage-chicken",
@@ -941,7 +1151,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "cabbage-chicken-beef",
@@ -1000,7 +1224,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "stuffed-pepper",
@@ -1059,7 +1297,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "cutlets-chicken",
@@ -1118,7 +1370,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "meatballs-chicken",
@@ -1177,7 +1443,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "meatballs-turkey",
@@ -1236,7 +1516,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "mince-chicken",
@@ -1295,7 +1589,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pancakes-chicken-cheese",
@@ -1354,7 +1662,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pancakes-chicken-mushroom",
@@ -1413,7 +1735,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pancakes-cottage-raisin",
@@ -1472,7 +1808,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pancakes-apple",
@@ -1531,7 +1881,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "salad-olivier",
@@ -1590,7 +1954,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "salad-olivier-premium",
@@ -1649,7 +2027,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "salad-salmon",
@@ -1708,7 +2100,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "salad-forest-heart",
@@ -1767,7 +2173,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "salad-forest-heart-turkey",
@@ -1826,7 +2246,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pasta-classic",
@@ -1909,7 +2343,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "pasta-fettuccine",
@@ -1992,7 +2440,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "sauce-tomato-basil",
@@ -2051,7 +2513,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "cinnabon",
@@ -2134,7 +2610,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "tiramisu",
@@ -2193,7 +2683,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "aspic-chicken",
@@ -2252,7 +2756,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "ready-cabbage-chicken",
@@ -2311,7 +2829,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "ready-cabbage-mixed",
@@ -2370,7 +2902,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "ready-stuffed-pepper",
@@ -2429,7 +2975,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "soup-kharcho",
@@ -2488,7 +3048,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "soup-chicken-meatballs",
@@ -2547,7 +3121,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "soup-solyanka",
@@ -2606,7 +3194,21 @@
     },
     "available": true,
     "inStock": true,
-    "thumbnail": ""
+    "thumbnail": "",
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    }
   },
   {
     "id": "product-1789221227986",
@@ -2665,6 +3267,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -2724,6 +3340,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -2783,6 +3413,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -2842,6 +3486,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   },
   {
@@ -2901,6 +3559,20 @@
       "ua": "кг",
       "tr": "kg",
       "en": "kg"
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
     }
   }
 ]

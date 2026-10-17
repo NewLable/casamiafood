@@ -277,7 +277,7 @@
     }
   },
   "sections": {
-    "reviews": true,
+    "reviews": false,
     "reviewsCarousel": {
       "autoplay": true,
       "interval": 5
