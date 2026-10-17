@@ -165,7 +165,7 @@
       "sale": false
     },
     "available": true,
-    "inStock": false,
+    "inStock": true,
     "quantityType": "kg",
     "step": 0.5,
     "min": 1,
