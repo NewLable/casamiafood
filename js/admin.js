@@ -91,10 +91,33 @@ function refreshChrome() {
     gh.className = "status-pill gh-off";
     gh.textContent = "GitHub не подключён";
   }
+  paintOpenProductEditors();
 }
 
 function markDirty() {
   refreshChrome();
+}
+
+function productIsDirty(product) {
+  let saved = [];
+  try {
+    saved = JSON.parse(state.snapshot || "{}").products || [];
+  } catch {
+    saved = [];
+  }
+  const previous = saved.find((item) => item.id === product.id);
+  if (!previous || JSON.stringify(previous) !== JSON.stringify(product)) return true;
+  return Object.keys(state.pendingImages).some((path) => path.includes(`/${product.id}`));
+}
+
+function paintOpenProductEditors() {
+  document.querySelectorAll("#product-list .product-editor").forEach((card) => {
+    const product = state.products.find((item) => item.id === card.dataset.productId);
+    if (!product) return;
+    const dirty = productIsDirty(product);
+    card.classList.toggle("is-dirty", dirty);
+    card.classList.toggle("is-clean", !dirty);
+  });
 }
 
 /* ---------- normalize ---------- */
@@ -561,7 +584,8 @@ function productCardHtml(p) {
     .map((c) => `<option value="${I.escAttr(c.id)}" ${c.id === p.categoryId ? "selected" : ""}>${I.esc(c.emoji || "")} ${I.esc(c.name.ru)}</option>`)
     .join("");
 
-  return `<article class="admin-card product-editor" data-product-id="${I.escAttr(p.id)}">
+  const editorState = productIsDirty(p) ? "is-dirty" : "is-clean";
+  return `<article class="admin-card product-editor ${editorState}" data-product-id="${I.escAttr(p.id)}">
     <div class="editor-head">
       <div>
         <h3>${I.esc(p.name.ru || "Новый товар")}</h3>
@@ -579,9 +603,6 @@ function productCardHtml(p) {
     ${I.blockHtml("Состав", "ingredients", p.ingredients, { multiline: true, rows: 3 })}
     ${I.blockHtml("Как приготовить", "cook", p.cook, { multiline: true, rows: 2 })}
     ${I.blockHtml("Подача", "serveWith", p.serveWith, { multiline: true, rows: 2 })}
-    ${I.blockHtml("SEO Title — пустое поле заполнится само", "seo-title", p.seo.title)}
-    ${I.blockHtml("SEO Description — пустое поле заполнится само", "seo-desc", p.seo.description, { multiline: true, rows: 2 })}
-    <div class="seo-preview" data-seo-preview>${seoPreviewHtml(p, "product")}</div>
     <div class="grid-2">
       <div><label>Цена (₺)</label><input type="number" name="price" min="0" step="1" value="${p.price}"></div>
       <div><label>Единица цены</label>
@@ -620,6 +641,12 @@ function productCardHtml(p) {
       <div class="check"><input type="checkbox" name="inStock" id="stock-${p.id}" ${p.inStock ? "checked" : ""}><label for="stock-${p.id}">В наличии</label></div>
       <div class="check"><input type="checkbox" name="hidden" id="hid-${p.id}" ${p.available ? "" : "checked"}><label for="hid-${p.id}">Скрыт</label></div>
     </div>
+    <details class="seo-fold">
+      <summary>SEO Title и Description</summary>
+      ${I.blockHtml("SEO Title — пустое поле заполнится само", "seo-title", p.seo.title)}
+      ${I.blockHtml("SEO Description — пустое поле заполнится само", "seo-desc", p.seo.description, { multiline: true, rows: 2 })}
+      <div class="seo-preview" data-seo-preview>${seoPreviewHtml(p, "product")}</div>
+    </details>
   </article>`;
 }
 

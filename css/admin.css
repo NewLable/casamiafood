@@ -378,6 +378,27 @@ textarea { min-height: 72px; resize: vertical; }
   grid-template-columns: 1fr !important;
   background: linear-gradient(180deg, #fff, #fbf7f1);
 }
+.product-editor.is-clean {
+  border-color: var(--olive);
+  box-shadow: 0 0 0 1px var(--olive);
+}
+.product-editor.is-dirty {
+  border-color: var(--terracotta);
+  box-shadow: 0 0 0 1px var(--terracotta);
+}
+.seo-fold {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0 0.9rem;
+}
+.seo-fold[open] { padding-bottom: 0.85rem; }
+.seo-fold summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 0.8rem 0;
+}
+.seo-fold summary:hover { color: var(--olive-dark); }
 .product-editor .editor-head {
   display: flex;
   justify-content: space-between;
