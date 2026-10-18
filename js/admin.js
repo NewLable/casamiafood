@@ -405,6 +405,7 @@ function bindTabs() {
 function switchTab(id) {
   document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === id));
   document.querySelectorAll("[data-panel]").forEach((p) => p.classList.toggle("hidden", p.dataset.panel !== id));
+  if (id === "hits") renderHitsAdmin();
 }
 
 function bindGlobalActions() {
@@ -448,6 +449,8 @@ function bindGlobalActions() {
   document.getElementById("gallery-list").addEventListener("change", onGalleryInput);
   document.getElementById("quick-prices").addEventListener("input", onQuickPriceInput);
   document.getElementById("quick-prices").addEventListener("change", onQuickFlagChange);
+  document.getElementById("hits-add-btn").onclick = addHitFromSelect;
+  document.getElementById("hits-list").addEventListener("click", onHitsClick);
 }
 
 function renderAll() {
@@ -459,6 +462,7 @@ function renderAll() {
   renderCartForm();
   renderReviews();
   renderGalleryAdmin();
+  renderHitsAdmin();
 }
 
 /* ---------- products ---------- */
@@ -717,7 +721,7 @@ function productCardHtml(p) {
     </div>
     ${I.blockHtml("Единица (уп., кг, шт.)", "unit", p.unit)}
     <div class="grid-2" style="margin-top:.6rem">
-      <div class="check"><input type="checkbox" name="hit" id="hit-${p.id}" ${p.badges.hit ? "checked" : ""}><label for="hit-${p.id}">Хит продаж</label></div>
+      <div class="check"><input type="checkbox" name="hit" id="hit-${p.id}" ${p.badges.hit ? "checked" : ""}><label for="hit-${p.id}">Хит недели</label></div>
       <div class="check"><input type="checkbox" name="new" id="new-${p.id}" ${p.badges.new ? "checked" : ""}><label for="new-${p.id}">Новинка</label></div>
       <div class="check"><input type="checkbox" name="sale" id="sale-${p.id}" ${p.badges.sale ? "checked" : ""}><label for="sale-${p.id}">Акция</label></div>
       <div class="check"><input type="checkbox" name="inStock" id="stock-${p.id}" ${p.inStock ? "checked" : ""}><label for="stock-${p.id}">В наличии</label></div>
@@ -754,7 +758,7 @@ function readProductCard(card) {
   p.step = Number(card.querySelector('[name="step"]')?.value) || QTY_PRESETS[p.quantityType]?.step || 1;
   p.min = Number(card.querySelector('[name="min"]')?.value) || QTY_PRESETS[p.quantityType]?.min || 1;
   p.unit = I.readFrom(card, "unit");
-  p.badges.hit = card.querySelector('[name="hit"]')?.checked || false;
+  placeHit(p, card.querySelector('[name="hit"]')?.checked || false);
   p.badges.new = card.querySelector('[name="new"]')?.checked || false;
   p.badges.sale = card.querySelector('[name="sale"]')?.checked || false;
   p.inStock = card.querySelector('[name="inStock"]')?.checked || false;
@@ -782,6 +786,7 @@ function onProductInput(e) {
     }
   }
   readProductCard(card);
+  if (e.target.name === "hit" || e.target.name === "hidden") renderHitsAdmin();
   const product = state.products.find((item) => item.id === card.dataset.productId);
   const preview = card.querySelector("[data-seo-preview]");
   if (preview && product) preview.innerHTML = seoPreviewHtml(product, "product");
@@ -813,6 +818,7 @@ document.addEventListener("click", (e) => {
     state.expandedProducts.delete(id);
     renderProducts();
     renderQuickPrices();
+    renderHitsAdmin();
     markDirty();
   }
 });
@@ -858,6 +864,7 @@ function duplicateProduct(id) {
   state.expandedProducts.add(copy.id);
   renderProducts();
   renderQuickPrices();
+  renderHitsAdmin();
   markDirty();
 }
 
@@ -916,7 +923,7 @@ function renderQuickPrices() {
           ${priceFlag(p.id, "inStock", "В наличии", p.inStock)}
           ${priceFlag(p.id, "hidden", "Скрыт", !p.available)}
           ${priceFlag(p.id, "sale", "Акция", p.badges.sale)}
-          ${priceFlag(p.id, "hit", "Хит продаж", p.badges.hit)}
+          ${priceFlag(p.id, "hit", "Хит недели", p.badges.hit)}
         </div>
       </article>`
     )
@@ -939,10 +946,157 @@ function onQuickFlagChange(e) {
   if (!p) return;
   const flag = input.dataset.flag;
   if (flag === "inStock") p.inStock = input.checked;
-  else if (flag === "hidden") p.available = !input.checked;
+  else if (flag === "hidden") {
+    p.available = !input.checked;
+    renderHitsAdmin();
+  } else if (flag === "hit") placeHit(p, input.checked);
   else if (p.badges) p.badges[flag] = input.checked;
+  if (flag === "hit") renderHitsAdmin();
   input.closest("[data-price-card]")?.classList.toggle("is-hidden", !p.available);
   renderProducts();
+  markDirty();
+}
+
+/* ---------- hits of the week ---------- */
+
+const HITS_ON_SITE = 6;
+
+function placeHit(p, on) {
+  if (!p.badges) p.badges = { hit: false, new: false, sale: false };
+  const was = !!p.badges.hit;
+  p.badges.hit = !!on;
+  if (p.badges.hit && !was) {
+    const max = state.products.reduce((m, item) => Math.max(m, Number(item.hitOrder) || 0), 0);
+    p.hitOrder = max + 10;
+  } else if (!p.badges.hit) {
+    delete p.hitOrder;
+  }
+}
+
+function orderedHits() {
+  return state.products
+    .map((p, index) => ({ p, index }))
+    .filter(({ p }) => p.badges?.hit)
+    .sort((a, b) => {
+      const ao = Number(a.p.hitOrder) || 0;
+      const bo = Number(b.p.hitOrder) || 0;
+      if (ao !== bo) return ao - bo;
+      return a.index - b.index;
+    })
+    .map(({ p }) => p);
+}
+
+function hitCanShow(p) {
+  if (p.available === false) return false;
+  const cat = state.categories.find((c) => c.id === p.categoryId);
+  return !!cat && cat.enabled !== false;
+}
+
+function hitStatus(p, place) {
+  if (p.available === false) return { kind: "wait", text: "Скрыт — на сайте не показывается и место не занимает" };
+  if (!hitCanShow(p)) return { kind: "wait", text: "Категория выключена — на сайте не показывается и место не занимает" };
+  if (place <= HITS_ON_SITE) {
+    const stock = p.inStock === false ? " · нет в наличии" : "";
+    return { kind: "live", text: `На сайте, место ${place} из ${HITS_ON_SITE}${stock}` };
+  }
+  return { kind: "wait", text: `В списке есть, на сайт не попадает: видно только ${HITS_ON_SITE}` };
+}
+
+function renderHitsAdmin() {
+  const list = document.getElementById("hits-list");
+  const meta = document.getElementById("hits-meta");
+  const select = document.getElementById("hits-add-select");
+  const addBtn = document.getElementById("hits-add-btn");
+  if (!list || !select) return;
+  const hits = orderedHits();
+  let shown = 0;
+  const rows = hits.map((p) => {
+    const visible = hitCanShow(p);
+    const place = visible ? ++shown : 0;
+    const status = hitStatus(p, place);
+    const cat = state.categories.find((c) => c.id === p.categoryId);
+    return `<article class="admin-card hit-admin-card">
+      <img class="thumb-img" src="${I.escAttr(productThumb(p))}" alt="">
+      <div>
+        <h3>${I.esc(p.name?.ru || p.id)}</h3>
+        <div class="meta">${I.esc(cat?.name?.ru || "Без категории")} · ${p.price} ₺</div>
+        <p class="hit-note is-${status.kind}">${I.esc(status.text)}</p>
+      </div>
+      <div class="btn-row" style="margin:0">
+        <button class="btn ghost" type="button" data-hit-act="up" data-hit-id="${I.escAttr(p.id)}" ${hits[0] === p ? "disabled" : ""}>Выше</button>
+        <button class="btn ghost" type="button" data-hit-act="down" data-hit-id="${I.escAttr(p.id)}" ${hits.at(-1) === p ? "disabled" : ""}>Ниже</button>
+        <button class="btn danger" type="button" data-hit-act="remove" data-hit-id="${I.escAttr(p.id)}">Убрать</button>
+      </div>
+    </article>`;
+  });
+  list.innerHTML = rows.length
+    ? rows.join("")
+    : `<p class="product-empty">Пока пусто. Выберите товар сверху и нажмите «Добавить в хиты».</p>`;
+  const candidates = state.products
+    .filter((p) => !p.badges?.hit)
+    .slice()
+    .sort((a, b) => String(a.name?.ru || "").localeCompare(String(b.name?.ru || ""), "ru"));
+  const previous = select.value;
+  select.innerHTML = candidates.length
+    ? candidates.map((p) => `<option value="${I.escAttr(p.id)}">${I.esc(p.name?.ru || p.id)}</option>`).join("")
+    : `<option value="">Все товары уже в хитах</option>`;
+  if (previous && candidates.some((p) => p.id === previous)) select.value = previous;
+  select.disabled = !candidates.length;
+  if (addBtn) addBtn.disabled = !candidates.length;
+  if (meta) {
+    const onSite = Math.min(shown, HITS_ON_SITE);
+    meta.textContent = hits.length
+      ? `В списке ${hits.length}. На главной сейчас ${onSite} из ${HITS_ON_SITE}.`
+      : "На главной блок «Хиты недели» пустой, пока сюда не добавлен хотя бы один товар.";
+  }
+}
+
+function stampHitOrder(list) {
+  list.forEach((p, index) => {
+    p.hitOrder = (index + 1) * 10;
+  });
+}
+
+function addHitFromSelect() {
+  const select = document.getElementById("hits-add-select");
+  const p = state.products.find((item) => item.id === select?.value);
+  if (!p || p.badges?.hit) return;
+  placeHit(p, true);
+  refreshHitEditors();
+}
+
+function onHitsClick(e) {
+  const btn = e.target.closest("[data-hit-act]");
+  if (!btn) return;
+  const id = btn.dataset.hitId;
+  const act = btn.dataset.hitAct;
+  if (act === "remove") {
+    const p = state.products.find((item) => item.id === id);
+    if (p) placeHit(p, false);
+    refreshHitEditors();
+    return;
+  }
+  const list = orderedHits();
+  const index = list.findIndex((item) => item.id === id);
+  const next = index + (act === "up" ? -1 : 1);
+  if (index < 0 || next < 0 || next >= list.length) return;
+  const moved = list.slice();
+  const [item] = moved.splice(index, 1);
+  moved.splice(next, 0, item);
+  stampHitOrder(moved);
+  refreshHitEditors();
+}
+
+function refreshHitEditors() {
+  document.querySelectorAll("#product-list [data-product-id]").forEach((card) => {
+    const p = state.products.find((item) => item.id === card.dataset.productId);
+    const box = card.querySelector('[name="hit"]');
+    if (p && box) box.checked = !!p.badges?.hit;
+  });
+  readOpenProductCards();
+  renderProducts();
+  renderQuickPrices();
+  renderHitsAdmin();
   markDirty();
 }
 
@@ -1033,6 +1187,7 @@ function onCategoryInput(e) {
   c.color = card.querySelector('[name="color"]')?.value || c.color;
   c.order = Number(card.querySelector('[name="order"]')?.value) || 0;
   c.enabled = card.querySelector('[name="enabled"]')?.checked || false;
+  renderHitsAdmin();
   c.seo = c.seo || { title: I.emptyI18n(), description: I.emptyI18n() };
   c.seo.title = I.readFrom(card, "seo-title");
   c.seo.description = I.readFrom(card, "seo-desc");

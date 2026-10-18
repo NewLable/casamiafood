@@ -7,7 +7,7 @@
   <title>Casa Mia CMS</title>
   <link rel="icon" href="images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/admin.css?v=6">
+  <link rel="stylesheet" href="css/admin.css?v=7">
 </head>
 <body>
   <div class="admin-wrap">
@@ -42,6 +42,7 @@
       <div class="tabs" id="tabs">
         <button class="tab active" type="button" data-tab="products">Товары</button>
         <button class="tab" type="button" data-tab="prices">Цены</button>
+        <button class="tab" type="button" data-tab="hits">Хиты недели</button>
         <button class="tab" type="button" data-tab="categories">Категории</button>
         <button class="tab" type="button" data-tab="settings">Настройки сайта</button>
         <button class="tab" type="button" data-tab="cart">🧺 Корзина</button>
@@ -89,6 +90,18 @@
         </div>
         <p class="hint product-query-meta hidden" id="price-query-meta"></p>
         <div class="product-list" id="quick-prices"></div>
+      </section>
+
+      <section class="panel hidden" data-panel="hits">
+        <p class="panel-lead">Блок на главной, сразу над меню. В него попадают только товары из списка ниже. На сайте видны первые 6 доступных, в том порядке, как они стоят здесь. Скрытый товар и товар из выключенной категории пропускаются и место не занимают. Галочка «Хит недели» в карточке товара и на вкладке «Цены» — тот же список.</p>
+        <div class="hits-admin-add">
+          <label for="hits-add-select">Добавить товар
+            <select id="hits-add-select"></select>
+          </label>
+          <button class="btn" id="hits-add-btn" type="button">Добавить в хиты</button>
+        </div>
+        <p class="hint" id="hits-meta"></p>
+        <div class="editor-list" id="hits-list"></div>
       </section>
 
       <section class="panel hidden" data-panel="categories">
@@ -272,9 +285,10 @@
           <article class="help-card" id="help-hit">
             <h3>6. Как сделать товар «Хитом недели»</h3>
             <ol>
-              <li>Откройте карточку товара.</li>
-              <li>Включите галочку «Хит продаж».</li>
-              <li>Сохраните. Товар появится в блоке хитов на главной.</li>
+              <li>Откройте вкладку «Хиты недели».</li>
+              <li>Выберите товар и нажмите «Добавить в хиты».</li>
+              <li>Кнопки «Выше» и «Ниже» задают порядок. На главной видны первые 6.</li>
+              <li>Сохраните изменения. Та же отметка есть галочкой «Хит недели» в карточке товара.</li>
             </ol>
           </article>
           <article class="help-card" id="help-delivery">
@@ -364,6 +378,6 @@
   <script src="js/seo.js?v=1"></script>
   <script src="js/github-api.js?v=2"></script>
   <script src="js/image-manager.js"></script>
-  <script src="js/admin.js?v=12"></script>
+  <script src="js/admin.js?v=13"></script>
 </body>
 </html>

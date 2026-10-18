@@ -322,6 +322,23 @@ textarea { min-height: 72px; resize: vertical; }
 .price-card.is-hidden { background: #f6f3ee; }
 .price-card.is-hidden h3,
 .price-card.is-hidden .meta { color: var(--ink-soft); }
+
+.hits-admin-add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+  margin-bottom: 0.35rem;
+}
+.hits-admin-add label { flex: 1 1 16rem; margin: 0; }
+.hits-admin-add select { width: 100%; margin-top: 0.35rem; }
+.hit-admin-card img.thumb-img { width: 72px; height: 72px; }
+.hit-note { margin: 0.35rem 0 0; font-size: 0.86rem; }
+.hit-note.is-live { color: var(--olive-dark); font-weight: 700; }
+.hit-note.is-wait { color: var(--terracotta-dark); font-weight: 700; }
+@media (min-width: 760px) {
+  .hit-admin-card { grid-template-columns: 72px 1fr auto; align-items: center; }
+}
 .seo-preview { margin-top: 0.4rem; }
 .seo-preview .hint { margin: 0.35rem 0; }
 

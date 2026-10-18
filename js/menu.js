@@ -287,7 +287,17 @@ function renderCatalog(categoryId, options = {}) {
 function renderHits() {
   const wrap = document.getElementById("hits");
   if (!wrap) return;
-  const hits = CasaMia.visibleProducts().filter((p) => p.badges?.hit).slice(0, 6);
+  const hits = CasaMia.visibleProducts()
+    .filter((p) => p.badges?.hit)
+    .map((p, index) => ({ p, index }))
+    .sort((a, b) => {
+      const ao = Number(a.p.hitOrder) || 0;
+      const bo = Number(b.p.hitOrder) || 0;
+      if (ao !== bo) return ao - bo;
+      return a.index - b.index;
+    })
+    .slice(0, 6)
+    .map(({ p }) => p);
   wrap.innerHTML = hits
     .map((p) => {
       const img = CasaMia.mediaUrl(p.thumbnail || p.images?.[0]);
