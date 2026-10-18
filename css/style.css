@@ -465,20 +465,18 @@ textarea {
 .about-logo-panel {
   position: relative;
   border-radius: var(--radius);
-  background:
-    radial-gradient(circle at 30% 20%, rgba(196, 164, 106, 0.16), transparent 55%),
-    var(--white);
-  border: 1px solid var(--line);
-  display: grid;
-  place-items: center;
-  padding: 1.5rem;
-  min-height: 260px;
-  box-shadow: var(--shadow);
+  overflow: hidden;
+  background: none;
+  border: 0;
+  padding: 0;
+  min-height: 0;
+  box-shadow: none;
 }
 
 .about-logo-panel img {
   width: 100%;
   height: auto;
+  display: block;
 }
 
 .about-copy h2 {

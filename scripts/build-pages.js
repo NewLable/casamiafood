@@ -34,7 +34,7 @@ function shell({ lang, head, main, jsonld, attrs, logo }) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   ${head}
-  <link rel="stylesheet" href="/css/style.css?v=32">
+  <link rel="stylesheet" href="/css/style.css?v=33">
   <link rel="icon" href="/images/brand/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch.png">
   ${scripts}
