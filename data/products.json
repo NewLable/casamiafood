@@ -1,5 +1,78 @@
 [
   {
+    "id": "product-1792937480089",
+    "categoryId": "frozen",
+    "order": -40,
+    "name": {
+      "ru": "Тефтели курино-говяжьи",
+      "ua": "Курячо-яловичі тефтелі",
+      "tr": "Tavuk ve Dana Etli Sulu Köfte",
+      "en": "Chicken and Beef Meatballs"
+    },
+    "description": {
+      "ru": "Нежные домашние тефтели из курицы и говядины с рисом, солью и перцем. Сочные, с мягкой текстурой и насыщенным мясным вкусом — отличный выбор для семейного обеда или ужина.",
+      "ua": "Ніжні домашні тефтелі з курятини та яловичини з рисом, сіллю й перцем. Соковиті, з м’якою текстурою та насиченим м’ясним смаком — чудовий вибір для сімейного обіду чи вечері.",
+      "tr": "Tavuk ve dana etinden, pirinç, tuz ve karabiberle hazırlanan ev yapımı sulu köfteler. Yumuşak dokusu ve zengin et lezzetiyle aile öğle veya akşam yemekleri için ideal.",
+      "en": "Homemade meatballs made with chicken, beef, rice, salt and pepper. Tender and flavourful, they are a comforting choice for a family lunch or dinner."
+    },
+    "ingredients": {
+      "ru": "Курица, говядина, рис, соль, перец.",
+      "ua": "Курятина, яловичина, рис, сіль, перець.",
+      "tr": "Tavuk eti, dana eti, pirinç, tuz, karabiber.",
+      "en": "Chicken, beef, rice, salt, pepper."
+    },
+    "cook": {
+      "ru": "Готовьте из замороженного состояния до полной готовности. Можно тушить в соусе на слабом огне под крышкой или запекать в духовке до готовности. Время приготовления зависит от размера тефтелей и способа приготовления. Убедитесь, что мясо и рис полностью приготовились, а температура в центре тефтелей достигла не менее 74°C.",
+      "ua": "Готуйте із замороженого стану до повної готовності. Можна тушкувати в соусі на слабкому вогні під кришкою або запікати в духовці до готовності. Час приготування залежить від розміру тефтель і способу приготування. Переконайтеся, що м’ясо та рис повністю приготувалися, а температура в центрі тефтель досягла щонайменше 74°C.",
+      "tr": "Donmuş halde tamamen pişene kadar pişirin. Kısık ateşte, kapağı kapalı olarak sos içinde pişirebilir veya fırında pişirebilirsiniz. Pişirme süresi köftelerin boyutuna ve pişirme yöntemine göre değişir. Etin ve pirincin tamamen piştiğinden, köftelerin merkez sıcaklığının en az 74°C olduğundan emin olun.",
+      "en": "Cook from frozen until fully cooked. You can simmer the meatballs in sauce over low heat with the lid on or bake them in the oven until done. Cooking time depends on the size of the meatballs and the cooking method. Ensure the meat and rice are fully cooked and the internal temperature reaches at least 74°C."
+    },
+    "serveWith": {
+      "ru": "Подавайте горячими с овощами, картофельным пюре, рисом или любимым гарниром.",
+      "ua": "Подавайте гарячими з овочами, картопляним пюре, рисом або улюбленим гарніром.",
+      "tr": "Sebzeler, patates püresi, pilav veya dilediğiniz bir garnitürle sıcak servis edin.",
+      "en": "Serve hot with vegetables, mashed potatoes, rice or your favourite side dish."
+    },
+    "price": 800,
+    "priceUnit": "kg",
+    "weight": 1000,
+    "weightUnit": "g",
+    "images": [
+      "images/products/product-1792937480089.webp"
+    ],
+    "thumbnail": "images/products/product-1792937480089-thumb.webp",
+    "badges": {
+      "hit": false,
+      "new": true,
+      "sale": false
+    },
+    "seo": {
+      "title": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      },
+      "description": {
+        "ru": "",
+        "ua": "",
+        "tr": "",
+        "en": ""
+      }
+    },
+    "available": true,
+    "inStock": true,
+    "quantityType": "kg",
+    "step": 0.5,
+    "min": 1,
+    "unit": {
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
+    }
+  },
+  {
     "id": "product-1792247291470",
     "categoryId": "salads",
     "order": -30,
