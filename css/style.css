@@ -686,6 +686,15 @@ textarea {
   padding: 0 0.9rem;
 }
 
+.catalog-search label {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: text;
+}
+
 .catalog-search svg {
   width: 16px;
   height: 16px;
