@@ -180,7 +180,7 @@
       "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
     },
     "price": 900,
-    "priceUnit": "pack",
+    "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
@@ -195,7 +195,7 @@
     "available": true,
     "inStock": true,
     "quantityType": "kg",
-    "step": 0.5,
+    "step": 500,
     "min": 1500,
     "unit": {
       "ru": "мл",
@@ -253,7 +253,7 @@
       "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
     },
     "price": 700,
-    "priceUnit": "pack",
+    "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
@@ -268,7 +268,7 @@
     "available": true,
     "inStock": true,
     "quantityType": "kg",
-    "step": 0.5,
+    "step": 500,
     "min": 1500,
     "unit": {
       "ru": "мл",
@@ -3109,17 +3109,17 @@
       "en": "With herbs and bread"
     },
     "price": 900,
-    "priceUnit": "pack",
+    "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
-    "quantityType": "package",
-    "step": 1,
-    "min": 1,
+    "quantityType": "kg",
+    "step": 500,
+    "min": 1500,
     "unit": {
-      "ru": "уп.",
-      "ua": "уп.",
-      "tr": "paket",
-      "en": "pack"
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
     },
     "images": [
       "images/products/soup-kharcho.webp"
@@ -3182,17 +3182,17 @@
       "en": "With fresh herbs"
     },
     "price": 600,
-    "priceUnit": "pack",
+    "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
-    "quantityType": "package",
-    "step": 1,
-    "min": 1,
+    "quantityType": "kg",
+    "step": 500,
+    "min": 1500,
     "unit": {
-      "ru": "уп.",
-      "ua": "уп.",
-      "tr": "paket",
-      "en": "pack"
+      "ru": "кг",
+      "ua": "кг",
+      "tr": "kg",
+      "en": "kg"
     },
     "images": [
       "images/products/soup-chicken-meatballs.webp"
@@ -3258,14 +3258,14 @@
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
-    "quantityType": "package",
-    "step": 1,
-    "min": 1,
+    "quantityType": "gram",
+    "step": 500,
+    "min": 1500,
     "unit": {
-      "ru": "уп.",
-      "ua": "уп.",
-      "tr": "paket",
-      "en": "pack"
+      "ru": "г",
+      "ua": "г",
+      "tr": "g",
+      "en": "g"
     },
     "images": [
       "images/products/soup-solyanka.webp"
