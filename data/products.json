@@ -180,7 +180,7 @@
       "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
     },
     "price": 900,
-    "priceUnit": "kg",
+    "priceUnit": "l",
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
@@ -253,7 +253,7 @@
       "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
     },
     "price": 700,
-    "priceUnit": "kg",
+    "priceUnit": "l",
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
@@ -3109,7 +3109,7 @@
       "en": "With herbs and bread"
     },
     "price": 900,
-    "priceUnit": "kg",
+    "priceUnit": "l",
     "weight": 1500,
     "weightUnit": "ml",
     "quantityType": "ml",
@@ -3182,7 +3182,7 @@
       "en": "With fresh herbs"
     },
     "price": 600,
-    "priceUnit": "kg",
+    "priceUnit": "l",
     "weight": 1500,
     "weightUnit": "ml",
     "quantityType": "ml",
@@ -3255,7 +3255,7 @@
       "en": "With sour cream and lemon"
     },
     "price": 900,
-    "priceUnit": "pack",
+    "priceUnit": "l",
     "weight": 1500,
     "weightUnit": "ml",
     "quantityType": "ml",
