@@ -194,7 +194,7 @@
     },
     "available": true,
     "inStock": true,
-    "quantityType": "kg",
+    "quantityType": "ml",
     "step": 500,
     "min": 1500,
     "unit": {
@@ -267,7 +267,7 @@
     },
     "available": true,
     "inStock": true,
-    "quantityType": "kg",
+    "quantityType": "ml",
     "step": 500,
     "min": 1500,
     "unit": {
@@ -2237,7 +2237,7 @@
     "weightUnit": "g",
     "quantityType": "kg",
     "step": 0.5,
-    "min": 0.4,
+    "min": 0.5,
     "unit": {
       "ru": "кг",
       "ua": "кг",
@@ -3112,14 +3112,14 @@
     "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
-    "quantityType": "kg",
+    "quantityType": "ml",
     "step": 500,
     "min": 1500,
     "unit": {
-      "ru": "кг",
-      "ua": "кг",
-      "tr": "kg",
-      "en": "kg"
+      "ru": "мл",
+      "ua": "мл",
+      "tr": "ml",
+      "en": "ml"
     },
     "images": [
       "images/products/soup-kharcho.webp"
@@ -3185,14 +3185,14 @@
     "priceUnit": "kg",
     "weight": 1500,
     "weightUnit": "ml",
-    "quantityType": "kg",
+    "quantityType": "ml",
     "step": 500,
     "min": 1500,
     "unit": {
-      "ru": "кг",
-      "ua": "кг",
-      "tr": "kg",
-      "en": "kg"
+      "ru": "мл",
+      "ua": "мл",
+      "tr": "ml",
+      "en": "ml"
     },
     "images": [
       "images/products/soup-chicken-meatballs.webp"
@@ -3258,14 +3258,14 @@
     "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
-    "quantityType": "gram",
+    "quantityType": "ml",
     "step": 500,
     "min": 1500,
     "unit": {
-      "ru": "г",
-      "ua": "г",
-      "tr": "g",
-      "en": "g"
+      "ru": "мл",
+      "ua": "мл",
+      "tr": "ml",
+      "en": "ml"
     },
     "images": [
       "images/products/soup-solyanka.webp"

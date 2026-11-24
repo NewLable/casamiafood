@@ -66,8 +66,9 @@ function shell({ lang, head, main, jsonld, attrs, logo }) {
     </div>
   </footer>
   <script src="/js/seo.js?v=1"></script>
-  <script src="/js/app.js?v=20"></script>
-  <script src="/js/cart.js?v=19"></script>
+  <script src="/js/pricing.js?v=1"></script>
+  <script src="/js/app.js?v=21"></script>
+  <script src="/js/cart.js?v=20"></script>
   <script src="/js/product.js?v=3"></script>
 </body>
 </html>

@@ -12,7 +12,9 @@ const CasaMiaCart = (() => {
     package: { type: "package", step: 1, min: 1, unitKey: "basket.unit_package" },
     piece: { type: "piece", step: 1, min: 1, unitKey: "basket.unit_piece" },
     kg: { type: "kg", step: 0.5, min: 0.5, unitKey: "basket.unit_kg" },
-    gram: { type: "gram", step: 100, min: 100, unitKey: "basket.unit_gram" }
+    gram: { type: "gram", step: 100, min: 100, unitKey: "basket.unit_gram" },
+    l: { type: "l", step: 0.5, min: 0.5, unitKey: "basket.unit_l" },
+    ml: { type: "ml", step: 100, min: 100, unitKey: "basket.unit_ml" }
   };
 
   let drawerOpen = false;
@@ -83,6 +85,7 @@ const CasaMiaCart = (() => {
     const type = product?.quantityType;
     if (type && QTY_PRESETS[type]) return type;
     if (product?.priceUnit === "kg") return "kg";
+    if (product?.priceUnit === "l" || product?.priceUnit === "ml") return product.priceUnit;
     if (product?.weightUnit === "pcs" && !product.variants) return "piece";
     return "package";
   }
@@ -122,12 +125,23 @@ const CasaMiaCart = (() => {
   function formatQtyLabel(qty, product) {
     const type = getQtyConfig(product).type;
     const num = formatQtyNumber(qty);
-    if (type === "kg" || type === "gram") return `${num} ${unitLabel(product)}`;
+    if (type === "kg" || type === "gram" || type === "l" || type === "ml") {
+      return `${num} ${unitLabel(product)}`;
+    }
     return num;
   }
 
   function formatMoney(n) {
     return `${Math.round(Number(n) || 0)} ₺`;
+  }
+
+  function formatUnitPrice(product, amount) {
+    const money = formatMoney(amount);
+    const unit = product?.priceUnit;
+    if (unit === "kg") return `${money} ${t("per_kg")}`;
+    if (unit === "l") return `${money} ${t("per_l")}`;
+    if (unit === "ml") return `${money} ${t("per_ml")}`;
+    return money;
   }
 
   function unitPrice(product, variant) {
@@ -137,8 +151,12 @@ const CasaMiaCart = (() => {
   function lineTotal(product, qty, variant) {
     const price = unitPrice(product, variant);
     const type = getQtyConfig(product).type;
-    if (type === "gram" && product.priceUnit === "kg") {
+    if (window.CasaMiaPricing) return CasaMiaPricing.lineTotal(product, qty, type, price);
+    if (product.priceUnit === "kg" && (type === "gram" || type === "ml")) {
       return Math.round(price * qty / 1000);
+    }
+    if (product.priceUnit === "l" && (type === "ml" || type === "l")) {
+      return Math.round(price * (type === "ml" ? qty / 1000 : qty));
     }
     return Math.round(price * qty);
   }
@@ -341,7 +359,13 @@ const CasaMiaCart = (() => {
       .map((line) => {
         const mark = plain ? "•" : (line.category?.emoji || "•");
         const qty = formatQty(line.qty, line.product);
-        return `${mark} ${lineName(line)} — ${qty} × ${formatMoney(line.unitPrice)} = ${formatMoney(line.total)}`;
+        const total = formatMoney(line.total);
+        const type = getQtyConfig(line.product).type;
+        const priceUnit = line.product.priceUnit || "pack";
+        if ((type === "ml" || type === "l") && priceUnit !== type) {
+          return `${mark} ${lineName(line)} — ${qty} = ${total}`;
+        }
+        return `${mark} ${lineName(line)} — ${qty} × ${formatUnitPrice(line.product, line.unitPrice)} = ${total}`;
       })
       .join("\n");
     syncCheckoutFromDom();
@@ -749,7 +773,7 @@ const CasaMiaCart = (() => {
           <img src="${esc(img)}" alt="" width="72" height="72" draggable="false">
           <div class="cart-line-main">
             <h3>${esc(lineName(line))}</h3>
-            <p class="cart-line-price">${formatMoney(line.unitPrice)} · ${formatMoney(line.total)}</p>
+            <p class="cart-line-price">${formatUnitPrice(line.product, line.unitPrice)} · ${formatMoney(line.total)}</p>
           </div>
           <div class="cart-line-ops">
             <div class="cart-controls is-active" data-cart-controls="${esc(line.id)}"${v}>

@@ -152,6 +152,8 @@ const CasaMia = (() => {
     sale: { ru: "Акция", ua: "Акція", tr: "Kampanya", en: "Sale" },
     soldout: { ru: "Нет в наличии", ua: "Немає в наявності", tr: "Stokta yok", en: "Sold out" },
     per_kg: { ru: "/кг", ua: "/кг", tr: "/kg", en: "/kg" },
+    per_l: { ru: "/л", ua: "/л", tr: "/L", en: "/L" },
+    per_ml: { ru: "/мл", ua: "/мл", tr: "/ml", en: "/ml" },
     order_msg: {
       ru: "Здравствуйте! Хочу заказать: {name}",
       ua: "Вітаю! Хочу замовити: {name}",
@@ -437,6 +439,8 @@ const CasaMia = (() => {
       unit_piece: { ru: "шт.", ua: "шт.", tr: "adet", en: "pcs" },
       unit_kg: { ru: "кг", ua: "кг", tr: "kg", en: "kg" },
       unit_gram: { ru: "г", ua: "г", tr: "g", en: "g" },
+      unit_l: { ru: "л", ua: "л", tr: "L", en: "L" },
+      unit_ml: { ru: "мл", ua: "мл", tr: "ml", en: "ml" },
       fab: { ru: "{count} • {sum}", ua: "{count} • {sum}", tr: "{count} • {sum}", en: "{count} • {sum}" },
       fav_add: { ru: "В избранное", ua: "До обраного", tr: "Favorilere ekle", en: "Add to favorites" },
       fav_remove: { ru: "Убрать из избранного", ua: "Прибрати з обраного", tr: "Favorilerden çıkar", en: "Remove from favorites" },
@@ -652,17 +656,22 @@ const CasaMia = (() => {
   function formatPrice(product, variant) {
     const price = variant ? variant.price : product.price;
     const unit = product.priceUnit;
-    const suffix = unit === "kg" ? ` ${t("per_kg")}` : "";
+    const suffix = unit === "kg" ? ` ${t("per_kg")}`
+      : unit === "l" ? ` ${t("per_l")}`
+      : unit === "ml" ? ` ${t("per_ml")}`
+      : "";
     return `${price} ₺${suffix}`;
   }
 
   function formatWeight(product, variant) {
     const w = variant ? variant.weight : product.weight;
     const u = product.weightUnit || "g";
+    const num = (n) => String(n).replace(".", ",");
     if (u === "pcs") return `${w} ${lang === "en" ? "pcs" : lang === "tr" ? "adet" : "шт"}`;
     if (u === "box") return lang === "en" ? "box" : lang === "tr" ? "kutu" : "коробочка";
-    if (u === "ml") return `${(w / 1000).toString().replace(".", ",")} л`;
-    if (w >= 1000 && u === "g") return `${w / 1000} кг`;
+    if (u === "l") return `${num(w)} л`;
+    if (u === "ml") return w >= 1000 ? `${num(w / 1000)} л` : `${num(w)} мл`;
+    if (w >= 1000 && u === "g") return `${num(w / 1000)} кг`;
     return `${w} ${u === "g" ? "г" : u}`;
   }
 

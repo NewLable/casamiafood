@@ -129,12 +129,15 @@ const QTY_PRESETS = {
   package: { step: 1, min: 1, unit: { ru: "уп.", ua: "уп.", tr: "paket", en: "pack" } },
   piece: { step: 1, min: 1, unit: { ru: "шт.", ua: "шт.", tr: "adet", en: "pcs" } },
   kg: { step: 0.5, min: 0.5, unit: { ru: "кг", ua: "кг", tr: "kg", en: "kg" } },
-  gram: { step: 100, min: 100, unit: { ru: "г", ua: "г", tr: "g", en: "g" } }
+  gram: { step: 100, min: 100, unit: { ru: "г", ua: "г", tr: "g", en: "g" } },
+  l: { step: 0.5, min: 0.5, unit: { ru: "л", ua: "л", tr: "L", en: "L" } },
+  ml: { step: 100, min: 100, unit: { ru: "мл", ua: "мл", tr: "ml", en: "ml" } }
 };
 
 function inferQuantityType(p) {
   if (p.quantityType && QTY_PRESETS[p.quantityType]) return p.quantityType;
   if (p.priceUnit === "kg") return "kg";
+  if (p.priceUnit === "l" || p.priceUnit === "ml") return p.priceUnit;
   if (p.weightUnit === "pcs" && !p.variants) return "piece";
   return "package";
 }
@@ -694,6 +697,8 @@ function productCardHtml(p) {
       <div><label>Единица цены</label>
         <select name="priceUnit">
           <option value="kg" ${p.priceUnit === "kg" ? "selected" : ""}>за кг</option>
+          <option value="l" ${p.priceUnit === "l" ? "selected" : ""}>за объём (литр)</option>
+          <option value="ml" ${p.priceUnit === "ml" ? "selected" : ""}>за объём (мл)</option>
           <option value="pack" ${p.priceUnit === "pack" ? "selected" : ""}>за упаковку</option>
         </select>
       </div>
@@ -702,6 +707,7 @@ function productCardHtml(p) {
         <select name="weightUnit">
           <option value="g" ${p.weightUnit === "g" ? "selected" : ""}>г</option>
           <option value="ml" ${p.weightUnit === "ml" ? "selected" : ""}>мл</option>
+          <option value="l" ${p.weightUnit === "l" ? "selected" : ""}>л</option>
           <option value="pcs" ${p.weightUnit === "pcs" ? "selected" : ""}>шт</option>
           <option value="box" ${p.weightUnit === "box" ? "selected" : ""}>коробка</option>
         </select>
@@ -714,12 +720,14 @@ function productCardHtml(p) {
           <option value="piece" ${p.quantityType === "piece" ? "selected" : ""}>Штуки</option>
           <option value="kg" ${p.quantityType === "kg" ? "selected" : ""}>Килограммы</option>
           <option value="gram" ${p.quantityType === "gram" ? "selected" : ""}>Граммы</option>
+          <option value="l" ${p.quantityType === "l" ? "selected" : ""}>Литры</option>
+          <option value="ml" ${p.quantityType === "ml" ? "selected" : ""}>Миллилитры</option>
         </select>
       </div>
       <div><label>Шаг</label><input type="number" name="step" min="0" step="0.1" value="${p.step}"></div>
       <div><label>Минимум</label><input type="number" name="min" min="0" step="0.1" value="${p.min}"></div>
     </div>
-    ${I.blockHtml("Единица (уп., кг, шт.)", "unit", p.unit)}
+    ${I.blockHtml("Единица (уп., кг, шт., л, мл)", "unit", p.unit)}
     <div class="grid-2" style="margin-top:.6rem">
       <div class="check"><input type="checkbox" name="hit" id="hit-${p.id}" ${p.badges.hit ? "checked" : ""}><label for="hit-${p.id}">Хит недели</label></div>
       <div class="check"><input type="checkbox" name="new" id="new-${p.id}" ${p.badges.new ? "checked" : ""}><label for="new-${p.id}">Новинка</label></div>
