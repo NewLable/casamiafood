@@ -33,7 +33,7 @@
       "tr": "Sebzeler, patates püresi, pilav veya dilediğiniz bir garnitürle sıcak servis edin.",
       "en": "Serve hot with vegetables, mashed potatoes, rice or your favourite side dish."
     },
-    "price": 800,
+    "price": 850,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -106,7 +106,7 @@
       "tr": "Soğuk servis edin. Dilerseniz taze yeşillikler veya salatalık dilimleriyle süsleyebilirsiniz.",
       "en": "Serve chilled. Garnish with fresh herbs or cucumber slices if desired."
     },
-    "price": 650,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -544,7 +544,7 @@
       "tr": "Ekşi krema veya tereyağı ile",
       "en": "With sour cream or butter"
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -618,7 +618,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 600,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -691,7 +691,7 @@
       "tr": "Ekşi krema veya et suyu ile",
       "en": "With sour cream or broth"
     },
-    "price": 700,
+    "price": 800,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -765,7 +765,7 @@
       "tr": "Ekşi krema ve kızarmış soğan ile",
       "en": "With sour cream and fried onion"
     },
-    "price": 400,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -838,7 +838,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 450,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -911,7 +911,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 450,
+    "price": 550,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -984,7 +984,7 @@
       "tr": "Ekşi krema, şeker veya reçel ile",
       "en": "With sour cream and sugar or jam"
     },
-    "price": 450,
+    "price": 550,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1203,7 +1203,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 600,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1350,7 +1350,7 @@
       "tr": "Ekşi krema veya domates sosu ile",
       "en": "With sour cream or tomato sauce"
     },
-    "price": 500,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1423,7 +1423,7 @@
       "tr": "Yanına garnitür ve salata",
       "en": "With a side and salad"
     },
-    "price": 600,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1497,7 +1497,7 @@
       "tr": "Çorba veya garnitür ile",
       "en": "In soup or with a side"
     },
-    "price": 600,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1570,7 +1570,7 @@
       "tr": "Çorba veya garnitür ile",
       "en": "In soup or with a side"
     },
-    "price": 700,
+    "price": 750,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1643,7 +1643,7 @@
       "tr": "",
       "en": ""
     },
-    "price": 400,
+    "price": 550,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1716,7 +1716,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 600,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1790,7 +1790,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 650,
+    "price": 680,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -1937,7 +1937,7 @@
       "tr": "Bal veya ekşi krema ile",
       "en": "With honey or sour cream"
     },
-    "price": 450,
+    "price": 500,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2010,7 +2010,7 @@
       "tr": "Tek başına da yenir",
       "en": "As a main dish"
     },
-    "price": 500,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2084,7 +2084,7 @@
       "tr": "Tek başına da yenir",
       "en": "As a main dish"
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2157,7 +2157,7 @@
       "tr": "Soğuk servis edin",
       "en": "Chilled"
     },
-    "price": 500,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -2593,7 +2593,7 @@
       "new": false,
       "sale": false
     },
-    "available": true,
+    "available": false,
     "inStock": true,
     "thumbnail": "",
     "seo": {
@@ -2645,7 +2645,7 @@
       "tr": "Kahve veya çay ile",
       "en": "With coffee or tea"
     },
-    "price": 650,
+    "price": 700,
     "priceUnit": "pack",
     "weight": 6,
     "weightUnit": "pcs",
@@ -2889,7 +2889,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 700,
+    "price": 750,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -3035,7 +3035,7 @@
       "tr": "Ekşi krema ile",
       "en": "With sour cream"
     },
-    "price": 650,
+    "price": 700,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -3181,7 +3181,7 @@
       "tr": "Yeşillik ile",
       "en": "With fresh herbs"
     },
-    "price": 600,
+    "price": 700,
     "priceUnit": "l",
     "weight": 1500,
     "weightUnit": "ml",
@@ -3327,7 +3327,7 @@
       "tr": "Patates püresi, pilav, makarna veya karabuğday ile servis edebilirsiniz. Domates ya da kremalı sos ile özellikle lezzetlidir.",
       "en": "Serve with mashed potatoes, rice, buckwheat, or pasta. Especially delicious with tomato or creamy sauce."
     },
-    "price": 600,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -3473,7 +3473,7 @@
       "tr": "Ilık servis edin. Dilerseniz yanında bir top dondurma, biraz karamel sosu veya taze armut dilimleri sunabilirsiniz.",
       "en": "Serve warm. For an extra treat, add a scoop of ice cream, a drizzle of caramel sauce or fresh pear slices."
     },
-    "price": 550,
+    "price": 650,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
@@ -3546,7 +3546,7 @@
       "tr": "Ilık servis edin. Dilerseniz yanında ekşi krema, taze meyveler veya biraz pudra şekeri sunabilirsiniz.",
       "en": "Serve warm. If desired, add sour cream, fresh berries or a light dusting of icing sugar."
     },
-    "price": 580,
+    "price": 600,
     "priceUnit": "kg",
     "weight": 1000,
     "weightUnit": "g",
