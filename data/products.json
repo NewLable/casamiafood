@@ -180,7 +180,7 @@
       "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
     },
     "price": 900,
-    "priceUnit": "l",
+    "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
@@ -195,7 +195,7 @@
     "available": true,
     "inStock": true,
     "quantityType": "ml",
-    "step": 500,
+    "step": 750,
     "min": 1500,
     "unit": {
       "ru": "мл",
@@ -253,7 +253,7 @@
       "en": "Serve hot. Add sour cream, fresh herbs and rye bread if desired."
     },
     "price": 700,
-    "priceUnit": "l",
+    "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
     "images": [
@@ -268,7 +268,7 @@
     "available": true,
     "inStock": true,
     "quantityType": "ml",
-    "step": 500,
+    "step": 750,
     "min": 1500,
     "unit": {
       "ru": "мл",
@@ -3109,11 +3109,11 @@
       "en": "With herbs and bread"
     },
     "price": 900,
-    "priceUnit": "l",
+    "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
     "quantityType": "ml",
-    "step": 500,
+    "step": 750,
     "min": 1500,
     "unit": {
       "ru": "мл",
@@ -3182,11 +3182,11 @@
       "en": "With fresh herbs"
     },
     "price": 700,
-    "priceUnit": "l",
+    "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
     "quantityType": "ml",
-    "step": 500,
+    "step": 750,
     "min": 1500,
     "unit": {
       "ru": "мл",
@@ -3255,11 +3255,11 @@
       "en": "With sour cream and lemon"
     },
     "price": 900,
-    "priceUnit": "l",
+    "priceUnit": "pack",
     "weight": 1500,
     "weightUnit": "ml",
     "quantityType": "ml",
-    "step": 500,
+    "step": 750,
     "min": 1500,
     "unit": {
       "ru": "мл",

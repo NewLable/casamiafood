@@ -42,17 +42,26 @@ test("a per-milliliter price converts liters", () => {
   assert.equal(total(soup, 1, "package"), 3000);
 });
 
-test("borscht priced per kilogram converts milliliters like grams", () => {
-  const beef = products.find((item) => item.id === "product-1792246662016");
-  const chicken = products.find((item) => item.id === "product-1792246662016-copy");
-  assert.equal(beef.priceUnit, "kg");
-  assert.equal(chicken.priceUnit, "kg");
-  assert.equal(beef.quantityType, "ml");
-  assert.equal(chicken.quantityType, "ml");
-  assert.equal(total(beef, 1500), 1350);
-  assert.equal(total(chicken, 1500), 1050);
-  assert.equal(total(beef, 2000), 1800);
-  assert.notEqual(total(beef, 1500), 900 * 1500);
+test("soup and borscht start at 1.5 L and add 0.75 L at half the price", () => {
+  const ids = [
+    ["product-1792246662016", 900],
+    ["product-1792246662016-copy", 700],
+    ["soup-kharcho", 900],
+    ["soup-chicken-meatballs", 700],
+    ["soup-solyanka", 900]
+  ];
+  for (const [id, price] of ids) {
+    const product = products.find((item) => item.id === id);
+    assert.equal(product.price, price);
+    assert.equal(product.priceUnit, "pack");
+    assert.equal(product.quantityType, "ml");
+    assert.equal(product.weight, 1500);
+    assert.equal(product.min, 1500);
+    assert.equal(product.step, 750);
+    assert.equal(total(product, 1500), price);
+    assert.equal(total(product, 2250), price + price / 2);
+    assert.equal(total(product, 3000), price * 2);
+  }
 });
 
 test("Forest Heart starts at half a kilogram", () => {

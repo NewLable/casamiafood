@@ -2,7 +2,8 @@
  * Casa Mia price math for weight and volume.
  * Grams are charged from a per-kilogram price.
  * Milliliters are charged from a per-liter price, or as a share of the pack
- * when the price is for the whole container.
+ * when the price is for the whole container. A soup pack is 1.5 L at the
+ * listed price; each extra 0.75 L is half of that price.
  * Works in the browser (window.CasaMiaPricing) and in Node (module.exports).
  */
 (function (root, factory) {

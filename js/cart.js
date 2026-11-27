@@ -252,7 +252,7 @@ const CasaMiaCart = (() => {
     const list = lines || getLineItems();
     return list.reduce((n, line) => {
       const type = line.product ? getQtyConfig(line.product).type : "package";
-      if (type === "kg" || type === "gram") return n + 1;
+      if (type === "kg" || type === "gram" || type === "l" || type === "ml") return n + 1;
       return n + line.qty;
     }, 0);
   }
